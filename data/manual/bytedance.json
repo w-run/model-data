@@ -1,0 +1,59 @@
+{
+  "models": [
+    {
+      "id": "doubao-1.5-pro-256k",
+      "name": "Doubao 1.5 Pro 256K",
+      "family": "Doubao",
+      "description": "豆包1.5Pro，256K上下文，适合复杂任务",
+      "limit": {"context": 262144, "output": 16384},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"reasoning": true, "tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 5.0, "output": 9.0, "cache_input": 1.0},
+      "knowledge_cutoff": "2024-12"
+    },
+    {
+      "id": "doubao-1.5-pro-32k",
+      "name": "Doubao 1.5 Pro 32K",
+      "family": "Doubao",
+      "description": "豆包1.5Pro，32K上下文",
+      "limit": {"context": 32768, "output": 4096},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"reasoning": true, "tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 0.8, "output": 2.0, "cache_input": 0.16},
+      "knowledge_cutoff": "2024-12"
+    },
+    {
+      "id": "doubao-1.5-lite-32k",
+      "name": "Doubao 1.5 Lite 32K",
+      "family": "Doubao",
+      "description": "豆包1.5Lite，轻量版，32K上下文",
+      "limit": {"context": 32768, "output": 4096},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 0.3, "output": 0.6, "cache_input": 0.06},
+      "knowledge_cutoff": "2024-12"
+    },
+    {
+      "id": "doubao-1.5-vision-pro-32k",
+      "name": "Doubao 1.5 Vision Pro 32K",
+      "family": "Doubao",
+      "description": "豆包1.5视觉Pro，支持图像输入",
+      "limit": {"context": 32768, "output": 4096},
+      "modalities": {"input": ["text", "image"], "output": ["text"]},
+      "capabilities": {"tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 3.0, "output": 9.0},
+      "knowledge_cutoff": "2024-12"
+    },
+    {
+      "id": "doubao-1.5-thinking-pro-32k",
+      "name": "Doubao 1.5 Thinking Pro 32K",
+      "family": "Doubao",
+      "description": "豆包1.5思考Pro，深度推理模型",
+      "limit": {"context": 32768, "output": 16384},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"reasoning": true, "tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 5.0, "output": 9.0},
+      "knowledge_cutoff": "2024-12"
+    }
+  ]
+}

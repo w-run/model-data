@@ -1,0 +1,48 @@
+{
+  "models": [
+    {
+      "id": "ernie-4.5-424b-a47b",
+      "name": "ERNIE 4.5 424B",
+      "family": "ERNIE",
+      "description": "文心4.5，MoE架构，424B参数47B激活",
+      "limit": {"context": 131072, "output": 16384},
+      "modalities": {"input": ["text", "image"], "output": ["text"]},
+      "capabilities": {"reasoning": true, "tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 4.0, "output": 16.0, "cache_input": 0.8},
+      "knowledge_cutoff": "2025-03"
+    },
+    {
+      "id": "ernie-4.0-8k",
+      "name": "ERNIE 4.0 8K",
+      "family": "ERNIE",
+      "description": "文心4.0，8K上下文",
+      "limit": {"context": 8192, "output": 4096},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 3.0, "output": 9.0},
+      "knowledge_cutoff": "2024-04"
+    },
+    {
+      "id": "ernie-3.5-8k",
+      "name": "ERNIE 3.5 8K",
+      "family": "ERNIE",
+      "description": "文心3.5，8K上下文，轻量版",
+      "limit": {"context": 8192, "output": 4096},
+      "modalities": {"input": ["text"], "output": ["text"]},
+      "capabilities": {"tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 1.2, "output": 1.2},
+      "knowledge_cutoff": "2024-04"
+    },
+    {
+      "id": "ernie-4.0-vl",
+      "name": "ERNIE 4.0 Vision",
+      "family": "ERNIE",
+      "description": "文心4.0视觉版，支持图像输入",
+      "limit": {"context": 32768, "output": 8192},
+      "modalities": {"input": ["text", "image"], "output": ["text"]},
+      "capabilities": {"tool_call": true, "structured_output": true, "temperature": true},
+      "price": {"unit": "CNY/Mtok", "input": 3.5, "output": 10.0},
+      "knowledge_cutoff": "2024-04"
+    }
+  ]
+}
