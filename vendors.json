@@ -1,0 +1,232 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-15T06:05:05.829666+00:00",
+  "total_vendors": 20,
+  "vendors": [
+    {
+      "id": "alibaba",
+      "name": "阿里云",
+      "alias": [
+        "qwen",
+        "aliyun"
+      ],
+      "website": "https://www.alibabacloud.com",
+      "api_docs": "https://www.alibabacloud.com/help/en/model-studio/models",
+      "logo": "logos/alibaba.svg"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "alias": [
+        "anthropic-community",
+        "anthropic-ai",
+        "claude"
+      ],
+      "website": "https://www.anthropic.com",
+      "api_docs": "https://docs.anthropic.com/en/docs/about-claude/models",
+      "logo": "logos/anthropic.svg"
+    },
+    {
+      "id": "baidu",
+      "name": "百度",
+      "alias": [
+        "baidu-ai",
+        "baidu-wenxin",
+        "wenxin",
+        "qianfan",
+        "qianfan-ai",
+        "ernie"
+      ],
+      "website": "https://www.baidu.com",
+      "api_docs": "https://cloud.baidu.com/doc/WENXINWORKSHOP/index.html",
+      "logo": "logos/baidu.svg"
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动",
+      "alias": [
+        "bytedance-seed",
+        "doubao",
+        "doubao-ai"
+      ],
+      "website": "https://www.bytedance.com",
+      "api_docs": "https://www.volcengine.com/docs/82379/1263482",
+      "logo": "logos/bytedance.svg"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "alias": [
+        "cohereforai",
+        "cohere-ai"
+      ],
+      "website": "https://cohere.com",
+      "api_docs": "https://docs.cohere.com/docs/models",
+      "logo": "logos/cohere.svg"
+    },
+    {
+      "id": "deepseek",
+      "name": "深度求索",
+      "alias": [
+        "deepseek-ai"
+      ],
+      "website": "https://www.deepseek.com",
+      "api_docs": "https://api-docs.deepseek.com",
+      "logo": "logos/deepseek.svg"
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "alias": [
+        "gemini"
+      ],
+      "website": "https://ai.google",
+      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
+      "logo": "logos/google.svg"
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "alias": [
+        "meta-llama",
+        "meta-llm",
+        "meta-ai"
+      ],
+      "website": "https://ai.meta.com",
+      "api_docs": "https://llama.meta.com",
+      "logo": "logos/meta.svg"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "alias": [
+        "minimax-ai"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimax.io/docs/guides/quickstart",
+      "logo": "logos/minimax.svg"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "alias": [
+        "mistralai",
+        "mistral-ai"
+      ],
+      "website": "https://mistral.ai",
+      "api_docs": "https://docs.mistral.ai/getting-started/models/",
+      "logo": "logos/mistral.svg"
+    },
+    {
+      "id": "moonshot",
+      "name": "月之暗面",
+      "alias": [
+        "moonshotai",
+        "moonshot-ai"
+      ],
+      "website": "https://www.moonshot.cn",
+      "api_docs": "https://platform.moonshot.ai/docs/api/chat",
+      "logo": "logos/moonshot.svg"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "alias": [
+        "nvidia-nim"
+      ],
+      "website": "https://www.nvidia.com",
+      "api_docs": "https://docs.api.nvidia.com/nim/",
+      "logo": "logos/nvidia.svg"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "alias": [
+        "openai-community",
+        "oai",
+        "chatgpt"
+      ],
+      "website": "https://openai.com",
+      "api_docs": "https://platform.openai.com/docs/models",
+      "logo": "logos/openai.svg"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "alias": [
+        "perplexity-ai"
+      ],
+      "website": "https://www.perplexity.ai",
+      "api_docs": "https://docs.perplexity.ai",
+      "logo": "logos/perplexity.svg"
+    },
+    {
+      "id": "sarvam",
+      "name": "Sarvam AI",
+      "alias": [
+        "sarvamai",
+        "sarvam-ai"
+      ],
+      "website": "https://www.sarvam.ai",
+      "api_docs": "https://docs.sarvam.ai",
+      "logo": "logos/sarvam.svg"
+    },
+    {
+      "id": "stepfun",
+      "name": "阶跃星辰",
+      "alias": [
+        "stepfun-ai"
+      ],
+      "website": "https://www.stepfun.com",
+      "api_docs": "https://www.stepfun.com/docs",
+      "logo": "logos/stepfun.svg"
+    },
+    {
+      "id": "tencent",
+      "name": "腾讯",
+      "alias": [
+        "tencentarc",
+        "hunyuan",
+        "tencent-ai",
+        "tencent-cloud"
+      ],
+      "website": "https://cloud.tencent.com",
+      "api_docs": "https://cloud.tencent.com/document/product/1729",
+      "logo": "logos/tencent.svg"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "alias": [
+        "x-ai",
+        "grok"
+      ],
+      "website": "https://x.ai",
+      "api_docs": "https://docs.x.ai/docs/models",
+      "logo": "logos/xai.svg"
+    },
+    {
+      "id": "xiaomi",
+      "name": "小米",
+      "alias": [
+        "mimo"
+      ],
+      "website": "https://www.xiaomi.com",
+      "api_docs": "https://platform.xiaomimimo.com/#/docs",
+      "logo": "logos/xiaomi.svg"
+    },
+    {
+      "id": "z-ai",
+      "name": "智谱AI",
+      "alias": [
+        "zhipuai",
+        "zhipu",
+        "zai",
+        "glm"
+      ],
+      "website": "https://www.zhipuai.cn",
+      "api_docs": "https://docs.z.ai/guides/overview/pricing",
+      "logo": "logos/z-ai.svg"
+    }
+  ]
+}
