@@ -1,0 +1,94 @@
+name: Daily Build Deploy
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/ci.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --upgrade pip && pip install tomli 2>/dev/null || true
+        shell: bash
+
+      - run: python -m scripts.build
+        shell: bash
+
+      - run: |
+          mkdir -p /tmp/out
+          cp vendors.json models.json /tmp/out/
+          cp -r logos /tmp/out/ 2>/dev/null || true
+        shell: bash
+
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - shell: bash
+        run: |
+          cp /tmp/out/vendors.json /tmp/out/models.json .
+          rm -rf logos && cp -r /tmp/out/logos . 2>/dev/null || mkdir -p logos
+
+          cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model Info</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.c{max-width:960px;margin:0 auto;padding:3rem 1.5rem}
+h1{font-size:2rem;font-weight:700;margin-bottom:.5rem;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:#94a3b8;margin-bottom:2.5rem}
+.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+.card:hover{border-color:#60a5fa}
+.card h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:.75rem}
+.card p{color:#94a3b8;font-size:.9rem;line-height:1.6}
+.l{display:flex;gap:1rem;margin-top:.75rem}
+.l a{color:#60a5fa;text-decoration:none;font-size:.85rem;font-family:monospace}
+.l a:hover{text-decoration:underline}
+footer{text-align:center;color:#475569;font-size:.8rem;margin-top:3rem}
+</style>
+</head>
+<body>
+<div class="c">
+<h1>Model Info</h1>
+<p class="sub">AI 模型信息库 — 厂商与模型数据，每日自动更新</p>
+<div class="card"><h2>📊 vendors.json</h2><p>所有厂商信息列表</p><div class="l"><a href="vendors.json">JSON</a></div></div>
+<div class="card"><h2>🤖 models.json</h2><p>所有模型信息列表</p><div class="l"><a href="models.json">JSON</a></div></div>
+<div class="card"><h2>🖼️ logos/</h2><p>厂商 Logo 文件</p><div class="l"><a href="logos/">浏览</a></div></div>
+<footer>由 GitHub Actions 自动构建 · 数据来源：OpenRouter、百度千帆、火山引擎豆包</footer>
+</div>
+</body>
+</html>
+EOF
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendors.json models.json logos/ index.html
+          git diff --cached --quiet || git commit -m "deploy: $(date -u +%Y-%m-%d)"
+
+      - shell: bash
+        run: git push origin gh-pages
