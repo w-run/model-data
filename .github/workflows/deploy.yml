@@ -10,6 +10,12 @@ on:
         description: 'Force rebuild'
         required: false
         default: 'false'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'data/**'
+      - '.github/workflows/deploy.yml'
 
 permissions:
   contents: write
@@ -19,11 +25,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
-          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,36 +45,25 @@ jobs:
         run: |
           python -m scripts.build
 
-      - name: Prepare gh-pages branch
+      - name: Save build artifacts
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/build-output
+          cp vendors.json models.json /tmp/build-output/
+          cp -r logos /tmp/build-output/ 2>/dev/null || true
 
-          # 获取远程 gh-pages 分支（如果存在）
-          git fetch origin gh-pages 2>/dev/null || true
-
-          if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
-            echo "gh-pages branch exists, checking out"
-            git checkout -b gh-pages origin/gh-pages
-          else
-            echo "Creating orphan gh-pages branch"
-            git checkout --orphan gh-pages
-            git rm -rf . 2>/dev/null || true
-          fi
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
 
       - name: Deploy artifacts
         run: |
-          # 从 main 分支提取构建产物
-          for f in vendors.json models.json; do
-            git show "main:$f" > "$f"
-          done
-
-          # 复制 logos 目录
+          # 复制构建产物
+          cp /tmp/build-output/vendors.json .
+          cp /tmp/build-output/models.json .
           rm -rf logos
-          mkdir -p logos
-          git ls-tree --name-only main logos/ | while read logo; do
-            git show "main:$logo" > "$logo"
-          done
+          cp -r /tmp/build-output/logos . 2>/dev/null || mkdir -p logos
 
           # 验证产物
           echo "=== Deployed files ==="
@@ -131,6 +126,8 @@ jobs:
 </html>
 HTMLEOF
 
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add vendors.json models.json logos/ index.html
           git diff --cached --quiet || git commit -m "deploy: update data $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
