@@ -1,8 +1,69 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-16T08:45:28.950237+00:00",
-  "total_models": 274,
+  "generated_at": "2026-06-16T08:51:51.420996+00:00",
+  "total_models": 413,
   "models": [
+    {
+      "id": "cosyvoice2-0.5b",
+      "vendor_id": "alibaba",
+      "name": "CosyVoice2-0.5B",
+      "alias": [
+        "funaudiollm-cosyvoice2-0.5b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "ling-flash-2.0",
+      "vendor_id": "alibaba",
+      "name": "Ling-flash-2.0",
+      "alias": [
+        "inclusionai-ling-flash-2.0"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "ling-mini-2.0",
+      "vendor_id": "alibaba",
+      "name": "Ling-mini-2.0",
+      "alias": [
+        "inclusionai-ling-mini-2.0"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
     {
       "id": "qwen-2.5-72b-instruct",
       "vendor_id": "alibaba",
@@ -96,6 +157,63 @@
       }
     },
     {
+      "id": "qwen-image",
+      "vendor_id": "alibaba",
+      "name": "Qwen-Image",
+      "alias": [
+        "qwen-qwen-image"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen-image-edit",
+      "vendor_id": "alibaba",
+      "name": "Qwen-Image-Edit",
+      "alias": [
+        "qwen-qwen-image-edit"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen-image-edit-2509",
+      "vendor_id": "alibaba",
+      "name": "Qwen-Image-Edit-2509",
+      "alias": [
+        "qwen-qwen-image-edit-2509"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "qwen-plus",
       "vendor_id": "alibaba",
       "name": "Qwen-Plus",
@@ -162,6 +280,113 @@
       }
     },
     {
+      "id": "qwen2.5-14b-instruct",
+      "vendor_id": "alibaba",
+      "name": "Qwen2.5-14B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-14b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen2.5-32b-instruct",
+      "vendor_id": "alibaba",
+      "name": "Qwen2.5-32B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-32b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen2.5-72b-instruct",
+      "vendor_id": "alibaba",
+      "name": "Qwen2.5-72B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-72b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen2.5-72b-instruct-128k",
+      "vendor_id": "alibaba",
+      "name": "Qwen2.5-72B-Instruct-128K",
+      "alias": [
+        "qwen-qwen2.5-72b-instruct-128k"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen2.5-7b-instruct",
+      "vendor_id": "alibaba",
+      "name": "Qwen2.5-7B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-7b-instruct",
+        "pro-qwen2.5-7b-instruct",
+        "pro-qwen-qwen2.5-7b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "qwen2.5-vl-72b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen2.5 VL 72B Instruct",
@@ -196,7 +421,8 @@
       "vendor_id": "alibaba",
       "name": "Qwen3 14B",
       "alias": [
-        "qwen3-14b-04-28"
+        "qwen3-14b-04-28",
+        "qwen-qwen3-14b"
       ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Qwen3-14B is a dense 14.8B parameter causal language model from the Qwen3 series, designed for both complex reasoning and efficient dialogue. It supports seamless switching between a \"thinking\" mode for...",
@@ -204,7 +430,8 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131702,
@@ -358,12 +585,16 @@
       "id": "qwen3-30b-a3b-instruct-2507",
       "vendor_id": "alibaba",
       "name": "Qwen3 30B A3B Instruct 2507",
+      "alias": [
+        "qwen-qwen3-30b-a3b-instruct-2507"
+      ],
       "knowledge_cutoff": "2025-06-30",
       "description": "Qwen3-30B-A3B-Instruct-2507 is a 30.5B-parameter mixture-of-experts language model from Qwen, with 3.3B active parameters per inference. It operates in non-thinking mode and is designed for high-quality instruction following, multilingual understanding, and...",
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -419,7 +650,8 @@
       "vendor_id": "alibaba",
       "name": "Qwen3 32B",
       "alias": [
-        "qwen3-32b-04-28"
+        "qwen3-32b-04-28",
+        "qwen-qwen3-32b"
       ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Qwen3-32B is a dense 32.8B parameter causal language model from the Qwen3 series, optimized for both complex reasoning and efficient dialogue. It supports seamless switching between a \"thinking\" mode for...",
@@ -427,7 +659,8 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -452,7 +685,8 @@
       "vendor_id": "alibaba",
       "name": "Qwen3 8B",
       "alias": [
-        "qwen3-8b-04-28"
+        "qwen3-8b-04-28",
+        "qwen-qwen3-8b"
       ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Qwen3-8B is a dense 8.2B parameter causal language model from the Qwen3 series, designed for both reasoning-heavy tasks and efficient dialogue. It supports seamless switching between \"thinking\" mode for math,...",
@@ -460,7 +694,8 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -518,12 +753,16 @@
       "id": "qwen3-coder-30b-a3b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen3 Coder 30B A3B Instruct",
+      "alias": [
+        "qwen-qwen3-coder-30b-a3b-instruct"
+      ],
       "knowledge_cutoff": "2025-06-30",
       "description": "Qwen3-Coder-30B-A3B-Instruct is a 30.5B parameter Mixture-of-Experts (MoE) model with 128 experts (8 active per forward pass), designed for advanced code generation, repository-scale understanding, and agentic tool use. Built on the...",
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 160000,
@@ -633,6 +872,63 @@
         "input": 0.65,
         "output": 3.25,
         "cache_input": 0.13
+      }
+    },
+    {
+      "id": "qwen3-embedding-0.6b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Embedding-0.6B",
+      "alias": [
+        "qwen-qwen3-embedding-0.6b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen3-embedding-4b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Embedding-4B",
+      "alias": [
+        "qwen-qwen3-embedding-4b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen3-embedding-8b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Embedding-8B",
+      "alias": [
+        "qwen-qwen3-embedding-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
       }
     },
     {
@@ -764,6 +1060,127 @@
       }
     },
     {
+      "id": "qwen3-omni-30b-a3b-captioner",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Omni-30B-A3B-Captioner",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-captioner"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen3-omni-30b-a3b-instruct",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Omni-30B-A3B-Instruct",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen3-omni-30b-a3b-thinking",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Omni-30B-A3B-Thinking",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-thinking"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "reasoning": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "qwen3-reranker-0.6b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Reranker-0.6B",
+      "alias": [
+        "qwen-qwen3-reranker-0.6b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen3-reranker-4b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Reranker-4B",
+      "alias": [
+        "qwen-qwen3-reranker-4b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen3-reranker-8b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-Reranker-8B",
+      "alias": [
+        "qwen-qwen3-reranker-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "qwen3-vl-235b-a22b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 235B A22B Instruct",
@@ -829,12 +1246,16 @@
       "id": "qwen3-vl-30b-a3b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 30B A3B Instruct",
+      "alias": [
+        "qwen-qwen3-vl-30b-a3b-instruct"
+      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Qwen3-VL-30B-A3B-Instruct is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Instruct variant optimizes instruction-following for general multimodal tasks. It excels in perception...",
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -859,13 +1280,17 @@
       "id": "qwen3-vl-30b-a3b-thinking",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 30B A3B Thinking",
+      "alias": [
+        "qwen-qwen3-vl-30b-a3b-thinking"
+      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -890,11 +1315,15 @@
       "id": "qwen3-vl-32b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 32B Instruct",
+      "alias": [
+        "qwen-qwen3-vl-32b-instruct"
+      ],
       "description": "Qwen3-VL-32B-Instruct is a large-scale multimodal vision-language model designed for high-precision understanding and reasoning across text, images, and video. With 32 billion parameters, it combines deep visual perception with advanced text...",
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -916,14 +1345,41 @@
       }
     },
     {
+      "id": "qwen3-vl-32b-thinking",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-VL-32B-Thinking",
+      "alias": [
+        "qwen-qwen3-vl-32b-thinking"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "reasoning": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "qwen3-vl-8b-instruct",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 8B Instruct",
+      "alias": [
+        "qwen-qwen3-vl-8b-instruct"
+      ],
       "description": "Qwen3-VL-8B-Instruct is a multimodal vision-language model from the Qwen3-VL series, built for high-fidelity understanding and reasoning across text, images, and video. It features improved multimodal fusion with Interleaved-MRoPE for long-horizon...",
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 256000,
@@ -948,12 +1404,16 @@
       "id": "qwen3-vl-8b-thinking",
       "vendor_id": "alibaba",
       "name": "Qwen3 VL 8B Thinking",
+      "alias": [
+        "qwen-qwen3-vl-8b-thinking"
+      ],
       "description": "Qwen3-VL-8B-Thinking is the reasoning-optimized variant of the Qwen3-VL-8B multimodal model, designed for advanced visual and textual reasoning across complex scenes, documents, and temporal sequences. It integrates enhanced multimodal alignment and...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 256000,
@@ -975,18 +1435,60 @@
       }
     },
     {
+      "id": "qwen3-vl-embedding-8b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-VL-Embedding-8B",
+      "alias": [
+        "qwen-qwen3-vl-embedding-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "qwen3-vl-reranker-8b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3-VL-Reranker-8B",
+      "alias": [
+        "qwen-qwen3-vl-reranker-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "qwen3.5-122b-a10b",
       "vendor_id": "alibaba",
       "name": "Qwen3.5-122B-A10B",
       "alias": [
-        "qwen3.5-122b-a10b-20260224"
+        "qwen3.5-122b-a10b-20260224",
+        "qwen-qwen3.5-122b-a10b"
       ],
       "description": "The Qwen3.5 122B-A10B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. In terms of...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1013,14 +1515,16 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.5-27B",
       "alias": [
-        "qwen3.5-27b-20260224"
+        "qwen3.5-27b-20260224",
+        "qwen-qwen3.5-27b"
       ],
       "description": "The Qwen3.5 27B native vision-language Dense model incorporates a linear attention mechanism, delivering fast response times while balancing inference speed and performance. Its overall capabilities are comparable to those of...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1047,14 +1551,16 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.5-35B-A3B",
       "alias": [
-        "qwen3.5-35b-a3b-20260224"
+        "qwen3.5-35b-a3b-20260224",
+        "qwen-qwen3.5-35b-a3b"
       ],
       "description": "The Qwen3.5 Series 35B-A3B is a native vision-language model designed with a hybrid architecture that integrates linear attention mechanisms and a sparse mixture-of-experts model, achieving higher inference efficiency. Its overall...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1082,14 +1588,16 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.5 397B A17B",
       "alias": [
-        "qwen3.5-397b-a17b-20260216"
+        "qwen3.5-397b-a17b-20260216",
+        "qwen-qwen3.5-397b-a17b"
       ],
       "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 256000
@@ -1111,18 +1619,41 @@
       }
     },
     {
+      "id": "qwen3.5-4b",
+      "vendor_id": "alibaba",
+      "name": "Qwen3.5-4B",
+      "alias": [
+        "qwen-qwen3.5-4b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "qwen3.5-9b",
       "vendor_id": "alibaba",
       "name": "Qwen3.5-9B",
       "alias": [
-        "qwen3.5-9b-20260310"
+        "qwen3.5-9b-20260310",
+        "qwen-qwen3.5-9b"
       ],
       "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1248,14 +1779,16 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.6 27B",
       "alias": [
-        "qwen3.6-27b-20260422"
+        "qwen3.6-27b-20260422",
+        "qwen-qwen3.6-27b"
       ],
       "description": "Qwen3.6 27B is a dense 27-billion-parameter language model from the Qwen Team at Alibaba, released in April 2026. It features hybrid multimodal capabilities — accepting text, image, and video inputs...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1282,14 +1815,16 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.6 35B A3B",
       "alias": [
-        "qwen3.6-35b-a3b-20260415"
+        "qwen3.6-35b-a3b-20260415",
+        "qwen-qwen3.6-35b-a3b"
       ],
       "description": "Qwen3.6-35B-A3B is an open-weight multimodal model from Alibaba Cloud with 35 billion total parameters and 3 billion active parameters per token. It uses a hybrid sparse mixture-of-experts architecture combining Gated...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -1474,6 +2009,103 @@
         "input": 0.32,
         "output": 1.28,
         "cache_input": 0.064
+      }
+    },
+    {
+      "id": "sensevoicesmall",
+      "vendor_id": "alibaba",
+      "name": "SenseVoiceSmall",
+      "alias": [
+        "funaudiollm-sensevoicesmall"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "wan2.2-i2v-a14b",
+      "vendor_id": "alibaba",
+      "name": "Wan2.2-I2V-A14B",
+      "alias": [
+        "wan-ai-wan2.2-i2v-a14b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "wan2.2-t2v-a14b",
+      "vendor_id": "alibaba",
+      "name": "Wan2.2-T2V-A14B",
+      "alias": [
+        "wan-ai-wan2.2-t2v-a14b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "z-image",
+      "vendor_id": "alibaba",
+      "name": "Z-Image",
+      "alias": [
+        "tongyi-mai-z-image"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "z-image-turbo",
+      "vendor_id": "alibaba",
+      "name": "Z-Image-Turbo",
+      "alias": [
+        "tongyi-mai-z-image-turbo"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
       }
     },
     {
@@ -2538,6 +3170,25 @@
       }
     },
     {
+      "id": "ernie-image-turbo",
+      "vendor_id": "baidu",
+      "name": "ERNIE-Image-Turbo",
+      "alias": [
+        "baidu-ernie-image-turbo"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "ernie-lite-pro-128k",
       "vendor_id": "baidu",
       "name": "ERNIE Lite",
@@ -2764,17 +3415,20 @@
       "id": "doubao-1.5-lite-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Lite 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-lite-32k-250115",
+        "doubao-1-5-lite-32k"
+      ],
+      "family": "Doubao 1.5 Lite",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5Lite，轻量版，32K上下文",
       "capabilities": {
-        "tool_call": true,
-        "structured_output": true,
-        "temperature": true
+        "tool_call": true
       },
       "limit": {
-        "context": 32768,
-        "output": 4096
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -2789,7 +3443,11 @@
         "input": 0.3,
         "output": 0.6,
         "cache_input": 0.06
-      }
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
     },
     {
       "id": "doubao-1.5-pro-256k",
@@ -2827,18 +3485,23 @@
       "id": "doubao-1.5-pro-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Pro 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-pro-32k-250115",
+        "doubao-1-5-pro-32k"
+      ],
+      "family": "Doubao 1.5 Pro",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5Pro，32K上下文",
       "capabilities": {
         "reasoning": true,
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "vision": true
       },
       "limit": {
-        "context": 32768,
-        "output": 4096
+        "context": 262144,
+        "input": 229376,
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -2853,7 +3516,47 @@
         "input": 0.8,
         "output": 2.0,
         "cache_input": 0.16
-      }
+      },
+      "max_thinking": 32768,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-1.5-pro-32k-character",
+      "vendor_id": "bytedance",
+      "name": "Doubao 1.5 Pro 32K Character",
+      "alias": [
+        "doubao-1-5-pro-32k-character-250715",
+        "doubao-1-5-pro-32k-character"
+      ],
+      "family": "Doubao Character",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
     },
     {
       "id": "doubao-1.5-thinking-pro-32k",
@@ -2890,17 +3593,23 @@
       "id": "doubao-1.5-vision-pro-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Vision Pro 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-vision-pro-32k-250115",
+        "doubao-1-5-vision-pro-32k"
+      ],
+      "family": "Doubao Vision",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5视觉Pro，支持图像输入",
       "capabilities": {
+        "reasoning": true,
         "tool_call": true,
         "structured_output": true,
-        "temperature": true
+        "vision": true
       },
       "limit": {
-        "context": 32768,
-        "output": 4096
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -2915,7 +3624,702 @@
         "unit": "CNY/Mtok",
         "input": 3.0,
         "output": 9.0
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-embedding-vision",
+      "vendor_id": "bytedance",
+      "name": "Doubao Embedding Vision",
+      "alias": [
+        "doubao-embedding-vision-250615"
+      ],
+      "family": "Doubao Embedding",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "embedding"
+        ]
+      },
+      "max_thinking": 32768,
+      "supported_apis": [
+        "batch",
+        "context"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.6",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6",
+      "alias": [
+        "doubao-seed-1-6-251015",
+        "doubao-seed-1-6"
+      ],
+      "family": "Doubao Seed 1.6",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768
+    },
+    {
+      "id": "doubao-seed-1.6-flash",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6 Flash",
+      "alias": [
+        "doubao-seed-1-6-flash-250828",
+        "doubao-seed-1-6-flash"
+      ],
+      "family": "Doubao Seed 1.6 Flash",
+      "limit": {
+        "context": 32768,
+        "output": 12288
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.6-vision",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6 Vision",
+      "alias": [
+        "doubao-seed-1-6-vision-250815",
+        "doubao-seed-1-6-vision"
+      ],
+      "family": "Doubao Seed 1.6 Vision",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.8",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.8",
+      "alias": [
+        "doubao-seed-1-8-251228",
+        "doubao-seed-1-8"
+      ],
+      "family": "Doubao Seed 1.8",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768
+    },
+    {
+      "id": "doubao-seed-2.0-code",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Code",
+      "alias": [
+        "doubao-seed-2-0-code-preview-260215",
+        "doubao-seed-2-0-code"
+      ],
+      "family": "Doubao Seed 2.0 Code",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768,
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-lite",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Lite",
+      "alias": [
+        "doubao-seed-2-0-lite-260215",
+        "doubao-seed-2-0-lite"
+      ],
+      "family": "Doubao Seed 2.0 Lite",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-mini",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Mini",
+      "alias": [
+        "doubao-seed-2-0-mini-260428",
+        "doubao-seed-2-0-mini"
+      ],
+      "family": "Doubao Seed 2.0 Mini",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768,
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Pro",
+      "alias": [
+        "doubao-seed-2-0-pro-260215",
+        "doubao-seed-2-0-pro"
+      ],
+      "family": "Doubao Seed 2.0 Pro",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-character",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Character",
+      "alias": [
+        "doubao-seed-character-251128"
+      ],
+      "family": "Doubao Character",
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-code",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Code",
+      "alias": [
+        "doubao-seed-code-preview-251028"
+      ],
+      "family": "Doubao Code",
+      "capabilities": {
+        "tool_call": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-translation",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Translation",
+      "alias": [
+        "doubao-seed-translation-250915"
+      ],
+      "family": "Doubao Translation",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768
+    },
+    {
+      "id": "doubao-seed3d-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed3D 2.0",
+      "alias": [
+        "doubao-seed3d-2-0-260328",
+        "doubao-seed3d-2-0"
+      ],
+      "family": "Doubao Seed3D",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 131072,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "3d_model"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "max_rpm": 300,
+        "max_concurrency": 5
+      },
+      "supported_apis": [
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedance-1.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro",
+      "alias": [
+        "doubao-seedance-1-0-pro-250528",
+        "doubao-seedance-1-0-pro"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "max_rpm": 30000
       }
+    },
+    {
+      "id": "doubao-seedance-1.0-pro-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro Fast",
+      "alias": [
+        "doubao-seedance-1-0-pro-fast-251015",
+        "doubao-seedance-1-0-pro-fast"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "tool_call": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seedance-1.5-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.5 Pro",
+      "alias": [
+        "doubao-seedance-1-5-pro-251215",
+        "doubao-seedance-1-5-pro"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 30000,
+        "max_concurrency": 10
+      }
+    },
+    {
+      "id": "doubao-seedance-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0",
+      "alias": [
+        "doubao-seedance-2-0-260128",
+        "doubao-seedance-2-0"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedance-2.0-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0 Fast",
+      "alias": [
+        "doubao-seedance-2-0-fast-260128",
+        "doubao-seedance-2-0-fast"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "max_rpm": 30000
+      },
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seedream-4.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.0",
+      "alias": [
+        "doubao-seedream-4-0-250828",
+        "doubao-seedream-4-0"
+      ],
+      "family": "Doubao Seedream",
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      },
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seedream-4.5",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.5",
+      "alias": [
+        "doubao-seedream-4-5-251128",
+        "doubao-seedream-4-5"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true
+      },
+      "limit": {
+        "context": 204800,
+        "input": 204800,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "max_rpm": 15000
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedream-5.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0",
+      "alias": [
+        "doubao-seedream-5-0-260128",
+        "doubao-seedream-5-0"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "max_rpm": 30000
+      },
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
     },
     {
       "id": "seed-1.6",
@@ -3051,6 +4455,27 @@
         "unit": "USD/Mtok",
         "input": 0.1,
         "output": 0.4
+      }
+    },
+    {
+      "id": "seed-oss-36b-instruct",
+      "vendor_id": "bytedance",
+      "name": "Seed-OSS-36B-Instruct",
+      "alias": [
+        "bytedance-seed-seed-oss-36b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
       }
     },
     {
@@ -3301,16 +4726,43 @@
       }
     },
     {
+      "id": "deepseek-ocr",
+      "vendor_id": "deepseek",
+      "name": "DeepSeek-OCR",
+      "alias": [
+        "deepseek-ai-deepseek-ocr"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "deepseek-r1",
       "vendor_id": "deepseek",
       "name": "R1",
+      "alias": [
+        "deepseek-ai-deepseek-r1",
+        "pro-deepseek-r1",
+        "pro-deepseek-ai-deepseek-r1"
+      ],
       "knowledge_cutoff": "2024-07-31",
       "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass....",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 163840,
@@ -3362,6 +4814,28 @@
       }
     },
     {
+      "id": "deepseek-r1-0528-qwen3-8b",
+      "vendor_id": "deepseek",
+      "name": "DeepSeek-R1-0528-Qwen3-8B",
+      "alias": [
+        "deepseek-ai-deepseek-r1-0528-qwen3-8b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "reasoning": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "deepseek-r1-distill-llama-70b",
       "vendor_id": "deepseek",
       "name": "R1 Distill Llama 70B",
@@ -3390,16 +4864,45 @@
       }
     },
     {
+      "id": "deepseek-v3",
+      "vendor_id": "deepseek",
+      "name": "DeepSeek-V3",
+      "alias": [
+        "deepseek-ai-deepseek-v3",
+        "pro-deepseek-v3",
+        "pro-deepseek-ai-deepseek-v3"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "deepseek-v3.1-terminus",
       "vendor_id": "deepseek",
       "name": "DeepSeek V3.1 Terminus",
+      "alias": [
+        "deepseek-ai-deepseek-v3.1-terminus",
+        "pro-deepseek-v3.1-terminus",
+        "pro-deepseek-ai-deepseek-v3.1-terminus"
+      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "DeepSeek-V3.1 Terminus is an update to [DeepSeek V3.1](/deepseek/deepseek-chat-v3.1) that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 163840,
@@ -3425,14 +4928,18 @@
       "vendor_id": "deepseek",
       "name": "DeepSeek V3.2",
       "alias": [
-        "deepseek-v3.2-20251201"
+        "deepseek-v3.2-20251201",
+        "deepseek-ai-deepseek-v3.2",
+        "pro-deepseek-v3.2",
+        "pro-deepseek-ai-deepseek-v3.2"
       ],
       "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -3487,14 +4994,16 @@
       "vendor_id": "deepseek",
       "name": "DeepSeek V4 Flash",
       "alias": [
-        "deepseek-v4-flash-20260423"
+        "deepseek-v4-flash-20260423",
+        "deepseek-ai-deepseek-v4-flash"
       ],
       "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1048576
@@ -3519,14 +5028,16 @@
       "vendor_id": "deepseek",
       "name": "DeepSeek V4 Pro",
       "alias": [
-        "deepseek-v4-pro-20260423"
+        "deepseek-v4-pro-20260423",
+        "deepseek-ai-deepseek-v4-pro"
       ],
       "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1048576,
@@ -4857,14 +6368,18 @@
       "vendor_id": "minimax",
       "name": "MiniMax M2.5",
       "alias": [
-        "minimax-m2.5-20260211"
+        "minimax-m2.5-20260211",
+        "minimaxai-minimax-m2.5",
+        "pro-minimax-m2.5",
+        "pro-minimaxai-minimax-m2.5"
       ],
       "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 204800,
@@ -5680,14 +7195,17 @@
       "vendor_id": "moonshot",
       "name": "Kimi K2.6",
       "alias": [
-        "kimi-k2.6-20260420"
+        "kimi-k2.6-20260420",
+        "pro-kimi-k2.6",
+        "pro-moonshotai-kimi-k2.6"
       ],
       "description": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration. It handles complex end-to-end coding tasks across Python, Rust, and Go, and...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -8132,15 +9650,1607 @@
       }
     },
     {
+      "id": "bge-large-en-v1.5",
+      "vendor_id": "siliconflow",
+      "name": "bge-large-en-v1.5",
+      "alias": [
+        "baai-bge-large-en-v1.5"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "bge-large-zh-v1.5",
+      "vendor_id": "siliconflow",
+      "name": "bge-large-zh-v1.5",
+      "alias": [
+        "baai-bge-large-zh-v1.5"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "bge-m3",
+      "vendor_id": "siliconflow",
+      "name": "bge-m3",
+      "alias": [
+        "baai-bge-m3"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "bge-reranker-v2-m3",
+      "vendor_id": "siliconflow",
+      "name": "bge-reranker-v2-m3",
+      "alias": [
+        "baai-bge-reranker-v2-m3"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-cosyvoice2-0.5b",
+      "vendor_id": "siliconflow",
+      "name": "CosyVoice2-0.5B",
+      "alias": [
+        "funaudiollm-cosyvoice2-0.5b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-ocr",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-OCR",
+      "alias": [
+        "deepseek-ai-deepseek-ocr"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-r1",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-R1",
+      "alias": [
+        "deepseek-ai-deepseek-r1"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-r1-0528-qwen3-8b",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-R1-0528-Qwen3-8B",
+      "alias": [
+        "deepseek-ai-deepseek-r1-0528-qwen3-8b"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-v3",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-V3",
+      "alias": [
+        "deepseek-ai-deepseek-v3"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-v3.1-terminus",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-V3.1-Terminus",
+      "alias": [
+        "deepseek-ai-deepseek-v3.1-terminus"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-v3.2",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-V3.2",
+      "alias": [
+        "deepseek-ai-deepseek-v3.2"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-v4-flash",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-V4-Flash",
+      "alias": [
+        "deepseek-ai-deepseek-v4-flash"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-deepseek-v4-pro",
+      "vendor_id": "siliconflow",
+      "name": "DeepSeek-V4-Pro",
+      "alias": [
+        "deepseek-ai-deepseek-v4-pro"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-ernie-image-turbo",
+      "vendor_id": "siliconflow",
+      "name": "ERNIE-Image-Turbo",
+      "alias": [
+        "baidu-ernie-image-turbo"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "glm-4-32b-0414",
+      "vendor_id": "siliconflow",
+      "name": "GLM-4-32B-0414",
+      "alias": [
+        "thudm-glm-4-32b-0414"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "glm-4-9b-0414",
+      "vendor_id": "siliconflow",
+      "name": "GLM-4-9B-0414",
+      "alias": [
+        "thudm-glm-4-9b-0414"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "glm-4.5-air",
+      "vendor_id": "siliconflow",
+      "name": "GLM-4.5-Air",
+      "alias": [
+        "zai-org-glm-4.5-air"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "glm-4.5v",
+      "vendor_id": "siliconflow",
+      "name": "GLM-4.5V",
+      "alias": [
+        "zai-org-glm-4.5v"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "glm-5.1",
+      "vendor_id": "siliconflow",
+      "name": "GLM-5.1",
+      "alias": [
+        "pro-glm-5.1",
+        "pro-zai-org-glm-5.1"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "glm-z1-9b-0414",
+      "vendor_id": "siliconflow",
+      "name": "GLM-Z1-9B-0414",
+      "alias": [
+        "thudm-glm-z1-9b-0414"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "hunyuan-a13b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Hunyuan-A13B-Instruct",
+      "alias": [
+        "tencent-hunyuan-a13b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "hunyuan-mt-7b",
+      "vendor_id": "siliconflow",
+      "name": "Hunyuan-MT-7B",
+      "alias": [
+        "tencent-hunyuan-mt-7b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-kimi-k2.6",
+      "vendor_id": "siliconflow",
+      "name": "Kimi-K2.6",
+      "alias": [
+        "pro-kimi-k2.6",
+        "pro-moonshotai-kimi-k2.6"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "kolors",
+      "vendor_id": "siliconflow",
+      "name": "Kolors",
+      "alias": [
+        "kwai-kolors-kolors"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-ling-flash-2.0",
+      "vendor_id": "siliconflow",
+      "name": "Ling-flash-2.0",
+      "alias": [
+        "inclusionai-ling-flash-2.0"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-ling-mini-2.0",
+      "vendor_id": "siliconflow",
+      "name": "Ling-mini-2.0",
+      "alias": [
+        "inclusionai-ling-mini-2.0"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-minimax-m2.5",
+      "vendor_id": "siliconflow",
+      "name": "MiniMax-M2.5",
+      "alias": [
+        "minimaxai-minimax-m2.5"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "moss-ttsd-v0.5",
+      "vendor_id": "siliconflow",
+      "name": "MOSS-TTSD-v0.5",
+      "alias": [
+        "fnlp-moss-ttsd-v0.5"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "nex-n2-pro",
+      "vendor_id": "siliconflow",
+      "name": "Nex-N2-Pro",
+      "alias": [
+        "nex-agi-nex-n2-pro"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "paddleocr-vl-1.5",
+      "vendor_id": "siliconflow",
+      "name": "PaddleOCR-VL-1.5",
+      "alias": [
+        "paddlepaddle-paddleocr-vl-1.5"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen-image",
+      "vendor_id": "siliconflow",
+      "name": "Qwen-Image",
+      "alias": [
+        "qwen-qwen-image"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen-image-edit",
+      "vendor_id": "siliconflow",
+      "name": "Qwen-Image-Edit",
+      "alias": [
+        "qwen-qwen-image-edit"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen-image-edit-2509",
+      "vendor_id": "siliconflow",
+      "name": "Qwen-Image-Edit-2509",
+      "alias": [
+        "qwen-qwen-image-edit-2509"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen2.5-14b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen2.5-14B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-14b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen2.5-32b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen2.5-32B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-32b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen2.5-72b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen2.5-72B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-72b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen2.5-72b-instruct-128k",
+      "vendor_id": "siliconflow",
+      "name": "Qwen2.5-72B-Instruct-128K",
+      "alias": [
+        "qwen-qwen2.5-72b-instruct-128k"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen2.5-7b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen2.5-7B-Instruct",
+      "alias": [
+        "qwen-qwen2.5-7b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-14b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-14B",
+      "alias": [
+        "qwen-qwen3-14b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-30b-a3b-instruct-2507",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-30B-A3B-Instruct-2507",
+      "alias": [
+        "qwen-qwen3-30b-a3b-instruct-2507"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-32b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-32B",
+      "alias": [
+        "qwen-qwen3-32b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-8b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-8B",
+      "alias": [
+        "qwen-qwen3-8b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-coder-30b-a3b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Coder-30B-A3B-Instruct",
+      "alias": [
+        "qwen-qwen3-coder-30b-a3b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-embedding-0.6b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Embedding-0.6B",
+      "alias": [
+        "qwen-qwen3-embedding-0.6b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-embedding-4b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Embedding-4B",
+      "alias": [
+        "qwen-qwen3-embedding-4b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-embedding-8b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Embedding-8B",
+      "alias": [
+        "qwen-qwen3-embedding-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-omni-30b-a3b-captioner",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Omni-30B-A3B-Captioner",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-captioner"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-omni-30b-a3b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Omni-30B-A3B-Instruct",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-omni-30b-a3b-thinking",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Omni-30B-A3B-Thinking",
+      "alias": [
+        "qwen-qwen3-omni-30b-a3b-thinking"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-reranker-0.6b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Reranker-0.6B",
+      "alias": [
+        "qwen-qwen3-reranker-0.6b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-reranker-4b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Reranker-4B",
+      "alias": [
+        "qwen-qwen3-reranker-4b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-reranker-8b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-Reranker-8B",
+      "alias": [
+        "qwen-qwen3-reranker-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-30b-a3b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-30B-A3B-Instruct",
+      "alias": [
+        "qwen-qwen3-vl-30b-a3b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-30b-a3b-thinking",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-30B-A3B-Thinking",
+      "alias": [
+        "qwen-qwen3-vl-30b-a3b-thinking"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-32b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-32B-Instruct",
+      "alias": [
+        "qwen-qwen3-vl-32b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-32b-thinking",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-32B-Thinking",
+      "alias": [
+        "qwen-qwen3-vl-32b-thinking"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-8b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-8B-Instruct",
+      "alias": [
+        "qwen-qwen3-vl-8b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-8b-thinking",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-8B-Thinking",
+      "alias": [
+        "qwen-qwen3-vl-8b-thinking"
+      ],
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-embedding-8b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-Embedding-8B",
+      "alias": [
+        "qwen-qwen3-vl-embedding-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3-vl-reranker-8b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3-VL-Reranker-8B",
+      "alias": [
+        "qwen-qwen3-vl-reranker-8b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-122b-a10b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-122B-A10B",
+      "alias": [
+        "qwen-qwen3.5-122b-a10b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-27b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-27B",
+      "alias": [
+        "qwen-qwen3.5-27b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-35b-a3b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-35B-A3B",
+      "alias": [
+        "qwen-qwen3.5-35b-a3b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-397b-a17b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-397B-A17B",
+      "alias": [
+        "qwen-qwen3.5-397b-a17b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-4b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-4B",
+      "alias": [
+        "qwen-qwen3.5-4b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.5-9b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.5-9B",
+      "alias": [
+        "qwen-qwen3.5-9b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.6-27b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.6-27B",
+      "alias": [
+        "qwen-qwen3.6-27b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-qwen3.6-35b-a3b",
+      "vendor_id": "siliconflow",
+      "name": "Qwen3.6-35B-A3B",
+      "alias": [
+        "qwen-qwen3.6-35b-a3b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-seed-oss-36b-instruct",
+      "vendor_id": "siliconflow",
+      "name": "Seed-OSS-36B-Instruct",
+      "alias": [
+        "bytedance-seed-seed-oss-36b-instruct"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "siliconflow-sensevoicesmall",
+      "vendor_id": "siliconflow",
+      "name": "SenseVoiceSmall",
+      "alias": [
+        "funaudiollm-sensevoicesmall"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "step-3.5-flash",
+      "vendor_id": "siliconflow",
+      "name": "Step-3.5-Flash",
+      "alias": [
+        "stepfun-ai-step-3.5-flash"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "telespeechasr",
+      "vendor_id": "siliconflow",
+      "name": "TeleSpeechASR",
+      "alias": [
+        "teleai-telespeechasr"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-wan2.2-i2v-a14b",
+      "vendor_id": "siliconflow",
+      "name": "Wan2.2-I2V-A14B",
+      "alias": [
+        "wan-ai-wan2.2-i2v-a14b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-wan2.2-t2v-a14b",
+      "vendor_id": "siliconflow",
+      "name": "Wan2.2-T2V-A14B",
+      "alias": [
+        "wan-ai-wan2.2-t2v-a14b"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-z-image",
+      "vendor_id": "siliconflow",
+      "name": "Z-Image",
+      "alias": [
+        "tongyi-mai-z-image"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "siliconflow-z-image-turbo",
+      "vendor_id": "siliconflow",
+      "name": "Z-Image-Turbo",
+      "alias": [
+        "tongyi-mai-z-image-turbo"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
+      "id": "stepfun-nex-n2-pro",
+      "vendor_id": "stepfun",
+      "name": "Nex-N2-Pro",
+      "alias": [
+        "nex-agi-nex-n2-pro"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "stepfun-step-3.5-flash",
       "vendor_id": "stepfun",
       "name": "Step 3.5 Flash",
+      "alias": [
+        "stepfun-ai-step-3.5-flash"
+      ],
       "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 262144,
@@ -8197,15 +11307,19 @@
       }
     },
     {
-      "id": "hunyuan-a13b-instruct",
+      "id": "tencent-hunyuan-a13b-instruct",
       "vendor_id": "tencent",
       "name": "Hunyuan A13B Instruct",
+      "alias": [
+        "tencent-hunyuan-a13b-instruct"
+      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark...",
       "capabilities": {
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -8223,6 +11337,27 @@
         "unit": "USD/Mtok",
         "input": 0.14,
         "output": 0.57
+      }
+    },
+    {
+      "id": "tencent-hunyuan-mt-7b",
+      "vendor_id": "tencent",
+      "name": "Hunyuan-MT-7B",
+      "alias": [
+        "tencent-hunyuan-mt-7b"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
       }
     },
     {
@@ -8255,6 +11390,25 @@
         "input": 0.066,
         "output": 0.26,
         "cache_input": 0.029
+      }
+    },
+    {
+      "id": "tencent-telespeechasr",
+      "vendor_id": "tencent",
+      "name": "TeleSpeechASR",
+      "alias": [
+        "teleai-telespeechasr"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
       }
     },
     {
@@ -8397,6 +11551,25 @@
       }
     },
     {
+      "id": "xiaomi-kolors",
+      "vendor_id": "xiaomi",
+      "name": "Kolors",
+      "alias": [
+        "kwai-kolors-kolors"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "capabilities": {
+        "open_weights": true
+      }
+    },
+    {
       "id": "mimo-v2-flash",
       "vendor_id": "xiaomi",
       "name": "MiMo-V2-Flash",
@@ -8499,6 +11672,48 @@
       }
     },
     {
+      "id": "z-ai-glm-4-32b-0414",
+      "vendor_id": "z-ai",
+      "name": "GLM-4-32B-0414",
+      "alias": [
+        "thudm-glm-4-32b-0414"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "z-ai-glm-4-9b-0414",
+      "vendor_id": "z-ai",
+      "name": "GLM-4-9B-0414",
+      "alias": [
+        "thudm-glm-4-9b-0414"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "glm-4.5",
       "vendor_id": "z-ai",
       "name": "GLM 4.5",
@@ -8530,16 +11745,20 @@
       }
     },
     {
-      "id": "glm-4.5-air",
+      "id": "z-ai-glm-4.5-air",
       "vendor_id": "z-ai",
       "name": "GLM 4.5 Air",
+      "alias": [
+        "zai-org-glm-4.5-air"
+      ],
       "knowledge_cutoff": "2024-12-31",
       "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 131072,
@@ -8561,16 +11780,20 @@
       }
     },
     {
-      "id": "glm-4.5v",
+      "id": "z-ai-glm-4.5v",
       "vendor_id": "z-ai",
       "name": "GLM 4.5V",
+      "alias": [
+        "zai-org-glm-4.5v"
+      ],
       "knowledge_cutoff": "2024-12-31",
       "description": "GLM-4.5V is a vision-language foundation model for multimodal agent applications. Built on a Mixture-of-Experts (MoE) architecture with 106B parameters and 12B activated parameters, it achieves state-of-the-art results in video understanding,...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 65536,
@@ -8790,18 +12013,21 @@
       }
     },
     {
-      "id": "glm-5.1",
+      "id": "z-ai-glm-5.1",
       "vendor_id": "z-ai",
       "name": "GLM 5.1",
       "alias": [
-        "glm-5.1-20260406"
+        "glm-5.1-20260406",
+        "pro-glm-5.1",
+        "pro-zai-org-glm-5.1"
       ],
       "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 202752
@@ -8819,6 +12045,28 @@
         "input": 0.98,
         "output": 3.08,
         "cache_input": 0.182
+      }
+    },
+    {
+      "id": "z-ai-glm-z1-9b-0414",
+      "vendor_id": "z-ai",
+      "name": "GLM-Z1-9B-0414",
+      "alias": [
+        "thudm-glm-z1-9b-0414"
+      ],
+      "capabilities": {
+        "tool_call": true,
+        "temperature": true,
+        "reasoning": true,
+        "open_weights": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
       }
     }
   ]
