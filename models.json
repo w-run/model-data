@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-16T11:13:48.907858+00:00",
-  "total_models": 337,
+  "generated_at": "2026-06-16T18:52:47.994199+00:00",
+  "total_models": 338,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -729,7 +729,8 @@
       "description": "Qwen3-Coder-480B-A35B-Instruct is a Mixture-of-Experts (MoE) code generation model developed by the Qwen team. It is optimized for agentic coding tasks such as function calling, tool use, and long-context reasoning over...",
       "capabilities": {
         "tool_call": true,
-        "temperature": true
+        "temperature": true,
+        "structured_output": true
       },
       "limit": {
         "context": 1048576,
@@ -3423,7 +3424,9 @@
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5Lite，轻量版，32K上下文",
       "capabilities": {
-        "tool_call": true
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true
       },
       "limit": {
         "context": 131072,
@@ -3442,7 +3445,8 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06
+        "cache_input": 0.06,
+        "web_search": 4.0
       },
       "supported_apis": [
         "chat",
@@ -3496,7 +3500,8 @@
         "reasoning": true,
         "tool_call": true,
         "structured_output": true,
-        "vision": true
+        "vision": true,
+        "temperature": true
       },
       "limit": {
         "context": 262144,
@@ -3515,7 +3520,8 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3604,7 +3610,8 @@
         "reasoning": true,
         "tool_call": true,
         "structured_output": true,
-        "vision": true
+        "vision": true,
+        "temperature": true
       },
       "limit": {
         "context": 262144,
@@ -3623,7 +3630,8 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0
+        "output": 9.0,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3693,6 +3701,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 32768
     },
     {
@@ -3715,6 +3730,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.15,
+        "output": 1.5,
+        "cache_input": 0.03,
+        "web_search": 4.0
       },
       "supported_apis": [
         "chat",
@@ -3751,6 +3773,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 8.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 131072,
       "supported_apis": [
         "chat",
@@ -3786,6 +3815,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 32768
     },
     {
@@ -3815,6 +3851,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3848,6 +3891,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3884,6 +3934,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.2,
+        "output": 2.0,
+        "cache_input": 0.04,
+        "web_search": 4.0
+      },
       "max_thinking": 32768,
       "supported_apis": [
         "responses",
@@ -3918,6 +3975,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
+      },
       "max_thinking": 131072,
       "supported_apis": [
         "responses",
@@ -3944,6 +4008,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "supported_apis": [
         "chat",
@@ -3973,6 +4044,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 8.0,
+        "cache_input": 0.24,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -4006,6 +4084,12 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 3.6,
+        "web_search": 4.0
       },
       "max_thinking": 32768
     },
@@ -6098,7 +6182,8 @@
       "description": "The Meta Llama 3.3 multilingual large language model (LLM) is a pretrained and instruction tuned generative model in 70B (text in/text out). The Llama 3.3 instruction tuned text only model...",
       "capabilities": {
         "tool_call": true,
-        "temperature": true
+        "temperature": true,
+        "structured_output": true
       },
       "limit": {
         "context": 131072,
@@ -7245,7 +7330,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -7258,9 +7343,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.75,
+        "input": 0.74,
         "output": 3.5,
-        "cache_input": 0.16
+        "cache_input": 0.15
       }
     },
     {
@@ -7308,7 +7393,8 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "temperature": true
+        "temperature": true,
+        "structured_output": true
       },
       "limit": {
         "context": 256000,
@@ -7405,7 +7491,8 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "temperature": true
+        "temperature": true,
+        "structured_output": true
       },
       "limit": {
         "context": 1000000,
@@ -9076,7 +9163,8 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "temperature": true
+        "temperature": true,
+        "structured_output": true
       },
       "limit": {
         "context": 131072,
@@ -9754,6 +9842,7 @@
         "reasoning": true,
         "structured_output": true,
         "temperature": true,
+        "tool_call": true,
         "open_weights": true
       },
       "limit": {
@@ -10191,13 +10280,12 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
         "temperature": true,
         "open_weights": true
       },
       "limit": {
         "context": 131072,
-        "output": 131070
+        "output": 98304
       },
       "modalities": {
         "input": [
@@ -10209,9 +10297,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.125,
+        "input": 0.13,
         "output": 0.85,
-        "cache_input": 0.06
+        "cache_input": 0.025
       }
     },
     {
@@ -10480,6 +10568,38 @@
         "input": 0.98,
         "output": 3.08,
         "cache_input": 0.182
+      }
+    },
+    {
+      "id": "glm-5.2",
+      "vendor_id": "z-ai",
+      "name": "GLM 5.2",
+      "alias": [
+        "glm-5.2-20260616"
+      ],
+      "description": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks. With a truly usable 1M-token context window, it can handle project-level engineering context, execute long-running tasks more reliably, follow...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.26
       }
     },
     {

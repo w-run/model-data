@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-16T11:13:48.907858+00:00",
-  "total_vendors": 21,
+  "generated_at": "2026-06-16T18:52:47.994199+00:00",
+  "total_vendors": 20,
   "vendors": [
     {
       "id": "alibaba",
@@ -172,17 +172,6 @@
       "logo": "logos/sarvam.svg"
     },
     {
-      "id": "siliconflow",
-      "name": "硅基流动",
-      "alias": [
-        "silicon-flow",
-        "siliconflow-cn",
-        "siliconcloud"
-      ],
-      "website": "https://siliconflow.cn",
-      "api_docs": "https://docs.siliconflow.cn"
-    },
-    {
       "id": "stepfun",
       "name": "阶跃星辰",
       "alias": [
@@ -233,7 +222,8 @@
         "zhipuai",
         "zhipu",
         "zai",
-        "glm"
+        "glm",
+        "zai-org"
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.z.ai/guides/overview/pricing",
