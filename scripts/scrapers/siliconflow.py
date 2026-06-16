@@ -139,7 +139,6 @@ def _is_chat_model(model_name: str) -> bool:
     return not any(kw in name_lower for kw in exclude_keywords)
 
 
-@register_scraper
 class SiliconFlowScraper(BaseScraper):
     vendor_id = "siliconflow"
     name = "硅基流动"
