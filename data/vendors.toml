@@ -77,7 +77,7 @@ api_docs = "https://platform.moonshot.ai/docs/api/chat"
 
 [z-ai]
 name = "智谱AI"
-alias = ["zhipuai", "zhipu", "zai", "glm"]
+alias = ["zhipuai", "zhipu", "zai", "glm", "zai-org"]
 website = "https://www.zhipuai.cn"
 api_docs = "https://docs.z.ai/guides/overview/pricing"
 
@@ -123,8 +123,3 @@ alias = ["sarvamai", "sarvam-ai"]
 website = "https://www.sarvam.ai"
 api_docs = "https://docs.sarvam.ai"
 
-[siliconflow]
-name = "硅基流动"
-alias = ["silicon-flow", "siliconflow-cn", "siliconcloud"]
-website = "https://siliconflow.cn"
-api_docs = "https://docs.siliconflow.cn"
