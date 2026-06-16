@@ -10,6 +10,7 @@ from .base import BaseScraper, SCRAPERS, register_scraper, run_scraper, run_all_
 # 导入各爬虫模块（触发 @register_scraper 装饰器注册）
 from .baidu_qianfan import BaiduQianfanScraper
 from .volcengine_doubao import VolcengineDoubaoScraper
+from .siliconflow import SiliconFlowScraper
 
 __all__ = [
     "BaseScraper",
@@ -20,4 +21,5 @@ __all__ = [
     "run_all_price_scrapers",
     "BaiduQianfanScraper",
     "VolcengineDoubaoScraper",
+    "SiliconFlowScraper",
 ]

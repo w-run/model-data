@@ -7,6 +7,7 @@
   2. data/manual/*.json   — 本地维护的模型数据
   3. scrapers/            — 网页爬虫（百度千帆、火山引擎豆包等）
   4. OpenRouter API       — 免费获取模型详细信息（价格、上下文、模态等）
+  5. SiliconFlow API      — 硅基流动中转平台（需 API Key，环境变量 SILICONFLOW_API_KEY）
 
 产出：
   - vendors.json  — 厂商信息列表
@@ -156,6 +157,167 @@ def load_manual_data(vendor_ids: set[str]) -> dict[str, list[dict[str, Any]]]:
             print(f"    {vendor_id}: {len(models)} models from manual data")
         except Exception as e:
             print(f"    Error loading manual data for {vendor_id}: {e}", file=sys.stderr)
+
+    return result
+
+
+# ─── 硅基流动 API ──────────────────────────────────────────────────────────────
+
+def fetch_siliconflow(alias_map: dict[str, str]) -> dict[str, list[dict[str, Any]]]:
+    """
+    从硅基流动(SiliconFlow) API 获取模型列表
+
+    硅基流动是中转商/聚合商，其模型来自各开源厂商。
+    模型 ID 格式: org/model-name (如 deepseek-ai/DeepSeek-V4-Pro)
+    Pro 版本: Pro/org/model-name (如 Pro/deepseek-ai/DeepSeek-V3.2)
+
+    API 需要认证，密钥通过环境变量 SILICONFLOW_API_KEY 获取。
+
+    alias_map: alias -> vendor_id 的映射
+    返回: {vendor_id: [model_dict, ...]}
+    """
+    api_key = os.environ.get("SILICONFLOW_API_KEY")
+    if not api_key:
+        print("  SiliconFlow: API key not found (SILICONFLOW_API_KEY env var), skipping", file=sys.stderr)
+        return {}
+
+    print("  Fetching from SiliconFlow API...", flush=True)
+
+    try:
+        data = http_get_json(
+            "https://api.siliconflow.cn/v1/models",
+            headers={"Authorization": f"Bearer {api_key}"},
+            timeout=30,
+        )
+    except Exception as e:
+        print(f"  SiliconFlow fetch FAILED: {e}", file=sys.stderr)
+        return {}
+
+    raw_models = data.get("data", [])
+    print(f"  SiliconFlow returned {len(raw_models)} models total", flush=True)
+
+    # 硅基流动的 org -> vendor_id 映射（需要额外扩展）
+    # 不同于 OpenRouter，硅基流动的 org 名可能和 HuggingFace/OpenRouter 不同
+    sf_org_map: dict[str, str] = dict(alias_map)  # 以 alias_map 为基础
+    # 补充硅基流动特有的 org 名映射
+    sf_extra_mappings = {
+        "qwen": "alibaba",
+        "thudm": "z-ai",
+        "zai-org": "z-ai",
+        # "baai" 暂不映射，BAAI(北京智源研究院)是独立机构，不属于任何已有厂商
+        "minimaxai": "minimax",
+        "moonshotai": "moonshot",
+        "stepfun-ai": "stepfun",
+        "tencent": "tencent",
+        "baidu": "baidu",
+        "deepseek-ai": "deepseek",
+        "teleai": "tencent",
+        "tongyi-mai": "alibaba",
+        "wan-ai": "alibaba",
+        "inclusionai": "alibaba",
+        "funaudiollm": "alibaba",
+        "nex-agi": "stepfun",
+        "kwai-kolors": "xiaomi",  # 可商不属于小米，暂映射
+    }
+    for org_key, vid in sf_extra_mappings.items():
+        if org_key not in sf_org_map:
+            sf_org_map[org_key] = vid
+
+    result: dict[str, list[dict[str, Any]]] = {}
+    now = datetime.now(timezone.utc).isoformat()
+    skipped = 0
+
+    for m in raw_models:
+        model_id = m.get("id", "")
+        if not model_id:
+            continue
+
+        # 解析模型 ID
+        parts = model_id.split("/")
+        prefix = None
+        if parts[0] == "Pro" and len(parts) == 3:
+            prefix = "Pro"
+            org = parts[1]
+            model_name = parts[2]
+        elif parts[0] == "LoRA":
+            continue  # 跳过 LoRA 模型
+        elif len(parts) == 2:
+            org = parts[0]
+            model_name = parts[1]
+        else:
+            continue
+
+        # 匹配厂商
+        vendor_id = sf_org_map.get(org.lower())
+        if not vendor_id:
+            skipped += 1
+            continue
+
+        # 标准化模型 ID
+        base_id = normalize_id(model_name)
+
+        entry: dict[str, Any] = {
+            "id": base_id,
+            "vendor_id": vendor_id,
+            "source": "siliconflow",
+            "fetched_at": now,
+            "name": model_name,
+            "open_weights": True,
+        }
+
+        # 别名
+        model_aliases: list[str] = []
+        seen_aliases: set[str] = {base_id}
+
+        # Pro 版本别名
+        if prefix == "Pro":
+            pro_alias = f"pro-{base_id}"
+            if pro_alias not in seen_aliases:
+                model_aliases.append(pro_alias)
+                seen_aliases.add(pro_alias)
+
+        # 硅基流动原始 ID 作为别名
+        sf_alias = normalize_id(model_id)
+        if sf_alias not in seen_aliases:
+            model_aliases.append(sf_alias)
+            seen_aliases.add(sf_alias)
+
+        if model_aliases:
+            entry["model_aliases"] = model_aliases
+
+        # 模态推断（从模型名推断）
+        name_lower = model_name.lower()
+        if any(kw in name_lower for kw in ["image", "flux", "sdxl", "kolors", "stable-diffusion"]):
+            entry["modalities"] = {"input": ["text"], "output": ["image"]}
+        elif any(kw in name_lower for kw in ["video", "i2v", "t2v", "wan2"]):
+            entry["modalities"] = {"input": ["text", "image"], "output": ["video"]}
+        elif any(kw in name_lower for kw in ["tts", "speech", "asr", "cosyvoice", "sensevoice", "moss-ttsd"]):
+            entry["modalities"] = {"input": ["text"], "output": ["audio"]}
+        elif any(kw in name_lower for kw in ["vl", "vision", "4.5v"]):
+            entry["modalities"] = {"input": ["text", "image"], "output": ["text"]}
+        elif any(kw in name_lower for kw in ["embed", "rerank", "bge-"]):
+            entry["modalities"] = {"input": ["text"], "output": ["text"]}
+        else:
+            entry["modalities"] = {"input": ["text"], "output": ["text"]}
+
+        # 能力推断
+        if not any(kw in name_lower for kw in ["embed", "rerank", "bge-",
+                                                 "image", "flux", "sdxl", "kolors",
+                                                 "video", "i2v", "t2v", "wan2",
+                                                 "tts", "speech", "asr", "cosyvoice", "sensevoice"]):
+            caps: dict[str, Any] = {"tool_call": True, "temperature": True}
+            if any(kw in name_lower for kw in ["r1", "reasoning", "z1", "thinking"]):
+                caps["reasoning"] = True
+            entry["capabilities"] = caps
+
+        result.setdefault(vendor_id, []).append(entry)
+
+    if skipped:
+        print(f"    Skipped {skipped} models (no vendor mapping)", flush=True)
+
+    # 统计
+    for vid in result:
+        print(f"    {vid}: {len(result[vid])} models from SiliconFlow")
 
     return result
 
@@ -636,6 +798,7 @@ def build(
     use_openrouter: bool = True,
     use_scraper: bool = True,
     use_manual: bool = True,
+    use_siliconflow: bool = True,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """
     构建 vendors.json 和 models.json 的数据
@@ -658,6 +821,7 @@ def build(
             alias_map[alias.lower()] = vid
 
     # 3. 从各渠道获取模型数据
+    # 优先级：OpenRouter > SiliconFlow > Scraper > Manual
     sources: list[dict[str, list[dict[str, Any]]]] = []
 
     if use_openrouter:
@@ -666,6 +830,14 @@ def build(
             sources.append(or_data)
         except Exception as e:
             print(f"  OpenRouter error: {e}", file=sys.stderr)
+
+    if use_siliconflow:
+        try:
+            sf_data = fetch_siliconflow(alias_map)
+            if sf_data:
+                sources.append(sf_data)
+        except Exception as e:
+            print(f"  SiliconFlow error: {e}", file=sys.stderr)
 
     if use_scraper:
         scraper_data = run_scrapers(vendor_ids)
@@ -727,28 +899,33 @@ def main() -> None:
     parser.add_argument("--no-openrouter", action="store_true", help="Skip OpenRouter fetch")
     parser.add_argument("--no-scraper", action="store_true", help="Skip doc page scrapers")
     parser.add_argument("--no-manual", action="store_true", help="Skip manual data")
+    parser.add_argument("--no-siliconflow", action="store_true", help="Skip SiliconFlow API fetch")
     parser.add_argument("--openrouter-only", action="store_true", help="Only fetch from OpenRouter")
     parser.add_argument("--scraper-only", action="store_true", help="Only run scrapers")
     parser.add_argument("--manual-only", action="store_true", help="Only load manual data")
+    parser.add_argument("--siliconflow-only", action="store_true", help="Only fetch from SiliconFlow")
     parser.add_argument("--output-dir", "-o", type=Path, default=BASE_DIR, help="Output directory")
 
     args = parser.parse_args()
 
     if args.openrouter_only:
-        use_or, use_scraper, use_manual = True, False, False
+        use_or, use_scraper, use_manual, use_sf = True, False, False, False
     elif args.scraper_only:
-        use_or, use_scraper, use_manual = False, True, False
+        use_or, use_scraper, use_manual, use_sf = False, True, False, False
     elif args.manual_only:
-        use_or, use_scraper, use_manual = False, False, True
+        use_or, use_scraper, use_manual, use_sf = False, False, True, False
+    elif args.siliconflow_only:
+        use_or, use_scraper, use_manual, use_sf = False, False, False, True
     else:
         use_or = not args.no_openrouter
         use_scraper = not args.no_scraper
         use_manual = not args.no_manual
+        use_sf = not args.no_siliconflow
 
     print("=" * 60)
     print("  Model Info Builder")
     print(f"  Time: {datetime.now(timezone.utc).isoformat()}")
-    print(f"  Channels: OpenRouter={'ON' if use_or else 'OFF'}  Scraper={'ON' if use_scraper else 'OFF'}  Manual={'ON' if use_manual else 'OFF'}")
+    print(f"  Channels: OpenRouter={'ON' if use_or else 'OFF'}  SiliconFlow={'ON' if use_sf else 'OFF'}  Scraper={'ON' if use_scraper else 'OFF'}  Manual={'ON' if use_manual else 'OFF'}")
     print("=" * 60)
     print()
 
@@ -756,6 +933,7 @@ def main() -> None:
         use_openrouter=use_or,
         use_scraper=use_scraper,
         use_manual=use_manual,
+        use_siliconflow=use_sf,
     )
 
     now = datetime.now(timezone.utc).isoformat()

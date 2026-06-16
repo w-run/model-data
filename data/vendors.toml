@@ -122,3 +122,9 @@ name = "Sarvam AI"
 alias = ["sarvamai", "sarvam-ai"]
 website = "https://www.sarvam.ai"
 api_docs = "https://docs.sarvam.ai"
+
+[siliconflow]
+name = "硅基流动"
+alias = ["silicon-flow", "siliconflow-cn", "siliconcloud"]
+website = "https://siliconflow.cn"
+api_docs = "https://docs.siliconflow.cn"

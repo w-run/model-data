@@ -32,6 +32,8 @@ jobs:
 
       - name: Build
         run: python -m scripts.build
+        env:
+          SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
 
       - name: Stage output
         run: |
