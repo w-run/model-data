@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-17T07:16:09.430742+00:00",
-  "total_models": 316,
+  "generated_at": "2026-06-18T06:57:18.880901+00:00",
+  "total_models": 318,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -106,6 +106,8 @@
       "knowledge_cutoff": "2024-06-30",
       "description": "Qwen2.5 7B is the latest series of Qwen large language models. Qwen2.5 brings the following improvements upon Qwen2: - Significantly more knowledge and has greatly improved capabilities in coding and...",
       "capabilities": {
+        "tool_call": true,
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -3874,6 +3876,34 @@
       }
     },
     {
+      "id": "north-mini-code",
+      "vendor_id": "cohere",
+      "name": "North Mini Code",
+      "alias": [
+        "north-mini-code:free",
+        "north-mini-code-20260617",
+        "north-mini-code-1.0"
+      ],
+      "description": "North Mini Code is Cohere's first agentic coding model and the debut of its North family. A sparse mixture-of-experts model with 30B total parameters and 3B active, it is optimized...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 256000,
+        "output": 64000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
       "id": "deepseek-chat",
       "vendor_id": "deepseek",
       "name": "DeepSeek V3",
@@ -4355,7 +4385,7 @@
       },
       "limit": {
         "context": 32768,
-        "output": 32768
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -4576,7 +4606,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 65536
+        "output": 65535
       },
       "modalities": {
         "input": [
@@ -4595,6 +4625,42 @@
         "input": 0.5,
         "output": 3.0,
         "cache_input": 0.05,
+        "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3-pro-image",
+      "vendor_id": "google",
+      "name": "Nano Banana Pro (Gemini 3 Pro Image)",
+      "alias": [
+        "gemini-3-pro-image-20260528"
+      ],
+      "description": "Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro. It extends the original Nano Banana with significantly improved multimodal reasoning, real-world grounding, and...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 65536,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "image"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 12.0,
+        "cache_input": 0.2,
         "web_search": 14000.0
       }
     },
@@ -4630,6 +4696,40 @@
         "input": 2.0,
         "output": 12.0,
         "cache_input": 0.2,
+        "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3.1-flash-image",
+      "vendor_id": "google",
+      "name": "Nano Banana 2 (Gemini 3.1 Flash Image)",
+      "alias": [
+        "gemini-3.1-flash-image-20260528"
+      ],
+      "description": "Gemini 3.1 Flash Image, a.k.a. \"Nano Banana 2,\" is Google’s latest state of the art image generation and editing model, delivering Pro-level visual quality at Flash speed. It combines advanced...",
+      "capabilities": {
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 131072,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "image"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.5,
+        "output": 3.0,
         "web_search": 14000.0
       }
     },
@@ -4982,6 +5082,7 @@
       "knowledge_cutoff": "2024-08-31",
       "description": "Gemma 3n E4B-it is optimized for efficient execution on mobile and low-resource devices, such as phones, laptops, and tablets. It supports multimodal inputs—including text, visual data, and audio—enabling diverse tasks...",
       "capabilities": {
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -5053,7 +5154,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -5167,6 +5268,7 @@
       "knowledge_cutoff": "2023-12-31",
       "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
       "capabilities": {
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -6585,7 +6687,8 @@
       "name": "Nemotron 3 Nano Omni",
       "alias": [
         "nemotron-3-nano-omni-30b-a3b-reasoning:free",
-        "nemotron-3-nano-omni-30b-a3b-reasoning-20260428"
+        "nemotron-3-nano-omni-30b-a3b-reasoning-20260428",
+        "nemotron-3-nano-omni-30b-a3b-reasoning-bf16"
       ],
       "description": "NVIDIA Nemotron™ 3 Nano Omni is a 30B-A3B open multimodal model designed to function as a perception and context sub-agent in enterprise agent systems. It accepts text, image, video, and...",
       "capabilities": {
@@ -8366,7 +8469,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -9259,39 +9362,6 @@
       }
     },
     {
-      "id": "mimo-v2-flash",
-      "vendor_id": "xiaomi",
-      "name": "MiMo-V2-Flash",
-      "alias": [
-        "mimo-v2-flash-20251210"
-      ],
-      "description": "MiMo-V2-Flash is an open-source foundation language model developed by Xiaomi. It is a Mixture-of-Experts model with 309B total parameters and 15B active parameters, adopting hybrid attention architecture. MiMo-V2-Flash supports a...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.3,
-        "cache_input": 0.01
-      }
-    },
-    {
       "id": "mimo-v2.5",
       "vendor_id": "xiaomi",
       "name": "MiMo-V2.5",
@@ -9740,14 +9810,16 @@
       "vendor_id": "z-ai",
       "name": "GLM 5.2",
       "alias": [
-        "glm-5.2-20260616"
+        "glm-5.2-20260616",
+        "zai-org-glm-5.2"
       ],
-      "description": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks. With a truly usable 1M-token context window, it can handle project-level engineering context, execute long-running tasks more reliably, follow...",
+      "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1048576,
