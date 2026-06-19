@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-18T06:57:18.880901+00:00",
+  "generated_at": "2026-06-19T07:12:32.555204+00:00",
   "total_models": 318,
   "models": [
     {
@@ -1659,8 +1659,8 @@
         "open_weights": true
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 256000,
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1845,9 +1845,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 1.0,
-        "cache_input": 0.05
+        "input": 0.14,
+        "output": 1.0
       }
     },
     {
@@ -3735,6 +3734,7 @@
       "knowledge_cutoff": "2025-01-31",
       "description": "UI-TARS-1.5 is a multimodal vision-language agent optimized for GUI-based environments, including desktop interfaces, web browsers, mobile systems, and games. Built by ByteDance, it builds upon the UI-TARS framework with reinforcement...",
       "capabilities": {
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -4714,7 +4714,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 65536
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -4748,7 +4748,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 65536
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -5154,7 +5154,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 8192
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -5800,8 +5800,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 512000
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -6507,7 +6506,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.6,
-        "output": 2.5
+        "output": 2.5,
+        "cache_input": 0.6
       }
     },
     {
@@ -6561,7 +6561,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262142
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -6574,9 +6574,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.68,
-        "output": 3.41,
-        "cache_input": 0.34
+        "input": 0.67,
+        "output": 3.5,
+        "cache_input": 0.2
       }
     },
     {
@@ -7118,8 +7118,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1047576,
-        "output": 32768
+        "context": 1047576
       },
       "modalities": {
         "input": [
@@ -7203,7 +7202,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 2.5,
-        "output": 10.0
+        "output": 10.0,
+        "cache_input": 1.25
       }
     },
     {
@@ -7610,8 +7610,7 @@
         "structured_output": true
       },
       "limit": {
-        "context": 400000,
-        "output": 128000
+        "context": 400000
       },
       "modalities": {
         "input": [
@@ -7627,7 +7626,7 @@
         "unit": "USD/Mtok",
         "input": 0.25,
         "output": 2.0,
-        "cache_input": 0.025,
+        "cache_input": 0.03,
         "web_search": 10000.0
       }
     },
@@ -7750,7 +7749,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 32000
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -7766,7 +7765,7 @@
         "unit": "USD/Mtok",
         "input": 1.25,
         "output": 10.0,
-        "cache_input": 0.13,
+        "cache_input": 0.125,
         "web_search": 10000.0
       }
     },
@@ -7921,7 +7920,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 16384
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -8493,8 +8492,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "temperature": true
+        "structured_output": true
       },
       "limit": {
         "context": 131072,
@@ -8512,7 +8510,7 @@
         "unit": "USD/Mtok",
         "input": 0.075,
         "output": 0.3,
-        "cache_input": 0.037
+        "cache_input": 0.0375
       }
     },
     {
@@ -9823,7 +9821,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 262144
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -9835,9 +9833,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_input": 0.26
+        "input": 1.2,
+        "output": 4.1,
+        "cache_input": 0.2
       }
     },
     {
