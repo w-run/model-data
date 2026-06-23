@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-22T07:29:41.442769+00:00",
-  "total_models": 316,
+  "generated_at": "2026-06-23T06:12:00.311991+00:00",
+  "total_models": 317,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -6544,9 +6544,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.612,
-        "output": 3.069,
-        "cache_input": 0.1296
+        "input": 0.68,
+        "output": 3.41,
+        "cache_input": 0.144
       }
     },
     {
@@ -9756,8 +9756,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 32768
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -9769,9 +9768,44 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.0,
+        "input": 0.98,
+        "output": 3.08,
+        "cache_input": 0.182
+      }
+    },
+    {
+      "id": "glm-5v-turbo",
+      "vendor_id": "z-ai",
+      "name": "GLM 5V Turbo",
+      "alias": [
+        "glm-5v-turbo-20260401"
+      ],
+      "description": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks. It natively handles image, video, and text inputs, excels at long-horizon planning, complex coding,...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 202752,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.2,
         "output": 4.0,
-        "cache_input": 0.18
+        "cache_input": 0.24
       }
     },
     {
