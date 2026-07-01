@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-30T06:16:33.491877+00:00",
-  "total_models": 342,
+  "generated_at": "2026-07-01T06:37:45.974372+00:00",
+  "total_models": 344,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -532,8 +532,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 262144
       },
       "modalities": {
         "input": [
@@ -545,9 +544,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.1,
-        "cache_input": 0.1
+        "input": 0.1495,
+        "output": 1.495
       }
     },
     {
@@ -1809,8 +1807,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2596,
-        "output": 2.385
+        "input": 0.285,
+        "output": 2.4
       }
     },
     {
@@ -2603,6 +2601,41 @@
         "input": 3.0,
         "output": 15.0,
         "cache_input": 0.3,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "vendor_id": "anthropic",
+      "name": "Claude Sonnet 5",
+      "alias": [
+        "claude-sonnet-5-20260630"
+      ],
+      "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work. It supports adaptive thinking with selectable reasoning effort levels (low, medium, high, max,...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.2,
         "web_search": 10000.0
       }
     },
@@ -5105,8 +5138,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 65536
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -5118,8 +5150,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.18,
+        "input": 0.098,
+        "output": 0.196,
         "cache_input": 0.02
       }
     },
@@ -5623,6 +5655,41 @@
         "input": 0.25,
         "output": 1.5,
         "cache_input": 0.025,
+        "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3.1-flash-lite-image",
+      "vendor_id": "google",
+      "name": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+      "alias": [
+        "gemini-3.1-flash-lite-image-20260630"
+      ],
+      "knowledge_cutoff": "2025-01-01",
+      "description": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's fastest, most cost-efficient Gemini image model, built for high-velocity developer pipelines and rapid-fire visual exploration. It delivers text-to-image generation...",
+      "capabilities": {
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 65536,
+        "output": 66000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "image"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.25,
+        "output": 1.5,
         "web_search": 14000.0
       }
     },
@@ -10606,7 +10673,8 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1048576
+        "context": 1048576,
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -10618,7 +10686,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.94,
+        "input": 0.93,
         "output": 3.0,
         "cache_input": 0.18
       }
