@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-03T05:57:36.003809+00:00",
+  "generated_at": "2026-07-04T05:50:19.447806+00:00",
   "total_models": 344,
   "models": [
     {
@@ -1806,7 +1806,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.285,
-        "output": 2.4
+        "output": 2.4,
+        "cache_input": 0.15
       }
     },
     {
@@ -3409,8 +3410,7 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06,
-        "web_search": 4.0
+        "cache_input": 0.06
       },
       "max_thinking": 131072
     },
@@ -3481,8 +3481,7 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
+        "cache_input": 0.16
       },
       "max_thinking": 131072
     },
@@ -3581,8 +3580,7 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0,
-        "web_search": 4.0
+        "output": 9.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3647,13 +3645,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
-      },
       "max_thinking": 393216
     },
     {
@@ -3683,13 +3674,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.15,
-        "output": 1.5,
-        "cache_input": 0.03,
-        "web_search": 4.0
       },
       "max_thinking": 32768
     },
@@ -3721,13 +3705,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 8.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3761,13 +3738,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
       },
       "max_thinking": 262144,
       "supported_apis": [
@@ -3803,13 +3773,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.2,
-        "output": 16.0,
-        "cache_input": 0.64,
-        "web_search": 4.0
-      },
       "max_thinking": 131072,
       "supported_apis": [
         "context"
@@ -3843,13 +3806,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_input": 0.12,
-        "web_search": 4.0
-      },
       "max_thinking": 262144
     },
     {
@@ -3879,13 +3835,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.2,
-        "output": 2.0,
-        "cache_input": 0.04,
-        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3921,13 +3870,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.2,
-        "output": 16.0,
-        "cache_input": 0.64,
-        "web_search": 4.0
-      },
       "max_thinking": 131072
     },
     {
@@ -3957,13 +3899,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 6.0,
-        "output": 30.0,
-        "cache_input": 1.2,
-        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3998,13 +3933,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 15.0,
-        "cache_input": 0.6,
-        "web_search": 4.0
-      },
       "max_thinking": 131072,
       "supported_apis": [
         "chat",
@@ -4036,13 +3964,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -4077,13 +3998,6 @@
           "text"
         ]
       },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 1.2,
-        "output": 8.0,
-        "cache_input": 0.24,
-        "web_search": 4.0
-      },
       "max_thinking": 32768,
       "supported_apis": [
         "chat"
@@ -4111,13 +4025,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 6.0,
-        "output": 30.0,
-        "cache_input": 1.2,
-        "web_search": 4.0
       },
       "max_thinking": 131072
     },
@@ -4147,12 +4054,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 1.2,
-        "output": 3.6,
-        "web_search": 4.0
       },
       "max_thinking": 32768
     },
@@ -7692,8 +7593,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.085,
-        "output": 0.4
+        "input": 0.08,
+        "output": 0.45
       }
     },
     {
@@ -10770,7 +10671,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 32768
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -10782,9 +10683,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.93,
-        "output": 3.0,
-        "cache_input": 0.18
+        "input": 0.91,
+        "output": 2.86,
+        "cache_input": 0.169
       }
     },
     {
