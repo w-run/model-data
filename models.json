@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-04T05:50:19.447806+00:00",
+  "generated_at": "2026-07-05T06:09:20.508227+00:00",
   "total_models": 344,
   "models": [
     {
@@ -10671,7 +10671,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 128000
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10683,9 +10683,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.91,
-        "output": 2.86,
-        "cache_input": 0.169
+        "input": 0.728,
+        "output": 2.288,
+        "cache_input": 0.1352
       }
     },
     {
