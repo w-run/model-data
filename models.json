@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-10T06:08:35.999715+00:00",
-  "total_models": 342,
+  "generated_at": "2026-07-11T05:17:00.971903+00:00",
+  "total_models": 341,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -4954,7 +4954,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 65536
+        "output": 384000
       },
       "modalities": {
         "input": [
@@ -4966,9 +4966,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.18,
-        "cache_input": 0.018
+        "input": 0.077,
+        "output": 0.154,
+        "cache_input": 0.0154
       }
     },
     {
@@ -5893,36 +5893,6 @@
           "text",
           "audio"
         ]
-      }
-    },
-    {
-      "id": "llama-3-8b-instruct",
-      "vendor_id": "meta",
-      "name": "Llama 3 8B Instruct",
-      "alias": [
-        "meta-llama-3-8b-instruct"
-      ],
-      "knowledge_cutoff": "2023-12-31",
-      "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
-      "capabilities": {
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 8192
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 0.14
       }
     },
     {
@@ -10745,7 +10715,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 1048576
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10757,9 +10727,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.92,
-        "output": 3.0,
-        "cache_input": 0.18
+        "input": 0.406,
+        "output": 1.276,
+        "cache_input": 0.0754
       }
     },
     {
