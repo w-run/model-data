@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-15T04:55:18.492982+00:00",
+  "generated_at": "2026-07-16T05:14:29.891734+00:00",
   "total_models": 341,
   "models": [
     {
@@ -399,7 +399,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072
+        "context": 131072,
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -412,8 +413,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 0.75
+        "input": 0.8,
+        "output": 1.0,
+        "cache_input": 0.4
       }
     },
     {
@@ -435,7 +437,7 @@
       },
       "limit": {
         "context": 131702,
-        "output": 40960
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -447,7 +449,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
+        "input": 0.12,
         "output": 0.24
       }
     },
@@ -595,8 +597,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 131072,
-        "output": 32000
+        "context": 262144
       },
       "modalities": {
         "input": [
@@ -608,8 +609,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04815,
-        "output": 0.19305
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -742,8 +743,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.22,
-        "output": 1.8
+        "input": 0.3,
+        "output": 1.0,
+        "cache_input": 0.1
       }
     },
     {
@@ -1007,7 +1009,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1019,8 +1021,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 1.1
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -1189,8 +1192,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
-        "output": 16384
+        "context": 131072,
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1203,9 +1206,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.88,
-        "cache_input": 0.11
+        "input": 0.21,
+        "output": 1.9,
+        "cache_input": 0.1
       }
     },
     {
@@ -1489,7 +1492,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1561,7 +1564,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1576,8 +1579,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.14,
-        "output": 1.0,
-        "cache_input": 0.05
+        "output": 1.0
       }
     },
     {
@@ -1597,7 +1599,8 @@
         "open_weights": true
       },
       "limit": {
-        "context": 256000
+        "context": 262144,
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1611,9 +1614,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.385,
-        "output": 2.45,
-        "cache_input": 0.111
+        "input": 0.45,
+        "output": 3.0,
+        "cache_input": 0.225
       }
     },
     {
@@ -1790,7 +1793,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 131072
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1804,8 +1807,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.289,
-        "output": 2.4
+        "input": 0.45,
+        "output": 2.7
       }
     },
     {
@@ -1969,9 +1972,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.25,
-        "output": 3.75,
-        "cache_input": 0.25
+        "input": 1.475,
+        "output": 4.425,
+        "cache_input": 0.295
       }
     },
     {
@@ -4636,7 +4639,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16384
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -4648,8 +4651,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.24,
-        "output": 0.9,
+        "input": 0.27,
+        "output": 1.12,
         "cache_input": 0.135
       }
     },
@@ -4867,7 +4870,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 163840,
+        "context": 131072,
         "output": 32768
       },
       "modalities": {
@@ -4881,8 +4884,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.27,
-        "output": 0.95,
-        "cache_input": 0.13
+        "output": 1.0,
+        "cache_input": 0.135
       }
     },
     {
@@ -4904,8 +4907,8 @@
         "open_weights": true
       },
       "limit": {
-        "context": 131072,
-        "output": 64000
+        "context": 163840,
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -4917,9 +4920,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2145,
-        "output": 0.32175,
-        "cache_input": 0.02145
+        "input": 0.269,
+        "output": 0.4,
+        "cache_input": 0.1345
       }
     },
     {
@@ -4969,8 +4972,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 65536
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -4982,9 +4984,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.18,
-        "cache_input": 0.018
+        "input": 0.098,
+        "output": 0.196,
+        "cache_input": 0.02
       }
     },
     {
@@ -5070,7 +5072,7 @@
       },
       "limit": {
         "context": 32768,
-        "output": 32768
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -5470,7 +5472,7 @@
       },
       "limit": {
         "context": 65536,
-        "output": 66000
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -5713,7 +5715,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -5727,7 +5729,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.08,
-        "output": 0.16
+        "output": 0.45,
+        "cache_input": 0.04
       }
     },
     {
@@ -5803,7 +5806,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 256000
       },
       "modalities": {
         "input": [
@@ -5817,8 +5820,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.33
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -5852,9 +5855,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.12,
-        "output": 0.35,
-        "cache_input": 0.09
+        "input": 0.22,
+        "output": 0.55,
+        "cache_input": 0.12
       }
     },
     {
@@ -5959,7 +5962,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -5971,8 +5974,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.02,
-        "output": 0.03
+        "input": 0.05,
+        "output": 0.08,
+        "cache_input": 0.025
       }
     },
     {
@@ -6078,7 +6082,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -6090,8 +6094,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.32
+        "input": 0.13,
+        "output": 0.4
       }
     },
     {
@@ -6245,7 +6249,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.4,
+        "input": 0.55,
         "output": 2.2
       }
     },
@@ -6391,7 +6395,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 196608
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -6403,8 +6407,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.24,
-        "output": 0.96
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.06
       }
     },
     {
@@ -6423,7 +6428,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 512000
       },
       "modalities": {
         "input": [
@@ -6800,7 +6805,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072
+        "context": 131072,
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -6813,7 +6819,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.02,
-        "output": 0.03
+        "output": 0.04
       }
     },
     {
@@ -6956,8 +6962,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 128000,
-        "output": 16384
+        "context": 131072
       },
       "modalities": {
         "input": [
@@ -6970,8 +6975,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.075,
-        "output": 0.2
+        "input": 0.1,
+        "output": 0.3,
+        "cache_input": 0.01
       }
     },
     {
@@ -7116,7 +7122,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 100352
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -7129,8 +7135,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.6,
-        "output": 2.5,
-        "cache_input": 0.15
+        "output": 2.5
       }
     },
     {
@@ -7148,7 +7153,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144
+        "context": 262144,
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -7161,9 +7167,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.375,
-        "output": 2.025,
-        "cache_input": 0.203
+        "input": 0.57,
+        "output": 2.85,
+        "cache_input": 0.095
       }
     },
     {
@@ -7200,7 +7206,7 @@
         "unit": "USD/Mtok",
         "input": 0.66,
         "output": 3.41,
-        "cache_input": 0.15
+        "cache_input": 0.144
       }
     },
     {
@@ -7366,8 +7372,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.45
+        "input": 0.21,
+        "output": 0.455,
+        "cache_input": 0.06
       }
     },
     {
@@ -7388,7 +7395,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 16384
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -7400,9 +7407,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 2.2,
-        "cache_input": 0.1
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.2
       }
     },
     {
@@ -7707,7 +7714,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 1047576
+        "context": 1047576,
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -7827,7 +7835,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 2.5,
-        "output": 10.0
+        "output": 10.0,
+        "cache_input": 1.25
       }
     },
     {
@@ -8375,7 +8384,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 32000
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -8391,7 +8400,7 @@
         "unit": "USD/Mtok",
         "input": 1.25,
         "output": 10.0,
-        "cache_input": 0.13,
+        "cache_input": 0.125,
         "web_search": 10000.0
       }
     },
@@ -8425,7 +8434,7 @@
         "unit": "USD/Mtok",
         "input": 1.25,
         "output": 10.0,
-        "cache_input": 0.13,
+        "cache_input": 0.125,
         "web_search": 10000.0
       }
     },
@@ -9286,8 +9295,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.03,
-        "output": 0.15
+        "input": 0.037,
+        "output": 0.17
       }
     },
     {
@@ -9307,7 +9316,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 32768
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -9319,8 +9328,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.029,
-        "output": 0.14
+        "input": 0.03,
+        "output": 0.13,
+        "cache_input": 0.03
       }
     },
     {
@@ -10005,7 +10015,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10017,9 +10027,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 0.58,
-        "cache_input": 0.035
+        "input": 0.2,
+        "output": 0.8,
+        "cache_input": 0.05
       }
     },
     {
@@ -10282,7 +10292,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576
+        "context": 1048576,
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10297,9 +10308,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.105,
+        "input": 0.14,
         "output": 0.28,
-        "cache_input": 0.028
+        "cache_input": 0.0028
       }
     },
     {
@@ -10491,8 +10502,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 200000,
-        "output": 16384
+        "context": 202752,
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10504,9 +10515,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.43,
-        "output": 1.75,
-        "cache_input": 0.08
+        "input": 0.5,
+        "output": 2.0,
+        "cache_input": 0.1
       }
     },
     {
@@ -10626,7 +10637,7 @@
       },
       "limit": {
         "context": 202752,
-        "output": 128000
+        "output": 202752
       },
       "modalities": {
         "input": [
@@ -10638,9 +10649,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 1.92,
-        "cache_input": 0.12
+        "input": 0.95,
+        "output": 3.15,
+        "cache_input": 0.19
       }
     },
     {
@@ -10658,7 +10669,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
+        "context": 202752,
         "output": 131072
       },
       "modalities": {
@@ -10730,7 +10741,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 128000
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10742,9 +10753,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.896,
-        "output": 2.816,
-        "cache_input": 0.1664
+        "input": 0.952,
+        "output": 2.992,
+        "cache_input": 0.1768
       }
     },
     {
