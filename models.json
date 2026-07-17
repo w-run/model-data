@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-16T05:14:29.891734+00:00",
-  "total_models": 341,
+  "generated_at": "2026-07-17T05:17:14.738377+00:00",
+  "total_models": 343,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -437,7 +437,7 @@
       },
       "limit": {
         "context": 131702,
-        "output": 16384
+        "output": 40960
       },
       "modalities": {
         "input": [
@@ -449,7 +449,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.12,
+        "input": 0.1,
         "output": 0.24
       }
     },
@@ -1614,9 +1614,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.45,
-        "output": 3.0,
-        "cache_input": 0.225
+        "input": 0.39,
+        "output": 2.34
       }
     },
     {
@@ -5714,8 +5713,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
-        "output": 131072
+        "context": 131072
       },
       "modalities": {
         "input": [
@@ -5728,9 +5726,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.45,
-        "cache_input": 0.04
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -6050,7 +6047,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 131072
+        "output": 80000
       },
       "modalities": {
         "input": [
@@ -6062,8 +6059,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.05,
-        "output": 0.33
+        "input": 0.0509,
+        "output": 0.335
       }
     },
     {
@@ -6191,6 +6188,43 @@
         "unit": "USD/Mtok",
         "input": 0.18,
         "output": 0.18
+      }
+    },
+    {
+      "id": "muse-spark-1.1",
+      "vendor_id": "meta",
+      "name": "Muse Spark 1.1",
+      "alias": [
+        "muse-spark-1.1-20260709"
+      ],
+      "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks. It accepts text, images, video, audio, and PDF documents and returns text, with a 1M-token context...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.25,
+        "output": 4.25,
+        "cache_input": 0.15,
+        "web_search": 2500.0
       }
     },
     {
@@ -6407,9 +6441,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_input": 0.06
+        "input": 0.25,
+        "output": 1.0,
+        "cache_input": 0.05
       }
     },
     {
@@ -7190,8 +7224,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 262144
       },
       "modalities": {
         "input": [
@@ -7204,9 +7237,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.66,
-        "output": 3.41,
-        "cache_input": 0.144
+        "input": 0.95,
+        "output": 4.0,
+        "cache_input": 0.16
       }
     },
     {
@@ -7240,9 +7273,41 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.719,
-        "output": 3.49,
-        "cache_input": 0.149
+        "input": 0.75,
+        "output": 3.5,
+        "cache_input": 0.16
+      }
+    },
+    {
+      "id": "kimi-k3",
+      "vendor_id": "moonshot",
+      "name": "Kimi K3",
+      "alias": [
+        "kimi-k3-20260715"
+      ],
+      "description": "Kimi K3 is an ultra-large-scale, open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at navigating...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1048576
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.3
       }
     },
     {
@@ -10753,9 +10818,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.952,
-        "output": 2.992,
-        "cache_input": 0.1768
+        "input": 0.9324,
+        "output": 2.9304,
+        "cache_input": 0.17316
       }
     },
     {
