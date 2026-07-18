@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-17T05:17:14.738377+00:00",
-  "total_models": 343,
+  "generated_at": "2026-07-18T04:52:13.415056+00:00",
+  "total_models": 341,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -437,7 +437,7 @@
       },
       "limit": {
         "context": 131702,
-        "output": 40960
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -449,7 +449,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
+        "input": 0.12,
         "output": 0.24
       }
     },
@@ -565,7 +565,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -577,8 +577,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.12,
-        "output": 0.5
+        "input": 0.13,
+        "output": 0.52
       }
     },
     {
@@ -1528,7 +1528,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1542,8 +1542,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.195,
-        "output": 1.56
+        "input": 0.26,
+        "output": 2.6
       }
     },
     {
@@ -4985,7 +4985,7 @@
         "unit": "USD/Mtok",
         "input": 0.098,
         "output": 0.196,
-        "cache_input": 0.02
+        "cache_input": 0.0196
       }
     },
     {
@@ -5977,35 +5977,6 @@
       }
     },
     {
-      "id": "llama-3.2-11b-vision-instruct",
-      "vendor_id": "meta",
-      "name": "Llama 3.2 11B Vision Instruct",
-      "knowledge_cutoff": "2023-12-31",
-      "description": "Llama 3.2 11B Vision is a multimodal model with 11 billion parameters, designed to handle tasks combining visual and textual data. It excels in tasks such as image captioning and...",
-      "capabilities": {
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 131072,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.345,
-        "output": 0.345
-      }
-    },
-    {
       "id": "llama-3.2-1b-instruct",
       "vendor_id": "meta",
       "name": "Llama 3.2 1B Instruct",
@@ -6852,8 +6823,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.02,
-        "output": 0.04
+        "input": 0.019,
+        "output": 0.03
       }
     },
     {
@@ -7156,7 +7127,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 100352
       },
       "modalities": {
         "input": [
@@ -7169,7 +7140,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.6,
-        "output": 2.5
+        "output": 2.5,
+        "cache_input": 0.15
       }
     },
     {
@@ -7273,9 +7245,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.75,
-        "output": 3.5,
-        "cache_input": 0.16
+        "input": 1.0,
+        "output": 4.4,
+        "cache_input": 0.2
       }
     },
     {
@@ -7285,7 +7257,7 @@
       "alias": [
         "kimi-k3-20260715"
       ],
-      "description": "Kimi K3 is an ultra-large-scale, open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at navigating...",
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -7308,39 +7280,6 @@
         "input": 3.0,
         "output": 15.0,
         "cache_input": 0.3
-      }
-    },
-    {
-      "id": "llama-3.3-nemotron-super-49b-v1.5",
-      "vendor_id": "nvidia",
-      "name": "Llama 3.3 Nemotron Super 49B V1.5",
-      "alias": [
-        "llama-3-3-nemotron-super-49b-v1-5"
-      ],
-      "knowledge_cutoff": "2024-03-31",
-      "description": "Llama-3.3-Nemotron-Super-49B-v1.5 is a 49B-parameter, English-centric reasoning/chat model derived from Meta’s Llama-3.3-70B-Instruct with a 128K context. It’s post-trained for agentic workflows (RAG, tool calling) via SFT across math, code, science, and...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 131072,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.4,
-        "output": 0.4
       }
     },
     {
@@ -10668,8 +10607,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 202752,
-        "output": 16384
+        "context": 200000,
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10681,9 +10620,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.4,
-        "cache_input": 0.01
+        "input": 0.0605,
+        "output": 0.4
       }
     },
     {
@@ -10818,9 +10756,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.9324,
-        "output": 2.9304,
-        "cache_input": 0.17316
+        "input": 0.4088,
+        "output": 1.2848,
+        "cache_input": 0.07592
       }
     },
     {
