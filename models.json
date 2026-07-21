@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-20T05:43:35.278127+00:00",
+  "generated_at": "2026-07-21T05:24:28.739040+00:00",
   "total_models": 314,
   "models": [
     {
@@ -720,8 +720,7 @@
       "name": "Qwen3 Coder 480B A35B",
       "alias": [
         "qwen3-coder-480b-a35b-07-25",
-        "qwen3-coder-480b-a35b-instruct",
-        "qwen3-coder:free"
+        "qwen3-coder-480b-a35b-instruct"
       ],
       "knowledge_cutoff": "2025-06-30",
       "description": "Qwen3-Coder-480B-A35B-Instruct is a Mixture-of-Experts (MoE) code generation model developed by the Qwen team. It is optimized for agentic coding tasks such as function calling, tool use, and long-context reasoning over...",
@@ -998,8 +997,7 @@
       "vendor_id": "alibaba",
       "name": "Qwen3 Next 80B A3B Instruct",
       "alias": [
-        "qwen3-next-80b-a3b-instruct-2509",
-        "qwen3-next-80b-a3b-instruct:free"
+        "qwen3-next-80b-a3b-instruct-2509"
       ],
       "knowledge_cutoff": "2025-09-30",
       "description": "Qwen3-Next-80B-A3B-Instruct is an instruction-tuned chat model in the Qwen3-Next series optimized for fast, stable responses without “thinking” traces. It targets complex tasks across reasoning, code generation, knowledge QA, and multilingual...",
@@ -1010,7 +1008,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1022,9 +1020,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 1.1,
-        "cache_input": 0.07
+        "input": 0.0975,
+        "output": 0.78
       }
     },
     {
@@ -3977,9 +3974,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.098,
-        "output": 0.196,
-        "cache_input": 0.0196
+        "input": 0.0938,
+        "output": 0.1876,
+        "cache_input": 0.01876
       }
     },
     {
@@ -4832,7 +4829,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -4846,9 +4843,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.22,
-        "output": 0.55,
-        "cache_input": 0.12
+        "input": 0.12,
+        "output": 0.37
       }
     },
     {
@@ -5001,9 +4997,6 @@
       "id": "llama-3.2-3b-instruct",
       "vendor_id": "meta",
       "name": "Llama 3.2 3B Instruct",
-      "alias": [
-        "llama-3.2-3b-instruct:free"
-      ],
       "knowledge_cutoff": "2023-12-31",
       "description": "Llama 3.2 3B is a 3-billion-parameter multilingual large language model, optimized for advanced natural language processing tasks like dialogue generation, reasoning, and summarization. Designed with the latest transformer architecture, it...",
       "capabilities": {
@@ -5032,9 +5025,6 @@
       "id": "llama-3.3-70b-instruct",
       "vendor_id": "meta",
       "name": "Llama 3.3 70B Instruct",
-      "alias": [
-        "llama-3.3-70b-instruct:free"
-      ],
       "knowledge_cutoff": "2023-12-31",
       "description": "The Meta Llama 3.3 multilingual large language model (LLM) is a pretrained and instruction tuned generative model in 70B (text in/text out). The Llama 3.3 instruction tuned text only model...",
       "capabilities": {
@@ -6241,9 +6231,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.85,
-        "output": 3.8,
-        "cache_input": 0.17
+        "input": 0.82,
+        "output": 3.75,
+        "cache_input": 0.16
       }
     },
     {
@@ -6360,7 +6350,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 16384
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -6372,8 +6362,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.085,
-        "output": 0.4
+        "input": 0.08,
+        "output": 0.45
       }
     },
     {
@@ -9002,8 +8992,7 @@
       "vendor_id": "tencent",
       "name": "Hy3",
       "alias": [
-        "hy3-20260706",
-        "hy3:free"
+        "hy3-20260706"
       ],
       "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
       "capabilities": {
@@ -9014,7 +9003,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 131072
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -9026,9 +9015,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.8,
-        "cache_input": 0.05
+        "input": 0.14,
+        "output": 0.58,
+        "cache_input": 0.035
       }
     },
     {
@@ -9751,9 +9740,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.259,
-        "output": 0.814,
-        "cache_input": 0.0481
+        "input": 0.9548,
+        "output": 3.0008,
+        "cache_input": 0.17732
       }
     },
     {
