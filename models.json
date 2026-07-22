@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-21T05:24:28.739040+00:00",
-  "total_models": 314,
+  "generated_at": "2026-07-22T05:23:17.644914+00:00",
+  "total_models": 316,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -79,7 +79,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 32768,
         "output": 16384
       },
       "modalities": {
@@ -111,7 +111,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 32768,
         "output": 32768
       },
       "modalities": {
@@ -141,7 +141,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 128000,
+        "context": 32768,
         "output": 32768
       },
       "modalities": {
@@ -399,7 +399,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 128000,
         "output": 128000
       },
       "modalities": {
@@ -436,7 +436,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 131702,
+        "context": 131072,
         "output": 16384
       },
       "modalities": {
@@ -627,7 +627,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 81920,
         "output": 32768
       },
       "modalities": {
@@ -730,7 +730,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 262144,
         "output": 65536
       },
       "modalities": {
@@ -764,7 +764,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 160000,
+        "context": 262144,
         "output": 32768
       },
       "modalities": {
@@ -1008,7 +1008,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1020,8 +1020,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0975,
-        "output": 0.78
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -1190,7 +1191,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 262144,
         "output": 32768
       },
       "modalities": {
@@ -1291,7 +1292,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 131072,
+        "context": 262144,
         "output": 32768
       },
       "modalities": {
@@ -1324,7 +1325,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 262144,
+        "context": 131072,
         "output": 32768
       },
       "modalities": {
@@ -1380,7 +1381,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 256000,
+        "context": 262144,
         "output": 32768
       },
       "modalities": {
@@ -1414,7 +1415,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 256000,
+        "context": 131072,
         "output": 32768
       },
       "modalities": {
@@ -2925,7 +2926,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 123000,
         "output": 16000
       },
       "modalities": {
@@ -3596,7 +3597,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 163840,
         "output": 16000
       },
       "modalities": {
@@ -3801,7 +3802,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 128000,
+        "context": 8192,
         "output": 8192
       },
       "modalities": {
@@ -3860,7 +3861,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 131072,
+        "context": 163840,
         "output": 32768
       },
       "modalities": {
@@ -4284,7 +4285,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 65536,
+        "context": 131072,
         "output": 32768
       },
       "modalities": {
@@ -4389,7 +4390,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 32768
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -4572,7 +4573,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048756,
+        "context": 1048576,
         "output": 65536
       },
       "modalities": {
@@ -4630,6 +4631,82 @@
         "unit": "USD/Mtok",
         "input": 1.5,
         "output": 9.0,
+        "cache_input": 0.15,
+        "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "vendor_id": "google",
+      "name": "Gemini 3.5 Flash-Lite",
+      "alias": [
+        "gemini-3.5-flash-lite-20260721"
+      ],
+      "description": "Gemini 3.5 Flash-Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.3,
+        "output": 2.5,
+        "cache_input": 0.03,
+        "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "vendor_id": "google",
+      "name": "Gemini 3.6 Flash",
+      "alias": [
+        "gemini-3.6-flash-20260721"
+      ],
+      "description": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development. It is designed to produce polished outputs with fewer unnecessary edits and...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.5,
+        "output": 7.5,
         "cache_input": 0.15,
         "web_search": 14000.0
       }
@@ -4704,7 +4781,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072
+        "context": 262144
       },
       "modalities": {
         "input": [
@@ -4976,7 +5053,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072,
+        "context": 60000,
         "output": 60000
       },
       "modalities": {
@@ -5098,7 +5175,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 10000000,
+        "context": 1310720,
         "output": 16384
       },
       "modalities": {
@@ -5127,7 +5204,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 163840,
+        "context": 1048576,
         "output": 16384
       },
       "modalities": {
@@ -5952,7 +6029,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 131072
+        "context": 256000
       },
       "modalities": {
         "input": [
@@ -6383,7 +6460,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1000000,
+        "context": 512288,
         "output": 65536
       },
       "modalities": {
@@ -8912,7 +8989,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 256000,
+        "context": 262144,
         "output": 256000
       },
       "modalities": {
@@ -9280,7 +9357,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 1050000,
         "output": 131072
       },
       "modalities": {
@@ -9316,7 +9393,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 1050000,
         "output": 131072
       },
       "modalities": {
@@ -9490,7 +9567,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 202752,
+        "context": 204800,
         "output": 131072
       },
       "modalities": {
@@ -9558,7 +9635,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 202752,
+        "context": 204800,
         "output": 131072
       },
       "modalities": {
@@ -9591,7 +9668,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 200000,
+        "context": 202752,
         "output": 131072
       },
       "modalities": {
@@ -9692,7 +9769,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 202752,
+        "context": 204800,
         "output": 128000
       },
       "modalities": {
@@ -9740,9 +9817,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.9548,
-        "output": 3.0008,
-        "cache_input": 0.17732
+        "input": 0.8148,
+        "output": 2.5608,
+        "cache_input": 0.15132
       }
     },
     {
