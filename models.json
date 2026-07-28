@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-07-27T05:54:44.668923+00:00",
-  "total_models": 344,
+  "generated_at": "2026-07-28T05:18:26.959138+00:00",
+  "total_models": 343,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1945,6 +1945,41 @@
       }
     },
     {
+      "id": "qwen3.7-flash",
+      "vendor_id": "alibaba",
+      "name": "Qwen3.7 Flash",
+      "alias": [
+        "qwen3.7-flash-20260727"
+      ],
+      "description": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba. It is suited for multimodal agents, visual coding, search, and computer interaction, with strengths in object recognition, spatial understanding, and real-world...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.03,
+        "output": 0.13,
+        "cache_input": 0.006
+      }
+    },
+    {
       "id": "qwen3.7-max",
       "vendor_id": "alibaba",
       "name": "Qwen3.7 Max",
@@ -3199,7 +3234,8 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06
+        "cache_input": 0.06,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3274,7 +3310,8 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3382,7 +3419,8 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0
+        "output": 9.0,
+        "web_search": 4.0
       },
       "max_thinking": 32768
     },
@@ -3445,6 +3483,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 131072,
       "supported_apis": [
         "chat",
@@ -3479,6 +3524,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.15,
+        "output": 1.5,
+        "cache_input": 0.03,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3515,6 +3567,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 8.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 32768,
       "supported_apis": [
         "batch",
@@ -3549,6 +3608,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 32768
     },
     {
@@ -3578,6 +3644,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3613,6 +3686,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12,
+        "web_search": 4.0
+      },
       "max_thinking": 131072
     },
     {
@@ -3642,6 +3722,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.2,
+        "output": 2.0,
+        "cache_input": 0.04,
+        "web_search": 4.0
       },
       "max_thinking": 32768
     },
@@ -3673,6 +3760,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3709,6 +3803,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
+      },
       "max_thinking": 262144,
       "supported_apis": [
         "chat",
@@ -3743,6 +3844,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.6,
+        "web_search": 4.0
+      },
       "max_thinking": 262144,
       "supported_apis": [
         "responses",
@@ -3772,6 +3880,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3806,6 +3921,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 8.0,
+        "cache_input": 0.24,
+        "web_search": 4.0
+      },
       "max_thinking": 131072
     },
     {
@@ -3832,6 +3954,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
+      },
       "max_thinking": 262144
     },
     {
@@ -3855,6 +3984,12 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 3.6,
+        "web_search": 4.0
       }
     },
     {
@@ -5903,8 +6038,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.12,
-        "output": 0.35,
+        "input": 0.14,
+        "output": 0.42,
         "cache_input": 0.05
       }
     },
@@ -7342,7 +7477,8 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true
+        "structured_output": true,
+        "temperature": true
       },
       "limit": {
         "context": 1048576
@@ -7479,7 +7615,7 @@
       },
       "limit": {
         "context": 512288,
-        "output": 16384
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -7491,9 +7627,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 2.2,
-        "cache_input": 0.1
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.2
       }
     },
     {
@@ -8083,37 +8219,6 @@
       }
     },
     {
-      "id": "gpt-4o-search-preview",
-      "vendor_id": "openai",
-      "name": "GPT-4o Search Preview",
-      "alias": [
-        "gpt-4o-search-preview-2025-03-11"
-      ],
-      "knowledge_cutoff": "2023-10-31",
-      "description": "GPT-4o Search Previewis a specialized model for web search in Chat Completions. It is trained to understand and execute web search queries.",
-      "capabilities": {
-        "structured_output": true
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 10.0,
-        "web_search": 35000.0
-      }
-    },
-    {
       "id": "gpt-5",
       "vendor_id": "openai",
       "name": "GPT-5",
@@ -8130,40 +8235,6 @@
       "limit": {
         "context": 400000,
         "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.25,
-        "output": 10.0,
-        "cache_input": 0.125,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "gpt-5-chat",
-      "vendor_id": "openai",
-      "name": "GPT-5 Chat",
-      "alias": [
-        "gpt-5-chat-2025-08-07"
-      ],
-      "knowledge_cutoff": "2024-09-30",
-      "description": "GPT-5 Chat is designed for advanced, natural, multimodal, and context-aware conversations for enterprise applications.",
-      "capabilities": {
-        "structured_output": true
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
       },
       "modalities": {
         "input": [
@@ -8437,7 +8508,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 16384
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -8453,7 +8524,7 @@
         "unit": "USD/Mtok",
         "input": 1.25,
         "output": 10.0,
-        "cache_input": 0.125,
+        "cache_input": 0.13,
         "web_search": 10000.0
       }
     },
@@ -9042,10 +9113,10 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.0,
-        "output": 6.0,
-        "cache_input": 0.1,
-        "web_search": 10000.0
+        "input": 0.5,
+        "output": 3.0,
+        "cache_input": 0.05,
+        "web_search": 5000.0
       }
     },
     {
@@ -9078,10 +9149,10 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.0,
-        "output": 6.0,
-        "cache_input": 0.1,
-        "web_search": 10000.0
+        "input": 0.5,
+        "output": 3.0,
+        "cache_input": 0.05,
+        "web_search": 5000.0
       }
     },
     {
@@ -9186,10 +9257,10 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 15.0,
-        "cache_input": 0.25,
-        "web_search": 10000.0
+        "input": 1.25,
+        "output": 7.5,
+        "cache_input": 0.125,
+        "web_search": 5000.0
       }
     },
     {
@@ -9222,10 +9293,10 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 15.0,
-        "cache_input": 0.25,
-        "web_search": 10000.0
+        "input": 1.25,
+        "output": 7.5,
+        "cache_input": 0.125,
+        "web_search": 5000.0
       }
     },
     {
@@ -10804,9 +10875,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.8218,
-        "output": 2.5828,
-        "cache_input": 0.15262
+        "input": 0.7238,
+        "output": 2.2748,
+        "cache_input": 0.13442
       }
     },
     {
