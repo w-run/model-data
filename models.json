@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-04T05:18:21.779585+00:00",
+  "generated_at": "2026-08-05T05:18:19.686429+00:00",
   "total_models": 340,
   "models": [
     {
@@ -399,8 +399,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 128000,
-        "output": 128000
+        "context": 128000
       },
       "modalities": {
         "input": [
@@ -413,9 +412,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.8,
-        "output": 1.0,
-        "cache_input": 0.4
+        "input": 0.25,
+        "output": 0.75
       }
     },
     {
@@ -6591,9 +6589,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 1.0,
-        "cache_input": 0.05
+        "input": 0.27,
+        "output": 1.08,
+        "cache_input": 0.054
       }
     },
     {
@@ -7128,8 +7126,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.075,
-        "output": 0.2
+        "input": 0.09375,
+        "output": 0.25
       }
     },
     {
@@ -10008,7 +10006,7 @@
         "grok-4.20-20260309"
       ],
       "knowledge_cutoff": "2025-09-01",
-      "description": "Grok 4.20 is a reasoning model from xAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherance, delivering...",
+      "description": "Grok 4.20 is a reasoning model from SpaceXAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherance, delivering...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -10044,7 +10042,7 @@
         "grok-4.20-multi-agent-20260309"
       ],
       "knowledge_cutoff": "2025-09-01",
-      "description": "Grok 4.20 Multi-Agent is a variant of xAI’s Grok 4.20 designed for collaborative, agent-based workflows. Multiple agents operate in parallel to conduct deep research, coordinate tool use, and synthesize information...",
+      "description": "Grok 4.20 Multi-Agent is a variant of SpaceXAI’s Grok 4.20 designed for collaborative, agent-based workflows. Multiple agents operate in parallel to conduct deep research, coordinate tool use, and synthesize information...",
       "capabilities": {
         "reasoning": true,
         "structured_output": true,
@@ -10078,7 +10076,7 @@
       "alias": [
         "grok-4.3-20260430"
       ],
-      "description": "Grok 4.3 is a reasoning model from xAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
+      "description": "Grok 4.3 is a reasoning model from SpaceXAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -10148,7 +10146,7 @@
       "alias": [
         "grok-build-0.1-20260520"
       ],
-      "description": "Grok Build 0.1 is xAI’s fast coding model trained specifically for agentic software engineering workflows. It supports text and image inputs with text output, and is optimized for interactive coding...",
+      "description": "Grok Build 0.1 is SpaceXAI’s fast coding model trained specifically for agentic software engineering workflows. It supports text and image inputs with text output, and is optimized for interactive coding...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
