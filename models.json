@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-10T04:00:03.652686+00:00",
+  "generated_at": "2026-08-11T03:48:12.564423+00:00",
   "total_models": 315,
   "models": [
     {
@@ -763,7 +763,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -776,7 +776,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.07,
-        "output": 0.27
+        "output": 0.28
       }
     },
     {
@@ -1039,7 +1039,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1596,7 +1596,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1610,8 +1610,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.39,
-        "output": 2.34
+        "input": 0.5,
+        "output": 3.6,
+        "cache_input": 0.3
       }
     },
     {
@@ -4160,9 +4161,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
+        "input": 0.08,
         "output": 0.18,
-        "cache_input": 0.018
+        "cache_input": 0.016
       }
     },
     {
@@ -4183,7 +4184,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 384000
+        "output": 393216
       },
       "modalities": {
         "input": [
@@ -4195,9 +4196,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.435,
-        "output": 0.87,
-        "cache_input": 0.003625
+        "input": 0.64432,
+        "output": 1.28864,
+        "cache_input": 0.054364
       }
     },
     {
@@ -5423,6 +5424,39 @@
         "unit": "USD/Mtok",
         "input": 0.18,
         "output": 0.18
+      }
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "vendor_id": "meta",
+      "name": "Muse Glimmer 30B",
+      "alias": [
+        "muse-glimmer-30b-20260810"
+      ],
+      "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware. It is suited for long-horizon...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.35,
+        "output": 1.5,
+        "cache_input": 0.04
       }
     },
     {
@@ -7731,7 +7765,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 16384
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -7817,40 +7851,6 @@
         "unit": "USD/Mtok",
         "input": 21.0,
         "output": 168.0,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "gpt-5.3-chat",
-      "vendor_id": "openai",
-      "name": "GPT-5.3 Chat",
-      "alias": [
-        "gpt-5.3-chat-20260303"
-      ],
-      "description": "GPT-5.3 Chat is an update to ChatGPT's most-used model that makes everyday conversations smoother, more useful, and more directly helpful. It delivers more accurate answers with better contextualization and significantly...",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.75,
-        "output": 14.0,
-        "cache_input": 0.175,
         "web_search": 10000.0
       }
     },
