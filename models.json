@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-13T04:15:17.012924+00:00",
-  "total_models": 349,
+  "generated_at": "2026-08-14T04:11:55.713514+00:00",
+  "total_models": 350,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1006,7 +1006,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1018,8 +1018,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 1.1
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -1039,7 +1040,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1254,7 +1255,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1267,8 +1268,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.6
+        "input": 0.13,
+        "output": 0.52
       }
     },
     {
@@ -1596,7 +1597,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1610,9 +1611,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.45,
-        "output": 3.0,
-        "cache_input": 0.045
+        "input": 0.5,
+        "output": 3.6,
+        "cache_input": 0.3
       }
     },
     {
@@ -2059,8 +2060,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 1000000,
-        "output": 52429
+        "context": 1010000,
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -2074,7 +2075,7 @@
         "unit": "USD/Mtok",
         "input": 2.0,
         "output": 6.0,
-        "cache_input": 0.2
+        "cache_input": 0.25
       }
     },
     {
@@ -5025,7 +5026,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 163840,
+        "context": 64000,
         "output": 16000
       },
       "modalities": {
@@ -5301,7 +5302,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 384000
+        "output": 393216
       },
       "modalities": {
         "input": [
@@ -5313,9 +5314,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.18,
-        "cache_input": 0.016
+        "input": 0.14,
+        "output": 0.28,
+        "cache_input": 0.028
       }
     },
     {
@@ -5845,7 +5846,7 @@
       },
       "limit": {
         "context": 65536,
-        "output": 65536
+        "output": 66000
       },
       "modalities": {
         "input": [
@@ -6091,10 +6092,49 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.5,
-        "output": 7.5,
-        "cache_input": 0.15,
+        "input": 0.75,
+        "output": 3.75,
+        "cache_input": 0.075,
         "web_search": 14000.0
+      }
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "vendor_id": "google",
+      "name": "Gemini 3.7 Flash",
+      "alias": [
+        "gemini-3.7-flash-20260813",
+        "gemini-3.7-flash:batch"
+      ],
+      "description": "Gemini 3.7 Flash is a multimodal model from Google for fast agentic workflows, coding, and complex multi-step reasoning. It is designed for tasks that require responsive performance and reliable multi-step...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.375,
+        "output": 1.875,
+        "cache_input": 0.0375,
+        "web_search": 7000.0
       }
     },
     {
@@ -11124,8 +11164,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 131072
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -11137,9 +11176,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 3.15,
-        "cache_input": 0.1
+        "input": 0.63,
+        "output": 1.98,
+        "cache_input": 0.0945
       }
     },
     {
