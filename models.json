@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-15T02:54:28.574390+00:00",
+  "generated_at": "2026-08-16T03:03:16.741387+00:00",
   "total_models": 323,
   "models": [
     {
@@ -1789,7 +1789,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1803,9 +1803,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_input": 0.12
+        "input": 0.3,
+        "output": 2.0,
+        "cache_input": 0.03
       }
     },
     {
@@ -2086,6 +2086,7 @@
       ],
       "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be...",
       "capabilities": {
+        "tool_call": true,
         "reasoning": true,
         "structured_output": true,
         "temperature": true
@@ -3337,8 +3338,7 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06,
-        "web_search": 4.0
+        "cache_input": 0.06
       }
     },
     {
@@ -3402,8 +3402,7 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
+        "cache_input": 0.16
       }
     },
     {
@@ -3465,8 +3464,7 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0,
-        "web_search": 4.0
+        "output": 9.0
       }
     },
     {
@@ -4265,9 +4263,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08106,
-        "output": 0.16212,
-        "cache_input": 0.016212
+        "input": 0.06426,
+        "output": 0.12852,
+        "cache_input": 0.012852
       }
     },
     {
@@ -9431,9 +9429,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.063,
-        "output": 0.21,
-        "cache_input": 0.021
+        "input": 0.18,
+        "output": 0.6,
+        "cache_input": 0.06
       }
     },
     {
@@ -10162,9 +10160,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.49,
-        "output": 1.54,
-        "cache_input": 0.091
+        "input": 0.462,
+        "output": 1.452,
+        "cache_input": 0.0858
       }
     },
     {
