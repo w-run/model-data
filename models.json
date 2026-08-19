@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-18T02:58:14.233621+00:00",
-  "total_models": 323,
+  "generated_at": "2026-08-19T03:00:26.381772+00:00",
+  "total_models": 324,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1008,7 +1008,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -1020,9 +1020,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 1.1,
-        "cache_input": 0.07
+        "input": 0.09,
+        "output": 1.1
       }
     },
     {
@@ -1792,7 +1791,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1806,9 +1805,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_input": 0.12
+        "input": 0.3,
+        "output": 2.0,
+        "cache_input": 0.03
       }
     },
     {
@@ -3342,7 +3341,8 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06
+        "cache_input": 0.06,
+        "web_search": 4.0
       }
     },
     {
@@ -3406,7 +3406,8 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16
+        "cache_input": 0.16,
+        "web_search": 4.0
       }
     },
     {
@@ -3468,7 +3469,8 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0
+        "output": 9.0,
+        "web_search": 4.0
       }
     },
     {
@@ -5319,7 +5321,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5333,9 +5335,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
+        "input": 0.09,
         "output": 0.34,
-        "cache_input": 0.1
+        "cache_input": 0.05
       }
     },
     {
@@ -6687,9 +6689,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.57,
-        "output": 2.85,
-        "cache_input": 0.095
+        "input": 0.45,
+        "output": 2.25,
+        "cache_input": 0.07
       }
     },
     {
@@ -10163,9 +10165,42 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 3.15,
-        "cache_input": 0.115
+        "input": 0.966,
+        "output": 3.036,
+        "cache_input": 0.1932
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "vendor_id": "z-ai",
+      "name": "GLM 5.3",
+      "alias": [
+        "glm-5.3-20260816"
+      ],
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.26
       }
     },
     {
