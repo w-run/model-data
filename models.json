@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-19T03:00:26.381772+00:00",
+  "generated_at": "2026-08-20T02:59:54.974217+00:00",
   "total_models": 324,
   "models": [
     {
@@ -1562,7 +1562,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1576,9 +1576,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.225,
-        "output": 1.8,
-        "cache_input": 0.225
+        "input": 0.25,
+        "output": 1.25,
+        "cache_input": 0.25
       }
     },
     {
@@ -1791,7 +1791,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -1805,9 +1805,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 2.0,
-        "cache_input": 0.03
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12
       }
     },
     {
@@ -2094,7 +2094,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
+        "context": 1000000,
         "output": 131072
       },
       "modalities": {
@@ -3341,8 +3341,7 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06,
-        "web_search": 4.0
+        "cache_input": 0.06
       }
     },
     {
@@ -3406,8 +3405,7 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
+        "cache_input": 0.16
       }
     },
     {
@@ -3469,8 +3467,7 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0,
-        "web_search": 4.0
+        "output": 9.0
       }
     },
     {
@@ -3923,7 +3920,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 65536
+        "output": 163840
       },
       "modalities": {
         "input": [
@@ -3935,9 +3932,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.27,
-        "output": 1.12,
-        "cache_input": 0.135
+        "input": 0.25,
+        "output": 1.0
       }
     },
     {
@@ -4268,9 +4264,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0826,
-        "output": 0.1652,
-        "cache_input": 0.01652
+        "input": 0.088606,
+        "output": 0.177212,
+        "cache_input": 0.017721
       }
     },
     {
@@ -4324,7 +4320,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 384000
+        "output": 393216
       },
       "modalities": {
         "input": [
@@ -4336,9 +4332,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 1.44,
+        "output": 2.88,
+        "cache_input": 0.1215
       }
     },
     {
@@ -4356,8 +4352,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
-        "output": 384000
+        "context": 1048576
       },
       "modalities": {
         "input": [
@@ -4369,9 +4364,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 1.188,
+        "output": 3.564,
+        "cache_input": 0.0396
       }
     },
     {
@@ -4833,7 +4828,7 @@
       },
       "limit": {
         "context": 65536,
-        "output": 66000
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -5913,8 +5908,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 204800,
-        "output": 196608
+        "context": 204800
       },
       "modalities": {
         "input": [
@@ -5926,9 +5920,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.22,
+        "input": 0.225,
         "output": 0.9,
-        "cache_input": 0.05
+        "cache_input": 0.06
       }
     },
     {
