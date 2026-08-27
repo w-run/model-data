@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-26T03:08:26.641850+00:00",
-  "total_models": 328,
+  "generated_at": "2026-08-27T12:36:52.581584+00:00",
+  "total_models": 330,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -498,7 +498,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -510,8 +510,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.55
+        "input": 0.0875,
+        "output": 0.35,
+        "cache_input": 0.0175
       }
     },
     {
@@ -1807,7 +1808,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1821,8 +1822,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 3.2
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12
       }
     },
     {
@@ -1857,8 +1859,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 1.0,
+        "input": 0.1,
+        "output": 0.9,
         "cache_input": 0.05
       }
     },
@@ -2127,6 +2129,41 @@
         "input": 0.425,
         "output": 2.55,
         "cache_input": 0.085
+      }
+    },
+    {
+      "id": "qwen3.8-flash",
+      "vendor_id": "alibaba",
+      "name": "Qwen3.8 Flash",
+      "alias": [
+        "qwen3.8-flash-20260826"
+      ],
+      "description": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart analysis, and long-video analysis.",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.15,
+        "output": 0.47,
+        "cache_input": 0.016
       }
     },
     {
@@ -3356,8 +3393,7 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06,
-        "web_search": 4.0
+        "cache_input": 0.06
       }
     },
     {
@@ -3421,8 +3457,7 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16,
-        "web_search": 4.0
+        "cache_input": 0.16
       }
     },
     {
@@ -3484,8 +3519,7 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0,
-        "web_search": 4.0
+        "output": 9.0
       }
     },
     {
@@ -4283,9 +4317,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.088606,
-        "output": 0.177212,
-        "cache_input": 0.017721
+        "input": 0.07952,
+        "output": 0.15904,
+        "cache_input": 0.015904
       }
     },
     {
@@ -4316,9 +4350,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04,
-        "output": 0.08,
-        "cache_input": 0.008
+        "input": 0.06,
+        "output": 0.12,
+        "cache_input": 0.012
       }
     },
     {
@@ -4350,9 +4384,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.44,
-        "output": 1.32,
-        "cache_input": 0.014
+        "input": 0.22,
+        "output": 0.66,
+        "cache_input": 0.007
       }
     },
     {
@@ -4385,9 +4419,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.790308,
-        "output": 1.580616,
-        "cache_input": 0.065859
+        "input": 0.87,
+        "output": 1.74,
+        "cache_input": 0.0725
       }
     },
     {
@@ -6905,9 +6939,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.67,
+        "input": 0.66,
         "output": 3.4,
-        "cache_input": 0.19
+        "cache_input": 0.18
       }
     },
     {
@@ -6961,7 +6995,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 228000
       },
       "modalities": {
         "input": [
@@ -6975,7 +7009,7 @@
         "unit": "USD/Mtok",
         "input": 0.05,
         "output": 0.2,
-        "cache_input": 0.03
+        "cache_input": 0.025
       }
     },
     {
@@ -10074,7 +10108,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -10086,9 +10120,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 2.0,
-        "cache_input": 0.1
+        "input": 0.43,
+        "output": 1.75,
+        "cache_input": 0.08
       }
     },
     {
@@ -10300,7 +10334,6 @@
       "name": "GLM 5.2",
       "alias": [
         "glm-5.2-20260616",
-        "glm-5.2:batch",
         "glm-5.2:free",
         "zai-org-glm-5.2"
       ],
@@ -10362,6 +10395,41 @@
         "input": 1.4,
         "output": 4.4,
         "cache_input": 0.26
+      }
+    },
+    {
+      "id": "glm-5.3-flash",
+      "vendor_id": "z-ai",
+      "name": "GLM 5.3 Flash",
+      "alias": [
+        "glm-5.3-flash-20260826"
+      ],
+      "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1310720,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.075,
+        "output": 0.25,
+        "cache_input": 0.015
       }
     },
     {
