@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-27T12:36:52.581584+00:00",
-  "total_models": 330,
+  "generated_at": "2026-08-28T14:08:37.023479+00:00",
+  "total_models": 357,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1507,7 +1507,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1521,8 +1521,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.26,
-        "output": 2.08
+        "input": 0.29,
+        "output": 2.4
       }
     },
     {
@@ -2079,7 +2079,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -3369,17 +3369,23 @@
       "id": "doubao-1.5-lite-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Lite 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-lite-32k-250115",
+        "doubao-1-5-lite-32k"
+      ],
+      "family": "Doubao 1.5 Lite",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5Lite，轻量版，32K上下文",
       "capabilities": {
+        "reasoning": true,
         "tool_call": true,
         "structured_output": true,
+        "vision": true,
         "temperature": true
       },
       "limit": {
         "context": 32768,
-        "output": 4096
+        "output": 12288
       },
       "modalities": {
         "input": [
@@ -3394,7 +3400,11 @@
         "input": 0.3,
         "output": 0.6,
         "cache_input": 0.06
-      }
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
     },
     {
       "id": "doubao-1.5-pro-256k",
@@ -3432,18 +3442,22 @@
       "id": "doubao-1.5-pro-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Pro 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-pro-32k-250115",
+        "doubao-1-5-pro-32k"
+      ],
+      "family": "Doubao 1.5 Pro",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5Pro，32K上下文",
       "capabilities": {
-        "reasoning": true,
         "tool_call": true,
+        "reasoning": true,
         "structured_output": true,
         "temperature": true
       },
       "limit": {
-        "context": 32768,
-        "output": 4096
+        "context": 131072,
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -3458,6 +3472,40 @@
         "input": 0.8,
         "output": 2.0,
         "cache_input": 0.16
+      },
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch",
+        "context"
+      ]
+    },
+    {
+      "id": "doubao-1.5-pro-32k-character",
+      "vendor_id": "bytedance",
+      "name": "Doubao 1.5 Pro 32K Character",
+      "alias": [
+        "doubao-1-5-pro-32k-character-250715",
+        "doubao-1-5-pro-32k-character"
+      ],
+      "family": "Doubao Character",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 32768,
+        "output": 12288
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
       }
     },
     {
@@ -3495,7 +3543,11 @@
       "id": "doubao-1.5-vision-pro-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Vision Pro 32K",
-      "family": "Doubao",
+      "alias": [
+        "doubao-1-5-vision-pro-32k-250115",
+        "doubao-1-5-vision-pro-32k"
+      ],
+      "family": "Doubao Vision",
       "knowledge_cutoff": "2024-12",
       "description": "豆包1.5视觉Pro，支持图像输入",
       "capabilities": {
@@ -3504,8 +3556,9 @@
         "temperature": true
       },
       "limit": {
-        "context": 32768,
-        "output": 4096
+        "context": 204800,
+        "input": 204800,
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -3520,6 +3573,914 @@
         "unit": "CNY/Mtok",
         "input": 3.0,
         "output": 9.0
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-embedding-vision",
+      "vendor_id": "bytedance",
+      "name": "Doubao Embedding Vision",
+      "alias": [
+        "doubao-embedding-vision-251215"
+      ],
+      "family": "Doubao Embedding",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "embedding"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.6",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6",
+      "alias": [
+        "doubao-seed-1-6-251015",
+        "doubao-seed-1-6"
+      ],
+      "family": "Doubao Seed 1.6",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 32768,
+        "output": 12288
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.6-flash",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6 Flash",
+      "alias": [
+        "doubao-seed-1-6-flash-250615",
+        "doubao-seed-1-6-flash"
+      ],
+      "family": "Doubao Seed 1.6 Flash",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 262144,
+      "supported_apis": [
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-1.6-vision",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.6 Vision",
+      "alias": [
+        "doubao-seed-1-6-vision-250815",
+        "doubao-seed-1-6-vision"
+      ],
+      "family": "Doubao Seed 1.6 Vision",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768
+    },
+    {
+      "id": "doubao-seed-1.8",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 1.8",
+      "alias": [
+        "doubao-seed-1-8-251228",
+        "doubao-seed-1-8"
+      ],
+      "family": "Doubao Seed 1.8",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-code",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Code",
+      "alias": [
+        "doubao-seed-2-0-code-preview-260215",
+        "doubao-seed-2-0-code"
+      ],
+      "family": "Doubao Seed 2.0 Code",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-lite",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Lite",
+      "alias": [
+        "doubao-seed-2-0-lite-260215",
+        "doubao-seed-2-0-lite"
+      ],
+      "family": "Doubao Seed 2.0 Lite",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768
+    },
+    {
+      "id": "doubao-seed-2.0-mini",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Mini",
+      "alias": [
+        "doubao-seed-2-0-mini-260215",
+        "doubao-seed-2-0-mini"
+      ],
+      "family": "Doubao Seed 2.0 Mini",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072
+    },
+    {
+      "id": "doubao-seed-2.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Pro",
+      "alias": [
+        "doubao-seed-2-0-pro-260215",
+        "doubao-seed-2-0-pro"
+      ],
+      "family": "Doubao Seed 2.0 Pro",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 32768,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.1-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.1 Pro",
+      "alias": [
+        "doubao-seed-2-1-pro-260628",
+        "doubao-seed-2-1-pro"
+      ],
+      "family": "Doubao Pro",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 262144
+    },
+    {
+      "id": "doubao-seed-2.1-turbo",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.1 Turbo",
+      "alias": [
+        "doubao-seed-2-1-turbo-260628",
+        "doubao-seed-2-1-turbo"
+      ],
+      "family": "Doubao",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-character",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Character",
+      "alias": [
+        "doubao-seed-character-260628"
+      ],
+      "family": "Doubao Character",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seed-code",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Code",
+      "alias": [
+        "doubao-seed-code-preview-251028"
+      ],
+      "family": "Doubao Code",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-evolving",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Evolving",
+      "family": "Doubao",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-translation",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Translation",
+      "alias": [
+        "doubao-seed-translation-250915"
+      ],
+      "family": "Doubao Translation",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 4096,
+        "input": 1024,
+        "output": 3072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      }
+    },
+    {
+      "id": "doubao-seed3d-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed3D 2.0",
+      "alias": [
+        "doubao-seed3d-2-0-260328",
+        "doubao-seed3d-2-0"
+      ],
+      "family": "Doubao Seed3D",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "3d_model"
+        ]
+      },
+      "max_thinking": 262144,
+      "generation_specs": {
+        "max_rpm": 300,
+        "max_concurrency": 5
+      },
+      "supported_apis": [
+        "responses",
+        "batch"
+      ]
+    },
+    {
+      "id": "doubao-seedance-1.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro",
+      "alias": [
+        "doubao-seedance-1-0-pro-250528",
+        "doubao-seedance-1-0-pro"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      },
+      "supported_apis": [
+        "batch",
+        "context"
+      ]
+    },
+    {
+      "id": "doubao-seedance-1.0-pro-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro Fast",
+      "alias": [
+        "doubao-seedance-1-0-pro-fast-251015",
+        "doubao-seedance-1-0-pro-fast"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "tool_call": true
+      },
+      "limit": {
+        "context": 131072,
+        "output": 16384
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedance-1.5-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.5 Pro",
+      "alias": [
+        "doubao-seedance-1-5-pro-251215",
+        "doubao-seedance-1-5-pro"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      }
+    },
+    {
+      "id": "doubao-seedance-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0",
+      "alias": [
+        "doubao-seedance-2-0-260128",
+        "doubao-seedance-2-0"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedance-2.0-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0 Fast",
+      "alias": [
+        "doubao-seedance-2-0-fast-260128",
+        "doubao-seedance-2-0-fast"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 262144,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 500
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedance-2.0-mini",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0 Mini",
+      "alias": [
+        "doubao-seedance-2-0-mini-260615",
+        "doubao-seedance-2-0-mini"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedance-2.5",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.5",
+      "alias": [
+        "doubao-seedance-2-5-260628",
+        "doubao-seedance-2-5"
+      ],
+      "family": "Doubao Seedance",
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~30 秒",
+        "format": "mp4, mov",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedream-4.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.0",
+      "alias": [
+        "doubao-seedream-4-0-250828",
+        "doubao-seedream-4-0"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "tool_call": true
+      },
+      "limit": {
+        "context": 131072,
+        "output": 16384
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "generation_specs": {
+        "max_rpm": 30000
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedream-4.5",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.5",
+      "alias": [
+        "doubao-seedream-4-5-251128",
+        "doubao-seedream-4-5"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedream-5.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0",
+      "alias": [
+        "doubao-seedream-5-0-260128",
+        "doubao-seedream-5-0"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 32768,
+      "generation_specs": {
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedream-5.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0 Pro",
+      "alias": [
+        "doubao-seedream-5-0-pro-260628",
+        "doubao-seedream-5-0-pro"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "tool_call": true
+      },
+      "limit": {
+        "context": 131072,
+        "output": 16384
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
       }
     },
     {
@@ -4240,7 +5201,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 147456
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -4252,9 +5213,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.26,
-        "output": 0.38,
-        "cache_input": 0.13
+        "input": 0.269,
+        "output": 0.4,
+        "cache_input": 0.1345
       }
     },
     {
@@ -4317,9 +5278,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.07952,
-        "output": 0.15904,
-        "cache_input": 0.015904
+        "input": 0.08708,
+        "output": 0.17416,
+        "cache_input": 0.017416
       }
     },
     {
@@ -4350,9 +5311,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.12,
-        "cache_input": 0.012
+        "input": 0.07,
+        "output": 0.14,
+        "cache_input": 0.014
       }
     },
     {
@@ -4440,7 +5401,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943717
+        "output": 384000
       },
       "modalities": {
         "input": [
@@ -4452,9 +5413,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.122,
-        "output": 3.366,
-        "cache_input": 0.0374
+        "input": 0.66,
+        "output": 1.98,
+        "cache_input": 0.022
       }
     },
     {
@@ -5277,7 +6238,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
+        "context": 131072,
         "output": 117964
       },
       "modalities": {
@@ -6105,6 +7066,9 @@
       "id": "codestral-2508",
       "vendor_id": "mistral",
       "name": "Codestral 2508",
+      "alias": [
+        "codestral-2508:batch"
+      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)",
       "capabilities": {
@@ -6232,39 +7196,12 @@
       }
     },
     {
-      "id": "ministral-8b",
-      "vendor_id": "mistral",
-      "name": "Ministral 8B",
-      "knowledge_cutoff": "2024-09-30",
-      "description": "Ministral 8B is an 8B parameter model featuring a unique interleaved sliding-window attention pattern for faster, memory-efficient inference. Designed for edge use cases, it supports up to 128k context length...",
-      "capabilities": {
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 128000,
-        "output": 102400
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.11,
-        "output": 0.11
-      }
-    },
-    {
       "id": "ministral-8b-2512",
       "vendor_id": "mistral",
       "name": "Ministral 3 8B 2512",
       "alias": [
-        "ministral-3-8b-instruct-2512"
+        "ministral-3-8b-instruct-2512",
+        "ministral-8b-2512:batch"
       ],
       "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities.",
       "capabilities": {
@@ -6358,6 +7295,9 @@
       "id": "mistral-large-2512",
       "vendor_id": "mistral",
       "name": "Mistral Large 3 2512",
+      "alias": [
+        "mistral-large-2512:batch"
+      ],
       "description": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
       "capabilities": {
         "tool_call": true,
@@ -6422,7 +7362,8 @@
       "vendor_id": "mistral",
       "name": "Mistral Medium 3.5",
       "alias": [
-        "mistral-medium-3.5-20260430"
+        "mistral-medium-3.5-20260430",
+        "mistral-medium-3-5:batch"
       ],
       "description": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI. It supports text and image inputs with text output, and is designed for agentic workflows, coding, and complex...",
       "capabilities": {
@@ -6455,6 +7396,9 @@
       "id": "mistral-medium-3.1",
       "vendor_id": "mistral",
       "name": "Mistral Medium 3.1",
+      "alias": [
+        "mistral-medium-3.1:batch"
+      ],
       "knowledge_cutoff": "2025-06-30",
       "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances...",
       "capabilities": {
@@ -6582,7 +7526,8 @@
       "vendor_id": "mistral",
       "name": "Mistral Small 4",
       "alias": [
-        "mistral-small-4-119b-2603"
+        "mistral-small-4-119b-2603",
+        "mistral-small-2603:batch"
       ],
       "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from...",
       "capabilities": {
@@ -6913,7 +7858,6 @@
       "name": "Kimi K2.7 Code",
       "alias": [
         "kimi-k2.7-code-20260612",
-        "kimi-k2.7-code:batch",
         "moonshotai-kimi-k2.7-code"
       ],
       "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts...",
@@ -7095,8 +8039,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 512288,
-        "output": 461059
+        "context": 262144,
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -7108,9 +8052,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_input": 0.2
+        "input": 0.5,
+        "output": 2.2,
+        "cache_input": 0.1
       }
     },
     {
@@ -7158,7 +8102,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 131072
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -7170,18 +8114,15 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.2,
-        "cache_input": 0.04
+        "input": 0.1,
+        "output": 0.25,
+        "cache_input": 0.05
       }
     },
     {
       "id": "gpt-3.5-turbo",
       "vendor_id": "openai",
       "name": "GPT-3.5 Turbo",
-      "alias": [
-        "gpt-3.5-turbo:batch"
-      ],
       "knowledge_cutoff": "2021-09-30",
       "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
       "capabilities": {
@@ -7204,8 +8145,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.5,
-        "output": 1.5,
-        "web_search": 10000.0
+        "output": 1.5
       }
     },
     {
@@ -7327,9 +8267,6 @@
       "id": "gpt-4-turbo",
       "vendor_id": "openai",
       "name": "GPT-4 Turbo",
-      "alias": [
-        "gpt-4-turbo:batch"
-      ],
       "knowledge_cutoff": "2023-12-31",
       "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023.",
       "capabilities": {
@@ -7353,8 +8290,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 10.0,
-        "output": 30.0,
-        "web_search": 10000.0
+        "output": 30.0
       }
     },
     {
@@ -7391,8 +8327,7 @@
       "vendor_id": "openai",
       "name": "GPT-4.1",
       "alias": [
-        "gpt-4.1-2025-04-14",
-        "gpt-4.1:batch"
+        "gpt-4.1-2025-04-14"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning. It supports a 1 million token context window and outperforms GPT-4o and...",
@@ -7428,8 +8363,7 @@
       "vendor_id": "openai",
       "name": "GPT-4.1 Mini",
       "alias": [
-        "gpt-4.1-mini-2025-04-14",
-        "gpt-4.1-mini:batch"
+        "gpt-4.1-mini-2025-04-14"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost. It retains a 1 million token context window and scores 45.1% on hard...",
@@ -7465,8 +8399,7 @@
       "vendor_id": "openai",
       "name": "GPT-4.1 Nano",
       "alias": [
-        "gpt-4.1-nano-2025-04-14",
-        "gpt-4.1-nano:batch"
+        "gpt-4.1-nano-2025-04-14"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "For tasks that demand low latency, GPT‑4.1 nano is the fastest and cheapest model in the GPT-4.1 series. It delivers exceptional performance at a small size with its 1 million...",
@@ -7477,7 +8410,7 @@
       },
       "limit": {
         "context": 1047576,
-        "output": 32768
+        "output": 942818
       },
       "modalities": {
         "input": [
@@ -7493,7 +8426,7 @@
         "unit": "USD/Mtok",
         "input": 0.1,
         "output": 0.4,
-        "cache_input": 0.025,
+        "cache_input": 0.03,
         "web_search": 10000.0
       }
     },
@@ -7501,9 +8434,6 @@
       "id": "gpt-4o",
       "vendor_id": "openai",
       "name": "GPT-4o",
-      "alias": [
-        "gpt-4o:batch"
-      ],
       "knowledge_cutoff": "2023-10-31",
       "description": "GPT-4o (\"o\" for \"omni\") is OpenAI's latest AI model, supporting both text and image inputs with text outputs. It maintains the intelligence level of [GPT-4 Turbo](/models/openai/gpt-4-turbo) while being twice as...",
       "capabilities": {
@@ -7529,8 +8459,7 @@
         "unit": "USD/Mtok",
         "input": 2.5,
         "output": 10.0,
-        "cache_input": 1.25,
-        "web_search": 10000.0
+        "cache_input": 1.25
       }
     },
     {
@@ -7632,9 +8561,6 @@
       "id": "gpt-4o-mini",
       "vendor_id": "openai",
       "name": "GPT-4o-mini",
-      "alias": [
-        "gpt-4o-mini:batch"
-      ],
       "knowledge_cutoff": "2023-10-31",
       "description": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs. As their most advanced small model, it is many multiples more affordable...",
       "capabilities": {
@@ -7660,8 +8586,7 @@
         "unit": "USD/Mtok",
         "input": 0.15,
         "output": 0.6,
-        "cache_input": 0.075,
-        "web_search": 10000.0
+        "cache_input": 0.075
       }
     },
     {
@@ -7701,8 +8626,7 @@
       "vendor_id": "openai",
       "name": "GPT-5",
       "alias": [
-        "gpt-5-2025-08-07",
-        "gpt-5:batch"
+        "gpt-5-2025-08-07"
       ],
       "knowledge_cutoff": "2024-09-30",
       "description": "GPT-5 is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and accuracy...",
@@ -7730,41 +8654,6 @@
         "input": 1.25,
         "output": 10.0,
         "cache_input": 0.125,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "gpt-5-codex",
-      "vendor_id": "openai",
-      "name": "GPT-5 Codex (batch)",
-      "alias": [
-        "gpt-5-codex:batch"
-      ],
-      "knowledge_cutoff": "2024-09-30",
-      "description": "GPT-5-Codex is a specialized version of GPT-5 optimized for software engineering and coding workflows. It is designed for both interactive development sessions and long, independent execution of complex engineering tasks....",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 400000,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.625,
-        "output": 5.0,
-        "cache_input": 0.0625,
         "web_search": 10000.0
       }
     },
@@ -7839,8 +8728,7 @@
       "vendor_id": "openai",
       "name": "GPT-5 Mini",
       "alias": [
-        "gpt-5-mini-2025-08-07",
-        "gpt-5-mini:batch"
+        "gpt-5-mini-2025-08-07"
       ],
       "knowledge_cutoff": "2024-05-31",
       "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
@@ -7876,8 +8764,7 @@
       "vendor_id": "openai",
       "name": "GPT-5 Nano",
       "alias": [
-        "gpt-5-nano-2025-08-07",
-        "gpt-5-nano:batch"
+        "gpt-5-nano-2025-08-07"
       ],
       "knowledge_cutoff": "2024-05-31",
       "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
@@ -7913,8 +8800,7 @@
       "vendor_id": "openai",
       "name": "GPT-5 Pro",
       "alias": [
-        "gpt-5-pro-2025-10-06",
-        "gpt-5-pro:batch"
+        "gpt-5-pro-2025-10-06"
       ],
       "knowledge_cutoff": "2024-09-30",
       "description": "GPT-5 Pro is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and...",
@@ -7949,8 +8835,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.1",
       "alias": [
-        "gpt-5.1-20251113",
-        "gpt-5.1:batch"
+        "gpt-5.1-20251113"
       ],
       "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
       "capabilities": {
@@ -8087,8 +8972,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.2",
       "alias": [
-        "gpt-5.2-20251211",
-        "gpt-5.2:batch"
+        "gpt-5.2-20251211"
       ],
       "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly...",
       "capabilities": {
@@ -8191,8 +9075,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.2 Pro",
       "alias": [
-        "gpt-5.2-pro-20251211",
-        "gpt-5.2-pro:batch"
+        "gpt-5.2-pro-20251211"
       ],
       "description": "GPT-5.2 Pro is OpenAI’s most advanced model, offering major improvements in agentic coding and long context performance over GPT-5 Pro. It is optimized for complex tasks that require step-by-step reasoning,...",
       "capabilities": {
@@ -8261,8 +9144,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.4",
       "alias": [
-        "gpt-5.4-20260305",
-        "gpt-5.4:batch"
+        "gpt-5.4-20260305"
       ],
       "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
       "capabilities": {
@@ -8332,8 +9214,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Mini",
       "alias": [
-        "gpt-5.4-mini-20260317",
-        "gpt-5.4-mini:batch"
+        "gpt-5.4-mini-20260317"
       ],
       "knowledge_cutoff": "2025-08-31",
       "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
@@ -8369,8 +9250,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Nano",
       "alias": [
-        "gpt-5.4-nano-20260317",
-        "gpt-5.4-nano:batch"
+        "gpt-5.4-nano-20260317"
       ],
       "knowledge_cutoff": "2025-08-31",
       "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
@@ -8406,8 +9286,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Pro",
       "alias": [
-        "gpt-5.4-pro-20260305",
-        "gpt-5.4-pro:batch"
+        "gpt-5.4-pro-20260305"
       ],
       "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K...",
       "capabilities": {
@@ -8441,8 +9320,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.5",
       "alias": [
-        "gpt-5.5-20260423",
-        "gpt-5.5:batch"
+        "gpt-5.5-20260423"
       ],
       "knowledge_cutoff": "2025-12-01",
       "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token...",
@@ -8478,8 +9356,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.5 Pro",
       "alias": [
-        "gpt-5.5-pro-20260423",
-        "gpt-5.5-pro:batch"
+        "gpt-5.5-pro-20260423"
       ],
       "knowledge_cutoff": "2025-12-01",
       "description": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads. It features a 1M+ token context window (922K input, 128K output) with support for...",
@@ -8514,8 +9391,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Luna",
       "alias": [
-        "gpt-5.6-luna-20260709",
-        "gpt-5.6-luna:batch"
+        "gpt-5.6-luna-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for...",
@@ -8551,8 +9427,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Luna Pro",
       "alias": [
-        "gpt-5.6-luna-pro-20260709",
-        "gpt-5.6-luna-pro:batch"
+        "gpt-5.6-luna-pro-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8588,8 +9463,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Sol",
       "alias": [
-        "gpt-5.6-sol-20260709",
-        "gpt-5.6-sol:batch"
+        "gpt-5.6-sol-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks...",
@@ -8625,8 +9499,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Sol Pro",
       "alias": [
-        "gpt-5.6-sol-pro-20260709",
-        "gpt-5.6-sol-pro:batch"
+        "gpt-5.6-sol-pro-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8662,8 +9535,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Terra",
       "alias": [
-        "gpt-5.6-terra-20260709",
-        "gpt-5.6-terra:batch"
+        "gpt-5.6-terra-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier. It is suited for everyday coding, reasoning, and agentic...",
@@ -8699,8 +9571,7 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Terra Pro",
       "alias": [
-        "gpt-5.6-terra-pro-20260709",
-        "gpt-5.6-terra-pro:batch"
+        "gpt-5.6-terra-pro-20260709"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8921,8 +9792,7 @@
       "vendor_id": "openai",
       "name": "o1",
       "alias": [
-        "o1-2024-12-17",
-        "o1:batch"
+        "o1-2024-12-17"
       ],
       "knowledge_cutoff": "2023-10-31",
       "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason...",
@@ -8957,9 +9827,6 @@
       "id": "o1-pro",
       "vendor_id": "openai",
       "name": "o1-pro",
-      "alias": [
-        "o1-pro:batch"
-      ],
       "knowledge_cutoff": "2023-10-31",
       "description": "The o1 series of models are trained with reinforcement learning to think before they answer and perform complex reasoning. The o1-pro model uses more compute to think harder and provide...",
       "capabilities": {
@@ -8992,8 +9859,7 @@
       "vendor_id": "openai",
       "name": "o3",
       "alias": [
-        "o3-2025-04-16",
-        "o3:batch"
+        "o3-2025-04-16"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks. It also excels at technical writing and instruction-following....",
@@ -9029,8 +9895,7 @@
       "vendor_id": "openai",
       "name": "o3 Mini",
       "alias": [
-        "o3-mini-2025-01-31",
-        "o3-mini:batch"
+        "o3-mini-2025-01-31"
       ],
       "knowledge_cutoff": "2023-10-31",
       "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
@@ -9065,8 +9930,7 @@
       "vendor_id": "openai",
       "name": "o3 Mini High",
       "alias": [
-        "o3-mini-high-2025-01-31",
-        "o3-mini-high:batch"
+        "o3-mini-high-2025-01-31"
       ],
       "knowledge_cutoff": "2023-10-31",
       "description": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o3-mini) with reasoning_effort set to high. o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and...",
@@ -9101,8 +9965,7 @@
       "vendor_id": "openai",
       "name": "o3 Pro",
       "alias": [
-        "o3-pro-2025-06-10",
-        "o3-pro:batch"
+        "o3-pro-2025-06-10"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "The o-series of models are trained with reinforcement learning to think before they answer and perform complex reasoning. The o3-pro model uses more compute to think harder and provide consistently...",
@@ -9137,8 +10000,7 @@
       "vendor_id": "openai",
       "name": "o4 Mini",
       "alias": [
-        "o4-mini-2025-04-16",
-        "o4-mini:batch"
+        "o4-mini-2025-04-16"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
@@ -9174,8 +10036,7 @@
       "vendor_id": "openai",
       "name": "o4 Mini High",
       "alias": [
-        "o4-mini-high-2025-04-16",
-        "o4-mini-high:batch"
+        "o4-mini-high-2025-04-16"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "OpenAI o4-mini-high is the same model as [o4-mini](/openai/o4-mini) with reasoning_effort set to high. OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining...",
@@ -9644,6 +10505,39 @@
         "input": 0.18,
         "output": 0.6,
         "cache_input": 0.06
+      }
+    },
+    {
+      "id": "hy4-preview",
+      "vendor_id": "tencent",
+      "name": "Hy4 preview",
+      "alias": [
+        "hy4-preview-20260827"
+      ],
+      "description": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 64000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.834,
+        "output": 2.501,
+        "cache_input": 0.042
       }
     },
     {
