@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-28T14:08:37.023479+00:00",
+  "generated_at": "2026-08-29T08:46:21.902145+00:00",
   "total_models": 357,
   "models": [
     {
@@ -1274,7 +1274,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -1287,8 +1287,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.13,
-        "output": 0.52
+        "input": 0.15,
+        "output": 0.6
       }
     },
     {
@@ -1661,6 +1661,7 @@
       "name": "Qwen3.5-9B",
       "alias": [
         "qwen3.5-9b-20260310",
+        "qwen3.5-9b:batch",
         "qwen-qwen3.5-9b"
       ],
       "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
@@ -2068,7 +2069,8 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.8 2.4T A95B",
       "alias": [
-        "qwen3.8-2.4t-a95b-20260812"
+        "qwen3.8-2.4t-a95b-20260812",
+        "qwen3.8-2.4t-a95b:batch"
       ],
       "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is...",
       "capabilities": {
@@ -3399,7 +3401,8 @@
         "unit": "CNY/Mtok",
         "input": 0.3,
         "output": 0.6,
-        "cache_input": 0.06
+        "cache_input": 0.06,
+        "web_search": 4.0
       },
       "supported_apis": [
         "chat",
@@ -3471,7 +3474,8 @@
         "unit": "CNY/Mtok",
         "input": 0.8,
         "output": 2.0,
-        "cache_input": 0.16
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "supported_apis": [
         "chat",
@@ -3572,7 +3576,8 @@
       "price": {
         "unit": "CNY/Mtok",
         "input": 3.0,
-        "output": 9.0
+        "output": 9.0,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3636,6 +3641,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "supported_apis": [
         "chat",
         "responses"
@@ -3668,6 +3680,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.15,
+        "output": 1.5,
+        "cache_input": 0.03,
+        "web_search": 4.0
       },
       "max_thinking": 262144,
       "supported_apis": [
@@ -3703,6 +3722,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 8.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
       "max_thinking": 32768
     },
     {
@@ -3732,6 +3758,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3765,6 +3798,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3800,6 +3840,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12,
+        "web_search": 4.0
+      },
       "max_thinking": 32768
     },
     {
@@ -3829,6 +3876,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.2,
+        "output": 2.0,
+        "cache_input": 0.04,
+        "web_search": 4.0
       },
       "max_thinking": 131072
     },
@@ -3860,6 +3914,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
       },
       "max_thinking": 32768,
       "supported_apis": [
@@ -3895,6 +3956,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
+      },
       "max_thinking": 262144
     },
     {
@@ -3924,6 +3992,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.6,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3957,6 +4032,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -3992,6 +4074,13 @@
           "text"
         ]
       },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 8.0,
+        "cache_input": 0.24,
+        "web_search": 4.0
+      },
       "max_thinking": 131072,
       "supported_apis": [
         "responses"
@@ -4020,6 +4109,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
       },
       "max_thinking": 131072,
       "supported_apis": [
@@ -4053,6 +4149,12 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 3.6,
+        "web_search": 4.0
       }
     },
     {
@@ -5278,9 +5380,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08708,
-        "output": 0.17416,
-        "cache_input": 0.017416
+        "input": 0.08428,
+        "output": 0.16856,
+        "cache_input": 0.016856
       }
     },
     {
@@ -5288,7 +5390,8 @@
       "vendor_id": "deepseek",
       "name": "DeepSeek V4 Flash 0731",
       "alias": [
-        "deepseek-v4-flash-20260731"
+        "deepseek-v4-flash-20260731",
+        "deepseek-v4-flash-0731:batch"
       ],
       "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
       "capabilities": {
@@ -5311,9 +5414,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.07,
-        "output": 0.14,
-        "cache_input": 0.014
+        "input": 0.045,
+        "output": 0.09,
+        "cache_input": 0.009
       }
     },
     {
@@ -5380,9 +5483,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.87,
-        "output": 1.74,
-        "cache_input": 0.0725
+        "input": 0.660504,
+        "output": 1.321008,
+        "cache_input": 0.055042
       }
     },
     {
@@ -5390,7 +5493,8 @@
       "vendor_id": "deepseek",
       "name": "DeepSeek V4 Pro 0813",
       "alias": [
-        "deepseek-v4-pro-20260813"
+        "deepseek-v4-pro-20260813",
+        "deepseek-v4-pro-0813:batch"
       ],
       "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro.",
       "capabilities": {
@@ -6162,9 +6266,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.375,
-        "output": 1.875,
-        "cache_input": 0.0375,
+        "input": 0.75,
+        "output": 3.75,
+        "cache_input": 0.075,
         "web_search": 14000.0
       }
     },
@@ -6327,6 +6431,7 @@
       "name": "Gemma 4 31B",
       "alias": [
         "gemma-4-31b-it-20260402",
+        "gemma-4-31b-it:batch",
         "gemma-4-31b-it:free"
       ],
       "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
@@ -6662,7 +6767,8 @@
       "vendor_id": "meta",
       "name": "Muse Glimmer 30B",
       "alias": [
-        "muse-glimmer-30b-20260810"
+        "muse-glimmer-30b-20260810",
+        "muse-glimmer-30b:batch"
       ],
       "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware. It is suited for long-horizon...",
       "capabilities": {
@@ -6673,7 +6779,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 117964
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -6686,8 +6792,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.35,
-        "output": 1.5,
+        "input": 0.3,
+        "output": 1.2,
         "cache_input": 0.04
       }
     },
@@ -7665,8 +7771,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 32000,
-        "output": 25600
+        "context": 32768,
+        "output": 26214
       },
       "modalities": {
         "input": [
@@ -7893,7 +7999,8 @@
       "vendor_id": "moonshot",
       "name": "Kimi K3",
       "alias": [
-        "kimi-k3-20260715"
+        "kimi-k3-20260715",
+        "kimi-k3:batch"
       ],
       "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
       "capabilities": {
@@ -8102,7 +8209,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -8114,9 +8221,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.25,
-        "cache_input": 0.05
+        "input": 0.08,
+        "output": 0.2,
+        "cache_input": 0.04
       }
     },
     {
@@ -9700,6 +9807,9 @@
       "id": "gpt-oss-120b",
       "vendor_id": "openai",
       "name": "gpt-oss-120b",
+      "alias": [
+        "gpt-oss-120b:batch"
+      ],
       "knowledge_cutoff": "2024-06-30",
       "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized...",
       "capabilities": {
@@ -9730,6 +9840,9 @@
       "id": "gpt-oss-20b",
       "vendor_id": "openai",
       "name": "gpt-oss-20b",
+      "alias": [
+        "gpt-oss-20b:batch"
+      ],
       "knowledge_cutoff": "2024-06-30",
       "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for...",
       "capabilities": {
@@ -11273,7 +11386,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 1310720,
         "output": 131072
       },
       "modalities": {
@@ -11296,7 +11409,8 @@
       "vendor_id": "z-ai",
       "name": "GLM 5.3 Flash",
       "alias": [
-        "glm-5.3-flash-20260826"
+        "glm-5.3-flash-20260826",
+        "glm-5.3-flash:batch"
       ],
       "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
       "capabilities": {
