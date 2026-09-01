@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-31T08:21:52.357670+00:00",
+  "generated_at": "2026-09-01T07:30:04.454674+00:00",
   "total_models": 329,
   "models": [
     {
@@ -1024,7 +1024,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1036,8 +1036,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 1.1
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -2137,7 +2138,8 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.8 Flash",
       "alias": [
-        "qwen3.8-flash-20260826"
+        "qwen3.8-flash-20260826",
+        "qwen3.8-flash-next"
       ],
       "description": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart analysis, and long-video analysis.",
       "capabilities": {
@@ -4321,9 +4323,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.088606,
-        "output": 0.177212,
-        "cache_input": 0.017721
+        "input": 0.08092,
+        "output": 0.16184,
+        "cache_input": 0.016184
       }
     },
     {
@@ -4458,9 +4460,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 1.1154,
+        "output": 3.3462,
+        "cache_input": 0.03718
       }
     },
     {
@@ -5656,7 +5658,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 8192
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5669,9 +5671,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.11,
-        "output": 0.34,
-        "cache_input": 0.055
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -6113,9 +6114,6 @@
       "id": "codestral-2508",
       "vendor_id": "mistral",
       "name": "Codestral 2508",
-      "alias": [
-        "codestral-2508:batch"
-      ],
       "knowledge_cutoff": "2025-03-31",
       "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)",
       "capabilities": {
@@ -6247,8 +6245,7 @@
       "vendor_id": "mistral",
       "name": "Ministral 3 8B 2512",
       "alias": [
-        "ministral-3-8b-instruct-2512",
-        "ministral-8b-2512:batch"
+        "ministral-3-8b-instruct-2512"
       ],
       "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities.",
       "capabilities": {
@@ -6342,9 +6339,6 @@
       "id": "mistral-large-2512",
       "vendor_id": "mistral",
       "name": "Mistral Large 3 2512",
-      "alias": [
-        "mistral-large-2512:batch"
-      ],
       "description": "Mistral Large 3 2512 is Mistral’s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license.",
       "capabilities": {
         "tool_call": true,
@@ -6443,9 +6437,6 @@
       "id": "mistral-medium-3.1",
       "vendor_id": "mistral",
       "name": "Mistral Medium 3.1",
-      "alias": [
-        "mistral-medium-3.1:batch"
-      ],
       "knowledge_cutoff": "2025-06-30",
       "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances...",
       "capabilities": {
@@ -6573,8 +6564,7 @@
       "vendor_id": "mistral",
       "name": "Mistral Small 4",
       "alias": [
-        "mistral-small-4-119b-2603",
-        "mistral-small-2603:batch"
+        "mistral-small-4-119b-2603"
       ],
       "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from...",
       "capabilities": {
@@ -7171,6 +7161,9 @@
       "id": "gpt-3.5-turbo",
       "vendor_id": "openai",
       "name": "GPT-3.5 Turbo",
+      "alias": [
+        "gpt-3.5-turbo:batch"
+      ],
       "knowledge_cutoff": "2021-09-30",
       "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
       "capabilities": {
@@ -7193,7 +7186,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.5,
-        "output": 1.5
+        "output": 1.5,
+        "web_search": 10000.0
       }
     },
     {
@@ -7315,6 +7309,9 @@
       "id": "gpt-4-turbo",
       "vendor_id": "openai",
       "name": "GPT-4 Turbo",
+      "alias": [
+        "gpt-4-turbo:batch"
+      ],
       "knowledge_cutoff": "2023-12-31",
       "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023.",
       "capabilities": {
@@ -7338,7 +7335,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 10.0,
-        "output": 30.0
+        "output": 30.0,
+        "web_search": 10000.0
       }
     },
     {
@@ -7375,7 +7373,8 @@
       "vendor_id": "openai",
       "name": "GPT-4.1",
       "alias": [
-        "gpt-4.1-2025-04-14"
+        "gpt-4.1-2025-04-14",
+        "gpt-4.1:batch"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "GPT-4.1 is a flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning. It supports a 1 million token context window and outperforms GPT-4o and...",
@@ -7411,7 +7410,8 @@
       "vendor_id": "openai",
       "name": "GPT-4.1 Mini",
       "alias": [
-        "gpt-4.1-mini-2025-04-14"
+        "gpt-4.1-mini-2025-04-14",
+        "gpt-4.1-mini:batch"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "GPT-4.1 Mini is a mid-sized model delivering performance competitive with GPT-4o at substantially lower latency and cost. It retains a 1 million token context window and scores 45.1% on hard...",
@@ -7447,7 +7447,8 @@
       "vendor_id": "openai",
       "name": "GPT-4.1 Nano",
       "alias": [
-        "gpt-4.1-nano-2025-04-14"
+        "gpt-4.1-nano-2025-04-14",
+        "gpt-4.1-nano:batch"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "For tasks that demand low latency, GPT‑4.1 nano is the fastest and cheapest model in the GPT-4.1 series. It delivers exceptional performance at a small size with its 1 million...",
@@ -7482,6 +7483,9 @@
       "id": "gpt-4o",
       "vendor_id": "openai",
       "name": "GPT-4o",
+      "alias": [
+        "gpt-4o:batch"
+      ],
       "knowledge_cutoff": "2023-10-31",
       "description": "GPT-4o (\"o\" for \"omni\") is OpenAI's latest AI model, supporting both text and image inputs with text outputs. It maintains the intelligence level of [GPT-4 Turbo](/models/openai/gpt-4-turbo) while being twice as...",
       "capabilities": {
@@ -7507,7 +7511,8 @@
         "unit": "USD/Mtok",
         "input": 2.5,
         "output": 10.0,
-        "cache_input": 1.25
+        "cache_input": 1.25,
+        "web_search": 10000.0
       }
     },
     {
@@ -7609,6 +7614,9 @@
       "id": "gpt-4o-mini",
       "vendor_id": "openai",
       "name": "GPT-4o-mini",
+      "alias": [
+        "gpt-4o-mini:batch"
+      ],
       "knowledge_cutoff": "2023-10-31",
       "description": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs. As their most advanced small model, it is many multiples more affordable...",
       "capabilities": {
@@ -7634,7 +7642,8 @@
         "unit": "USD/Mtok",
         "input": 0.15,
         "output": 0.6,
-        "cache_input": 0.075
+        "cache_input": 0.075,
+        "web_search": 10000.0
       }
     },
     {
@@ -7674,7 +7683,8 @@
       "vendor_id": "openai",
       "name": "GPT-5",
       "alias": [
-        "gpt-5-2025-08-07"
+        "gpt-5-2025-08-07",
+        "gpt-5:batch"
       ],
       "knowledge_cutoff": "2024-09-30",
       "description": "GPT-5 is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and accuracy...",
@@ -7776,7 +7786,8 @@
       "vendor_id": "openai",
       "name": "GPT-5 Mini",
       "alias": [
-        "gpt-5-mini-2025-08-07"
+        "gpt-5-mini-2025-08-07",
+        "gpt-5-mini:batch"
       ],
       "knowledge_cutoff": "2024-05-31",
       "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
@@ -7812,7 +7823,8 @@
       "vendor_id": "openai",
       "name": "GPT-5 Nano",
       "alias": [
-        "gpt-5-nano-2025-08-07"
+        "gpt-5-nano-2025-08-07",
+        "gpt-5-nano:batch"
       ],
       "knowledge_cutoff": "2024-05-31",
       "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
@@ -7848,7 +7860,8 @@
       "vendor_id": "openai",
       "name": "GPT-5 Pro",
       "alias": [
-        "gpt-5-pro-2025-10-06"
+        "gpt-5-pro-2025-10-06",
+        "gpt-5-pro:batch"
       ],
       "knowledge_cutoff": "2024-09-30",
       "description": "GPT-5 Pro is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and...",
@@ -7883,7 +7896,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.1",
       "alias": [
-        "gpt-5.1-20251113"
+        "gpt-5.1-20251113",
+        "gpt-5.1:batch"
       ],
       "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
       "capabilities": {
@@ -8020,7 +8034,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.2",
       "alias": [
-        "gpt-5.2-20251211"
+        "gpt-5.2-20251211",
+        "gpt-5.2:batch"
       ],
       "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly...",
       "capabilities": {
@@ -8123,7 +8138,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.2 Pro",
       "alias": [
-        "gpt-5.2-pro-20251211"
+        "gpt-5.2-pro-20251211",
+        "gpt-5.2-pro:batch"
       ],
       "description": "GPT-5.2 Pro is OpenAI’s most advanced model, offering major improvements in agentic coding and long context performance over GPT-5 Pro. It is optimized for complex tasks that require step-by-step reasoning,...",
       "capabilities": {
@@ -8192,7 +8208,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.4",
       "alias": [
-        "gpt-5.4-20260305"
+        "gpt-5.4-20260305",
+        "gpt-5.4:batch"
       ],
       "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
       "capabilities": {
@@ -8262,7 +8279,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Mini",
       "alias": [
-        "gpt-5.4-mini-20260317"
+        "gpt-5.4-mini-20260317",
+        "gpt-5.4-mini:batch"
       ],
       "knowledge_cutoff": "2025-08-31",
       "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
@@ -8298,7 +8316,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Nano",
       "alias": [
-        "gpt-5.4-nano-20260317"
+        "gpt-5.4-nano-20260317",
+        "gpt-5.4-nano:batch"
       ],
       "knowledge_cutoff": "2025-08-31",
       "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
@@ -8334,7 +8353,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.4 Pro",
       "alias": [
-        "gpt-5.4-pro-20260305"
+        "gpt-5.4-pro-20260305",
+        "gpt-5.4-pro:batch"
       ],
       "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K...",
       "capabilities": {
@@ -8368,7 +8388,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.5",
       "alias": [
-        "gpt-5.5-20260423"
+        "gpt-5.5-20260423",
+        "gpt-5.5:batch"
       ],
       "knowledge_cutoff": "2025-12-01",
       "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token...",
@@ -8404,7 +8425,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.5 Pro",
       "alias": [
-        "gpt-5.5-pro-20260423"
+        "gpt-5.5-pro-20260423",
+        "gpt-5.5-pro:batch"
       ],
       "knowledge_cutoff": "2025-12-01",
       "description": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads. It features a 1M+ token context window (922K input, 128K output) with support for...",
@@ -8439,7 +8461,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Luna",
       "alias": [
-        "gpt-5.6-luna-20260709"
+        "gpt-5.6-luna-20260709",
+        "gpt-5.6-luna:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for...",
@@ -8475,7 +8498,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Luna Pro",
       "alias": [
-        "gpt-5.6-luna-pro-20260709"
+        "gpt-5.6-luna-pro-20260709",
+        "gpt-5.6-luna-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8511,7 +8535,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Sol",
       "alias": [
-        "gpt-5.6-sol-20260709"
+        "gpt-5.6-sol-20260709",
+        "gpt-5.6-sol:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks...",
@@ -8547,7 +8572,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Sol Pro",
       "alias": [
-        "gpt-5.6-sol-pro-20260709"
+        "gpt-5.6-sol-pro-20260709",
+        "gpt-5.6-sol-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8583,7 +8609,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Terra",
       "alias": [
-        "gpt-5.6-terra-20260709"
+        "gpt-5.6-terra-20260709",
+        "gpt-5.6-terra:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier. It is suited for everyday coding, reasoning, and agentic...",
@@ -8619,7 +8646,8 @@
       "vendor_id": "openai",
       "name": "GPT-5.6 Terra Pro",
       "alias": [
-        "gpt-5.6-terra-pro-20260709"
+        "gpt-5.6-terra-pro-20260709",
+        "gpt-5.6-terra-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
       "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
@@ -8913,7 +8941,8 @@
       "vendor_id": "openai",
       "name": "o3",
       "alias": [
-        "o3-2025-04-16"
+        "o3-2025-04-16",
+        "o3:batch"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks. It also excels at technical writing and instruction-following....",
@@ -8949,7 +8978,8 @@
       "vendor_id": "openai",
       "name": "o3 Mini",
       "alias": [
-        "o3-mini-2025-01-31"
+        "o3-mini-2025-01-31",
+        "o3-mini:batch"
       ],
       "knowledge_cutoff": "2023-10-31",
       "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
@@ -9054,7 +9084,8 @@
       "vendor_id": "openai",
       "name": "o4 Mini",
       "alias": [
-        "o4-mini-2025-04-16"
+        "o4-mini-2025-04-16",
+        "o4-mini:batch"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
