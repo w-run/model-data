@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-03T07:00:18.782310+00:00",
+  "generated_at": "2026-09-04T07:04:30.952899+00:00",
   "total_models": 358,
   "models": [
     {
@@ -396,7 +396,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 28800
+        "output": 115200
       },
       "modalities": {
         "input": [
@@ -409,8 +409,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 0.75
+        "input": 0.8,
+        "output": 1.0,
+        "cache_input": 0.4
       }
     },
     {
@@ -432,7 +433,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -444,8 +445,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2275,
-        "output": 0.91
+        "input": 0.12,
+        "output": 0.24
       }
     },
     {
@@ -2129,8 +2130,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.425,
-        "output": 2.55,
+        "input": 0.42,
+        "output": 3.0,
         "cache_input": 0.085
       }
     },
@@ -4842,7 +4843,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16000
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -4854,8 +4855,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2574,
-        "output": 1.0287
+        "input": 0.32,
+        "output": 0.89
       }
     },
     {
@@ -4907,7 +4908,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 32768
+        "output": 144900
       },
       "modalities": {
         "input": [
@@ -4919,9 +4920,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 0.95,
-        "cache_input": 0.13
+        "input": 0.55,
+        "output": 1.65,
+        "cache_input": 0.55
       }
     },
     {
@@ -8087,7 +8088,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 182520
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -8099,9 +8100,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 2.4,
-        "cache_input": 0.12
+        "input": 0.625,
+        "output": 3.125,
+        "cache_input": 0.1875
       }
     },
     {
@@ -8109,17 +8110,18 @@
       "vendor_id": "nvidia",
       "name": "Nemotron 3.5 Content Safety",
       "alias": [
-        "nemotron-3.5-content-safety:free",
-        "nemotron-3.5-content-safety-20260604"
+        "nemotron-3.5-content-safety-20260604",
+        "nemotron-3.5-content-safety:free"
       ],
       "description": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B. It moderates both inputs to and responses from LLMs and VLMs, accepting...",
       "capabilities": {
         "reasoning": true,
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
-        "context": 128000,
-        "output": 8192
+        "context": 131072,
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -8129,6 +8131,11 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.2,
+        "output": 0.2
       }
     },
     {
@@ -10712,7 +10719,8 @@
       "vendor_id": "xai",
       "name": "Grok 4.3",
       "alias": [
-        "grok-4.3-20260430"
+        "grok-4.3-20260430",
+        "grok-4.3:batch"
       ],
       "description": "Grok 4.3 is a reasoning model from SpaceXAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
       "capabilities": {
@@ -11357,18 +11365,20 @@
       "vendor_id": "z-ai",
       "name": "GLM 5.3",
       "alias": [
-        "glm-5.3-20260816"
+        "glm-5.3-20260816",
+        "zai-org-glm-5.3"
       ],
       "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1310720,
-        "output": 131072
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -11382,7 +11392,7 @@
         "unit": "USD/Mtok",
         "input": 1.4,
         "output": 4.4,
-        "cache_input": 0.26
+        "cache_input": 0.14
       }
     },
     {
