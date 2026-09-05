@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-04T07:04:30.952899+00:00",
-  "total_models": 358,
+  "generated_at": "2026-09-05T06:48:16.460206+00:00",
+  "total_models": 360,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -499,7 +499,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -511,9 +511,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0875,
-        "output": 0.35,
-        "cache_input": 0.0175
+        "input": 0.09,
+        "output": 0.55
       }
     },
     {
@@ -1580,7 +1579,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -1594,9 +1593,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 1.25,
-        "cache_input": 0.25
+        "input": 0.08,
+        "output": 0.75
       }
     },
     {
@@ -1811,7 +1809,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1825,9 +1823,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 3.6,
-        "cache_input": 0.12
+        "input": 0.3,
+        "output": 2.0,
+        "cache_input": 0.03
       }
     },
     {
@@ -2172,13 +2170,13 @@
       }
     },
     {
-      "id": "qwen3.8-max",
+      "id": "qwen3.8-max-0902",
       "vendor_id": "alibaba",
-      "name": "Qwen3.8 Max",
+      "name": "Qwen3.8 Max (0902)",
       "alias": [
-        "qwen3.8-max-20260803"
+        "qwen3.8-max-20260902"
       ],
-      "description": "Qwen3.8 Max is the flagship model in Alibaba's Qwen3.8 series, the general-availability successor to the Qwen3.8 Max Preview. It is a multimodal reasoning model intended for complex reasoning, visual understanding,...",
+      "description": "Qwen3.8 Max 0902 is an updated snapshot of Qwen3.8 Max from Alibaba's Qwen team. It is a 2.4-trillion-parameter mixture-of-experts model that accepts text, image, and video input and returns text,...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -5220,9 +5218,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.088606,
-        "output": 0.177212,
-        "cache_input": 0.017721
+        "input": 0.0861,
+        "output": 0.1722,
+        "cache_input": 0.01722
       }
     },
     {
@@ -5288,9 +5286,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.44,
-        "output": 1.32,
-        "cache_input": 0.014
+        "input": 0.22,
+        "output": 0.66,
+        "cache_input": 0.007
       }
     },
     {
@@ -5323,9 +5321,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.04226,
-        "output": 2.08452,
-        "cache_input": 0.086855
+        "input": 0.941166,
+        "output": 1.882332,
+        "cache_input": 0.078431
       }
     },
     {
@@ -5357,9 +5355,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.1154,
-        "output": 3.3462,
-        "cache_input": 0.03718
+        "input": 1.12068,
+        "output": 3.36204,
+        "cache_input": 0.037356
       }
     },
     {
@@ -9691,6 +9689,78 @@
         "input": 2.0,
         "output": 12.0,
         "cache_input": 0.2,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "vendor_id": "openai",
+      "name": "GPT-6 Astra",
+      "alias": [
+        "gpt-6-astra-20260903",
+        "gpt-6-astra:batch"
+      ],
+      "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 10.0,
+        "output": 50.0,
+        "cache_input": 1.0,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "gpt-6-astra-pro",
+      "vendor_id": "openai",
+      "name": "GPT-6 Astra Pro",
+      "alias": [
+        "gpt-6-astra-pro-20260903",
+        "gpt-6-astra-pro:batch"
+      ],
+      "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 10.0,
+        "output": 50.0,
+        "cache_input": 1.0,
         "web_search": 10000.0
       }
     },
