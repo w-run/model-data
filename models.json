@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-14T07:43:04.402202+00:00",
-  "total_models": 332,
+  "generated_at": "2026-09-15T07:26:57.351223+00:00",
+  "total_models": 330,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1058,7 +1058,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1579,7 +1579,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1593,9 +1593,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3125,
-        "output": 1.25,
-        "cache_input": 0.15625
+        "input": 0.1625,
+        "output": 1.3
       }
     },
     {
@@ -4286,9 +4285,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.12,
-        "cache_input": 0.012
+        "input": 0.055,
+        "output": 0.11,
+        "cache_input": 0.011
       }
     },
     {
@@ -4603,45 +4602,6 @@
           "image",
           "file",
           "audio"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.25,
-        "output": 10.0,
-        "cache_input": 0.125,
-        "web_search": 14000.0
-      }
-    },
-    {
-      "id": "gemini-2.5-pro-preview-05-06",
-      "vendor_id": "google",
-      "name": "Gemini 2.5 Pro Preview 05-06",
-      "alias": [
-        "gemini-2.5-pro-preview-03-25"
-      ],
-      "knowledge_cutoff": "2025-01-31",
-      "description": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks. It employs “thinking” capabilities, enabling it to reason through responses with enhanced accuracy...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 65535
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file",
-          "audio",
-          "video"
         ],
         "output": [
           "text"
@@ -5628,7 +5588,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 115200
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5641,8 +5601,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.696
+        "input": 0.1875,
+        "output": 0.6525
       }
     },
     {
@@ -5685,7 +5645,6 @@
       "knowledge_cutoff": "2024-08-31",
       "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification. Similar to previous versions, it can be used to classify content in both LLM...",
       "capabilities": {
-        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -7127,7 +7086,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -7139,8 +7098,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.085,
-        "output": 0.4
+        "input": 0.08,
+        "output": 0.45
       }
     },
     {
@@ -7189,7 +7148,6 @@
       "description": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B. It moderates both inputs to and responses from LLMs and VLMs, accepting...",
       "capabilities": {
         "reasoning": true,
-        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -7426,35 +7384,6 @@
         "input": 10.0,
         "output": 30.0,
         "web_search": 10000.0
-      }
-    },
-    {
-      "id": "gpt-4-turbo-preview",
-      "vendor_id": "openai",
-      "name": "GPT-4 Turbo Preview",
-      "knowledge_cutoff": "2023-12-31",
-      "description": "The preview GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Training data: up to Dec 2023. **Note:** heavily rate limited by OpenAI while...",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 128000,
-        "output": 4096
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 10.0,
-        "output": 30.0
       }
     },
     {
@@ -10468,7 +10397,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -10480,9 +10409,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6832,
-        "output": 2.1472,
-        "cache_input": 0.12688
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.14
       }
     },
     {
