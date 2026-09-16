@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-15T07:26:57.351223+00:00",
+  "generated_at": "2026-09-16T07:25:57.851127+00:00",
   "total_models": 330,
   "models": [
     {
@@ -4285,9 +4285,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.055,
-        "output": 0.11,
-        "cache_input": 0.011
+        "input": 0.06,
+        "output": 0.12,
+        "cache_input": 0.012
       }
     },
     {
@@ -5338,7 +5338,6 @@
       "name": "Gemma 4 31B",
       "alias": [
         "gemma-4-31b-it-20260402",
-        "gemma-4-31b-it:batch",
         "gemma-4-31b-it:free"
       ],
       "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
@@ -5947,7 +5946,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.55,
+        "input": 0.4,
         "output": 2.2
       }
     },
@@ -6696,8 +6695,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.075,
-        "output": 0.2
+        "input": 0.09375,
+        "output": 0.25
       }
     },
     {
@@ -6963,9 +6962,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.71,
-        "output": 3.5,
-        "cache_input": 0.15
+        "input": 0.7062,
+        "output": 3.21,
+        "cache_input": 0.18
       }
     },
     {
@@ -7120,7 +7119,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 182520
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -7132,9 +7131,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6,
-        "output": 2.4,
-        "cache_input": 0.12
+        "input": 0.625,
+        "output": 3.125,
+        "cache_input": 0.1875
       }
     },
     {
@@ -8899,9 +8898,6 @@
       "id": "gpt-oss-20b",
       "vendor_id": "openai",
       "name": "gpt-oss-20b",
-      "alias": [
-        "gpt-oss-20b:batch"
-      ],
       "knowledge_cutoff": "2024-06-30",
       "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for...",
       "capabilities": {
@@ -10385,6 +10381,7 @@
       "alias": [
         "glm-5.2-20260616",
         "glm-5.2:batch",
+        "glm-5.2:free",
         "zai-org-glm-5.2"
       ],
       "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
@@ -10481,9 +10478,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.5,
-        "cache_input": 0.03
+        "input": 0.1,
+        "output": 0.3333,
+        "cache_input": 0.02
       }
     },
     {
