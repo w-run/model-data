@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-16T07:25:57.851127+00:00",
+  "generated_at": "2026-09-17T07:22:39.412328+00:00",
   "total_models": 330,
   "models": [
     {
@@ -1274,7 +1274,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1287,8 +1287,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.6
+        "input": 0.13,
+        "output": 0.52
       }
     },
     {
@@ -4389,9 +4389,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.9834,
-        "output": 2.9502,
-        "cache_input": 0.03278
+        "input": 1.32,
+        "output": 3.96,
+        "cache_input": 0.044
       }
     },
     {
@@ -6998,9 +6998,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 2.648138,
-        "output": 13.282724,
-        "cache_input": 0.302644
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.3
       }
     },
     {
@@ -7031,9 +7031,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.05,
-        "output": 0.2,
-        "cache_input": 0.03
+        "input": 0.06,
+        "output": 0.24
       }
     },
     {
@@ -10155,7 +10154,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 16384
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10167,9 +10166,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.43,
-        "output": 1.75,
-        "cache_input": 0.08
+        "input": 0.5,
+        "output": 2.0,
+        "cache_input": 0.1
       }
     },
     {
@@ -10394,7 +10393,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 128000
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10478,9 +10477,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.3333,
-        "cache_input": 0.02
+        "input": 0.09,
+        "output": 0.3,
+        "cache_input": 0.018
       }
     },
     {
