@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-19T07:09:56.242964+00:00",
+  "generated_at": "2026-09-20T07:35:32.910948+00:00",
   "total_models": 331,
   "models": [
     {
@@ -1287,8 +1287,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.7
+        "input": 0.13,
+        "output": 0.52
       }
     },
     {
@@ -1579,7 +1579,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -1593,8 +1593,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1625,
-        "output": 1.3
+        "input": 0.3125,
+        "output": 1.25,
+        "cache_input": 0.15625
       }
     },
     {
@@ -1672,7 +1673,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -2129,9 +2130,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.214,
-        "output": 2.55,
-        "cache_input": 0.15
+        "input": 0.42,
+        "output": 3.0,
+        "cache_input": 0.085
       }
     },
     {
@@ -4252,9 +4253,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04704,
-        "output": 0.09408,
-        "cache_input": 0.009408
+        "input": 0.03668,
+        "output": 0.07336,
+        "cache_input": 0.007336
       }
     },
     {
@@ -4263,8 +4264,7 @@
       "name": "DeepSeek V4 Flash 0731",
       "alias": [
         "deepseek-v4-flash-20260731",
-        "deepseek-v4-flash-0731:batch",
-        "deepseek-v4-flash-0731:free"
+        "deepseek-v4-flash-0731:batch"
       ],
       "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows....",
       "capabilities": {
@@ -4289,7 +4289,7 @@
         "unit": "USD/Mtok",
         "input": 0.04,
         "output": 0.08,
-        "cache_input": 0.008
+        "cache_input": 0.016
       }
     },
     {
@@ -4357,9 +4357,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.564282,
-        "output": 1.128564,
-        "cache_input": 0.047023
+        "input": 0.422298,
+        "output": 0.844596,
+        "cache_input": 0.035192
       }
     },
     {
@@ -4379,7 +4379,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 393216
+        "output": 384000
       },
       "modalities": {
         "input": [
@@ -4391,9 +4391,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.57816,
-        "output": 1.73448,
-        "cache_input": 0.018396
+        "input": 0.66,
+        "output": 1.98,
+        "cache_input": 0.022
       }
     },
     {
@@ -5684,7 +5684,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 117964
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5697,8 +5697,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.35,
-        "output": 1.5,
+        "input": 0.3,
+        "output": 1.2,
         "cache_input": 0.04
       }
     },
@@ -6647,6 +6647,7 @@
       "knowledge_cutoff": "2023-10-31",
       "description": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mistral Small 3 (2501), featuring 24 billion parameters with advanced multimodal capabilities. It provides state-of-the-art performance in text-based reasoning and...",
       "capabilities": {
+        "tool_call": true,
         "temperature": true
       },
       "limit": {
@@ -10408,9 +10409,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5544,
-        "output": 1.7424,
-        "cache_input": 0.10296
+        "input": 0.6496,
+        "output": 2.0416,
+        "cache_input": 0.12064
       }
     },
     {
@@ -10444,9 +10445,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.91,
-        "output": 2.86,
-        "cache_input": 0.169
+        "input": 0.896,
+        "output": 2.816,
+        "cache_input": 0.1664
       }
     },
     {
