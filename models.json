@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-20T07:35:32.910948+00:00",
+  "generated_at": "2026-09-21T07:46:54.518802+00:00",
   "total_models": 331,
   "models": [
     {
@@ -138,6 +138,7 @@
       "knowledge_cutoff": "2024-06-30",
       "description": "Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). Qwen2.5-Coder brings the following improvements upon CodeQwen1.5: - Significantly improvements in **code generation**, **code reasoning**...",
       "capabilities": {
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -1859,8 +1860,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.9,
+        "input": 0.15,
+        "output": 1.0,
         "cache_input": 0.05
       }
     },
@@ -2130,9 +2131,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.42,
-        "output": 3.0,
-        "cache_input": 0.085
+        "input": 0.2,
+        "output": 2.5,
+        "cache_input": 0.05
       }
     },
     {
@@ -4253,9 +4254,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.03668,
-        "output": 0.07336,
-        "cache_input": 0.007336
+        "input": 0.088606,
+        "output": 0.177212,
+        "cache_input": 0.017721
       }
     },
     {
@@ -4288,7 +4289,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.04,
-        "output": 0.08,
+        "output": 0.16,
         "cache_input": 0.016
       }
     },
@@ -4309,7 +4310,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 262144
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -4322,9 +4323,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2156,
-        "output": 0.6468,
-        "cache_input": 0.00686
+        "input": 0.22,
+        "output": 0.66,
+        "cache_input": 0.007
       }
     },
     {
@@ -4357,9 +4358,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.422298,
-        "output": 0.844596,
-        "cache_input": 0.035192
+        "input": 0.95526,
+        "output": 1.91052,
+        "cache_input": 0.079605
       }
     },
     {
@@ -4391,9 +4392,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.66,
-        "output": 1.98,
-        "cache_input": 0.022
+        "input": 1.32,
+        "output": 3.96,
+        "cache_input": 0.044
       }
     },
     {
@@ -4425,9 +4426,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.6,
-        "cache_input": 0.003
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.006
       }
     },
     {
@@ -5440,7 +5441,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -5452,8 +5453,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.4,
-        "output": 0.4
+        "input": 0.72,
+        "output": 0.72
       }
     },
     {
@@ -5602,8 +5603,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1875,
-        "output": 0.6525
+        "input": 0.2,
+        "output": 0.8
       }
     },
     {
@@ -10445,9 +10446,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.896,
-        "output": 2.816,
-        "cache_input": 0.1664
+        "input": 0.91,
+        "output": 2.86,
+        "cache_input": 0.169
       }
     },
     {
