@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-21T07:46:54.518802+00:00",
-  "total_models": 331,
+  "generated_at": "2026-09-22T07:29:46.645262+00:00",
+  "total_models": 334,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1059,7 +1059,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1661,7 +1661,6 @@
       "name": "Qwen3.5-9B",
       "alias": [
         "qwen3.5-9b-20260310",
-        "qwen3.5-9b:batch",
         "qwen-qwen3.5-9b"
       ],
       "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
@@ -2069,8 +2068,7 @@
       "vendor_id": "alibaba",
       "name": "Qwen3.8 2.4T A95B",
       "alias": [
-        "qwen3.8-2.4t-a95b-20260812",
-        "qwen3.8-2.4t-a95b:batch"
+        "qwen3.8-2.4t-a95b-20260812"
       ],
       "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is...",
       "capabilities": {
@@ -2131,9 +2129,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 2.5,
-        "cache_input": 0.05
+        "input": 0.42,
+        "output": 3.0,
+        "cache_input": 0.085
       }
     },
     {
@@ -2445,42 +2443,6 @@
       }
     },
     {
-      "id": "claude-opus-4",
-      "vendor_id": "anthropic",
-      "name": "Claude Opus 4",
-      "alias": [
-        "claude-4-opus-20250522"
-      ],
-      "knowledge_cutoff": "2025-01-31",
-      "description": "Claude Opus 4 is benchmarked as the world’s best coding model, at time of release, bringing sustained performance on complex, long-running tasks and agent workflows. It sets new benchmarks in...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 32000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 15.0,
-        "output": 75.0,
-        "cache_input": 1.5,
-        "web_search": 10000.0
-      }
-    },
-    {
       "id": "claude-opus-4.1",
       "vendor_id": "anthropic",
       "name": "Claude Opus 4.1",
@@ -2717,7 +2679,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1000000,
+        "context": 200000,
         "output": 64000
       },
       "modalities": {
@@ -4289,7 +4251,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.04,
-        "output": 0.16,
+        "output": 0.64,
         "cache_input": 0.016
       }
     },
@@ -4380,7 +4342,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 384000
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -4392,9 +4354,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 0.624,
+        "output": 2.88,
+        "cache_input": 0.088
       }
     },
     {
@@ -5441,7 +5403,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5453,8 +5415,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.72,
-        "output": 0.72
+        "input": 0.4,
+        "output": 0.4
       }
     },
     {
@@ -5603,8 +5565,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.8
+        "input": 0.1875,
+        "output": 0.6525
       }
     },
     {
@@ -6113,8 +6075,7 @@
       "vendor_id": "minimax",
       "name": "MiniMax M3",
       "alias": [
-        "minimax-m3-20260531",
-        "minimax-m3:batch"
+        "minimax-m3-20260531"
       ],
       "description": "MiniMax-M3 is a multimodal foundation model from MiniMax. It supports text, image, and video inputs with text output, a 1M-token context window, and is suited for long-horizon agentic work, coding,...",
       "capabilities": {
@@ -6976,8 +6937,7 @@
       "vendor_id": "moonshot",
       "name": "Kimi K3",
       "alias": [
-        "kimi-k3-20260715",
-        "kimi-k3:batch"
+        "kimi-k3-20260715"
       ],
       "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
       "capabilities": {
@@ -7002,9 +6962,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.7,
-        "output": 8.5,
-        "cache_input": 0.17
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.3
       }
     },
     {
@@ -7035,8 +6995,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.24
+        "input": 0.05,
+        "output": 0.2,
+        "cache_input": 0.03
       }
     },
     {
@@ -8868,9 +8829,6 @@
       "id": "gpt-oss-120b",
       "vendor_id": "openai",
       "name": "gpt-oss-120b",
-      "alias": [
-        "gpt-oss-120b:batch"
-      ],
       "knowledge_cutoff": "2024-06-30",
       "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized...",
       "capabilities": {
@@ -9849,7 +9807,7 @@
       "alias": [
         "grok-4.6-20260810"
       ],
-      "description": "Grok 4.6 is SpaceXAI's smartest model with frontier performance on coding, knowledge work, and STEM.",
+      "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7).",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -9875,6 +9833,42 @@
         "input": 2.0,
         "output": 6.0,
         "cache_input": 0.5,
+        "web_search": 5000.0
+      }
+    },
+    {
+      "id": "grok-4.7",
+      "vendor_id": "xai",
+      "name": "Grok 4.7",
+      "alias": [
+        "grok-4.7-20260916"
+      ],
+      "description": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6. It is particularly strong at long-running software engineering tasks, verifying its own work, and...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 500000,
+        "output": 450000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.6,
+        "output": 4.8,
+        "cache_input": 0.4,
         "web_search": 5000.0
       }
     },
@@ -10000,6 +9994,114 @@
         "input": 0.435,
         "output": 0.87,
         "cache_input": 0.0036
+      }
+    },
+    {
+      "id": "mimo-v2.6-flash",
+      "vendor_id": "xiaomi",
+      "name": "MiMo-V2.6-Flash",
+      "alias": [
+        "mimo-v2.6-flash-20260921"
+      ],
+      "description": "MiMo-V2.6-Flash is an open-source foundation model developed by Xiaomi. Built on a Mixture-of-Experts architecture with 309B total parameters and 15B activated per token, it employs a hybrid attention mechanism for...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.14,
+        "output": 0.28,
+        "cache_input": 0.0028
+      }
+    },
+    {
+      "id": "mimo-v2.6-pro",
+      "vendor_id": "xiaomi",
+      "name": "MiMo-V2.6-Pro",
+      "alias": [
+        "mimo-v2.6-pro-20260921"
+      ],
+      "description": "MiMo-V2.6-Pro is the flagship foundation model developed by Xiaomi. Built at a scale of over 1T parameters, it is designed to push the ceiling of capability for the most demanding...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.435,
+        "output": 0.87,
+        "cache_input": 0.0036
+      }
+    },
+    {
+      "id": "mimo-v2.6-pro-ultraspeed",
+      "vendor_id": "xiaomi",
+      "name": "MiMo-V2.6-Pro-UltraSpeed",
+      "alias": [
+        "mimo-v2.6-pro-ultraspeed-20260921"
+      ],
+      "description": "MiMo-V2.6-Pro-UltraSpeed is the fast speed edition of Xiaomi's flagship foundation model, MiMo-V2.6-Pro. Built from the same 1T MiMo-V2.6-Pro checkpoint, it matches the original model in quality while delivering roughly 10x...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 4.35,
+        "output": 8.7,
+        "cache_input": 0.036
       }
     },
     {
@@ -10446,9 +10548,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.91,
-        "output": 2.86,
-        "cache_input": 0.169
+        "input": 0.84,
+        "output": 2.64,
+        "cache_input": 0.156
       }
     },
     {
@@ -10468,7 +10570,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 131072
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -10482,9 +10584,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.3,
-        "cache_input": 0.018
+        "input": 0.15,
+        "output": 0.5,
+        "cache_input": 0.05
       }
     },
     {
