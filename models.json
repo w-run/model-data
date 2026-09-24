@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-23T07:32:58.029444+00:00",
-  "total_models": 364,
+  "generated_at": "2026-09-24T07:25:31.641004+00:00",
+  "total_models": 365,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -597,7 +597,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32000
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -609,8 +609,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04815,
-        "output": 0.19305
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -1026,7 +1026,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1038,8 +1038,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 1.1
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -2206,6 +2207,41 @@
       }
     },
     {
+      "id": "qwen3.8-max-prime",
+      "vendor_id": "alibaba",
+      "name": "Qwen3.8 Max Prime",
+      "alias": [
+        "qwen3.8-max-prime-20260923"
+      ],
+      "description": "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point. It accepts text, image, and video...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 4.0,
+        "output": 12.0,
+        "cache_input": 0.5
+      }
+    },
+    {
       "id": "qwen3.8-omni-flash",
       "vendor_id": "alibaba",
       "name": "Qwen3.8 Omni Flash",
@@ -3029,13 +3065,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
       }
     },
     {
@@ -3059,13 +3088,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
       }
     },
     {
@@ -3089,13 +3111,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
       }
     },
     {
@@ -3120,12 +3135,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
       }
     },
     {
@@ -3150,12 +3159,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
       }
     },
     {
@@ -3211,11 +3214,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 6.0,
-        "output": 24.0
       }
     },
     {
@@ -3311,11 +3309,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 4.0,
-        "output": 18.0
       }
     },
     {
@@ -5196,8 +5189,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04,
-        "output": 0.64,
+        "input": 0.03,
+        "output": 0.32,
         "cache_input": 0.016
       }
     },
@@ -5265,9 +5258,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_input": 0.079605
+        "input": 0.9396,
+        "output": 1.8792,
+        "cache_input": 0.0783
       }
     },
     {
@@ -5298,9 +5291,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 0.462,
+        "output": 1.386,
+        "cache_input": 0.0154
       }
     },
     {
@@ -5320,7 +5313,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -5333,9 +5326,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.039,
-        "output": 0.6,
-        "cache_input": 0.038
+        "input": 0.14,
+        "output": 0.42,
+        "cache_input": 0.0042
       }
     },
     {
@@ -6872,7 +6865,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 176947
       },
       "modalities": {
         "input": [
@@ -6884,8 +6877,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.255,
-        "output": 1.02
+        "input": 0.3,
+        "output": 1.2
       }
     },
     {
@@ -7081,39 +7074,6 @@
         "input": 0.3,
         "output": 0.9,
         "cache_input": 0.03
-      }
-    },
-    {
-      "id": "devstral-2512",
-      "vendor_id": "mistral",
-      "name": "Devstral 2 2512",
-      "alias": [
-        "devstral-2-123b-instruct-2512"
-      ],
-      "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window. Devstral 2 supports exploring...",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 262144,
-        "output": 209715
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.4,
-        "output": 2.0,
-        "cache_input": 0.04
       }
     },
     {
@@ -8095,7 +8055,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -8107,7 +8067,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.07,
+        "input": 0.08,
         "output": 0.2,
         "cache_input": 0.04
       }
@@ -9918,6 +9878,9 @@
       "id": "gpt-oss-120b",
       "vendor_id": "openai",
       "name": "gpt-oss-120b",
+      "alias": [
+        "gpt-oss-120b:batch"
+      ],
       "knowledge_cutoff": "2024-06-30",
       "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized...",
       "capabilities": {
@@ -10598,7 +10561,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 8192,
+        "context": 32768,
         "output": 4096
       },
       "modalities": {
@@ -11713,7 +11676,40 @@
         "unit": "USD/Mtok",
         "input": 0.37,
         "output": 1.25,
-        "cache_input": 0.075
+        "cache_input": 0.09
+      }
+    },
+    {
+      "id": "glm-5.3-prime",
+      "vendor_id": "z-ai",
+      "name": "GLM 5.3 Prime",
+      "alias": [
+        "glm-5.3-prime-20260921"
+      ],
+      "description": "GLM-5.3-Prime is the high-speed variant of Z.ai's GLM-5.3, inheriting its full capabilities while delivering 1.5–2× the output throughput through inference acceleration. It supports text input and output with a 1M-token...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.8,
+        "output": 8.8,
+        "cache_input": 0.56
       }
     },
     {
