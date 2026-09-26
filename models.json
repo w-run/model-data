@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-25T07:21:19.694619+00:00",
-  "total_models": 343,
+  "generated_at": "2026-09-26T07:17:24.576167+00:00",
+  "total_models": 342,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1809,7 +1809,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262140
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1824,8 +1824,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.32,
-        "output": 2.7,
-        "cache_input": 0.15
+        "output": 3.2
       }
     },
     {
@@ -2372,37 +2371,6 @@
       },
       "capabilities": {
         "open_weights": true
-      }
-    },
-    {
-      "id": "claude-3-haiku",
-      "vendor_id": "anthropic",
-      "name": "Claude 3 Haiku",
-      "knowledge_cutoff": "2023-08-31",
-      "description": "Claude 3 Haiku is Anthropic's fastest and most compact model for\nnear-instant responsiveness. Quick and accurate targeted performance.\n\nSee the launch announcement and benchmark results [here](https://www.anthropic.com/news/claude-3-haiku)\n\n#multimodal",
-      "capabilities": {
-        "tool_call": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 4096
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 1.25,
-        "cache_input": 0.03,
-        "web_search": 10000.0
       }
     },
     {
@@ -4316,9 +4284,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.049,
-        "output": 0.098,
-        "cache_input": 0.0098
+        "input": 0.04704,
+        "output": 0.09408,
+        "cache_input": 0.009408
       }
     },
     {
@@ -4349,7 +4317,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.03,
+        "input": 0.021,
         "output": 0.32,
         "cache_input": 0.016
       }
@@ -4418,9 +4386,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.783,
-        "output": 1.566,
-        "cache_input": 0.06525
+        "input": 0.418818,
+        "output": 0.837636,
+        "cache_input": 0.034902
       }
     },
     {
@@ -4451,9 +4419,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.462,
-        "output": 1.386,
-        "cache_input": 0.0154
+        "input": 0.264,
+        "output": 0.792,
+        "cache_input": 0.0088
       }
     },
     {
@@ -4473,7 +4441,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 393216
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -5390,9 +5358,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.3,
-        "cache_input": 0.05
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_input": 0.0375
       }
     },
     {
@@ -7247,7 +7215,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
+        "context": 1000000,
         "output": 131072
       },
       "modalities": {
@@ -10296,7 +10264,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 1050000,
         "output": 131072
       },
       "modalities": {
@@ -10735,7 +10703,6 @@
       "name": "GLM 5.2",
       "alias": [
         "glm-5.2-20260616",
-        "glm-5.2:free",
         "zai-org-glm-5.2"
       ],
       "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
@@ -10784,7 +10751,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 943717
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -10796,9 +10763,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_input": 0.26
+        "input": 0.3808,
+        "output": 1.1968,
+        "cache_input": 0.06256
       }
     },
     {
@@ -10818,7 +10785,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 128000
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10832,9 +10799,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.045,
-        "output": 0.14,
-        "cache_input": 0.01
+        "input": 0.04,
+        "output": 0.5,
+        "cache_input": 0.015
       }
     },
     {
