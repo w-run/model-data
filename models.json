@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-27T07:48:48.745532+00:00",
+  "generated_at": "2026-09-28T08:26:26.818546+00:00",
   "total_models": 342,
   "models": [
     {
@@ -564,7 +564,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -576,8 +576,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.13,
-        "output": 0.52
+        "input": 0.12,
+        "output": 0.5
       }
     },
     {
@@ -1581,7 +1581,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1595,9 +1595,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3125,
-        "output": 1.25,
-        "cache_input": 0.15625
+        "input": 0.1625,
+        "output": 1.3
       }
     },
     {
@@ -3907,7 +3906,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16384
+        "output": 16000
       },
       "modalities": {
         "input": [
@@ -3919,8 +3918,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 0.89
+        "input": 0.2574,
+        "output": 1.0287
       }
     },
     {
@@ -3951,8 +3950,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 1.0
+        "input": 0.29,
+        "output": 1.14,
+        "cache_input": 0.11
       }
     },
     {
@@ -4219,9 +4219,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.269,
-        "output": 0.4,
-        "cache_input": 0.1345
+        "input": 0.28,
+        "output": 0.42,
+        "cache_input": 0.028
       }
     },
     {
@@ -4284,9 +4284,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0469,
-        "output": 0.0938,
-        "cache_input": 0.00938
+        "input": 0.14,
+        "output": 0.28,
+        "cache_input": 0.028
       }
     },
     {
@@ -4338,7 +4338,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 262144
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -4351,9 +4351,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2156,
-        "output": 0.6468,
-        "cache_input": 0.00686
+        "input": 0.44,
+        "output": 1.32,
+        "cache_input": 0.014
       }
     },
     {
@@ -4386,9 +4386,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.348,
-        "output": 0.696,
-        "cache_input": 0.029
+        "input": 0.95526,
+        "output": 1.91052,
+        "cache_input": 0.079605
       }
     },
     {
@@ -4419,9 +4419,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.24502,
-        "output": 3.5,
-        "cache_input": 0.24452
+        "input": 0.2523,
+        "output": 4.2,
+        "cache_input": 0.2518
       }
     },
     {
@@ -4441,7 +4441,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 384000
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -4454,9 +4454,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.035,
-        "output": 0.29,
-        "cache_input": 0.001
+        "input": 0.025,
+        "output": 0.6,
+        "cache_input": 0.01
       }
     },
     {
@@ -5358,9 +5358,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_input": 0.0375
+        "input": 0.09,
+        "output": 0.3,
+        "cache_input": 0.05
       }
     },
     {
@@ -5737,7 +5737,7 @@
       "alias": [
         "muse-spark-1.1-20260709"
       ],
-      "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks. It accepts text, images, video, audio, and PDF documents and returns text, with a 1M-token context...",
+      "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks. It accepts text, images, video, and PDF documents and returns text, with a 1M-token context window....",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -5753,7 +5753,6 @@
           "text",
           "image",
           "file",
-          "audio",
           "video"
         ],
         "output": [
@@ -5775,7 +5774,7 @@
       "alias": [
         "muse-spark-1.2-20260805"
       ],
-      "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks. It accepts text, images, video, audio, and PDF documents, returns text, and offers a 1M-token context...",
+      "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks. It accepts text, images, video, and PDF documents, returns text, and offers a 1M-token context window....",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -5791,7 +5790,6 @@
           "text",
           "image",
           "file",
-          "audio",
           "video"
         ],
         "output": [
@@ -5829,7 +5827,6 @@
           "text",
           "image",
           "file",
-          "audio",
           "video"
         ],
         "output": [
@@ -5867,7 +5864,6 @@
           "text",
           "image",
           "file",
-          "audio",
           "video"
         ],
         "output": [
@@ -5905,7 +5901,6 @@
           "text",
           "image",
           "file",
-          "audio",
           "video"
         ],
         "output": [
@@ -5993,7 +5988,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 176947
       },
       "modalities": {
         "input": [
@@ -6005,8 +6000,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.255,
-        "output": 1.02
+        "input": 0.3,
+        "output": 1.2
       }
     },
     {
@@ -6118,7 +6113,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 176947
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -6130,9 +6125,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.21,
-        "output": 0.84,
-        "cache_input": 0.042
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.06
       }
     },
     {
@@ -6956,9 +6951,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95,
-        "output": 4.0,
-        "cache_input": 0.16
+        "input": 0.65,
+        "output": 3.41,
+        "cache_input": 0.15
       }
     },
     {
@@ -10692,9 +10687,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.9646,
-        "output": 3.0316,
-        "cache_input": 0.17914
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.26
       }
     },
     {
@@ -10751,7 +10746,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 943718
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -10763,9 +10758,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2737,
-        "output": 0.8602,
-        "cache_input": 0.044965
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.26
       }
     },
     {
@@ -10785,7 +10780,7 @@
       },
       "limit": {
         "context": 1310720,
-        "output": 128000
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -10799,9 +10794,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.045,
-        "output": 0.14,
-        "cache_input": 0.01
+        "input": 0.15,
+        "output": 0.5,
+        "cache_input": 0.03
       }
     },
     {
