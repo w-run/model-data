@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-28T08:26:26.818546+00:00",
+  "generated_at": "2026-09-29T08:06:14.718526+00:00",
   "total_models": 342,
   "models": [
     {
@@ -564,7 +564,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -576,8 +576,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.12,
-        "output": 0.5
+        "input": 0.13,
+        "output": 0.52
       }
     },
     {
@@ -597,7 +597,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -609,8 +609,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.3
+        "input": 0.04815,
+        "output": 0.19305
       }
     },
     {
@@ -2114,7 +2114,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 131072
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -2128,9 +2128,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.42,
-        "output": 3.0,
-        "cache_input": 0.085
+        "input": 0.0626,
+        "output": 4.4,
+        "cache_input": 0.0501
       }
     },
     {
@@ -2864,6 +2864,43 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.2,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "claude-sonnet-5.5",
+      "vendor_id": "anthropic",
+      "name": "Claude Sonnet 5.5",
+      "alias": [
+        "claude-sonnet-5.5-20260928",
+        "claude-sonnet-5.5:batch"
+      ],
+      "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-class model for well-scoped everyday work, succeeding Claude Sonnet 5 as a direct upgrade. It is especially strong at building features, fixing bugs, and producing...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
       },
       "limit": {
         "context": 1000000,
@@ -4100,34 +4137,6 @@
       }
     },
     {
-      "id": "deepseek-r1-distill-llama-70b",
-      "vendor_id": "deepseek",
-      "name": "R1 Distill Llama 70B",
-      "knowledge_cutoff": "2024-07-31",
-      "description": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on [Llama-3.3-70B-Instruct](/meta-llama/llama-3.3-70b-instruct), using outputs from [DeepSeek R1](/deepseek/deepseek-r1). The model combines advanced distillation techniques to achieve high performance across...",
-      "capabilities": {
-        "reasoning": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 8192,
-        "output": 7372
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.8,
-        "output": 0.8
-      }
-    },
-    {
       "id": "deepseek-v3",
       "vendor_id": "deepseek",
       "name": "DeepSeek-V3",
@@ -4170,7 +4179,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 32768
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -4182,7 +4191,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.27,
+        "input": 0.3,
         "output": 1.0,
         "cache_input": 0.135
       }
@@ -4238,7 +4247,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 65536
+        "output": 147456
       },
       "modalities": {
         "input": [
@@ -4317,9 +4326,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.021,
+        "input": 0.018,
         "output": 0.32,
-        "cache_input": 0.016
+        "cache_input": 0.018
       }
     },
     {
@@ -4338,7 +4347,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943717
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -4351,9 +4360,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.44,
-        "output": 1.32,
-        "cache_input": 0.014
+        "input": 0.2156,
+        "output": 0.6468,
+        "cache_input": 0.00686
       }
     },
     {
@@ -4419,9 +4428,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2523,
+        "input": 0.48,
         "output": 4.2,
-        "cache_input": 0.2518
+        "cache_input": 0.384
       }
     },
     {
@@ -4454,9 +4463,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.025,
-        "output": 0.6,
-        "cache_input": 0.01
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.006
       }
     },
     {
@@ -6113,7 +6122,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 176947
       },
       "modalities": {
         "input": [
@@ -6125,9 +6134,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_input": 0.06
+        "input": 0.21,
+        "output": 0.84,
+        "cache_input": 0.042
       }
     },
     {
@@ -7211,7 +7220,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 131072
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -7223,9 +7232,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.2,
-        "cache_input": 0.04
+        "input": 0.06,
+        "output": 0.16,
+        "cache_input": 0.03
       }
     },
     {
@@ -8640,9 +8649,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 2.0,
-        "output": 10.0,
-        "cache_input": 0.2,
+        "input": 4.0,
+        "output": 20.0,
+        "cache_input": 0.4,
         "web_search": 10000.0
       }
     },
@@ -9047,7 +9056,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 65536
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -9059,9 +9068,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.6,
-        "cache_input": 0.075
+        "input": 0.037,
+        "output": 0.17
       }
     },
     {
@@ -9094,7 +9102,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.018,
-        "output": 0.09
+        "output": 0.09,
+        "cache_input": 0.009
       }
     },
     {
@@ -10076,9 +10085,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.6,
-        "output": 4.8,
-        "cache_input": 0.4,
+        "input": 2.0,
+        "output": 6.0,
+        "cache_input": 0.5,
         "web_search": 5000.0
       }
     },
@@ -10522,7 +10531,7 @@
         "unit": "USD/Mtok",
         "input": 0.3,
         "output": 0.9,
-        "cache_input": 0.055
+        "cache_input": 0.05
       }
     },
     {
@@ -10710,7 +10719,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -10722,9 +10731,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6496,
-        "output": 2.0416,
-        "cache_input": 0.12064
+        "input": 0.39,
+        "output": 4.4,
+        "cache_input": 0.2599
       }
     },
     {
