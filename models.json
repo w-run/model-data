@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-29T08:06:14.718526+00:00",
-  "total_models": 342,
+  "generated_at": "2026-09-30T08:11:59.914190+00:00",
+  "total_models": 343,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1509,7 +1509,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -2114,7 +2114,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 235929
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -2128,9 +2128,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0626,
-        "output": 4.4,
-        "cache_input": 0.0501
+        "input": 0.42,
+        "output": 3.0,
+        "cache_input": 0.085
       }
     },
     {
@@ -3316,25 +3316,6 @@
       }
     },
     {
-      "id": "ernie-image-turbo",
-      "vendor_id": "baidu",
-      "name": "ERNIE-Image-Turbo",
-      "alias": [
-        "baidu-ernie-image-turbo"
-      ],
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "image"
-        ]
-      },
-      "capabilities": {
-        "open_weights": true
-      }
-    },
-    {
       "id": "doubao-1.5-lite-32k",
       "vendor_id": "bytedance",
       "name": "Doubao 1.5 Lite 32K",
@@ -4313,7 +4294,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1310720,
+        "context": 1048576,
         "output": 943718
       },
       "modalities": {
@@ -4326,9 +4307,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.018,
-        "output": 0.32,
-        "cache_input": 0.018
+        "input": 0.01,
+        "output": 1.28,
+        "cache_input": 0.01
       }
     },
     {
@@ -4416,7 +4397,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 393216
       },
       "modalities": {
         "input": [
@@ -4428,9 +4409,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.48,
-        "output": 4.2,
-        "cache_input": 0.384
+        "input": 1.32,
+        "output": 3.96,
+        "cache_input": 0.044
       }
     },
     {
@@ -5721,7 +5702,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -5734,8 +5715,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.2,
+        "input": 0.35,
+        "output": 1.5,
         "cache_input": 0.04
       }
     },
@@ -6996,8 +6977,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.6562,
-        "output": 3.3,
+        "input": 0.6712,
+        "output": 3.35,
         "cache_input": 0.18
       }
     },
@@ -7219,7 +7200,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1000000,
+        "context": 262144,
         "output": 32768
       },
       "modalities": {
@@ -8553,7 +8534,7 @@
         "gpt-5.6-luna-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
-      "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8627,7 +8608,7 @@
         "gpt-5.6-sol-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
-      "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-5.6 Sol Pro is the same underlying model as [GPT-5.6 Sol](https://openrouter.ai/openai/gpt-5.6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8701,7 +8682,7 @@
         "gpt-5.6-terra-pro:batch"
       ],
       "knowledge_cutoff": "2026-02-16",
-      "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-5.6 Terra Pro is the same underlying model as [GPT-5.6 Terra](https://openrouter.ai/openai/gpt-5.6-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8773,7 +8754,7 @@
         "gpt-6-astra-pro-20260903",
         "gpt-6-astra-pro:batch"
       ],
-      "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8845,7 +8826,7 @@
         "gpt-6-luna-pro-20260922",
         "gpt-6-luna-pro:batch"
       ],
-      "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-6 Luna Pro is the same underlying model as [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8917,7 +8898,7 @@
         "gpt-6-sol-pro-20260922",
         "gpt-6-sol-pro:batch"
       ],
-      "description": "GPT-6 Sol Pro is the same underlying model as [GPT-6 Sol](https://openrouter.ai/openai/gpt-6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+      "description": "GPT-6 Sol Pro is the same underlying model as [GPT-6 Sol](https://openrouter.ai/openai/gpt-6-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -8942,6 +8923,78 @@
         "input": 2.0,
         "output": 10.0,
         "cache_input": 0.2,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "vendor_id": "openai",
+      "name": "GPT-6.1 Sol",
+      "alias": [
+        "gpt-6.1-sol-20260929",
+        "gpt-6.1-sol:batch"
+      ],
+      "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.1,
+        "web_search": 10000.0
+      }
+    },
+    {
+      "id": "gpt-6.1-sol-pro",
+      "vendor_id": "openai",
+      "name": "GPT-6.1 Sol Pro",
+      "alias": [
+        "gpt-6.1-sol-pro-20260929",
+        "gpt-6.1-sol-pro:batch"
+      ],
+      "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.1,
         "web_search": 10000.0
       }
     },
@@ -10531,7 +10584,7 @@
         "unit": "USD/Mtok",
         "input": 0.3,
         "output": 0.9,
-        "cache_input": 0.05
+        "cache_input": 0.055
       }
     },
     {
@@ -10731,9 +10784,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.39,
-        "output": 4.4,
-        "cache_input": 0.2599
+        "input": 0.36,
+        "output": 3.99,
+        "cache_input": 0.26
       }
     },
     {
@@ -10754,7 +10807,7 @@
         "open_weights": true
       },
       "limit": {
-        "context": 1310720,
+        "context": 1048576,
         "output": 943717
       },
       "modalities": {
@@ -10788,7 +10841,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1310720,
+        "context": 1048576,
         "output": 943717
       },
       "modalities": {
