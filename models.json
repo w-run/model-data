@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-09-30T08:11:59.914190+00:00",
+  "generated_at": "2026-10-01T08:33:54.939897+00:00",
   "total_models": 343,
   "models": [
     {
@@ -564,7 +564,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -576,8 +576,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.13,
-        "output": 0.52
+        "input": 0.12,
+        "output": 0.5
       }
     },
     {
@@ -4262,7 +4262,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 384000
       },
       "modalities": {
         "input": [
@@ -4274,9 +4274,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_input": 0.028
+        "input": 0.042,
+        "output": 0.084,
+        "cache_input": 0.0084
       }
     },
     {
@@ -4307,9 +4307,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.01,
+        "input": 0.0108,
         "output": 1.28,
-        "cache_input": 0.01
+        "cache_input": 0.0108
       }
     },
     {
@@ -4376,9 +4376,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_input": 0.079605
+        "input": 0.2088,
+        "output": 0.4176,
+        "cache_input": 0.0174
       }
     },
     {
@@ -4444,9 +4444,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_input": 0.006
+        "input": 0.027,
+        "output": 0.6,
+        "cache_input": 0.027
       }
     },
     {
@@ -5961,7 +5961,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.4,
+        "input": 0.55,
         "output": 2.2
       }
     },
@@ -6858,7 +6858,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 98304
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -6871,8 +6871,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.6,
-        "output": 2.5,
-        "cache_input": 0.15
+        "output": 2.5
       }
     },
     {
@@ -7013,9 +7012,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 3.0,
-        "output": 15.0,
-        "cache_input": 0.3
+        "input": 0.677,
+        "output": 10.0,
+        "cache_input": 0.677
       }
     },
     {
@@ -7201,7 +7200,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -7213,9 +7212,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.16,
-        "cache_input": 0.03
+        "input": 0.0595,
+        "output": 0.17,
+        "cache_input": 0.02975
       }
     },
     {
@@ -8931,8 +8930,7 @@
       "vendor_id": "openai",
       "name": "GPT-6.1 Sol",
       "alias": [
-        "gpt-6.1-sol-20260929",
-        "gpt-6.1-sol:batch"
+        "gpt-6.1-sol-20260929"
       ],
       "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
       "capabilities": {
@@ -8967,8 +8965,7 @@
       "vendor_id": "openai",
       "name": "GPT-6.1 Sol Pro",
       "alias": [
-        "gpt-6.1-sol-pro-20260929",
-        "gpt-6.1-sol-pro:batch"
+        "gpt-6.1-sol-pro-20260929"
       ],
       "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
@@ -10284,7 +10281,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 1050000,
         "output": 131072
       },
       "modalities": {
@@ -10749,9 +10746,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_input": 0.26
+        "input": 0.9646,
+        "output": 3.0316,
+        "cache_input": 0.17914
       }
     },
     {
@@ -10784,8 +10781,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.36,
-        "output": 3.99,
+        "input": 1.4,
+        "output": 4.4,
         "cache_input": 0.26
       }
     },
@@ -10808,7 +10805,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943717
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -10820,9 +10817,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.4,
+        "input": 0.2219,
         "output": 4.4,
-        "cache_input": 0.26
+        "cache_input": 0.1775
       }
     },
     {
