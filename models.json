@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-02T08:09:26.606210+00:00",
-  "total_models": 343,
+  "generated_at": "2026-10-03T07:47:46.816946+00:00",
+  "total_models": 344,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -597,7 +597,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -609,8 +609,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.3
+        "input": 0.04815,
+        "output": 0.19305
       }
     },
     {
@@ -1060,7 +1060,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -4161,7 +4161,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 65536
+        "output": 147456
       },
       "modalities": {
         "input": [
@@ -4173,9 +4173,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.0,
-        "cache_input": 0.135
+        "input": 0.27,
+        "output": 1.0
       }
     },
     {
@@ -4275,9 +4274,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.042,
-        "output": 0.084,
-        "cache_input": 0.0084
+        "input": 0.028,
+        "output": 0.056,
+        "cache_input": 0.0056
       }
     },
     {
@@ -4308,9 +4307,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0115,
+        "input": 0.0171,
         "output": 1.28,
-        "cache_input": 0.0115
+        "cache_input": 0.0154
       }
     },
     {
@@ -4410,9 +4409,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 0.66,
+        "output": 1.98,
+        "cache_input": 0.022
       }
     },
     {
@@ -4445,9 +4444,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.015,
+        "input": 0.3,
         "output": 1.2,
-        "cache_input": 0.002115
+        "cache_input": 0.006
       }
     },
     {
@@ -5349,9 +5348,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.3,
-        "cache_input": 0.05
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_input": 0.0375
       }
     },
     {
@@ -6859,7 +6858,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 98304
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -6872,8 +6871,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.6,
-        "output": 2.5,
-        "cache_input": 0.15
+        "output": 2.5
       }
     },
     {
@@ -6942,9 +6940,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.43415,
-        "output": 1.828,
-        "cache_input": 0.07312
+        "input": 0.95,
+        "output": 4.0,
+        "cache_input": 0.16
       }
     },
     {
@@ -7202,7 +7200,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -7214,9 +7212,31 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.16,
-        "cache_input": 0.03
+        "input": 0.0595,
+        "output": 0.17,
+        "cache_input": 0.02975
+      }
+    },
+    {
+      "id": "switchyard",
+      "vendor_id": "nvidia",
+      "name": "Switchyard",
+      "description": "Switchyard is an open-source model router that switches between multiple models to optimize the cost of requests. By default it will use OpenRouter market data to select the most popular...",
+      "limit": {
+        "context": 1000000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": -1000000.0,
+        "output": -1000000.0
       }
     },
     {
@@ -10748,9 +10768,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.9646,
-        "output": 3.0316,
-        "cache_input": 0.17914
+        "input": 1.4,
+        "output": 4.4,
+        "cache_input": 0.26
       }
     },
     {
