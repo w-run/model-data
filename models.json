@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-04T07:56:25.607420+00:00",
+  "generated_at": "2026-10-05T08:39:54.542924+00:00",
   "total_models": 344,
   "models": [
     {
@@ -1809,7 +1809,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 262140
       },
       "modalities": {
         "input": [
@@ -1824,7 +1824,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.32,
-        "output": 3.2
+        "output": 2.7,
+        "cache_input": 0.03
       }
     },
     {
@@ -2129,8 +2130,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.42,
-        "output": 3.0,
+        "input": 0.425,
+        "output": 2.55,
         "cache_input": 0.085
       }
     },
@@ -3957,7 +3958,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 147456
+        "output": 115200
       },
       "modalities": {
         "input": [
@@ -3969,8 +3970,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 1.0
+        "input": 0.29,
+        "output": 1.14,
+        "cache_input": 0.11
       }
     },
     {
@@ -4273,9 +4275,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0224,
+        "input": 0.03,
         "output": 1.28,
-        "cache_input": 0.0224
+        "cache_input": 0.03
       }
     },
     {
@@ -4408,9 +4410,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.33,
-        "output": 4.2,
-        "cache_input": 0.26
+        "input": 0.45,
+        "output": 5.0,
+        "cache_input": 0.4
       }
     },
     {
@@ -4443,9 +4445,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.003,
-        "output": 2.4,
-        "cache_input": 0.003
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.006
       }
     },
     {
@@ -5347,9 +5349,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_input": 0.0375
+        "input": 0.09,
+        "output": 0.3,
+        "cache_input": 0.05
       }
     },
     {
@@ -5587,9 +5589,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.22,
-        "output": 0.5,
-        "cache_input": 0.11
+        "input": 0.1,
+        "output": 0.32
       }
     },
     {
@@ -6660,6 +6661,7 @@
       "description": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mistral Small 3 (2501), featuring 24 billion parameters with advanced multimodal capabilities. It provides state-of-the-art performance in text-based reasoning and...",
       "capabilities": {
         "tool_call": true,
+        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -7012,9 +7014,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.72,
-        "output": 13.0,
-        "cache_input": 0.7
+        "input": 0.67,
+        "output": 14.0,
+        "cache_input": 0.22
       }
     },
     {
@@ -7200,7 +7202,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 131072
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -7212,9 +7214,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0595,
-        "output": 0.17,
-        "cache_input": 0.02975
+        "input": 0.06,
+        "output": 0.16,
+        "cache_input": 0.03
       }
     },
     {
@@ -8651,9 +8653,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 4.0,
-        "output": 20.0,
-        "cache_input": 0.4,
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.2,
         "web_search": 10000.0
       }
     },
@@ -10791,7 +10793,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10803,9 +10805,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.38,
-        "output": 3.49,
-        "cache_input": 0.26
+        "input": 0.0224,
+        "output": 16.0,
+        "cache_input": 0.0224
       }
     },
     {
