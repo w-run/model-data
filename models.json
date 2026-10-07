@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-06T08:44:56.890307+00:00",
-  "total_models": 344,
+  "generated_at": "2026-10-07T08:19:22.372339+00:00",
+  "total_models": 346,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -596,7 +596,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32000
       },
       "modalities": {
         "input": [
@@ -608,8 +608,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.3
+        "input": 0.04815,
+        "output": 0.19305
       }
     },
     {
@@ -1580,7 +1580,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1594,9 +1594,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.75,
-        "cache_input": 0.04
+        "input": 0.15,
+        "output": 1.0,
+        "cache_input": 0.05
       }
     },
     {
@@ -1808,7 +1808,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262140
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1822,8 +1822,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 3.25,
+        "input": 0.3,
+        "output": 2.0,
         "cache_input": 0.03
       }
     },
@@ -4273,9 +4273,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0013,
+        "input": 0.03,
         "output": 1.28,
-        "cache_input": 0.0013
+        "cache_input": 0.03
       }
     },
     {
@@ -4306,9 +4306,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0103,
+        "input": 0.018,
         "output": 1.28,
-        "cache_input": 0.0103
+        "cache_input": 0.018
       }
     },
     {
@@ -4443,9 +4443,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.055,
-        "output": 1.32,
-        "cache_input": 0.0165
+        "input": 0.05,
+        "output": 1.2,
+        "cache_input": 0.02
       }
     },
     {
@@ -5199,6 +5199,41 @@
       }
     },
     {
+      "id": "gemini-nano-banana-2.1",
+      "vendor_id": "google",
+      "name": "Nano Banana 2.1",
+      "alias": [
+        "gemini-nano-banana-2.1-20261006"
+      ],
+      "description": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image generation and editing model on the Flash tier, succeeding Nano Banana 2 and Nano Banana Pro. It improves product recontextualization,...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 65536,
+        "output": 58982
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text",
+          "image"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.5,
+        "output": 7.5,
+        "web_search": 14000.0
+      }
+    },
+    {
       "id": "gemma-2-27b-it",
       "vendor_id": "google",
       "name": "Gemma 2 27B",
@@ -5622,7 +5657,8 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.1875,
-        "output": 0.6525
+        "output": 0.6525,
+        "cache_input": 0.05
       }
     },
     {
@@ -5702,7 +5738,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 117964
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -5715,8 +5751,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.35,
-        "output": 1.5,
+        "input": 0.3,
+        "output": 1.2,
         "cache_input": 0.04
       }
     },
@@ -6419,6 +6455,40 @@
       }
     },
     {
+      "id": "mistral-large-4-0",
+      "vendor_id": "mistral",
+      "name": "Mistral Large 4",
+      "alias": [
+        "mistral-large-4-0-20261006"
+      ],
+      "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 512K-token context window with up...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 524288,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.68,
+        "output": 2.09,
+        "cache_input": 0.07
+      }
+    },
+    {
       "id": "mistral-medium-3",
       "vendor_id": "mistral",
       "name": "Mistral Medium 3",
@@ -6941,9 +7011,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95,
-        "output": 4.0,
-        "cache_input": 0.16
+        "input": 0.465,
+        "output": 2.45,
+        "cache_input": 0.0975
       }
     },
     {
@@ -7013,9 +7083,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.83,
-        "output": 14.0,
-        "cache_input": 0.27
+        "input": 0.62,
+        "output": 15.0,
+        "cache_input": 0.43
       }
     },
     {
@@ -10757,7 +10827,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -10769,9 +10839,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.4,
-        "output": 4.4,
-        "cache_input": 0.26
+        "input": 0.966,
+        "output": 3.036,
+        "cache_input": 0.1794
       }
     },
     {
@@ -10804,9 +10874,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.152,
-        "output": 12.0,
-        "cache_input": 0.15
+        "input": 0.171,
+        "output": 7.2,
+        "cache_input": 0.162
       }
     },
     {
