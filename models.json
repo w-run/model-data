@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-07T08:19:22.372339+00:00",
-  "total_models": 346,
+  "generated_at": "2026-10-08T08:35:16.610074+00:00",
+  "total_models": 347,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1025,7 +1025,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1037,9 +1037,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 1.1,
-        "cache_input": 0.07
+        "input": 0.15,
+        "output": 1.5
       }
     },
     {
@@ -1544,7 +1543,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1558,8 +1557,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.195,
-        "output": 1.56
+        "input": 0.26,
+        "output": 2.6
       }
     },
     {
@@ -2482,6 +2481,42 @@
       }
     },
     {
+      "id": "claude-haiku-5.5",
+      "vendor_id": "anthropic",
+      "name": "Claude Haiku 5.5",
+      "alias": [
+        "claude-haiku-5.5-20261007",
+        "claude-haiku-5.5:batch"
+      ],
+      "description": "Claude Haiku 5.5 is Anthropic's small, fast model for high-volume, cost-sensitive work such as summarization, subagents, and browser use. It succeeds Claude Haiku 4.5 with stronger coding, computer use, and...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.1,
+        "output": 0.5,
+        "cache_input": 0.01,
+        "web_search": 10000.0
+      }
+    },
+    {
       "id": "claude-opus-4.1",
       "vendor_id": "anthropic",
       "name": "Claude Opus 4.1",
@@ -2641,8 +2676,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "temperature": true
+        "structured_output": true
       },
       "limit": {
         "context": 1000000,
@@ -2678,8 +2712,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "temperature": true
+        "structured_output": true
       },
       "limit": {
         "context": 1000000,
@@ -2715,8 +2748,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "temperature": true
+        "structured_output": true
       },
       "limit": {
         "context": 1000000,
@@ -2899,8 +2931,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "temperature": true
+        "structured_output": true
       },
       "limit": {
         "context": 1000000,
@@ -2920,7 +2951,7 @@
         "unit": "USD/Mtok",
         "input": 2.0,
         "output": 10.0,
-        "cache_input": 0.2,
+        "cache_input": 0.1,
         "web_search": 10000.0
       }
     },
@@ -4196,7 +4227,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 65536
+        "output": 147456
       },
       "modalities": {
         "input": [
@@ -4208,9 +4239,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.28,
+        "input": 0.259,
         "output": 0.42,
-        "cache_input": 0.028
+        "cache_input": 0.135
       }
     },
     {
@@ -4273,9 +4304,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.03,
+        "input": 0.0055,
         "output": 1.28,
-        "cache_input": 0.03
+        "cache_input": 0.0055
       }
     },
     {
@@ -4306,9 +4337,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.018,
+        "input": 0.0046,
         "output": 1.28,
-        "cache_input": 0.018
+        "cache_input": 0.0046
       }
     },
     {
@@ -4375,9 +4406,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2088,
-        "output": 0.4176,
-        "cache_input": 0.0174
+        "input": 0.95526,
+        "output": 1.91052,
+        "cache_input": 0.079605
       }
     },
     {
@@ -4443,9 +4474,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.05,
+        "input": 0.3,
         "output": 1.2,
-        "cache_input": 0.02
+        "cache_input": 0.006
       }
     },
     {
@@ -5622,9 +5653,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.22,
-        "output": 0.5,
-        "cache_input": 0.11
+        "input": 0.1,
+        "output": 0.32
       }
     },
     {
@@ -7084,7 +7114,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.62,
-        "output": 15.0,
+        "output": 12.3,
         "cache_input": 0.43
       }
     },
@@ -7116,9 +7146,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.05,
-        "output": 0.2,
-        "cache_input": 0.03
+        "input": 0.06,
+        "output": 0.24
       }
     },
     {
@@ -7170,7 +7199,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -7182,8 +7211,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.08,
-        "output": 0.45
+        "input": 0.085,
+        "output": 0.4
       }
     },
     {
@@ -7271,7 +7300,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -7283,9 +7312,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.06,
-        "output": 0.16,
-        "cache_input": 0.03
+        "input": 0.049,
+        "output": 0.14,
+        "cache_input": 0.0245
       }
     },
     {
@@ -10674,7 +10703,7 @@
         "unit": "USD/Mtok",
         "input": 0.3,
         "output": 0.9,
-        "cache_input": 0.05
+        "cache_input": 0.055
       }
     },
     {
@@ -10874,9 +10903,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.171,
-        "output": 7.2,
-        "cache_input": 0.162
+        "input": 0.03,
+        "output": 10.0,
+        "cache_input": 0.03
       }
     },
     {
@@ -10910,9 +10939,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.07,
-        "output": 7.0,
-        "cache_input": 0.065
+        "input": 0.049,
+        "output": 3.39,
+        "cache_input": 0.048
       }
     },
     {
