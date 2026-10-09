@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-08T08:35:16.610074+00:00",
+  "generated_at": "2026-10-09T08:40:45.624510+00:00",
   "total_models": 347,
   "models": [
     {
@@ -596,7 +596,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32000
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -608,8 +608,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04815,
-        "output": 0.19305
+        "input": 0.1,
+        "output": 0.3
       }
     },
     {
@@ -1025,7 +1025,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1037,8 +1037,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 1.5
+        "input": 0.1,
+        "output": 1.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -1579,7 +1580,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 32768
       },
       "modalities": {
         "input": [
@@ -1593,9 +1594,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 1.0,
-        "cache_input": 0.05
+        "input": 0.08,
+        "output": 0.75,
+        "cache_input": 0.04
       }
     },
     {
@@ -1614,7 +1615,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1628,9 +1629,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.45,
-        "output": 3.0,
-        "cache_input": 0.22
+        "input": 0.55,
+        "output": 3.5,
+        "cache_input": 0.225
       }
     },
     {
@@ -1821,9 +1822,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 2.0,
-        "cache_input": 0.03
+        "input": 0.45,
+        "output": 2.7
       }
     },
     {
@@ -3100,6 +3100,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 3.2,
+        "cache_input": 0.2,
+        "web_search": 0.004
       }
     },
     {
@@ -3123,6 +3130,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 3.2,
+        "cache_input": 0.2,
+        "web_search": 0.004
       }
     },
     {
@@ -3146,6 +3160,13 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 3.2,
+        "cache_input": 0.2,
+        "web_search": 0.004
       }
     },
     {
@@ -3170,6 +3191,12 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.0,
+        "output": 9.0,
+        "cache_input": 0.75
       }
     },
     {
@@ -3194,38 +3221,12 @@
         "output": [
           "text"
         ]
-      }
-    },
-    {
-      "id": "ernie-4.5-vl-424b-a47b",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 VL 424B A47B ",
-      "alias": [
-        "ernie-4.5-vl-424b-a47b-pt"
-      ],
-      "knowledge_cutoff": "2025-03-31",
-      "description": "ERNIE-4.5-VL-424B-A47B is a multimodal Mixture-of-Experts (MoE) model from Baidu’s ERNIE 4.5 series, featuring 424B total parameters with 47B active per token. It is trained jointly on text and image data...",
-      "capabilities": {
-        "reasoning": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 123000,
-        "output": 16000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
       },
       "price": {
-        "unit": "USD/Mtok",
-        "input": 0.42,
-        "output": 1.25
+        "unit": "CNY/Mtok",
+        "input": 3.0,
+        "output": 9.0,
+        "cache_input": 0.75
       }
     },
     {
@@ -3249,6 +3250,11 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 24.0
       }
     },
     {
@@ -3344,6 +3350,11 @@
         "output": [
           "text"
         ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 4.0,
+        "output": 18.0
       }
     },
     {
@@ -3955,7 +3966,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16000
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -3967,8 +3978,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2574,
-        "output": 1.0287
+        "input": 0.32,
+        "output": 0.89
       }
     },
     {
@@ -4304,9 +4315,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0055,
+        "input": 0.0075,
         "output": 1.28,
-        "cache_input": 0.0055
+        "cache_input": 0.0075
       }
     },
     {
@@ -4337,9 +4348,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0046,
+        "input": 0.0079,
         "output": 1.28,
-        "cache_input": 0.0046
+        "cache_input": 0.0079
       }
     },
     {
@@ -5653,8 +5664,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.32
+        "input": 0.22,
+        "output": 0.5,
+        "cache_input": 0.11
       }
     },
     {
@@ -6491,7 +6503,7 @@
       "alias": [
         "mistral-large-4-0-20261006"
       ],
-      "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 512K-token context window with up...",
+      "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 1M-token context window with up...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
@@ -6499,7 +6511,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 524288,
+        "context": 1048576,
         "output": 262144
       },
       "modalities": {
@@ -6648,7 +6660,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.019,
+        "input": 0.029,
         "output": 0.03
       }
     },
@@ -7113,9 +7125,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.62,
-        "output": 12.3,
-        "cache_input": 0.43
+        "input": 0.5,
+        "output": 12.0,
+        "cache_input": 0.3
       }
     },
     {
@@ -7199,7 +7211,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -7211,8 +7223,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.085,
-        "output": 0.4
+        "input": 0.08,
+        "output": 0.45
       }
     },
     {
@@ -7312,9 +7324,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.049,
-        "output": 0.14,
-        "cache_input": 0.0245
+        "input": 0.0469,
+        "output": 0.134,
+        "cache_input": 0.02345
       }
     },
     {
@@ -9052,7 +9064,8 @@
       "vendor_id": "openai",
       "name": "GPT-6.1 Sol",
       "alias": [
-        "gpt-6.1-sol-20260929"
+        "gpt-6.1-sol-20260929",
+        "gpt-6.1-sol:batch"
       ],
       "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
       "capabilities": {
@@ -9087,7 +9100,8 @@
       "vendor_id": "openai",
       "name": "GPT-6.1 Sol Pro",
       "alias": [
-        "gpt-6.1-sol-pro-20260929"
+        "gpt-6.1-sol-pro-20260929",
+        "gpt-6.1-sol-pro:batch"
       ],
       "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
       "capabilities": {
@@ -9799,6 +9813,41 @@
         "input": 0.2,
         "output": 1.15,
         "cache_input": 0.04
+      }
+    },
+    {
+      "id": "step-5-preview",
+      "vendor_id": "stepfun",
+      "name": "Step 5 Preview",
+      "alias": [
+        "step-5-preview-20261008"
+      ],
+      "description": "Step 5 Preview is StepFun's flagship model for agentic work, built on a sparse Mixture-of-Experts architecture (27B active / 600B total parameters). It performs strongly in software engineering and professional...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 64000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.0,
+        "output": 2.7,
+        "cache_input": 0.05
       }
     },
     {
@@ -10891,7 +10940,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -10903,9 +10952,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.03,
-        "output": 10.0,
-        "cache_input": 0.03
+        "input": 0.06,
+        "output": 4.2,
+        "cache_input": 0.059
       }
     },
     {
@@ -10939,9 +10988,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.049,
-        "output": 3.39,
-        "cache_input": 0.048
+        "input": 0.039,
+        "output": 4.8,
+        "cache_input": 0.038
       }
     },
     {
@@ -10950,14 +10999,16 @@
       "name": "GLM 5.3 Flash",
       "alias": [
         "glm-5.3-flash-20260826",
-        "glm-5.3-flash:batch"
+        "glm-5.3-flash:batch",
+        "zai-org-glm-5.3-flash"
       ],
       "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1048576,
