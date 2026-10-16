@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-15T07:09:19.961069+00:00",
-  "total_models": 341,
+  "generated_at": "2026-10-16T06:52:27.917966+00:00",
+  "total_models": 332,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -826,7 +826,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 16384
       },
       "modalities": {
         "input": [
@@ -838,9 +838,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 1.1,
-        "cache_input": 0.07
+        "input": 0.09,
+        "output": 1.1
       }
     },
     {
@@ -1557,7 +1556,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1571,8 +1570,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 3.2
+        "input": 0.25,
+        "output": 2.0,
+        "cache_input": 0.025
       }
     },
     {
@@ -2490,42 +2490,6 @@
       }
     },
     {
-      "id": "claude-sonnet-4",
-      "vendor_id": "anthropic",
-      "name": "Claude Sonnet 4",
-      "alias": [
-        "claude-4-sonnet-20250522"
-      ],
-      "knowledge_cutoff": "2025-01-31",
-      "description": "Claude Sonnet 4 significantly enhances the capabilities of its predecessor, Sonnet 3.7, excelling in both coding and reasoning tasks with improved precision and controllability. Achieving state-of-the-art performance on SWE-bench (72.7%),...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 64000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 3.0,
-        "output": 15.0,
-        "cache_input": 0.3,
-        "web_search": 10000.0
-      }
-    },
-    {
       "id": "claude-sonnet-4.5",
       "vendor_id": "anthropic",
       "name": "Claude Sonnet 4.5",
@@ -2794,284 +2758,6 @@
         "input": 4.0,
         "output": 16.0,
         "cache_input": 0.8
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-128k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-20260402",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-32k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 32768,
-        "input": 27648,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-vl",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo VL",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-vl-32k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo VL",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 32768,
-        "input": 27648,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
-      }
-    },
-    {
-      "id": "ernie-5.0",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 6.0,
-        "output": 24.0
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-exp",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-latest",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-preview",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      }
-    },
-    {
-      "id": "ernie-5.1",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.1",
-      "family": "ERNIE 5.1",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 4.0,
-        "output": 18.0
       }
     },
     {
@@ -3683,7 +3369,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16384
+        "output": 16000
       },
       "modalities": {
         "input": [
@@ -3695,8 +3381,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 0.89
+        "input": 0.2574,
+        "output": 1.0287
       }
     },
     {
@@ -4065,9 +3751,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.016,
-        "output": 0.64,
-        "cache_input": 0.016
+        "input": 0.0094,
+        "output": 1.28,
+        "cache_input": 0.0094
       }
     },
     {
@@ -4178,14 +3864,16 @@
       "name": "DeepSeek V4.1 Flash",
       "alias": [
         "deepseek-v4.1-flash-20260910",
-        "deepseek-v4.1-flash:batch"
+        "deepseek-v4.1-flash:batch",
+        "deepseek-ai-deepseek-v4.1-flash"
       ],
       "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on...",
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "temperature": true
+        "temperature": true,
+        "open_weights": true
       },
       "limit": {
         "context": 1048576,
@@ -4202,8 +3890,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.01368,
-        "output": 0.891,
+        "input": 0.036,
+        "output": 0.684,
         "cache_input": 0.0054
       }
     },
@@ -4951,9 +4639,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.75,
-        "output": 3.75,
-        "cache_input": 0.075,
+        "input": 0.825,
+        "output": 4.125,
+        "cache_input": 0.0825,
         "web_search": 14000.0
       }
     },
@@ -5378,7 +5066,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 72000
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -5390,8 +5078,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0509,
-        "output": 0.335
+        "input": 0.05,
+        "output": 0.33
       }
     },
     {
@@ -5736,6 +5424,44 @@
         "output": 0.2,
         "cache_input": 0.002,
         "web_search": 2500.0
+      }
+    },
+    {
+      "id": "muse-spark-open",
+      "vendor_id": "meta",
+      "name": "Muse Spark Open",
+      "alias": [
+        "muse-spark-open-20261015",
+        "muse-spark-open-816b-a42b"
+      ],
+      "description": "Muse Spark Open is a coding-optimized open-weight model. Trained specifically for agentic coding workflows, it delivers higher first-attempt accuracy, reliable tool calling, and deep codebase understanding across the repos developers...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 943718
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "file",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.25,
+        "output": 4.25,
+        "cache_input": 0.15
       }
     },
     {
@@ -6616,8 +6342,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.075,
-        "output": 0.2
+        "input": 0.09375,
+        "output": 0.25
       }
     },
     {
@@ -6919,9 +6645,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.45,
-        "output": 15.0,
-        "cache_input": 0.28
+        "input": 0.304,
+        "output": 11.936,
+        "cache_input": 0.21
       }
     },
     {
@@ -7121,6 +6847,43 @@
         "input": 0.07,
         "output": 0.2,
         "cache_input": 0.04
+      }
+    },
+    {
+      "id": "nemotron-3.5-super-vl",
+      "vendor_id": "nvidia",
+      "name": "Nemotron 3.5 Super VL",
+      "alias": [
+        "nemotron-3.5-super-vl-20261015",
+        "nvidia-nemotron-3.5-super-vl",
+        "nemotron-3.5-super-vl:free"
+      ],
+      "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 235929
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.15,
+        "output": 0.5,
+        "cache_input": 0.02
       }
     },
     {
@@ -9642,7 +9405,7 @@
         "unit": "USD/Mtok",
         "input": 1.0,
         "output": 2.7,
-        "cache_input": 0.05
+        "cache_input": 0.1
       }
     },
     {
@@ -10747,9 +10510,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.037,
-        "output": 7.0,
-        "cache_input": 0.036
+        "input": 0.62,
+        "output": 2.42,
+        "cache_input": 0.14
       }
     },
     {
@@ -10821,7 +10584,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.036,
+        "input": 0.01908,
         "output": 0.9,
         "cache_input": 0.01125
       }
