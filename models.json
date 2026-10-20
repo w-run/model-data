@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-19T07:29:27.558609+00:00",
-  "total_models": 343,
+  "generated_at": "2026-10-20T07:19:03.799449+00:00",
+  "total_models": 367,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1364,7 +1364,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 235929
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1378,9 +1378,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 3.6,
-        "cache_input": 0.3
+        "input": 0.39,
+        "output": 2.34
       }
     },
     {
@@ -1608,8 +1607,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 1.0,
+        "input": 0.1,
+        "output": 0.95,
         "cache_input": 0.05
       }
     },
@@ -1832,7 +1831,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 235929
+        "output": 65536
       },
       "modalities": {
         "input": [
@@ -1846,9 +1845,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.24,
-        "output": 2.2,
-        "cache_input": 0.05
+        "input": 0.04,
+        "output": 1.35,
+        "cache_input": 0.018
       }
     },
     {
@@ -3198,6 +3197,814 @@
       }
     },
     {
+      "id": "doubao-embedding-vision",
+      "vendor_id": "bytedance",
+      "name": "Doubao Embedding Vision",
+      "alias": [
+        "doubao-embedding-vision-251215"
+      ],
+      "family": "Doubao Embedding",
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "embedding"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-code",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Code",
+      "alias": [
+        "doubao-seed-2-0-code-preview-260215",
+        "doubao-seed-2-0-code"
+      ],
+      "family": "Doubao Seed 2.0 Code",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
+      },
+      "max_thinking": 262144,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.0-lite",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Lite",
+      "alias": [
+        "doubao-seed-2-0-lite-260428",
+        "doubao-seed-2-0-lite"
+      ],
+      "family": "Doubao Seed 2.0 Lite",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.6,
+        "output": 3.6,
+        "cache_input": 0.12,
+        "web_search": 4.0
+      },
+      "max_thinking": 262144
+    },
+    {
+      "id": "doubao-seed-2.0-mini",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Mini",
+      "alias": [
+        "doubao-seed-2-0-mini-260428",
+        "doubao-seed-2-0-mini"
+      ],
+      "family": "Doubao Seed 2.0 Mini",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.2,
+        "output": 2.0,
+        "cache_input": 0.04,
+        "web_search": 4.0
+      },
+      "max_thinking": 131072
+    },
+    {
+      "id": "doubao-seed-2.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.0 Pro",
+      "alias": [
+        "doubao-seed-2-0-pro-260215",
+        "doubao-seed-2-0-pro"
+      ],
+      "family": "Doubao Seed 2.0 Pro",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 393216
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.2,
+        "output": 16.0,
+        "cache_input": 0.64,
+        "web_search": 4.0
+      },
+      "max_thinking": 131072
+    },
+    {
+      "id": "doubao-seed-2.1-lite",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.1 Lite",
+      "alias": [
+        "doubao-seed-2-1-lite-260915",
+        "doubao-seed-2-1-lite"
+      ],
+      "family": "Doubao Lite",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.7,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.1-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.1 Pro",
+      "alias": [
+        "doubao-seed-2-1-pro-260915",
+        "doubao-seed-2-1-pro"
+      ],
+      "family": "Doubao Pro",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
+      },
+      "max_thinking": 262144,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-2.1-turbo",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed 2.1 Turbo",
+      "alias": [
+        "doubao-seed-2-1-turbo-260628",
+        "doubao-seed-2-1-turbo"
+      ],
+      "family": "Doubao",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 3.0,
+        "output": 15.0,
+        "cache_input": 0.6,
+        "web_search": 4.0
+      },
+      "max_thinking": 131072,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-character",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Character",
+      "alias": [
+        "doubao-seed-character-251128"
+      ],
+      "family": "Doubao Character",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 393216
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 0.8,
+        "output": 2.0,
+        "cache_input": 0.16,
+        "web_search": 4.0
+      },
+      "max_thinking": 393216,
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed-evolving",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Evolving",
+      "family": "Doubao",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 6.0,
+        "output": 30.0,
+        "cache_input": 1.2,
+        "web_search": 4.0
+      },
+      "max_thinking": 262144
+    },
+    {
+      "id": "doubao-seed-translation",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed Translation",
+      "alias": [
+        "doubao-seed-translation-250915"
+      ],
+      "family": "Doubao Translation",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "CNY/Mtok",
+        "input": 1.2,
+        "output": 3.6,
+        "web_search": 4.0
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seed3d-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seed3D 2.0",
+      "alias": [
+        "doubao-seed3d-2-0-260328",
+        "doubao-seed3d-2-0"
+      ],
+      "family": "Doubao Seed3D",
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "3d_model"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 300,
+        "max_concurrency": 5
+      }
+    },
+    {
+      "id": "doubao-seedance-1.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro",
+      "alias": [
+        "doubao-seedance-1-0-pro-250528",
+        "doubao-seedance-1-0-pro"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 262144,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      }
+    },
+    {
+      "id": "doubao-seedance-1.0-pro-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 1.0 Pro Fast",
+      "alias": [
+        "doubao-seedance-1-0-pro-fast-251015",
+        "doubao-seedance-1-0-pro-fast"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "2~12 秒",
+        "format": "mp4",
+        "max_rpm": 600,
+        "max_concurrency": 10
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedance-2.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0",
+      "alias": [
+        "doubao-seedance-2-0-260128",
+        "doubao-seedance-2-0"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedance-2.0-fast",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0 Fast",
+      "alias": [
+        "doubao-seedance-2-0-fast-260128",
+        "doubao-seedance-2-0-fast"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4"
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedance-2.0-mini",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.0 Mini",
+      "alias": [
+        "doubao-seedance-2-0-mini-260615",
+        "doubao-seedance-2-0-mini"
+      ],
+      "family": "Doubao Seedance 2.0",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 262144,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedance-2.5",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedance 2.5",
+      "alias": [
+        "doubao-seedance-2-5-260628",
+        "doubao-seedance-2-5"
+      ],
+      "family": "Doubao Seedance",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 131072,
+        "input": 98304,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~30 秒",
+        "format": "mp4, mov",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedream-4.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.0",
+      "alias": [
+        "doubao-seedream-4-0-250828",
+        "doubao-seedream-4-0"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 229376,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 131072,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 30000
+      }
+    },
+    {
+      "id": "doubao-seedream-4.5",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 4.5",
+      "alias": [
+        "doubao-seedream-4-5-251128",
+        "doubao-seedream-4-5"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 393216
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 393216,
+      "generation_specs": {
+        "fps": "24 fps",
+        "duration": "4~15 秒",
+        "format": "mp4",
+        "max_rpm": 500
+      }
+    },
+    {
+      "id": "doubao-seedream-5.0",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0",
+      "alias": [
+        "doubao-seedream-5-0-260128",
+        "doubao-seedream-5-0"
+      ],
+      "family": "Doubao Seedream",
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "supported_apis": [
+        "chat",
+        "responses"
+      ]
+    },
+    {
+      "id": "doubao-seedream-5.0-flash",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0 Flash",
+      "alias": [
+        "doubao-seedream-5-0-flash-260915",
+        "doubao-seedream-5-0-flash"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 262144,
+        "input": 262144,
+        "output": 262144
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 262144,
+      "generation_specs": {
+        "max_rpm": 500
+      }
+    },
+    {
+      "id": "doubao-seedream-5.0-pro",
+      "vendor_id": "bytedance",
+      "name": "Doubao Seedream 5.0 Pro",
+      "alias": [
+        "doubao-seedream-5-0-pro-260628",
+        "doubao-seedream-5-0-pro"
+      ],
+      "family": "Doubao Seedream",
+      "capabilities": {
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "limit": {
+        "context": 1048576,
+        "input": 1048576,
+        "output": 393216
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "max_thinking": 393216,
+      "generation_specs": {
+        "max_rpm": 500
+      }
+    },
+    {
       "id": "seed-1.6",
       "vendor_id": "bytedance",
       "name": "Seed 1.6",
@@ -3649,7 +4456,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 16384
+        "output": 16000
       },
       "modalities": {
         "input": [
@@ -3661,8 +4468,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.32,
-        "output": 0.89
+        "input": 0.2574,
+        "output": 1.0287
       }
     },
     {
@@ -3756,24 +4563,17 @@
     {
       "id": "deepseek-r1",
       "vendor_id": "deepseek",
-      "name": "R1",
+      "name": "DeepSeek-R1",
       "alias": [
         "deepseek-ai-deepseek-r1",
         "pro-deepseek-r1",
         "pro-deepseek-ai-deepseek-r1"
       ],
-      "knowledge_cutoff": "2024-07-31",
-      "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass....",
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
         "temperature": true,
+        "reasoning": true,
         "open_weights": true
-      },
-      "limit": {
-        "context": 64000,
-        "output": 16000
       },
       "modalities": {
         "input": [
@@ -3782,11 +4582,6 @@
         "output": [
           "text"
         ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.7,
-        "output": 2.5
       }
     },
     {
@@ -4019,7 +4814,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -4031,9 +4826,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.15,
-        "cache_input": 0.042
+        "input": 0.44,
+        "output": 1.32,
+        "cache_input": 0.014
       }
     },
     {
@@ -4170,8 +4965,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0456,
-        "output": 0.08,
+        "input": 0.0352,
+        "output": 0.0112,
         "cache_input": 0.0016
       }
     },
@@ -5134,7 +5929,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -5147,8 +5942,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.05,
-        "output": 0.1
+        "input": 0.04,
+        "output": 0.05,
+        "cache_input": 0.02
       }
     },
     {
@@ -5440,7 +6236,7 @@
         "temperature": true
       },
       "limit": {
-        "context": 1048576,
+        "context": 524288,
         "output": 16384
       },
       "modalities": {
@@ -6063,6 +6859,36 @@
         "input": 0.3,
         "output": 1.2,
         "cache_input": 0.06
+      }
+    },
+    {
+      "id": "minimax-m3.1-flash",
+      "vendor_id": "minimax",
+      "name": "MiniMax M3.1 Flash",
+      "alias": [
+        "minimax-m3.1-flash:free",
+        "minimax-m3.1-flash-20261019"
+      ],
+      "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "temperature": true
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 524288
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
       }
     },
     {
@@ -7194,9 +8020,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.4,
-        "cache_input": 0.08
+        "input": 0.15,
+        "output": 0.5,
+        "cache_input": 0.02
       }
     },
     {
@@ -10707,7 +11533,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 131072
+        "output": 128000
       },
       "modalities": {
         "input": [
@@ -10719,9 +11545,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.0,
-        "output": 3.2,
-        "cache_input": 0.2
+        "input": 0.6,
+        "output": 1.92,
+        "cache_input": 0.12
       }
     },
     {
@@ -10897,8 +11723,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0352,
-        "output": 0.2,
+        "input": 0.048,
+        "output": 0.16,
         "cache_input": 0.006
       }
     },
