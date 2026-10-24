@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-23T07:11:48.608487+00:00",
-  "total_models": 344,
+  "generated_at": "2026-10-24T07:00:47.897025+00:00",
+  "total_models": 345,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -4019,9 +4019,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.44,
-        "output": 1.32,
-        "cache_input": 0.014
+        "input": 0.04444,
+        "output": 0.13332,
+        "cache_input": 0.001414
       }
     },
     {
@@ -4088,9 +4088,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_input": 0.079605
+        "input": 0.48981,
+        "output": 0.97962,
+        "cache_input": 0.040817
       }
     },
     {
@@ -4121,9 +4121,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_input": 0.044
+        "input": 0.66,
+        "output": 1.98,
+        "cache_input": 0.022
       }
     },
     {
@@ -4158,9 +4158,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.165,
-        "output": 0.66,
-        "cache_input": 0.006
+        "input": 0.02,
+        "output": 1.0,
+        "cache_input": 0.015
       }
     },
     {
@@ -4192,9 +4192,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_input": 0.006
+        "input": 0.15,
+        "output": 0.6,
+        "cache_input": 0.003
       }
     },
     {
@@ -5162,9 +5162,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.09,
-        "output": 0.3,
-        "cache_input": 0.05
+        "input": 0.0675,
+        "output": 0.225,
+        "cache_input": 0.0375
       }
     },
     {
@@ -6939,7 +6939,7 @@
         "unit": "USD/Mtok",
         "input": 0.6712,
         "output": 3.35,
-        "cache_input": 0.18
+        "cache_input": 0.15
       }
     },
     {
@@ -6974,8 +6974,42 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.239,
-        "output": 11.936,
+        "output": 10.8,
         "cache_input": 0.21
+      }
+    },
+    {
+      "id": "kimi-k3.1-pro",
+      "vendor_id": "moonshot",
+      "name": "Kimi K3.1 Pro",
+      "alias": [
+        "kimi-k3.1-pro-20261023"
+      ],
+      "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D...",
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 943718
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.0,
+        "output": 10.0,
+        "cache_input": 0.2
       }
     },
     {
@@ -10639,7 +10673,7 @@
         "unit": "USD/Mtok",
         "input": 0.3,
         "output": 0.9,
-        "cache_input": 0.055
+        "cache_input": 0.05
       }
     },
     {
@@ -10899,7 +10933,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -10913,9 +10947,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0052,
-        "output": 0.1985,
-        "cache_input": 0.0052
+        "input": 0.15,
+        "output": 0.5,
+        "cache_input": 0.03
       }
     },
     {
