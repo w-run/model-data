@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-24T07:00:47.897025+00:00",
-  "total_models": 345,
+  "generated_at": "2026-10-25T07:24:55.276893+00:00",
+  "total_models": 343,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -4007,7 +4007,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -4019,9 +4019,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.04444,
-        "output": 0.13332,
-        "cache_input": 0.001414
+        "input": 0.0422,
+        "output": 0.1694,
+        "cache_input": 0.028
       }
     },
     {
@@ -4088,9 +4088,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.48981,
-        "output": 0.97962,
-        "cache_input": 0.040817
+        "input": 0.2088,
+        "output": 0.4176,
+        "cache_input": 0.0174
       }
     },
     {
@@ -5360,7 +5360,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 72000
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -5372,8 +5372,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0509,
-        "output": 0.335
+        "input": 0.05,
+        "output": 0.33
       }
     },
     {
@@ -5960,7 +5960,7 @@
       },
       "limit": {
         "context": 204800,
-        "output": 32768
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -5972,8 +5972,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.27,
-        "output": 0.95,
+        "input": 0.3,
+        "output": 1.2,
         "cache_input": 0.03
       }
     },
@@ -7272,39 +7272,6 @@
       }
     },
     {
-      "id": "gpt-3.5-turbo",
-      "vendor_id": "openai",
-      "name": "GPT-3.5 Turbo",
-      "alias": [
-        "gpt-3.5-turbo:batch"
-      ],
-      "knowledge_cutoff": "2021-09-30",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 16385,
-        "output": 4096
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.5,
-        "output": 1.5,
-        "web_search": 10000.0
-      }
-    },
-    {
       "id": "gpt-3.5-turbo-0613",
       "vendor_id": "openai",
       "name": "GPT-3.5 Turbo (older v0613)",
@@ -7360,34 +7327,6 @@
         "unit": "USD/Mtok",
         "input": 3.0,
         "output": 4.0
-      }
-    },
-    {
-      "id": "gpt-3.5-turbo-instruct",
-      "vendor_id": "openai",
-      "name": "GPT-3.5 Turbo Instruct",
-      "knowledge_cutoff": "2021-09-30",
-      "description": "This model is a variant of GPT-3.5 Turbo tuned for instructional prompts and omitting chat-related optimizations. Training data: up to Sep 2021.",
-      "capabilities": {
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 4095,
-        "output": 3685
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.5,
-        "output": 2.0
       }
     },
     {
