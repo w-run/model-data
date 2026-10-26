@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-25T07:24:55.276893+00:00",
+  "generated_at": "2026-10-26T07:34:12.565086+00:00",
   "total_models": 343,
   "models": [
     {
@@ -1270,8 +1270,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.4,
-        "output": 3.2
+        "input": 0.26,
+        "output": 2.08
       }
     },
     {
@@ -1557,7 +1557,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1571,9 +1571,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.25,
-        "output": 2.0,
-        "cache_input": 0.025
+        "input": 0.32,
+        "output": 3.2
       }
     },
     {
@@ -4007,7 +4006,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -4019,9 +4018,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0422,
-        "output": 0.1694,
-        "cache_input": 0.028
+        "input": 0.44,
+        "output": 1.32,
+        "cache_input": 0.014
       }
     },
     {
@@ -4088,9 +4087,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2088,
-        "output": 0.4176,
-        "cache_input": 0.0174
+        "input": 0.95526,
+        "output": 1.91052,
+        "cache_input": 0.079605
       }
     },
     {
@@ -4121,9 +4120,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.66,
-        "output": 1.98,
-        "cache_input": 0.022
+        "input": 1.32,
+        "output": 3.96,
+        "cache_input": 0.044
       }
     },
     {
@@ -4192,9 +4191,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.6,
-        "cache_input": 0.003
+        "input": 0.3,
+        "output": 1.2,
+        "cache_input": 0.006
       }
     },
     {
@@ -5162,9 +5161,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0675,
-        "output": 0.225,
-        "cache_input": 0.0375
+        "input": 0.09,
+        "output": 0.3,
+        "cache_input": 0.05
       }
     },
     {
@@ -5184,7 +5183,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -5198,8 +5197,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.2,
-        "output": 0.4
+        "input": 0.1,
+        "output": 0.34,
+        "cache_input": 0.1
       }
     },
     {
@@ -6973,9 +6973,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.239,
-        "output": 10.8,
-        "cache_input": 0.21
+        "input": 0.161,
+        "output": 20.0,
+        "cache_input": 0.151
       }
     },
     {
@@ -7483,7 +7483,7 @@
       },
       "limit": {
         "context": 1047576,
-        "output": 32768
+        "output": 942818
       },
       "modalities": {
         "input": [
@@ -7499,7 +7499,7 @@
         "unit": "USD/Mtok",
         "input": 0.1,
         "output": 0.4,
-        "cache_input": 0.025,
+        "cache_input": 0.03,
         "web_search": 10000.0
       }
     },
@@ -10848,9 +10848,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.079,
+        "input": 0.0699,
         "output": 1.4,
-        "cache_input": 0.078
+        "cache_input": 0.0689
       }
     },
     {
