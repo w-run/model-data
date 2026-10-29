@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-28T08:03:31.605284+00:00",
-  "total_models": 345,
+  "generated_at": "2026-10-29T08:13:00.500582+00:00",
+  "total_models": 340,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -841,39 +841,6 @@
         "unit": "USD/Mtok",
         "input": 0.09,
         "output": 1.1
-      }
-    },
-    {
-      "id": "qwen3-next-80b-a3b-thinking",
-      "vendor_id": "alibaba",
-      "name": "Qwen3 Next 80B A3B Thinking",
-      "alias": [
-        "qwen3-next-80b-a3b-thinking-2509"
-      ],
-      "knowledge_cutoff": "2025-09-30",
-      "description": "Qwen3-Next-80B-A3B-Thinking is a reasoning-first chat model in the Qwen3-Next line that outputs structured “thinking” traces by default. It’s designed for hard multi-step problems; math proofs, code synthesis/debugging, logic, and agentic...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "temperature": true
-      },
-      "limit": {
-        "context": 262144,
-        "output": 235929
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 1.2
       }
     },
     {
@@ -3714,7 +3681,7 @@
       },
       "limit": {
         "context": 163840,
-        "output": 32768
+        "output": 147456
       },
       "modalities": {
         "input": [
@@ -3973,7 +3940,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -3985,9 +3952,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_input": 0.028
+        "input": 0.091,
+        "output": 0.182,
+        "cache_input": 0.0182
       }
     },
     {
@@ -4144,7 +4111,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943718
       },
       "modalities": {
         "input": [
@@ -4157,9 +4124,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.14,
-        "output": 0.42,
-        "cache_input": 0.0042
+        "input": 0.045,
+        "output": 0.5,
+        "cache_input": 0.006
       }
     },
     {
@@ -5302,7 +5269,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 117964
       },
       "modalities": {
         "input": [
@@ -5314,8 +5281,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.02,
-        "output": 0.04
+        "input": 0.05,
+        "output": 0.08,
+        "cache_input": 0.025
       }
     },
     {
@@ -5733,7 +5701,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943718
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -5860,7 +5828,6 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
         "temperature": true
       },
       "limit": {
@@ -6959,9 +6926,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.189,
-        "output": 20.0,
-        "cache_input": 0.179
+        "input": 0.192,
+        "output": 15.0,
+        "cache_input": 0.182
       }
     },
     {
@@ -7078,8 +7045,8 @@
         "temperature": true
       },
       "limit": {
-        "context": 262144,
-        "output": 235929
+        "context": 1048576,
+        "output": 262144
       },
       "modalities": {
         "input": [
@@ -7347,7 +7314,7 @@
     {
       "id": "gpt-4-turbo",
       "vendor_id": "openai",
-      "name": "GPT-4 Turbo",
+      "name": "GPT-4 Turbo (batch)",
       "alias": [
         "gpt-4-turbo:batch"
       ],
@@ -7373,8 +7340,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 10.0,
-        "output": 30.0,
+        "input": 5.0,
+        "output": 15.0,
         "web_search": 10000.0
       }
     },
@@ -9241,73 +9208,6 @@
       }
     },
     {
-      "id": "o1",
-      "vendor_id": "openai",
-      "name": "o1",
-      "alias": [
-        "o1-2024-12-17"
-      ],
-      "knowledge_cutoff": "2023-10-31",
-      "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 100000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 15.0,
-        "output": 60.0,
-        "cache_input": 7.5,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "o1-pro",
-      "vendor_id": "openai",
-      "name": "o1-pro",
-      "knowledge_cutoff": "2023-10-31",
-      "description": "The o1 series of models are trained with reinforcement learning to think before they answer and perform complex reasoning. The o1-pro model uses more compute to think harder and provide...",
-      "capabilities": {
-        "reasoning": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 100000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 150.0,
-        "output": 600.0,
-        "web_search": 10000.0
-      }
-    },
-    {
       "id": "o3",
       "vendor_id": "openai",
       "name": "o3",
@@ -9347,10 +9247,10 @@
     {
       "id": "o3-mini",
       "vendor_id": "openai",
-      "name": "o3 Mini",
+      "name": "o3 Mini (batch)",
       "alias": [
-        "o3-mini-2025-01-31",
-        "o3-mini:batch"
+        "o3-mini:batch",
+        "o3-mini-2025-01-31"
       ],
       "knowledge_cutoff": "2023-10-31",
       "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
@@ -9374,44 +9274,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.1,
-        "output": 4.4,
-        "cache_input": 0.55,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "o3-mini-high",
-      "vendor_id": "openai",
-      "name": "o3 Mini High",
-      "alias": [
-        "o3-mini-high-2025-01-31"
-      ],
-      "knowledge_cutoff": "2023-10-31",
-      "description": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o3-mini) with reasoning_effort set to high. o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 100000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.1,
-        "output": 4.4,
-        "cache_input": 0.55,
+        "input": 0.55,
+        "output": 2.2,
+        "cache_input": 0.275,
         "web_search": 10000.0
       }
     },
@@ -9453,10 +9318,10 @@
     {
       "id": "o4-mini",
       "vendor_id": "openai",
-      "name": "o4 Mini",
+      "name": "o4 Mini (batch)",
       "alias": [
-        "o4-mini-2025-04-16",
-        "o4-mini:batch"
+        "o4-mini:batch",
+        "o4-mini-2025-04-16"
       ],
       "knowledge_cutoff": "2024-06-30",
       "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
@@ -9481,45 +9346,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.1,
-        "output": 4.4,
-        "cache_input": 0.275,
-        "web_search": 10000.0
-      }
-    },
-    {
-      "id": "o4-mini-high",
-      "vendor_id": "openai",
-      "name": "o4 Mini High",
-      "alias": [
-        "o4-mini-high-2025-04-16"
-      ],
-      "knowledge_cutoff": "2024-06-30",
-      "description": "OpenAI o4-mini-high is the same model as [o4-mini](/openai/o4-mini) with reasoning_effort set to high. OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining...",
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 200000,
-        "output": 100000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "file"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.1,
-        "output": 4.4,
-        "cache_input": 0.275,
+        "input": 0.55,
+        "output": 2.2,
+        "cache_input": 0.1375,
         "web_search": 10000.0
       }
     },
@@ -10633,9 +10462,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.55,
-        "output": 2.2,
-        "cache_input": 0.11
+        "input": 0.5,
+        "output": 2.0,
+        "cache_input": 0.1
       }
     },
     {
@@ -10870,9 +10699,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0179,
+        "input": 0.006,
         "output": 7.0,
-        "cache_input": 0.0169
+        "cache_input": 0.005
       }
     },
     {
@@ -10930,7 +10759,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 943717
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -10944,8 +10773,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 0.5,
+        "input": 0.0457,
+        "output": 0.0742,
         "cache_input": 0.03
       }
     },
