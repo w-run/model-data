@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-10-29T08:13:00.500582+00:00",
-  "total_models": 340,
+  "generated_at": "2026-10-30T08:19:30.417330+00:00",
+  "total_models": 331,
   "models": [
     {
       "id": "cosyvoice2-0.5b",
@@ -1524,7 +1524,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 81920
       },
       "modalities": {
         "input": [
@@ -1538,8 +1538,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.45,
-        "output": 2.7
+        "input": 0.32,
+        "output": 3.2
       }
     },
     {
@@ -1763,7 +1763,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 909000
+        "output": 131072
       },
       "modalities": {
         "input": [
@@ -1798,7 +1798,7 @@
       },
       "limit": {
         "context": 1000000,
-        "output": 65536
+        "output": 235929
       },
       "modalities": {
         "input": [
@@ -1812,9 +1812,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.039,
-        "output": 1.25,
-        "cache_input": 0.0039
+        "input": 0.15,
+        "output": 1.875,
+        "cache_input": 0.0375
       }
     },
     {
@@ -2726,256 +2726,6 @@
         "input": 4.0,
         "output": 16.0,
         "cache_input": 0.8
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-128k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-20260402",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-32k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 32768,
-        "input": 27648,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 0.8,
-        "output": 3.2,
-        "cache_input": 0.2,
-        "web_search": 0.004
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-vl",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo VL",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 125952,
-        "output": 16384
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
-      }
-    },
-    {
-      "id": "ernie-4.5-turbo-vl-32k",
-      "vendor_id": "baidu",
-      "name": "ERNIE 4.5 Turbo VL",
-      "family": "ERNIE 4.5 Turbo",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 32768,
-        "input": 27648,
-        "output": 12288
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 3.0,
-        "output": 9.0,
-        "cache_input": 0.75
-      }
-    },
-    {
-      "id": "ernie-5.0",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "price": {
-        "unit": "CNY/Mtok",
-        "input": 6.0,
-        "output": 24.0
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-exp",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-latest",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      }
-    },
-    {
-      "id": "ernie-5.0-thinking-preview",
-      "vendor_id": "baidu",
-      "name": "ERNIE 5.0",
-      "family": "ERNIE 5.0",
-      "capabilities": {
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true
-      },
-      "limit": {
-        "context": 131072,
-        "input": 121856,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
       }
     },
     {
@@ -4054,9 +3804,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_input": 0.079605
+        "input": 0.816234,
+        "output": 1.632468,
+        "cache_input": 0.068019
       }
     },
     {
@@ -6305,7 +6055,8 @@
       "vendor_id": "mistral",
       "name": "Mistral Large 4",
       "alias": [
-        "mistral-large-4-0-20261006"
+        "mistral-large-4-0-20261006",
+        "mistral-large-4-1t-a52b"
       ],
       "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 1M-token context window with up...",
       "capabilities": {
@@ -6329,9 +6080,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 1.36,
-        "output": 4.18,
-        "cache_input": 0.14
+        "input": 0.7,
+        "output": 2.1,
+        "cache_input": 0.07
       }
     },
     {
@@ -10499,7 +10250,7 @@
         "unit": "USD/Mtok",
         "input": 0.3,
         "output": 0.9,
-        "cache_input": 0.05
+        "cache_input": 0.055
       }
     },
     {
@@ -10735,9 +10486,9 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0699,
-        "output": 1.4,
-        "cache_input": 0.0689
+        "input": 0.08,
+        "output": 3.6,
+        "cache_input": 0.076
       }
     },
     {
@@ -10759,7 +10510,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 943717
       },
       "modalities": {
         "input": [
@@ -10773,8 +10524,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0457,
-        "output": 0.0742,
+        "input": 0.15,
+        "output": 0.5,
         "cache_input": 0.03
       }
     },
