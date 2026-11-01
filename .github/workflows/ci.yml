@@ -34,11 +34,12 @@ jobs:
         run: python -m scripts.build
         env:
           SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+          MIMI_API_KEY: ${{ secrets.MIMI_API_KEY }}
 
       - name: Stage output
         run: |
           mkdir -p /tmp/out
-          cp vendors.json models.json /tmp/out/
+          cp vendors.json models.json index.json /tmp/out/
           cp -r logos /tmp/out/ 2>/dev/null || true
           cp data/gh-pages-index.html /tmp/out/index.html
 
@@ -49,13 +50,13 @@ jobs:
 
       - name: Deploy
         run: |
-          cp /tmp/out/vendors.json /tmp/out/models.json .
+          cp /tmp/out/vendors.json /tmp/out/models.json /tmp/out/index.json .
           cp /tmp/out/index.html .
           rm -rf logos
           cp -r /tmp/out/logos . 2>/dev/null || mkdir -p logos
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add vendors.json models.json logos/ index.html
+          git add vendors.json models.json index.json logos/ index.html
           git diff --cached --quiet || git commit -m "deploy: $(date -u +%Y-%m-%d)"
 
       - name: Push

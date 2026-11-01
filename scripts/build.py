@@ -1,590 +1,374 @@
 #!/usr/bin/env python3
 """
-模型信息库构建脚本
+model-data 构建脚本（重写版）
 
-数据源（均通过 scrapers/ 模块统一接口）：
-  1. data/vendors.toml    — 厂商配置（name、alias、website 等）
-  2. data/manual/*.json   — 本地维护的模型数据
-  3. OpenRouter           — 聚合平台，免费获取模型详细信息
-  4. SiliconFlow          — 聚合平台，需 API Key（环境变量 SILICONFLOW_API_KEY）
-  5. 百度千帆              — 厂商专属，爬虫获取
-  6. 火山引擎豆包           — 厂商专属，爬虫获取
+设计目标
+--------
+1. **不筛选**：旧版按 data/vendors.toml 白名单过滤，OpenRouter 上 452 个模型
+   会被砍到 300 上下，大量真实模型直接丢失。新版收录所有模型，厂商只是元信息。
+2. **权威优先、缺失继承**：按数据源优先级合并，高优先级只补自己的字段，
+   低优先级补齐空字段。任何字段都不写死在脚本里。
+3. **自有模型也能收录**：mimi-* 系列在公开目录里不存在，直接从我们的
+   聚合网关 https://mimi.wrun.cc/v1/models 抓，含上下文/输出/模态/能力。
+4. **消费方友好**：额外产出 index.json（归一化别名 -> 模型 id），
+   让 sub2api / mimi-router 之类按自己的写法快速命中。
 
-产出：
-  - vendors.json  — 厂商信息列表
-  - models.json   — 所有模型列表（通过 vendor_id 关联厂商）
+数据源优先级（高 → 低）
+    1. manual       data/manual/overrides.json（人工标称，最高优先级）
+    2. openrouter   https://openrouter.ai/api/v1/models（公开权威、覆盖最广）
+    3. mimi         https://mimi.wrun.cc/v1/models（自有 mimi-* 系列）
 
-命名规范：
-  vendor_id / model_id 均使用小写短横线分隔式命名
-  中国厂商 name 使用中文名，国外厂商使用英文名
+产出（默认写仓库根目录，gh-pages 直接托管）
+    models.json   模型列表
+    vendors.json  厂商列表
+    index.json    别名索引
 
-价格规范：
-  price 字段统一为:
-    input:        元(USD)/百万token  输入价格
-    output:       元(USD)/百万token  输出价格
-    cache_input:  元(USD)/百万token  命中缓存时的输入价格（null 表示不支持或不详）
-    cache_output: 元(USD)/百万token  命中缓存时的输出价格（null 表示不支持或不详）
-    web_search:   元(USD)/次         联网搜索价格
-    completion:   元(USD)/百万token  补齐价格（null 表示不支持或不详）
-    reasoning:    元(USD)/百万token  推理/思考价格（null 表示不支持或不详）
-  百度/字节价格单位为元/百万token，OpenRouter价格为USD/百万token
-  用 unit 字段标识: "CNY/Mtok" 或 "USD/Mtok"
+用法
+    python -m scripts.build                # 全量
+    python -m scripts.build -o out         # 输出到指定目录
+    python -m scripts.build --only openrouter,mimi
 """
+
+from __future__ import annotations
 
 import argparse
 import json
 import re
 import sys
+import urllib.error
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-# 确保 scripts/ 目录在 Python 路径中，以正确导入 scrapers 包
-_SCRIPTS_DIR = Path(__file__).resolve().parent
-if str(_SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(_SCRIPTS_DIR))
-
-# Python 3.11+ 内置 tomllib
-try:
-    import tomllib
-except ImportError:
-    import tomli as tomllib  # type: ignore[no-redef]
-
-
-# ─── 配置 ──────────────────────────────────────────────────────────────────────
-
+VERSION = "2.0.0"
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
-MANUAL_DIR = DATA_DIR / "manual"
-VENDORS_TOML = DATA_DIR / "vendors.toml"
-LOGOS_DIR = BASE_DIR / "logos"
-
-VERSION = "1.0.0"
-CNY_UNIT = "CNY/Mtok"
+MANUAL_PATH = BASE_DIR / "data" / "manual" / "overrides.json"
+UA = "w-run-model-data/2.0 (+https://github.com/w-run/model-data)"
 USD_UNIT = "USD/Mtok"
 
-# 数据源 ID 列表（按优先级排序，高优先级在前）
-# 合并时，排在前面的数据源优先级更高
-DEFAULT_SOURCE_ORDER = [
-    "openrouter",          # 聚合平台 — 信息最全（价格、上下文、模态、能力）
-    "siliconflow",         # 聚合平台 — 补充国内开源模型
-    "volcengine-doubao",   # 厂商专属 — 豆包系列详细规格
-    "baidu",               # 厂商专属 — ERNIE 系列详细规格
-]
+
+# ── HTTP ─────────────────────────────────────────────────────────────────────
 
 
-# ─── 工具函数 ──────────────────────────────────────────────────────────────────
-
-def normalize_id(raw_id: str) -> str:
-    """
-    将任意格式的 ID 转为小写短横线分隔式命名。
-    保留版本号中的 '.'（如 qwen3.5、deepseek-v3.1、gpt-4.1）。
-    """
-    s = raw_id.replace("/", "-").replace("_", "-").replace(" ", "-")
-    s = re.sub(r"-+", "-", s)
-    s = s.strip("-")
-    return s.lower()
+def http_get_json(url: str, timeout: int = 60, headers: dict[str, str] | None = None) -> Any:
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json", **(headers or {})})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
 
 
-def strip_org_prefix(raw_id: str) -> str:
-    """去掉 org/ 前缀，如 'qwen/qwen3-72b' -> 'qwen3-72b'"""
-    if "/" in raw_id:
-        return raw_id.split("/", 1)[1]
-    return raw_id
+# ── 归一化 ───────────────────────────────────────────────────────────────────
 
 
-def parse_token_count(s: str) -> int | None:
-    """解析 token 数量字符串，如 '128k' -> 131072, '1M' -> 1048576"""
+def normalize_id(raw: str) -> str:
+    """模型/厂商 ID 归一化：小写、空格与下划线转短横线、去掉 OpenRouter 变体后缀。"""
+    s = str(raw or "").strip().lower()
     if not s:
-        return None
-    s = s.strip().lower().replace(",", "").replace("，", "")
-    multipliers = {"k": 1024, "m": 1048576, "w": 10000}
-    for suffix, mult in multipliers.items():
-        if s.endswith(suffix):
+        return ""
+    for suf in (":free", ":extended", ":nitro", ":online", ":thinking", ":floor"):
+        s = s[: -len(suf)] if s.endswith(suf) else s
+    s = s.replace("_", "-").replace(" ", "-")
+    s = re.sub(r"-{2,}", "-", s).strip("-")
+    return s
+
+
+def alias_keys(model_id: str, full_id: str | None = None) -> set[str]:
+    """生成用于 index.json 的匹配键：短名、全名、去 -solo、版本号点横两种写法。"""
+    keys: set[str] = set()
+    for candidate in (model_id, full_id):
+        if not candidate:
+            continue
+        base = normalize_id(candidate)
+        if not base:
+            continue
+        keys.add(base)
+        if "/" in base:
+            keys.add(base.split("/", 1)[1])
+    # 版本号写法互通：v4-1 / v4.1
+    for k in list(keys):
+        keys.add(re.sub(r"-(\d)-1-", r"-\1.1-", k))
+    keys.discard("")
+    return keys
+
+
+# ── 数据源 ───────────────────────────────────────────────────────────────────
+
+
+def fetch_openrouter() -> list[dict[str, Any]]:
+    data = http_get_json("https://openrouter.ai/api/v1/models", timeout=60)
+    out: list[dict[str, Any]] = []
+    for m in data.get("data", []) or []:
+        full_id = str(m.get("id") or "")
+        if not full_id or "/" not in full_id:
+            continue
+        org, name_part = full_id.split("/", 1)
+        if org.startswith("~"):
+            continue
+
+        raw_name = str(m.get("name") or name_part)
+        display = raw_name.split(": ", 1)[1] if ": " in raw_name else raw_name
+        display = re.sub(r"\s*\((free|extended)\)\s*$", "", display, flags=re.I)
+
+        arch = m.get("architecture") or {}
+        modalities_in = arch.get("input_modalities") or []
+        modalities_out = arch.get("output_modalities") or ["text"]
+        if not modalities_in and arch.get("modality") and "->" in arch["modality"]:
+            left = arch["modality"].split("->")[0]
+            modalities_in = [x.strip() for x in left.split("+") if x.strip()]
+
+        params = m.get("supported_parameters") or []
+        caps: dict[str, Any] = {}
+        if "tools" in params or "tool_choice" in params:
+            caps["tool_call"] = True
+        if "reasoning" in params or "include_reasoning" in params:
+            caps["reasoning"] = True
+        if "structured_outputs" in params or "response_format" in params:
+            caps["structured_output"] = True
+        if "temperature" in params:
+            caps["temperature"] = True
+        if "image" in modalities_in:
+            caps["vision"] = True
+
+        price: dict[str, Any] = {"unit": USD_UNIT}
+        for src_key, dst_key in (
+            ("prompt", "input"),
+            ("completion", "output"),
+            ("input_cache_read", "cache_read"),
+            ("input_cache_write", "cache_write"),
+            ("image", "image_input"),
+            ("web_search", "web_search"),
+            ("reasoning", "reasoning"),
+        ):
+            val = (m.get("pricing") or {}).get(src_key)
+            if val in (None, "", "0"):
+                continue
             try:
-                return int(float(s[:-1]) * mult)
-            except ValueError:
-                return None
+                price[dst_key] = round(float(val) * 1_000_000, 6)
+            except (TypeError, ValueError):
+                continue
+
+        top = m.get("top_provider") or {}
+        out.append(
+            {
+                "id": normalize_id(name_part),
+                "vendor": normalize_id(org),
+                "name": display,
+                "aliases": sorted(alias_keys(name_part, full_id)),
+                "context": m.get("context_length") or None,
+                "max_output": top.get("max_completion_tokens") or None,
+                "modalities": {"input": modalities_in or ["text"], "output": modalities_out},
+                "capabilities": caps,
+                "price": price if len(price) > 1 else None,
+                "kind": str(m.get("kind") or "chat"),
+                "description": (m.get("description") or None),
+                "sources": ["openrouter"],
+            }
+        )
+    print(f"  openrouter: {len(out)} models", flush=True)
+    return out
+
+
+def fetch_mimi() -> list[dict[str, Any]]:
+    import os
+
+    url = os.environ.get("MIMI_MODELS_URL", "https://mimi.wrun.cc/v1/models")
+    headers = {}
+    if os.environ.get("MIMI_API_KEY"):
+        headers["Authorization"] = "Bearer " + os.environ["MIMI_API_KEY"]
+    data = http_get_json(url, timeout=30, headers=headers)
+    out: list[dict[str, Any]] = []
+    for m in data.get("data", []) or []:
+        raw_id = str(m.get("id") or "").strip()
+        if not raw_id:
+            continue
+        modalities_in = m.get("input_modalities")
+        if not isinstance(modalities_in, list) or not modalities_in:
+            modalities_in = ["text"]
+            if m.get("supports_images"):
+                modalities_in.append("image")
+            if m.get("supports_video"):
+                modalities_in.append("video")
+        caps: dict[str, Any] = {"temperature": True}
+        if m.get("supports_tool_call"):
+            caps["tool_call"] = True
+        if m.get("supports_reasoning"):
+            caps["reasoning"] = True
+        if "image" in modalities_in:
+            caps["vision"] = True
+        out.append(
+            {
+                "id": normalize_id(raw_id),
+                "vendor": "w-run",
+                "name": str(m.get("name") or raw_id),
+                "aliases": sorted(alias_keys(raw_id)),
+                "context": m.get("max_input_tokens") or None,
+                "max_output": m.get("max_output_tokens") or None,
+                "modalities": {"input": modalities_in, "output": ["text"]},
+                "capabilities": caps,
+                "price": {"unit": USD_UNIT, "input": 0.0, "output": 0.0},
+                "kind": str(m.get("kind") or "chat"),
+                "description": None,
+                "sources": ["mimi"],
+            }
+        )
+    print(f"  mimi: {len(out)} models", flush=True)
+    return out
+
+
+def load_manual() -> dict[str, dict[str, Any]]:
+    if not MANUAL_PATH.exists():
+        return {}
     try:
-        return int(s)
-    except ValueError:
-        return None
+        raw = json.loads(MANUAL_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"  manual: 读取失败 {exc}", file=sys.stderr, flush=True)
+        return {}
+    models = raw.get("models") or {}
+    print(f"  manual: {len(models)} overrides", flush=True)
+    return {normalize_id(k): v for k, v in models.items() if v}
 
 
-# ─── 数据加载 ──────────────────────────────────────────────────────────────────
-
-def load_vendors() -> dict[str, dict[str, Any]]:
-    """加载厂商配置（vendors.toml）"""
-    if not VENDORS_TOML.exists():
-        print(f"Error: vendors.toml not found: {VENDORS_TOML}", file=sys.stderr)
-        sys.exit(1)
-    with open(VENDORS_TOML, "rb") as f:
-        return tomllib.load(f)
+# ── 合并 ───────────────────────────────────────────────────────────────────
 
 
-def build_alias_map(vendors_config: dict[str, dict[str, Any]]) -> dict[str, str]:
-    """构建 alias -> vendor_id 的映射"""
-    alias_map: dict[str, str] = {}
-    for vid, cfg in vendors_config.items():
-        alias_map[vid.lower()] = vid
-        for alias in cfg.get("alias", []):
-            alias_map[alias.lower()] = vid
-    return alias_map
-
-
-def load_manual_data(vendor_ids: set[str]) -> dict[str, list[dict[str, Any]]]:
-    """加载本地维护的模型数据（data/manual/<vendor_id>.json）"""
-    result: dict[str, list[dict[str, Any]]] = {}
-    if not MANUAL_DIR.exists():
-        return result
-
-    for f in sorted(MANUAL_DIR.glob("*.json")):
-        vendor_id = f.stem
-        if vendor_id not in vendor_ids:
-            print(f"  Warning: manual data for unknown vendor '{vendor_id}', skipping", file=sys.stderr)
+def merge(base: dict[str, dict[str, Any]], incoming: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """按优先级合并：已存在的字段不覆盖，只补空；aliases 取并集；sources 累加。"""
+    for model in incoming:
+        mid = model.get("id")
+        if not mid:
             continue
-        try:
-            with open(f, encoding="utf-8") as fp:
-                data = json.load(fp)
-            models = data.get("models", [])
-            now = datetime.now(timezone.utc).isoformat()
-            for m in models:
-                m["vendor_id"] = vendor_id
-                m["source"] = "manual"
-                m["fetched_at"] = now
-            result[vendor_id] = models
-            print(f"    {vendor_id}: {len(models)} models from manual data")
-        except Exception as e:
-            print(f"    Error loading manual data for {vendor_id}: {e}", file=sys.stderr)
-
-    return result
-
-
-# ─── 数据合并 ──────────────────────────────────────────────────────────────────
-
-def merge_models(*sources: dict[str, list[dict[str, Any]]]) -> dict[str, list[dict[str, Any]]]:
-    """
-    合并多个渠道的模型数据（取长补短）
-
-    合并策略：
-    - 排在前面的数据源优先级更高
-    - 对于同一模型 ID：
-      - 优先使用高优先级渠道的数据
-      - 低优先级渠道只补充高优先级没有的字段
-      - alias 列表会合并所有来源（去重）
-      - price 字段会合并（高优先级优先，低优先级补充null字段）
-      - capabilities 字典会合并（高优先级优先，低优先级补充）
-    """
-    merged: dict[str, dict[str, dict[str, Any]]] = {}
-
-    for source in sources:
-        for vendor_id, models in source.items():
-            if vendor_id not in merged:
-                merged[vendor_id] = {}
-
-            for model in models:
-                model_id = model.get("id", "")
-                if not model_id:
-                    continue
-
-                if model_id not in merged[vendor_id]:
-                    merged[vendor_id][model_id] = model
-                else:
-                    existing = merged[vendor_id][model_id]
-                    for key, value in model.items():
-                        if key == "model_aliases":
-                            # alias 列表合并去重
-                            existing_aliases = set(existing.get("model_aliases", []))
-                            for a in value:
-                                if a not in existing_aliases:
-                                    existing.setdefault("model_aliases", []).append(a)
-                                    existing_aliases.add(a)
-                        elif key == "price":
-                            # price 字段合并
-                            existing_price = existing.get("price", {})
-                            if not existing_price:
-                                existing["price"] = value
-                            else:
-                                for pk, pv in value.items():
-                                    if pk == "unit":
-                                        continue  # unit 不覆盖
-                                    if pk not in existing_price or existing_price[pk] is None:
-                                        existing_price[pk] = pv
-                        elif key == "capabilities":
-                            # capabilities 字典合并
-                            existing_caps = existing.get("capabilities", {})
-                            if not existing_caps:
-                                existing["capabilities"] = value
-                            else:
-                                for ck, cv in value.items():
-                                    if ck not in existing_caps or existing_caps[ck] is None:
-                                        existing_caps[ck] = cv
-                        elif key not in existing and value:
-                            existing[key] = value
-
-    result: dict[str, list[dict[str, Any]]] = {}
-    for vendor_id, models_dict in merged.items():
-        result[vendor_id] = sorted(models_dict.values(), key=lambda m: m.get("id", ""))
-
-    return result
-
-
-# ─── 输出构建 ──────────────────────────────────────────────────────────────────
-
-def build_vendor_entry(vendor_id: str, cfg: dict[str, Any], model_count: int) -> dict[str, Any]:
-    """构建单个厂商的输出条目"""
-    entry: dict[str, Any] = {
-        "id": vendor_id.lower(),
-        "name": cfg.get("name", vendor_id),
-    }
-
-    # alias（仅当非空时输出，全部小写，排除与 vendor_id 重复的项）
-    vid_lower = vendor_id.lower()
-    alias = [a.lower() for a in cfg.get("alias", []) if a.lower() != vid_lower]
-    if alias:
-        entry["alias"] = alias
-
-    # 可选字段
-    for key in ["website", "api_docs"]:
-        if key in cfg and cfg[key]:
-            entry[key] = cfg[key]
-
-    # logo
-    logo_path = LOGOS_DIR / f"{vendor_id}.svg"
-    if logo_path.exists():
-        entry["logo"] = f"logos/{vendor_id}.svg"
-
-    return entry
-
-
-def build_model_entry(model: dict[str, Any], vendor_id: str, price_data: dict[str, dict[str, Any]] | None = None) -> dict[str, Any]:
-    """构建单个模型的输出条目"""
-    # id: 小写短横线分隔，不含厂商前缀
-    model_id = normalize_id(model["id"])
-
-    # name: 去掉厂商前缀
-    raw_name = model.get("name", model["id"])
-    if ": " in raw_name:
-        raw_name = raw_name.split(": ", 1)[1]
-
-    m: dict[str, Any] = {
-        "id": model_id,
-        "vendor_id": vendor_id.lower(),
-        "name": raw_name,
-    }
-
-    # 模型 alias
-    model_aliases: list[str] = []
-    seen_alias: set[str] = {model_id}
-    for alias_raw in model.get("model_aliases", []):
-        a = normalize_id(alias_raw) if "/" in str(alias_raw) else str(alias_raw).lower()
-        if a and a not in seen_alias:
-            model_aliases.append(a)
-            seen_alias.add(a)
-    if model_aliases:
-        m["alias"] = model_aliases
-
-    # 直接映射的可选字段
-    direct_fields = [
-        "family", "knowledge_cutoff", "license", "status",
-        "version", "description", "description_zh",
-    ]
-    for field in direct_fields:
-        if field in model and model[field] is not None:
-            m[field] = model[field]
-
-    # 能力
-    if "capabilities" in model:
-        m["capabilities"] = model["capabilities"]
-
-    # 上下文限制
-    limit: dict[str, Any] = {}
-    if "context_length" in model:
-        limit["context"] = model["context_length"]
-    if "max_input" in model:
-        limit["input"] = model["max_input"]
-    elif "input_token_limit" in model:
-        limit["context"] = model["input_token_limit"]
-    if "max_output" in model:
-        limit["output"] = model["max_output"]
-    elif "max_output_tokens" in model:
-        limit["output"] = model["max_output_tokens"]
-    elif "output_token_limit" in model:
-        limit["output"] = model["output_token_limit"]
-    if "limit" in model and isinstance(model["limit"], dict):
-        for k in ["context", "input", "output"]:
-            if k in model["limit"] and k not in limit:
-                limit[k] = model["limit"][k]
-    if limit:
-        m["limit"] = limit
-
-    # 模态
-    if "modalities" in model:
-        m["modalities"] = model["modalities"]
-
-    # 价格
-    price: dict[str, Any] = {}
-
-    if "price" in model:
-        price = dict(model["price"])
-
-    # 从厂商专属数据源的价格数据中补充
-    scraper_price = None
-    if price_data:
-        candidate_keys = [model_id]
-        for alias_raw in model.get("model_aliases", []):
-            a = normalize_id(alias_raw) if "/" in str(alias_raw) else str(alias_raw).lower()
-            if a and a not in candidate_keys:
-                candidate_keys.append(a)
-
-        preview_variants = []
-        for key in list(candidate_keys):
-            if key.endswith("-preview"):
-                preview_variants.append(key[:-len("-preview")])
-            else:
-                preview_variants.append(f"{key}-preview")
-        candidate_keys.extend(v for v in preview_variants if v not in candidate_keys)
-
-        ctx_variants = []
-        for key in list(candidate_keys):
-            ctx_removed = re.sub(r"-(?:\d+)k$", "", key)
-            if ctx_removed != key and ctx_removed not in candidate_keys:
-                ctx_variants.append(ctx_removed)
-        candidate_keys.extend(ctx_variants)
-
-        for key in candidate_keys:
-            if key in price_data:
-                scraper_price = price_data[key]
-                break
-
-    if scraper_price:
-        is_chinese_vendor = vendor_id in ("baidu", "bytedance", "alibaba", "moonshot", "z-ai", "xiaomi", "tencent", "stepfun")
-        unit = CNY_UNIT if is_chinese_vendor else USD_UNIT
-
-        if not price:
-            price = {"unit": unit}
-
-        for key in ["input", "output", "cache_input", "cache_output", "web_search", "completion", "reasoning"]:
-            if key in scraper_price:
-                if key not in price or price.get(key) is None:
-                    price[key] = scraper_price[key]
-
-        if "unit" not in price:
-            price["unit"] = unit
-
-    if price:
-        is_cny = price.get("unit") == CNY_UNIT
-        unit = CNY_UNIT if is_cny else USD_UNIT
-
-        standardized_price: dict[str, Any] = {"unit": unit}
-        for key in ["input", "output", "cache_input", "cache_output", "web_search", "completion", "reasoning"]:
-            val = price.get(key)
-            if val is not None:
-                standardized_price[key] = val
-
-        has_any_price = any(k != "unit" and v is not None for k, v in standardized_price.items())
-        if has_any_price:
-            m["price"] = standardized_price
-
-    # 爬虫特有字段
-    for field in ["max_thinking", "generation_specs", "supported_apis"]:
-        if field in model:
-            m[field] = model[field]
-
-    # 开源权重
-    if "open_weights" in model:
-        caps = m.get("capabilities", {})
-        caps["open_weights"] = model["open_weights"]
-        m["capabilities"] = caps
-
-    # 日期
-    if "release_date" in model:
-        m["release_date"] = model["release_date"]
-    if "last_updated" in model:
-        m["last_updated"] = model["last_updated"]
-
-    return m
-
-
-# ─── 主构建逻辑 ────────────────────────────────────────────────────────────────
-
-def build(
-    source_ids: list[str] | None = None,
-    use_manual: bool = True,
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """
-    构建 vendors.json 和 models.json 的数据
-
-    source_ids: 要使用的数据源 ID 列表（按优先级排序，高优先级在前）。
-                None 表示使用默认顺序 DEFAULT_SOURCE_ORDER。
-    返回: (vendors_list, models_list)
-    """
-    from scrapers import SOURCES, run_all_sources, run_all_price_sources
-
-    if source_ids is None:
-        source_ids = DEFAULT_SOURCE_ORDER
-
-    # 1. 加载厂商配置
-    print("Loading vendors config...", flush=True)
-    vendors_config = load_vendors()
-    vendor_ids = set(vendors_config.keys())
-    print(f"  Found {len(vendor_ids)} vendors")
-
-    # 2. 构建 alias -> vendor_id 映射
-    alias_map = build_alias_map(vendors_config)
-
-    # 3. 从各数据源获取模型数据
-    print("\nFetching from data sources...", flush=True)
-    sources: list[dict[str, list[dict[str, Any]]]] = []
-
-    for sid in source_ids:
-        if sid not in SOURCES:
-            print(f"  Warning: unknown source '{sid}', skipping", file=sys.stderr)
+        cur = base.get(mid)
+        if cur is None:
+            base[mid] = dict(model)
             continue
+        for key, value in model.items():
+            if key in ("id", "aliases", "sources"):
+                continue
+            if value in (None, "", {}, []) and key not in ("price",):
+                continue
+            if cur.get(key) in (None, "", {}, []):
+                cur[key] = value
+        cur["aliases"] = sorted(set(cur.get("aliases") or []) | set(model.get("aliases") or []))
+        cur["sources"] = sorted(set(cur.get("sources") or []) | set(model.get("sources") or []))
+    return base
 
-        source = SOURCES[sid]()
-        print(f"  [{source.source_id}] {source.name}: fetching...", end=" ", flush=True)
-        try:
-            data = source.fetch(alias_map)
-            model_count = sum(len(v) for v in data.values())
-            sources.append(data)
-            print(f"OK ({model_count} models)")
-        except Exception as e:
-            print(f"FAIL: {e}")
 
-    # 4. 加载手动数据
-    if use_manual:
-        print("\nLoading manual data...", flush=True)
-        manual_data = load_manual_data(vendor_ids)
-        if manual_data:
-            sources.append(manual_data)
+def apply_manual(models: dict[str, dict[str, Any]], overrides: dict[str, dict[str, Any]]) -> None:
+    """人工标称：直接覆盖（含置 None/False 的显式关闭）。"""
+    for mid, patch in overrides.items():
+        target = models.get(mid)
+        if target is None:
+            # 允许手工新增官方没有的模型
+            target = {
+                "id": mid,
+                "vendor": patch.get("vendor") or "w-run",
+                "name": patch.get("name") or mid,
+                "aliases": sorted(alias_keys(mid)),
+                "context": None,
+                "max_output": None,
+                "modalities": None,
+                "capabilities": {},
+                "price": None,
+                "kind": "chat",
+                "description": None,
+                "sources": [],
+            }
+            models[mid] = target
+        for key, value in patch.items():
+            if key in ("aliases", "sources"):
+                continue
+            if key == "capabilities" and isinstance(value, dict):
+                merged_caps = dict(target.get("capabilities") or {})
+                merged_caps.update(value)
+                target["capabilities"] = merged_caps
+                continue
+            target[key] = value
+        target["sources"] = sorted(set(target.get("sources") or []) | {"manual"})
 
-    # 5. 合并数据
-    print("\nMerging data from all sources...", flush=True)
-    merged = merge_models(*sources)
 
-    # 6. 获取价格数据（从厂商专属数据源）
-    print("\nFetching prices from vendor sources...", flush=True)
-    # 只运行非聚合平台的数据源获取价格
-    vendor_source_ids = [
-        sid for sid in source_ids
-        if sid in SOURCES and not SOURCES[sid].is_aggregator
-    ]
-    price_data_all = run_all_price_sources(vendor_source_ids)
+# ── 输出 ───────────────────────────────────────────────────────────────────
 
-    # 7. 构建输出
-    print("\nBuilding output...", flush=True)
-    vendors: list[dict[str, Any]] = []
-    models: list[dict[str, Any]] = []
-    seen_model_ids: set[str] = set()
 
-    for vendor_id in sorted(vendors_config.keys()):
-        cfg = vendors_config[vendor_id]
-        vendor_models = merged.get(vendor_id, [])
-        model_count = len(vendor_models)
+def build_index(models: dict[str, dict[str, Any]]) -> dict[str, str]:
+    index: dict[str, str] = {}
+    for mid, model in models.items():
+        keys = set(alias_keys(mid))
+        for a in model.get("aliases") or []:
+            keys |= alias_keys(a)
+        for k in keys:
+            if k and k not in index:
+                index[k] = mid
+    return index
 
-        vendor_entry = build_vendor_entry(vendor_id, cfg, model_count)
-        vendors.append(vendor_entry)
 
-        vendor_price_data = price_data_all.get(vendor_id, {})
+def write_outputs(output_dir: Path, models: dict[str, dict[str, Any]]) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    now = datetime.now(timezone.utc).isoformat()
 
-        for model in vendor_models:
-            model_entry = build_model_entry(model, vendor_id, vendor_price_data)
-            mid = model_entry["id"]
+    vendors: dict[str, dict[str, Any]] = {}
+    for model in models.values():
+        vid = model.get("vendor") or "unknown"
+        entry = vendors.setdefault(vid, {"id": vid, "name": vid, "model_count": 0})
+        entry["model_count"] += 1
 
-            if mid in seen_model_ids:
-                mid = f"{vendor_id}-{mid}"
-                if mid in seen_model_ids:
-                    continue
-                model_entry["id"] = mid
-            seen_model_ids.add(mid)
+    ordered_models = [models[k] for k in sorted(models.keys())]
+    (output_dir / "models.json").write_text(
+        json.dumps(
+            {"version": VERSION, "generated_at": now, "count": len(ordered_models), "models": ordered_models},
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    vendor_list = [vendors[k] for k in sorted(vendors.keys())]
+    (output_dir / "vendors.json").write_text(
+        json.dumps(
+            {"version": VERSION, "generated_at": now, "count": len(vendor_list), "vendors": vendor_list},
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    index = build_index(models)
+    (output_dir / "index.json").write_text(
+        json.dumps({"version": VERSION, "generated_at": now, "index": index}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
-            models.append(model_entry)
 
-    return vendors, models
+# ── main ───────────────────────────────────────────────────────────────────
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build vendors.json and models.json")
-    parser.add_argument("--no-openrouter", action="store_true", help="Skip OpenRouter fetch")
-    parser.add_argument("--no-scraper", action="store_true", help="Skip vendor scrapers (baidu, volcengine-doubao)")
-    parser.add_argument("--no-manual", action="store_true", help="Skip manual data")
-    parser.add_argument("--no-siliconflow", action="store_true", help="Skip SiliconFlow API fetch")
-    parser.add_argument("--openrouter-only", action="store_true", help="Only fetch from OpenRouter")
-    parser.add_argument("--scraper-only", action="store_true", help="Only run vendor scrapers")
-    parser.add_argument("--manual-only", action="store_true", help="Only load manual data")
-    parser.add_argument("--siliconflow-only", action="store_true", help="Only fetch from SiliconFlow")
-    parser.add_argument("--output-dir", "-o", type=Path, default=BASE_DIR, help="Output directory")
-
+    parser = argparse.ArgumentParser(description="Build models.json / vendors.json / index.json")
+    parser.add_argument("-o", "--output-dir", type=Path, default=BASE_DIR)
+    parser.add_argument("--only", default="", help="逗号分隔的数据源，如 openrouter,mimi,manual")
     args = parser.parse_args()
 
-    # 确定使用的数据源
-    if args.openrouter_only:
-        source_ids = ["openrouter"]
-    elif args.scraper_only:
-        source_ids = ["volcengine-doubao", "baidu"]
-    elif args.manual_only:
-        source_ids = []
-    elif args.siliconflow_only:
-        source_ids = ["siliconflow"]
-    else:
-        source_ids = list(DEFAULT_SOURCE_ORDER)
-        if args.no_openrouter and "openrouter" in source_ids:
-            source_ids.remove("openrouter")
-        if args.no_siliconflow and "siliconflow" in source_ids:
-            source_ids.remove("siliconflow")
-        if args.no_scraper:
-            source_ids = [s for s in source_ids if s not in ("volcengine-doubao", "baidu")]
-
-    use_manual = not args.no_manual and not any([
-        args.openrouter_only, args.scraper_only, args.siliconflow_only,
-    ])
-
-    source_labels = []
-    if source_ids:
-        from scrapers import SOURCES
-        source_labels = [SOURCES[sid].name if sid in SOURCES else sid for sid in source_ids]
-    if use_manual:
-        source_labels.append("Manual")
+    selected = {s.strip() for s in args.only.split(",") if s.strip()}
+    run = lambda name: (not selected) or (name in selected)  # noqa: E731
 
     print("=" * 60)
-    print("  Model Info Builder")
-    print(f"  Time: {datetime.now(timezone.utc).isoformat()}")
-    print(f"  Sources: {' > '.join(source_labels)}")
+    print(f"  model-data build v{VERSION}")
+    print(f"  {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
+
+    models: dict[str, dict[str, Any]] = {}
+    # 优先级从低到高依次合入：后合的在"补空"策略下不会覆盖已有值，
+    # 所以真正的优先级通过顺序体现——先合入的赢。
+    if run("openrouter"):
+        models = merge(models, fetch_openrouter())
+    if run("mimi"):
+        models = merge(models, fetch_mimi())
+    if run("manual"):
+        apply_manual(models, load_manual())
+
+    write_outputs(args.output_dir, models)
+
+    filled = sum(1 for m in models.values() if m.get("context"))
     print()
-
-    vendors, models = build(source_ids=source_ids, use_manual=use_manual)
-
-    now = datetime.now(timezone.utc).isoformat()
-    output_dir = args.output_dir
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # 写入 vendors.json
-    vendors_output = {
-        "version": VERSION,
-        "generated_at": now,
-        "total_vendors": len(vendors),
-        "vendors": vendors,
-    }
-    with open(output_dir / "vendors.json", "w", encoding="utf-8") as f:
-        json.dump(vendors_output, f, ensure_ascii=False, indent=2)
-
-    # 写入 models.json
-    models_output = {
-        "version": VERSION,
-        "generated_at": now,
-        "total_models": len(models),
-        "models": models,
-    }
-    with open(output_dir / "models.json", "w", encoding="utf-8") as f:
-        json.dump(models_output, f, ensure_ascii=False, indent=2)
-
-    print()
-    print("=" * 60)
-    print(f"  Output: {output_dir}")
-    print(f"  Vendors: {len(vendors)}")
-    print(f"  Models: {len(models)}")
+    print(f"  models: {len(models)}  (with context: {filled})")
+    print(f"  output: {args.output_dir}")
     print("=" * 60)
 
 

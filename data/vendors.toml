@@ -123,3 +123,10 @@ alias = ["sarvamai", "sarvam-ai"]
 website = "https://www.sarvam.ai"
 api_docs = "https://docs.sarvam.ai"
 
+
+
+[w-run]
+name = "W/Run"
+alias = ["wrun", "w-run", "mimi"]
+website = "https://w-run.com"
+api_docs = "https://mimi.wrun.cc"

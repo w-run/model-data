@@ -9,6 +9,7 @@ OpenRouter 是聚合平台，模型来自多个厂商。
 模型 ID 格式: org/model-name (如 openai/gpt-4o)
 """
 
+import os
 import re
 from datetime import datetime, timezone
 from typing import Any
@@ -46,10 +47,13 @@ class OpenRouterSource(BaseSource):
             if org == "openrouter" or org.startswith("~"):
                 continue
 
-            # 大小写无关匹配
+            # 大小写无关匹配；未登记厂商在"收录未知"模式下自动建厂商，不再丢弃。
+            # 原实现直接 continue，会把 OpenRouter 上大量真实模型过滤掉。
             vendor_id = alias_map.get(org.lower())
             if not vendor_id:
-                continue
+                if os.environ.get("MODEL_DATA_INCLUDE_UNKNOWN", "1") != "1":
+                    continue
+                vendor_id = "auto-" + self.normalize_id(org)
 
             # 模型 ID（去掉 org/ 前缀）
             raw_model_id = model_id.split("/", 1)[1]

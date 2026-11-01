@@ -19,6 +19,7 @@ from .openrouter import OpenRouterSource
 from .siliconflow import SiliconFlowSource
 from .baidu_qianfan import BaiduQianfanSource
 from .volcengine_doubao import VolcengineDoubaoSource
+from .mimi import MimiSource
 
 __all__ = [
     "BaseSource",
@@ -31,4 +32,5 @@ __all__ = [
     "SiliconFlowSource",
     "BaiduQianfanSource",
     "VolcengineDoubaoSource",
+    "MimiSource",
 ]
