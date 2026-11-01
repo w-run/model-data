@@ -30,3 +30,6 @@ Thumbs.db
 # Debug scripts
 debug_*.py
 check_*.py
+
+# 本地构建产物
+out/
