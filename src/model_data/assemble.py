@@ -156,6 +156,11 @@ def pick(evidence: Evidence | None, declared: dict[str, Any] | None, field: str)
                  "source": "consensus"}
 
 
+# 渠道限制的下限阈值：低于此值视为异常配置，不作为有效限制记录
+MIN_INPUT_RATIO = 0.80                          # 输入不低于标称的 80%
+MIN_OUTPUT_TOKENS = 32_000                      # 输出不低于 32K
+
+
 def _channel_limits(context, max_output, declared: dict | None) -> dict | None:
     """
     渠道带来的**真实约束**：上下文与输出分别判断，只有比标称值小时才列出。
@@ -181,14 +186,21 @@ def _channel_limits(context, max_output, declared: dict | None) -> dict | None:
     # 用**取整后**的值比较：最终产出是取整值，若取整后相等就不算限制
     from .notation import round_k
     limits: dict[str, Any] = {}
+
     if mimi_in and context:
         r_in, r_ctx = round_k(mimi_in), round_k(context)
-        if r_in and r_ctx and r_in < r_ctx:
+        # 下限：低于标称 80% 就不记 —— 那多半是渠道配错或数据异常，
+        # 不是「这个模型在这里能跑多少」的有效信息。
+        if r_in and r_ctx and r_in < r_ctx and r_in >= r_ctx * MIN_INPUT_RATIO:
             limits["input"] = mimi_in
+
     if mimi_out and max_output:
         r_out, r_max = round_k(mimi_out), round_k(max_output)
-        if r_out and r_max and r_out < r_max:
+        # 下限：低于 32K 不记 —— 小到这个程度通常是该渠道的异常配置
+        if (r_out and r_max and r_out < r_max
+                and r_out >= MIN_OUTPUT_TOKENS):
             limits["output"] = mimi_out
+
     return limits or None
 
 

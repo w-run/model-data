@@ -152,6 +152,22 @@ class TestChannelLimits(unittest.TestCase):
         r = _channel_limits(1024000, 384000, {"output": 128000})
         self.assertEqual(r, {"output": 128000})
 
+    def test_input_below_80pct_ignored(self):
+        """输入低于标称 80% 视为渠道异常配置，不记为限制。"""
+        from model_data.assemble import _channel_limits
+        # 256K 的 80% = 204800；192000 低于此值 → 不记
+        self.assertIsNone(_channel_limits(256000, 128000, {"context": 192000}))
+        # 210000 取整后仍是 210000（占 82%）→ 记录
+        self.assertEqual(_channel_limits(256000, 128000, {"context": 210000}),
+                         {"input": 210000})
+
+    def test_output_below_32k_ignored(self):
+        """输出低于 32K 视为异常，不记为限制。"""
+        from model_data.assemble import _channel_limits
+        self.assertIsNone(_channel_limits(1024000, 384000, {"output": 16000}))
+        self.assertEqual(_channel_limits(1024000, 384000, {"output": 32000}),
+                         {"output": 32000})
+
 
 class TestIdempotent(unittest.TestCase):
     """归一必须幂等，否则族键与输出 id 会不同步。"""
