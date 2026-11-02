@@ -147,6 +147,37 @@ unslopnemo-12b
 
 ---
 
+## 收录过滤
+
+信息库只收「可信赖、可用于选型」的模型。以下三类排除（`scripts/filtering.py`）：
+
+| 类别 | 例子 | 原因 |
+|---|---|---|
+| 社区微调 / 无审查 | `*-heretic`、`*-abliterated`、`*-uncensored` | 个人发布，能力与计费不可预期 |
+| 个人/微型发布方 | thedrummer、sao10k、huihui-ai | 实验/角色扮演性质 |
+| 聚合商包装 | `@cf/...`、`openrouter/...` | 是渠道条目，不是模型本身 |
+| 非对话模态 | 嵌入、重排、TTS、图像生成 | 与 chat 模型混算会污染容量统计 |
+
+名称黑名单优先于厂商白名单：即使正式厂商名下出现 `heretic` 变体也排除。
+
+实测 3281 → 2652（剔除 629：非对话 389、个人发布方 177、无审查 63）。
+
+## 厂商归属
+
+未标注厂商的模型按 id 推断（`scripts/attribution.py`），不做瞎猜：
+
+```
+apac-anthropic-claude-haiku   → anthropic   （剥区域前缀）
+databricks-gpt-5-5            → openai      （剥渠道前缀）
+alibaba-qwen3-32b             → alibaba     （厂商前缀）
+agnes-2.5-pro                 → unknown     （判不出来就留空）
+```
+
+不用 LiteLLM 的 `litellm_provider` 判归属 —— 它是**渠道**（bedrock/azure/novita），
+用它会把 331 个 AWS 托管的模型全算成 Amazon。
+
+unknown 从 47% 降到 17.6%。
+
 ## 数据源
 
 | 源 | 形态 | 说明 |

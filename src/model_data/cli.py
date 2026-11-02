@@ -247,6 +247,13 @@ def main(argv: list[str] | None = None) -> int:
     (args.output_dir / "vendors.json").write_text(
         json.dumps(vtab, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    dropped = assemble.assemble_stats.get("dropped") or []
+    if dropped:
+        from collections import Counter
+        reasons = Counter(r.split("（")[0] for _, r in dropped)
+        log(f"  过滤掉: {len(dropped)} 个 —— " +
+            ", ".join(f"{k} {v}" for k, v in reasons.most_common()))
+
     levels: dict[str, int] = {}
     for m in models:
         lv = m["confidence"]["level"]

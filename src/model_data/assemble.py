@@ -37,7 +37,8 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Any
 
-from . import billing, currency, identity, idnorm, notation, vendors
+from . import (attribution, billing, currency, filtering, identity,
+               idnorm, notation, vendors)
 from .trust.engine import Evidence, aggregate, aggregate_pair
 
 # 产出顶层版本号：保持 2.0.0，因为结构与既有对接一致（仅新增可选字段）
@@ -45,6 +46,9 @@ OUTPUT_VERSION = "2.0.0"
 
 USD_UNIT = "USD/Mtok"
 USD_MTOK = "USD/Mtok"
+
+# 过滤结果（供 CLI 汇总输出）
+assemble_stats: dict[str, Any] = {}
 
 
 def pick(evidence: Evidence | None, declared: dict[str, Any] | None, field: str) -> tuple[Any, dict]:
@@ -118,6 +122,12 @@ def infer_vendor(model_id: str, rows: list, extra: dict | None) -> str:
             prov = o.source.split(":", 1)[1]
             if prov.split("-")[0] == slug_head:
                 return prov
+
+    # 4) 从 id 推断（剥区域/渠道前缀后按厂商名前缀匹配）
+    known = set(vendors.BUILTIN_ALIASES)
+    guessed = attribution.infer_vendor(model_id, known)
+    if guessed:
+        return guessed
 
     return "unknown"
 
@@ -343,7 +353,24 @@ def assemble(
             dedup[mid] = m
 
     models = sorted(dedup.values(), key=lambda m: m["id"])
-    return models
+
+    # 收录过滤：排除社区微调/无审查、个人发布方、非对话模型
+    kept: list[dict[str, Any]] = []
+    dropped: list[tuple[str, str]] = []
+    for m in models:
+        ok, reason = filtering.decide(
+            model_id=m["id"],
+            vendor=m.get("vendor") or "",
+            name=m.get("name"),
+            kind=m.get("kind"),
+        )
+        if ok:
+            kept.append(m)
+        else:
+            dropped.append((m["id"], reason or ""))
+    if dropped:
+        assemble_stats["dropped"] = dropped
+    return kept
 
 
 def wrap(models: list[dict[str, Any]]) -> dict[str, Any]:
