@@ -3,31 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Model Info - AI 模型信息库</title>
+<title>Model Data · 模型信息库</title>
 <style>
+:root{
+  --bg:#0b0f17; --panel:#141b26; --panel2:#1a2331; --line:#243044;
+  --fg:#e6edf7; --dim:#8b9bb4; --dim2:#5d6b82;
+  --acc:#4c9aff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; --cny:#e3b341;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
-.c{max-width:960px;margin:0 auto;padding:3rem 1.5rem}
-h1{font-size:2rem;font-weight:700;margin-bottom:.5rem;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sub{color:#94a3b8;margin-bottom:2.5rem}
-.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:1.5rem;margin-bottom:1rem}
-.card:hover{border-color:#60a5fa}
-.card h2{font-size:1.1rem;color:#f1f5f9;margin-bottom:.75rem}
-.card p{color:#94a3b8;font-size:.9rem;line-height:1.6}
-.l{display:flex;gap:1rem;margin-top:.75rem}
-.l a{color:#60a5fa;text-decoration:none;font-size:.85rem;font-family:monospace}
-.l a:hover{text-decoration:underline}
-footer{text-align:center;color:#475569;font-size:.8rem;margin-top:3rem}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif;
+  background:var(--bg);color:var(--fg);min-height:100vh;line-height:1.5;font-size:14px}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 60px}
+
+header{margin-bottom:20px}
+h1{font-size:22px;font-weight:650;letter-spacing:-.02em}
+h1 small{font-weight:400;color:var(--dim);font-size:13px;margin-left:8px}
+
+/* 搜索 */
+.searchbar{position:sticky;top:0;z-index:20;background:linear-gradient(var(--bg) 70%,transparent);
+  padding:14px 0 10px;margin-bottom:4px}
+.sinput{width:100%;padding:13px 44px 13px 16px;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;color:var(--fg);font-size:15px;outline:none;transition:.15s}
+.sinput:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(76,154,255,.12)}
+.sinput::placeholder{color:var(--dim2)}
+.clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  width:22px;height:22px;border-radius:50%;background:var(--panel2);color:var(--dim);
+  display:none;align-items:center;justify-content:center;cursor:pointer;font-size:15px;line-height:1}
+.clear:hover{background:var(--line);color:var(--fg)}
+.spos{position:relative}
+
+/* 过滤条 */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 6px;align-items:center}
+.chip{padding:5px 11px;border-radius:999px;background:var(--panel);border:1px solid var(--line);
+  color:var(--dim);cursor:pointer;font-size:12.5px;user-select:none;transition:.12s}
+.chip:hover{border-color:#3a4d6b;color:var(--fg)}
+.chip.on{background:rgba(76,154,255,.14);border-color:var(--acc);color:#9dc7ff}
+.stat{color:var(--dim2);font-size:12.5px;margin-left:auto}
+
+/* 卡片 */
+.list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  transition:.12s}
+.card:hover{border-color:#2f4straight;border-color:#33507a;background:var(--panel2)}
+.card .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.mid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14.5px;font-weight:600;
+  color:#dce8f8;word-break:break-all}
+.mname{color:var(--dim);font-size:12.5px}
+.vend{margin-left:auto;font-size:12px;padding:3px 9px;border-radius:6px;
+  background:rgba(76,154,255,.1);color:#8ec0ff;white-space:nowrap;cursor:pointer}
+.vend:hover{background:rgba(76,154,255,.2)}
+
+/* 指标行 */
+.metrics{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12.5px}
+.metric{display:flex;flex-direction:column;gap:2px}
+.metric .k{color:var(--dim2);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.metric .v{color:var(--fg);font-variant-numeric:tabular-nums;font-family:ui-monospace,monospace}
+
+/* 徽章 */
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.b{padding:2px 7px;border-radius:5px;font-size:11px;font-weight:500;letter-spacing:.01em}
+.b-verified{background:rgba(63,185,80,.15);color:#56d364}
+.b-high{background:rgba(63,185,80,.1);color:#4ac26b}
+.b-medium{background:rgba(210,153,34,.15);color:#e3b341}
+.b-low{background:rgba(248,81,73,.13);color:#ff7b72}
+.b-unknown{background:rgba(139,155,180,.12);color:var(--dim)}
+.b-cny{background:rgba(227,179,65,.13);color:var(--cny);font-variant-numeric:tabular-nums}
+.b-usd{background:rgba(76,154,255,.1);color:#79b8ff;font-variant-numeric:tabular-nums}
+.b-cap{background:var(--panel2);color:var(--dim)}
+.b-own{background:rgba(188,140,255,.14);color:#c297ff}
+
+/* 别名 */
+.alias{margin-top:9px;font-size:11.5px;color:var(--dim2);font-family:ui-monospace,monospace;
+  word-break:break-all;line-height:1.6}
+.alias b{color:var(--dim);font-weight:500;font-family:inherit}
+
+/* 空状态 */
+.empty{text-align:center;padding:60px 20px;color:var(--dim2)}
+.empty .big{font-size:34px;margin-bottom:12px;opacity:.35}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  color:var(--dim2);font-size:12px;display:flex;gap:14px;flex-wrap:wrap}
+footer a{color:var(--dim);text-decoration:none}
+footer a:hover{color:var(--acc)}
+
+@media(max-width:600px){
+  .wrap{padding:16px 12px 50px}
+  h1{font-size:19px}
+  .metrics{gap:14px}
+  .vend{margin-left:0}
+}
 </style>
 </head>
 <body>
-<div class="c">
-<h1>Model Info</h1>
-<p class="sub">AI 模型信息库 — 厂商与模型数据，每日自动更新</p>
-<div class="card"><h2>📊 vendors.json</h2><p>所有厂商信息列表，包含名称、别名、官网、API 文档链接等。</p><div class="l"><a href="vendors.json">查看 JSON</a></div></div>
-<div class="card"><h2>🤖 models.json</h2><p>所有模型信息列表，包含模型 ID、厂商关联、上下文限制、价格、模态、能力等。</p><div class="l"><a href="models.json">查看 JSON</a></div></div>
-<div class="card"><h2>🖼️ logos/</h2><p>各厂商 SVG 格式 Logo 文件。</p><div class="l"><a href="logos/">浏览目录</a></div></div>
-<footer>由 GitHub Actions 自动构建 · 数据来源：OpenRouter、百度千帆、火山引擎豆包</footer>
+<div class="wrap">
+  <header>
+    <h1>Model Data <small id="meta">加载中…</small></h1>
+  </header>
+
+  <div class="searchbar">
+    <div class="spos">
+      <input id="q" class="sinput" type="search" autocomplete="off" spellcheck="false"
+             placeholder="搜索模型 ID、别名、厂商…（支持 claude-sonnet-4.5 / deepseek / 4.5）">
+      <div id="clear" class="clear">×</div>
+    </div>
+    <div class="filters">
+      <div class="chip on" data-f="all">全部</div>
+      <div class="chip" data-f="cny">人民币计价</div>
+      <div class="chip" data-f="verified">高可信</div>
+      <div class="chip" data-f="vision">视觉</div>
+      <div class="chip" data-f="reasoning">推理</div>
+      <div class="chip" data-f="tool">工具调用</div>
+      <div class="chip" data-f="own">自有</div>
+      <div class="stat" id="stat"></div>
+    </div>
+  </div>
+
+  <div id="list" class="list"></div>
 </div>
+
+<script>
+const state = { models: [], vendors: new Map(), q: "", filter: "all", limit: 80 };
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g,
+  (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* 容量的紧凑写法：1024000 → 1M，384000 → 384K */
+function fmtCap(n) {
+  if (n == null) return "—";
+  if (n >= 1000000) return (n / 1000000).toFixed(n % 1000000 ? 2 : 0).replace(/\.0+$/, "") + "M";
+  if (n >= 1000) return Math.round(n / 1000) + "K";
+  return String(n);
+}
+
+function fmtPrice(p) {
+  if (!p || p.input == null && p.output == null) return null;
+  const cur = (p.unit || "").startsWith("CNY") ? "¥" : "$";
+  const v = (x) => (x == null ? "—" : (x < 1 ? x.toFixed(3) : x.toFixed(x < 10 ? 2 : 1)));
+  return { text: `${v(p.input)} / ${v(p.output)} ${cur}`, cny: cur === "¥" };
+}
+
+/* 搜索：把 model 的所有可检索文本拼成一个串，避免每次遍历多个字段 */
+function haystack(m) {
+  if (m._h) return m._h;
+  const parts = [m.id, m.name, m.vendor, m.description || ""];
+  if (m.aliases) parts.push(...m.aliases);
+  const v = state.vendors.get(m.vendor);
+  if (v) { parts.push(v.name); if (v.aliases) parts.push(...v.aliases); }
+  m._h = parts.filter(Boolean).join(" ").toLowerCase();
+  return m._h;
+}
+
+/* 多关键词 AND，全部命中才算。返回匹配质量分（越高越靠前）。
+   id 匹配远比描述匹配重要：搜 "deepseek" 时应该先出 deepseek-* 模型，
+   而不是随机一个描述里提到 deepseek 的第三方模型。 */
+function score(m, terms) {
+  let total = 0;
+  const id = (m.id || "").toLowerCase();
+  const aliases = (m.aliases || []).map((a) => a.toLowerCase());
+  const v = state.vendors.get(m.vendor);
+  const vend = ((v && (v.name + " " + (v.aliases || []).join(" "))) || m.vendor || "").toLowerCase();
+  const name = (m.name || "").toLowerCase();
+  const desc = (m.description || "").toLowerCase();
+
+  for (const t of terms) {
+    let best = 0;
+    if (id === t) best = 1000;
+    else if (id.startsWith(t)) best = 500;
+    else if (id.includes(t)) best = 300;
+    else if (aliases.some((a) => a === t)) best = 250;
+    else if (aliases.some((a) => a.startsWith(t))) best = 200;
+    else if (aliases.some((a) => a.includes(t))) best = 150;
+    else if (vend.includes(t)) best = 120;
+    else if (name.includes(t)) best = 90;
+    else if (desc.includes(t)) best = 10;
+    else return -1;          // 有一个词不命中就不算匹配
+    total += best;
+  }
+  return total;
+}
+
+function passFilter(m) {
+  const f = state.filter;
+  if (f === "all") return true;
+  if (f === "cny") return (m.price && (m.price.unit || "").startsWith("CNY"));
+  if (f === "own") { const v = state.vendors.get(m.vendor); return !!(v && v.own); }
+  if (f === "verified") return m.confidence && (m.confidence.level === "verified" || m.confidence.level === "high");
+  if (f === "vision") return !!(m.capabilities && m.capabilities.vision);
+  if (f === "reasoning") return !!(m.capabilities && m.capabilities.reasoning);
+  if (f === "tool") return !!(m.capabilities && m.capabilities.tool_call);
+  return true;
+}
+
+function card(m) {
+  const v = state.vendors.get(m.vendor);
+  const vname = v ? v.name : m.vendor;
+  const own = v && v.own;
+  const conf = m.confidence || {};
+  const lvl = conf.level || "unknown";
+  const price = fmtPrice(m.price);
+
+  const badges = [];
+  badges.push(`<span class="b b-${lvl}">${lvl}${conf.overall != null ? " " + conf.overall.toFixed(2) : ""}</span>`);
+  if (price) badges.push(`<span class="b ${price.cny ? "b-cny" : "b-usd"}">${price.text}</span>`);
+  if (own) badges.push(`<span class="b b-own">自有</span>`);
+  if (m.capabilities && m.capabilities.vision) badges.push(`<span class="b b-cap">视觉</span>`);
+  if (m.capabilities && m.capabilities.reasoning) badges.push(`<span class="b b-cap">推理</span>`);
+  if (m.capabilities && m.capabilities.tool_call) badges.push(`<span class="b b-cap">工具</span>`);
+
+  const al = (m.aliases || []).filter((a) => a !== m.id);
+
+  return `<div class="card">
+    <div class="top">
+      <span class="mid">${esc(m.id)}</span>
+      <span class="mname">${esc(m.name && m.name !== m.id ? m.name : "")}</span>
+      <span class="vend" data-vendor="${esc(m.vendor)}">${esc(vname)}</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><span class="k">上下文</span><span class="v">${fmtCap(m.context)}</span></div>
+      <div class="metric"><span class="k">最大输出</span><span class="v">${fmtCap(m.max_output)}</span></div>
+      <div class="metric"><span class="k">发布</span><span class="v">${m.release_date || "—"}</span></div>
+    </div>
+    <div class="badges">${badges.join("")}</div>
+    ${al.length ? `<div class="alias"><b>别名:</b> ${al.slice(0, 8).map(esc).join(" · ")}${al.length > 8 ? ` … +${al.length - 8}` : ""}</div>` : ""}
+  </div>`;
+}
+
+function render() {
+  const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  const scored = [];
+  for (const m of state.models) {
+    if (!passFilter(m)) continue;
+    if (terms.length) {
+      const sc = score(m, terms);
+      if (sc < 0) continue;
+      scored.push([sc, m]);
+    } else {
+      scored.push([0, m]);
+    }
+  }
+  // 排序规则：
+  //   有查询词 → 相关度优先，同分按发布日期降序
+  //   无查询词 → 发布日期降序（无日期的排最后），同日期按 id
+  const byDate = (a, b) => {
+    const da = a[1].release_date || "", db = b[1].release_date || "";
+    if (da !== db) return db.localeCompare(da);
+    return a[1].id.localeCompare(b[1].id);
+  };
+  if (terms.length) scored.sort((a, b) => b[0] - a[0] || byDate(a, b));
+  else scored.sort(byDate);
+
+  const matched = scored.length;
+  const hits = scored.slice(0, state.limit).map((x) => x[1]);
+
+  const list = $("#list");
+  if (!hits.length) {
+    list.innerHTML = `<div class="empty"><div class="big">∅</div>没有匹配的模型</div>`;
+  } else {
+    list.innerHTML = hits.map(card).join("");
+    if (matched > hits.length) {
+      list.innerHTML += `<div class="empty" style="padding:24px 12px">
+        仅显示前 ${hits.length} 条（共 ${matched} 条）· 继续输入可缩小范围</div>`;
+    }
+  }
+
+  const total = state.models.length;
+  $("#stat").textContent = terms.length || state.filter !== "all"
+    ? `${matched} / ${total}` : `${total} 个模型`;
+}
+
+$("#q").addEventListener("input", (e) => {
+  state.q = e.target.value.trim();
+  $("#clear").style.display = state.q ? "flex" : "none";
+  render();
+});
+$("#clear").addEventListener("click", () => {
+  $("#q").value = ""; state.q = ""; $("#clear").style.display = "none"; render(); $("#q").focus();
+});
+document.querySelectorAll(".chip").forEach((c) => {
+  c.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((x) => x.classList.remove("on"));
+    c.classList.add("on");
+    state.filter = c.dataset.f;
+    render();
+  });
+});
+/* 点厂商名 → 以该厂商为条件搜索 */
+$("#list").addEventListener("click", (e) => {
+  const el = e.target.closest("[data-vendor]");
+  if (!el) return;
+  const id = el.dataset.vendor;
+  const v = state.vendors.get(id);
+  $("#q").value = (v && v.name) ? v.name : id;
+  state.q = $("#q").value;
+  $("#clear").style.display = "flex";
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+/* 斜杠聚焦搜索框 */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
+  if (e.key === "Escape") { $("#q").blur(); }
+});
+
+/* 加载数据 */
+(async function init() {
+  try {
+    const [mRes, vRes] = await Promise.all([
+      fetch("models.json", { cache: "no-cache" }),
+      fetch("vendors.json", { cache: "no-cache" }).catch(() => null),
+    ]);
+    const md = await mRes.json();
+    state.models = md.models || [];
+    if (vRes && vRes.ok) {
+      const vd = await vRes.json();
+      for (const v of vd.vendors || []) state.vendors.set(v.id, v);
+    }
+    $("#meta").textContent =
+      `${state.models.length} 个模型 · ${state.vendors.size} 家厂商 · ${new Date(md.generated_at).toLocaleString("zh-CN")}`;
+    render();
+  } catch (err) {
+    $("#meta").textContent = "加载失败";
+    $("#list").innerHTML = `<div class="empty"><div class="big">⚠</div>${esc(err.message)}</div>`;
+  }
+})();
+</script>
 </body>
 </html>

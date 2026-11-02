@@ -1,307 +1,700 @@
 {
-  "version": "2.0.0",
-  "generated_at": "2026-11-02T09:03:24.569023+00:00",
-  "count": 60,
+  "version": "1.0.0",
+  "generated_at": "2026-11-02T14:46:51.176435+00:00",
+  "count": 30,
   "vendors": [
     {
-      "id": "aion-labs",
-      "name": "aion-labs",
-      "model_count": 6
-    },
-    {
-      "id": "amazon",
-      "name": "amazon",
-      "model_count": 5
-    },
-    {
-      "id": "anthracite-org",
-      "name": "anthracite-org",
-      "model_count": 1
-    },
-    {
-      "id": "anthropic",
-      "name": "anthropic",
-      "model_count": 30
-    },
-    {
-      "id": "bytedance",
-      "name": "bytedance",
-      "model_count": 1
-    },
-    {
-      "id": "bytedance-seed",
-      "name": "bytedance-seed",
-      "model_count": 6
-    },
-    {
-      "id": "cognitivecomputations",
-      "name": "cognitivecomputations",
-      "model_count": 1
-    },
-    {
-      "id": "cohere",
-      "name": "cohere",
-      "model_count": 6
-    },
-    {
-      "id": "deepseek",
-      "name": "deepseek",
-      "model_count": 15
-    },
-    {
-      "id": "dots-studio",
-      "name": "dots-studio",
-      "model_count": 1
-    },
-    {
-      "id": "elorian",
-      "name": "elorian",
-      "model_count": 1
-    },
-    {
-      "id": "fireworks",
-      "name": "fireworks",
-      "model_count": 1
-    },
-    {
-      "id": "google",
-      "name": "google",
-      "model_count": 39
-    },
-    {
-      "id": "gryphe",
-      "name": "gryphe",
-      "model_count": 1
-    },
-    {
-      "id": "ibm-granite",
-      "name": "ibm-granite",
-      "model_count": 1
-    },
-    {
-      "id": "inception",
-      "name": "inception",
-      "model_count": 3
-    },
-    {
-      "id": "inclusionai",
-      "name": "inclusionai",
-      "model_count": 3
-    },
-    {
-      "id": "inference-net",
-      "name": "inference-net",
-      "model_count": 2
-    },
-    {
-      "id": "liquid",
-      "name": "liquid",
-      "model_count": 2
-    },
-    {
-      "id": "mancer",
-      "name": "mancer",
-      "model_count": 1
-    },
-    {
-      "id": "meituan",
-      "name": "meituan",
-      "model_count": 1
-    },
-    {
-      "id": "meta",
-      "name": "meta",
-      "model_count": 8
-    },
-    {
-      "id": "meta-llama",
-      "name": "meta-llama",
-      "model_count": 8
-    },
-    {
-      "id": "microsoft",
-      "name": "microsoft",
-      "model_count": 1
-    },
-    {
-      "id": "minimax",
-      "name": "minimax",
-      "model_count": 9
-    },
-    {
-      "id": "mistralai",
-      "name": "mistralai",
-      "model_count": 21
-    },
-    {
-      "id": "moondream",
-      "name": "moondream",
-      "model_count": 2
-    },
-    {
-      "id": "moonshotai",
-      "name": "moonshotai",
-      "model_count": 9
-    },
-    {
-      "id": "morph",
-      "name": "morph",
-      "model_count": 2
-    },
-    {
-      "id": "nex-agi",
-      "name": "nex-agi",
-      "model_count": 2
-    },
-    {
-      "id": "nousresearch",
-      "name": "nousresearch",
-      "model_count": 3
-    },
-    {
-      "id": "nvidia",
-      "name": "nvidia",
-      "model_count": 8
+      "id": "alibaba",
+      "name": "阿里云百炼",
+      "aliases": [
+        "alibaba",
+        "alibaba-cn",
+        "alibaba-coding-plan",
+        "alibaba-coding-plan-cn",
+        "alibaba-token-plan",
+        "alibaba-token-plan-cn",
+        "aliyun",
+        "dashscope",
+        "qwen",
+        "qwq",
+        "tongyi",
+        "百炼",
+        "通义",
+        "通义千问",
+        "阿里",
+        "阿里云"
+      ],
+      "website": "https://www.aliyun.com",
+      "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
+      "model_count": 297,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
       "id": "openai",
-      "name": "openai",
-      "model_count": 98
+      "name": "OpenAI",
+      "aliases": [
+        "chat-latest",
+        "chatgpt",
+        "gpt",
+        "oai",
+        "open-ai",
+        "openai",
+        "openai-community"
+      ],
+      "website": "https://openai.com",
+      "api_docs": "https://developers.openai.com/api/docs/models",
+      "model_count": 177,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "openrouter",
-      "name": "openrouter",
-      "model_count": 6
+      "id": "google",
+      "name": "Google",
+      "aliases": [
+        "bard",
+        "deepmind",
+        "gemini",
+        "google",
+        "google-vertex",
+        "google-vertex-ai",
+        "谷歌"
+      ],
+      "website": "https://ai.google",
+      "api_docs": "https://ai.google.dev/gemini-api/docs/models",
+      "model_count": 158,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "particle-ai",
-      "name": "particle-ai",
-      "model_count": 1
+      "id": "meta",
+      "name": "Meta",
+      "aliases": [
+        "facebook",
+        "llama",
+        "meta",
+        "meta-ai",
+        "meta-llama",
+        "meta-llm"
+      ],
+      "website": "https://ai.meta.com",
+      "api_docs": "https://developer.meta.com/ai/",
+      "model_count": 146,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "perceptron",
-      "name": "perceptron",
-      "model_count": 2
+      "id": "mistral",
+      "name": "Mistral AI",
+      "aliases": [
+        "codestral",
+        "ministral",
+        "mistral",
+        "mistral-ai",
+        "mistralai"
+      ],
+      "website": "https://mistral.ai",
+      "api_docs": "https://docs.mistral.ai/models",
+      "model_count": 73,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "deepseek",
+      "name": "深度求索",
+      "aliases": [
+        "deepseek",
+        "deepseek-ai",
+        "deepseek_ai",
+        "deepseekai",
+        "depthseek",
+        "ds",
+        "深度求索"
+      ],
+      "website": "https://www.deepseek.com",
+      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
+      "model_count": 68,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "zhipuai",
+      "name": "智谱AI",
+      "aliases": [
+        "bigmodel",
+        "chatglm",
+        "glm",
+        "z-ai",
+        "z.ai",
+        "zai",
+        "zai-org",
+        "zhipu",
+        "zhipuai",
+        "智谱",
+        "智谱AI",
+        "智谱ai"
+      ],
+      "website": "https://www.zhipuai.cn",
+      "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
+      "model_count": 65,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动",
+      "aliases": [
+        "ark",
+        "bytedance",
+        "bytedance-seed",
+        "doubao",
+        "doubao-ai",
+        "seed",
+        "volcengine",
+        "字节",
+        "字节跳动",
+        "火山",
+        "火山引擎",
+        "豆包"
+      ],
+      "website": "https://www.volcengine.com",
+      "api_docs": "https://www.volcengine.com/docs/82379/1263482",
+      "model_count": 54,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "aliases": [
+        "grok",
+        "x-ai",
+        "x.ai",
+        "xai"
+      ],
+      "website": "https://x.ai",
+      "api_docs": "https://docs.x.ai/developers/models",
+      "model_count": 53,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "aliases": [
+        "anthropic",
+        "anthropic-ai",
+        "anthropic-community",
+        "anthropicai",
+        "claude"
+      ],
+      "website": "https://www.anthropic.com",
+      "api_docs": "https://platform.claude.com/docs/en/models/overview",
+      "model_count": 46,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "aliases": [
+        "nemotron",
+        "nvidia",
+        "nvidia-ai",
+        "nvidia-nim"
+      ],
+      "website": "https://www.nvidia.com",
+      "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
+      "model_count": 38,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "aliases": [
+        "aya",
+        "cohere",
+        "cohere-ai",
+        "cohereforai",
+        "coherelabs"
+      ],
+      "website": "https://cohere.com",
+      "api_docs": "https://docs.cohere.com/docs/models",
+      "model_count": 34,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "aliases": [
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
+      "model_count": 30,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "moonshotai",
+      "name": "月之暗面",
+      "aliases": [
+        "kimi",
+        "moonshot",
+        "moonshot-ai",
+        "moonshot-ai-cn",
+        "moonshot-cn",
+        "moonshotai",
+        "moonshotai-ai",
+        "moonshotai-cn",
+        "moonshotcn",
+        "月之暗面"
+      ],
+      "website": "https://www.moonshot.cn",
+      "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
+      "model_count": 27,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
       "id": "perplexity",
-      "name": "perplexity",
-      "model_count": 5
+      "name": "Perplexity",
+      "aliases": [
+        "perplexity",
+        "perplexity-agent",
+        "perplexity-ai",
+        "pplx",
+        "sonar"
+      ],
+      "website": "https://www.perplexity.ai",
+      "api_docs": "https://docs.perplexity.ai/",
+      "model_count": 20,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "prism-ml",
-      "name": "prism-ml",
-      "model_count": 2
-    },
-    {
-      "id": "qwen",
-      "name": "qwen",
-      "model_count": 42
-    },
-    {
-      "id": "recursive",
-      "name": "recursive",
-      "model_count": 1
-    },
-    {
-      "id": "reflection",
-      "name": "reflection",
-      "model_count": 1
-    },
-    {
-      "id": "rekaai",
-      "name": "rekaai",
-      "model_count": 2
-    },
-    {
-      "id": "relace",
-      "name": "relace",
-      "model_count": 2
-    },
-    {
-      "id": "sakana",
-      "name": "sakana",
-      "model_count": 4
-    },
-    {
-      "id": "sao10k",
-      "name": "sao10k",
-      "model_count": 2
-    },
-    {
-      "id": "scaledown",
-      "name": "scaledown",
-      "model_count": 2
-    },
-    {
-      "id": "stepfun",
-      "name": "stepfun",
-      "model_count": 3
+      "id": "inclusionai",
+      "name": "蚂蚁 InclusionAI",
+      "aliases": [
+        "inclusion-ai",
+        "inclusionai",
+        "ling",
+        "ring",
+        "蚂蚁"
+      ],
+      "website": "https://www.inclusionai.com",
+      "api_docs": "https://www.inclusionai.com/",
+      "model_count": 17,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
       "id": "tencent",
-      "name": "tencent",
-      "model_count": 7
+      "name": "腾讯",
+      "aliases": [
+        "hunyuan",
+        "tencent",
+        "tencent-ai",
+        "tencent-cloud",
+        "tencent-coding-plan",
+        "tencent-token-plan",
+        "tencent-tokenhub",
+        "tencentarc",
+        "混元",
+        "腾讯"
+      ],
+      "website": "https://cloud.tencent.com",
+      "api_docs": "https://cloud.tencent.com/document/product/1729",
+      "model_count": 16,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "thedrummer",
-      "name": "thedrummer",
-      "model_count": 3
+      "id": "ai21",
+      "name": "AI21 Labs",
+      "aliases": [
+        "ai21",
+        "ai21labs",
+        "jamba"
+      ],
+      "website": "https://www.ai21.com",
+      "api_docs": "https://docs.ai21.com/",
+      "model_count": 12,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "thinkingmachines",
-      "name": "thinkingmachines",
-      "model_count": 2
+      "id": "amazon",
+      "name": "Amazon",
+      "aliases": [
+        "amazon",
+        "amazon-bedrock",
+        "aws",
+        "aws-bedrock",
+        "bedrock",
+        "nova"
+      ],
+      "website": "https://aws.amazon.com",
+      "api_docs": "https://docs.aws.amazon.com/bedrock/",
+      "model_count": 12,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "typesafe",
-      "name": "typesafe",
-      "model_count": 1
+      "id": "baidu",
+      "name": "百度",
+      "aliases": [
+        "baidu",
+        "baidu-ai",
+        "baidu-wenxin",
+        "ernie",
+        "qianfan",
+        "qianfan-ai",
+        "wenxin",
+        "千帆",
+        "文心",
+        "百度"
+      ],
+      "website": "https://cloud.baidu.com",
+      "api_docs": "https://cloud.baidu.com/doc/qianfan/index.html",
+      "model_count": 12,
+      "currencies": [
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "unbiased",
-      "name": "unbiased",
-      "model_count": 2
-    },
-    {
-      "id": "undi95",
-      "name": "undi95",
-      "model_count": 1
-    },
-    {
-      "id": "upstage",
-      "name": "upstage",
-      "model_count": 2
-    },
-    {
-      "id": "w-run",
-      "name": "w-run",
-      "model_count": 3
-    },
-    {
-      "id": "writer",
-      "name": "writer",
-      "model_count": 1
-    },
-    {
-      "id": "x-ai",
-      "name": "x-ai",
-      "model_count": 8
+      "id": "microsoft",
+      "name": "Microsoft",
+      "aliases": [
+        "azure",
+        "azure-cognitive-services",
+        "microsoft",
+        "phi"
+      ],
+      "website": "https://azure.microsoft.com",
+      "api_docs": "https://learn.microsoft.com/azure/ai-foundry/",
+      "model_count": 11,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
       "id": "xiaomi",
-      "name": "xiaomi",
-      "model_count": 5
+      "name": "小米",
+      "aliases": [
+        "mimo",
+        "xiaomi",
+        "xiaomi-token-plan-ams",
+        "xiaomi-token-plan-cn",
+        "xiaomi-token-plan-sgp",
+        "xiaomimimo",
+        "小米"
+      ],
+      "website": "https://platform.xiaomimimo.com",
+      "api_docs": "https://platform.xiaomimimo.com/#/docs",
+      "model_count": 11,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "xingchen-agi",
-      "name": "xingchen-agi",
-      "model_count": 1
+      "id": "sensenova",
+      "name": "商汤日日新",
+      "aliases": [
+        "nova",
+        "sensenova",
+        "sensetime",
+        "商汤",
+        "日日新"
+      ],
+      "website": "https://www.sensenova.cn",
+      "api_docs": "https://platform.sensenova.cn/doc",
+      "model_count": 5,
+      "currencies": [
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
     },
     {
-      "id": "z-ai",
-      "name": "z-ai",
-      "model_count": 18
+      "id": "stepfun",
+      "name": "阶跃星辰",
+      "aliases": [
+        "step",
+        "stepfun",
+        "stepfun-ai",
+        "stepfun-ai-step-plan",
+        "stepfun-step-plan",
+        "阶跃",
+        "阶跃星辰"
+      ],
+      "website": "https://www.stepfun.com",
+      "api_docs": "https://platform.stepfun.com/docs",
+      "model_count": 4,
+      "currencies": [
+        "CNY"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "sarvam",
+      "name": "Sarvam AI",
+      "aliases": [
+        "sarvam",
+        "sarvam-ai",
+        "sarvamai"
+      ],
+      "website": "https://www.sarvam.ai",
+      "api_docs": "https://docs.sarvam.ai/",
+      "model_count": 3,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "w-run",
+      "name": "W/Run",
+      "aliases": [
+        "catpaw",
+        "mimi",
+        "qoder",
+        "trae",
+        "w-run",
+        "workbuddy",
+        "wrun"
+      ],
+      "website": "https://w-run.com",
+      "api_docs": "https://mimi.wrun.cc/v1/models",
+      "model_count": 3,
+      "currencies": [],
+      "region": "cn",
+      "cn": true,
+      "own": true,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "baichuan",
+      "name": "百川智能",
+      "aliases": [
+        "baichuan",
+        "百川",
+        "百川智能"
+      ],
+      "website": "https://www.baichuan-ai.com",
+      "api_docs": "https://platform.baichuan-ai.com/docs",
+      "model_count": 1,
+      "currencies": [
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "01ai",
+      "name": "零一万物",
+      "aliases": [
+        "01-ai",
+        "01ai",
+        "yi",
+        "零一万物"
+      ],
+      "website": "https://www.lingyiwanwu.com",
+      "api_docs": "https://platform.lingyiwanwu.com/docs",
+      "model_count": 0,
+      "currencies": [],
+      "source": "manual"
+    },
+    {
+      "id": "modelscope",
+      "name": "魔搭 ModelScope",
+      "aliases": [
+        "model-scope",
+        "modelscope",
+        "魔搭"
+      ],
+      "website": "https://modelscope.cn",
+      "api_docs": "https://modelscope.cn/docs",
+      "model_count": 0,
+      "currencies": [],
+      "source": "manual"
+    },
+    {
+      "id": "siliconflow",
+      "name": "硅基流动",
+      "aliases": [
+        "silicon-flow",
+        "siliconflow",
+        "siliconflow-cn",
+        "硅基流动"
+      ],
+      "website": "https://siliconflow.cn",
+      "api_docs": "https://siliconflow.cn/pricing",
+      "model_count": 0,
+      "currencies": [],
+      "source": "manual"
     }
   ]
 }
