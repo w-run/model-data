@@ -121,13 +121,14 @@ def infer_vendor(model_id: str, rows: list, extra: dict | None) -> str:
         if o.tier == "first_party" and ":" in o.source:
             prov = o.source.split(":", 1)[1]
             if prov.split("-")[0] == slug_head:
-                return prov
+                return vendors.canonical_vendor(prov)
 
     # 4) 从 id 推断（剥区域/渠道前缀后按厂商名前缀匹配）
     known = set(vendors.BUILTIN_ALIASES)
     guessed = attribution.infer_vendor(model_id, known)
     if guessed:
-        return guessed
+        # 推断出的可能是别名（moonshot / qwen），同样要归一到 canonical
+        return vendors.canonical_vendor(guessed)
 
     return "unknown"
 
@@ -271,6 +272,7 @@ def assemble(
     merged_obs: dict[str, list],
     declared: dict[str, dict[str, Any]],
     alias_index=None,
+    allowed_vendors: set[str] | None = None,
     *,
     mimi_models: set[str] | None = None,
     meta: dict[str, dict[str, Any]] | None = None,
@@ -282,6 +284,7 @@ def assemble(
     declared: mimi 上报的声明值（同 id 已取最小），仅作参证不作硬上限
     mimi_models: mimi 上报的 id 集合（含自有模型，这些必须保留，即便别处没有）
     """
+    allowed_vendors = {str(x).lower() for x in (allowed_vendors or set())}
     mimi_models = mimi_models or set()
     meta = meta or {}
     extra = extra or {}
@@ -363,6 +366,7 @@ def assemble(
             vendor=m.get("vendor") or "",
             name=m.get("name"),
             kind=m.get("kind"),
+            allowlist=allowed_vendors,
         )
         if ok:
             kept.append(m)

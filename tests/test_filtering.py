@@ -11,36 +11,53 @@ KNOWN = {"alibaba", "anthropic", "openai", "deepseek", "google", "meta",
          "mistral", "xai", "moonshotai", "zhipuai", "amazon", "ai21", "stepfun"}
 
 
+ALLOW = {"deepseek", "anthropic", "openai", "alibaba", "zhipuai", "meta"}
+
+
 class TestFiltering(unittest.TestCase):
-    """信息库只收录可信赖的模型：排除社区微调、个人发布方、非对话类。"""
+    """白名单制：只有登记过的厂商才收录。"""
 
     def test_heretic_excluded(self):
         ok, why = filtering.decide(model_id="deepseek-v4.1-flash-1017-heretic",
-                                   vendor="pqhaz")
+                                   vendor="pqhaz", allowlist=ALLOW)
         self.assertFalse(ok)
         self.assertIn("无审查", why)
+
+    def test_unlisted_vendor_excluded(self):
+        """不在白名单的厂商一律不收 —— 这是白名单制的核心。"""
+        for v in ("thedrummer", "sao10k", "orcamini", "particle-ai", "some-new-lab"):
+            ok, why = filtering.decide(model_id="x-model", vendor=v, allowlist=ALLOW)
+            self.assertFalse(ok, v)
+            self.assertIn("厂商未收录", why)
+
+    def test_listed_vendor_kept(self):
+        for v in ALLOW:
+            ok, why = filtering.decide(model_id="some-model", vendor=v, allowlist=ALLOW)
+            self.assertTrue(ok, f"{v} 未被收录: {why}")
+
+    def test_unknown_vendor_excluded(self):
+        ok, why = filtering.decide(model_id="mystery-model", vendor="unknown",
+                                   allowlist=ALLOW)
+        self.assertFalse(ok)
 
     def test_abliterated_excluded(self):
         for mid in ("llama-3.1-8b-abliterated",
                     "deepseek-r1-distill-qwen-32b-abliterated",
                     "qwen3.8-27b-uncensored"):
-            ok, _ = filtering.decide(model_id=mid)
+            ok, _ = filtering.decide(model_id=mid, vendor="meta", allowlist=ALLOW)
             self.assertFalse(ok, mid)
 
     def test_blocked_even_under_official_vendor(self):
         """官方厂商名下的 heretic 变体也要排除。"""
         ok, _ = filtering.decide(model_id="deepseek-v4.1-flash-uncensored",
-                                 vendor="deepseek")
+                                 vendor="deepseek", allowlist=ALLOW)
         self.assertFalse(ok)
 
-    def test_personal_publisher_excluded(self):
-        for v in ("thedrummer", "sao10k", "huihui-ai", "abliteration-ai"):
-            ok, why = filtering.decide(model_id="some-model", vendor=v)
-            self.assertFalse(ok, v)
-
-    def test_aggregator_excluded(self):
-        for v in ("openrouter", "baseten", "@cf", "novita"):
-            ok, _ = filtering.decide(model_id="x", vendor=v)
+    def test_deny_list_beats_allowlist(self):
+        """即便误把聚合商加进白名单，也仍然排除。"""
+        for v in ("openrouter", "baseten", "@cf", "novita", "unknown"):
+            ok, _ = filtering.decide(model_id="x", vendor=v,
+                                     allowlist=ALLOW | {v})
             self.assertFalse(ok, v)
 
     def test_official_models_kept(self):
@@ -52,18 +69,13 @@ class TestFiltering(unittest.TestCase):
             ("glm-5.3", "zhipuai"),
         ]
         for mid, v in cases:
-            ok, why = filtering.decide(model_id=mid, vendor=v)
+            ok, why = filtering.decide(model_id=mid, vendor=v, allowlist=ALLOW)
             self.assertTrue(ok, f"{mid} 被误排除: {why}")
 
     def test_non_chat_excluded(self):
-        ok, why = filtering.decide(model_id="bge-m3-embedding")
+        ok, why = filtering.decide(model_id="bge-m3-embedding", vendor="meta",
+                                   allowlist=ALLOW)
         self.assertFalse(ok)
-
-    def test_allowlist_wins(self):
-        """白名单里的厂商不受黑名单影响。"""
-        ok, _ = filtering.decide(model_id="sakana-fugu", vendor="sakana",
-                                 allowlist={"sakana"})
-        self.assertTrue(ok)
 
 
 class TestAttribution(unittest.TestCase):

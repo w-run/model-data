@@ -99,6 +99,12 @@ def main(argv: list[str] | None = None) -> int:
 
     # 厂商表是归一与别名的权威源，必须在任何采集之前加载
     load_from_toml(str(REPO_ROOT / "data" / "vendors.toml"))
+    import tomllib as _tl
+    try:
+        with open(REPO_ROOT / "data" / "vendors.toml", "rb") as _f:
+            vendors_toml_ids = list(_tl.load(_f).keys())
+    except Exception:  # noqa: BLE001
+        vendors_toml_ids = []
 
     log("=" * 64)
     log("  model-data build")
@@ -217,9 +223,17 @@ def main(argv: list[str] | None = None) -> int:
         ("models.dev", md_api_data),
     )
     log(f"  别名索引: {len(alias_index.to_canonical)} 条 canonical 关系")
+    from .vendors import BUILTIN_ALIASES, vendor_aliases
+    allowed: set[str] = set()
+    for vid in vendors_toml_ids:
+        allowed.add(vid.lower())
+        allowed.update(a.lower() for a in vendor_aliases(vid))
+    allowed.update(k.lower() for k in BUILTIN_ALIASES)
+
     models = assemble.assemble(
         merged, declared,
         alias_index=alias_index,
+        allowed_vendors=allowed,
         mimi_models=mimi_models,
         extra=mimi_extra,
     )

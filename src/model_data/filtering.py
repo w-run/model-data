@@ -1,30 +1,28 @@
 #!/usr/bin/env python3
 """
-收录过滤：哪些模型该进信息库
+厂商白名单 —— 只有明确认可的厂商才收录
 
-为什么需要过滤
---------------
-信息库的目标是「可信赖、可用于选型的模型」。OpenRouter / LiteLLM 上
-还有大量不该进来的条目：
+为什么用白名单而不是黑名单
+--------------------------
+黑名单要不断追着新出现的个人模型跑：今天冒出 thedrummer，明天冒出 sao10k，
+后天某个 HF 用户批量上传几十个微调。黑名单永远滞后，而噪音一旦进来就会
+污染容量统计和价格分布。
 
-  1. 社区微调 / 无审查版
-     deepseek-v4.1-flash-1017-heretic、llama-3.1-8b-abliterated、
-     qwen3.8-27b-uncensored —— 个人发布，不是官方模型，能力/价格不可预期
+白名单则相反：默认不收录，收录的都必须是我明确认得、能核对官网的厂商。
+代价是可能漏收正规小厂，但那是可修复的（加一行），而脏数据不可修复。
 
-  2. 个人或小型发布者的一次性模型
-     thedrummer/Cydonia、sao10k/L3-Euryale、failspy/... —— 角色扮演/实验性质
+判定链
+------
+  1. 命中 VENDORS 里的 canonical id 或别名 → 收录
+  2. 命中 DENY（即便在白名单里也要排除的）→ 排除
+  3. 名称/模态关键词过滤（heretic / uncensored / embedding …）→ 排除
+  4. 其余一律不收
 
-  3. 聚合商自造的别名条目
-     @cf/...、kilo-auto/...、openrouter/... —— 是渠道包装，不是模型本身
-
-  4. 非对话类（除非明确需要）
-     图像/语音/嵌入/重排 —— 与 chat 模型混在一起会污染容量统计
-
-判定顺序
+维护方式
 --------
-  blocklist（厂商/关键词）→ allowlist（正式厂商）→ 规则推断 → 收录
-
-黑名单优先于白名单：即使某正式厂商名下出现了 heretic 变体，也一并排除。
+改 data/vendors.toml 的 `[id]` 段即可 —— 那张表同时驱动：
+厂商归一、别名展开、vendors.json 产出、以及这里的收录判定。
+一处维护，全线生效。
 """
 
 from __future__ import annotations
@@ -32,68 +30,43 @@ from __future__ import annotations
 import re
 from typing import Iterable
 
-# ── 1. 名称关键词黑名单（社区微调 / 无审查）────────────────────────────────
-NAME_BLOCKLIST = re.compile(
+# ── 名称/模态层过滤（先于厂商判定）──────────────────────────────────────
+
+# 社区微调、无审查版：即便挂在白名单厂商名下也排除
+NAME_DENY = re.compile(
     r"(heretic|abliterat|uncensored|unfiltered|unredacted|nsfw|amoral|"
     r"unaligned|decensored|deleted|uncut|jailbr|"
     r"dolphin|openhermes|noromaid|bagel|euryale|lzlv|goliath|"
-    r"chimerax|\brp\b|roleplay|role-play)",
+    r"chimerax|roleplay|role-play)",
     re.I,
 )
 
-# ── 2. 厂商黑名单（个人/微调发布者、聚合商）──────────────────────────────────
-# 这些前缀/名称一律不收录。可随时增补，不需要动逻辑。
-VENDOR_BLOCKLIST = {
-    # 微调/无审查发布者
-    "huihui-ai", "huihui", "abliteration-ai", "pqhaz", "failspy", "mlabonne",
-    "soob3123", "heabsy", "cognitivecomputations", "thedrummer", "sao10k",
-    "nousresearch", "eva-unit-01", "reflection", "spacexai", "publicai",
-    "trustedrouter", "scaledown", "kilo-auto", "auto", "sourceful",
-    "inception", "liquid", "morph", "recursive", "elorian", "prism-ml",
-    "xingchen-agi", "upstage", "aion-labs", "fastino", "sakana",
-    "runwayml", "assemblyai", "elevenlabs", "fish-audio", "heygen",
-    # 聚合商 / 渠道包装
-    "@cf", "cf", "cloudflare", "baseten", "openrouter", "novita", "novita-ai",
-    "deepinfra", "together-ai", "together_ai", "fireworks", "fireworks-ai",
-    "groq", "hyperbolic", "lambda", "replicate", "anyscale", "lepton",
-    "kluster", "featherless", "synthetic", "inference.net", "inferencenet",
+# 非对话模态：与 chat 模型混在一起会污染容量统计
+NON_CHAT = re.compile(
+    r"(embed|rerank|moderat|transcrib|tts\b|asr\b|whisper|"
+    r"stable-?diffusion|sdxl|flux|midjourney|colpali|bge-|gte-|e5-)",
+    re.I,
+)
+
+# 明确排除的厂商（即使误加入白名单）
+DENY = {
+    "unknown", "@cf", "cf", "cloudflare", "openrouter", "baseten",
+    "novita", "deepinfra", "together", "fireworks", "groq", "hf",
 }
 
-# ── 3. 非对话模态（默认排除）────────────────────────────────────────────────
-NON_CHAT_KIND_PATTERN = re.compile(
-    r"(image|video|audio|speech|tts|asr|transcrib|embed|rerank|moderat|"
-    r"ocr|vision-?embed|whisper|stable-?diffusion|flux|sdxl|midjourney)",
-    re.I,
-)
 
-
-def is_blocked_name(model_id: str, name: str | None = None) -> str | None:
-    """命中名称黑名单则返回原因，否则 None。"""
+def name_blocked(model_id: str, name: str | None = None) -> str | None:
     for text in (model_id or "", name or ""):
-        m = NAME_BLOCKLIST.search(text)
+        m = NAME_DENY.search(text)
         if m:
             return f"社区微调/无审查（{m.group(1)}）"
     return None
 
 
-def is_blocked_vendor(vendor: str, allowlist: Iterable[str] = ()) -> str | None:
-    """命中厂商黑名单则返回原因。allowlist 优先，防止误伤。"""
-    v = str(vendor or "").strip().lower()
-    if not v:
-        return None
-    allow = {str(x).lower() for x in allowlist}
-    if v in allow:
-        return None
-    if v in VENDOR_BLOCKLIST:
-        return f"非正式发布方（{v}）"
-    return None
-
-
-def is_non_chat(kind: str | None, model_id: str, name: str | None = None) -> str | None:
-    """非对话类模型默认排除。"""
+def non_chat(model_id: str, kind: str | None = None) -> str | None:
     if kind and str(kind).lower() not in ("chat", "completion", "text"):
         return f"非对话模态（{kind}）"
-    m = NON_CHAT_KIND_PATTERN.search(model_id or "")
+    m = NON_CHAT.search(model_id or "")
     if m:
         return f"非对话模型（{m.group(1)}）"
     return None
@@ -106,27 +79,32 @@ def decide(
     name: str | None = None,
     kind: str | None = None,
     allowlist: Iterable[str] = (),
-    keep_blocked: bool = False,
 ) -> tuple[bool, str | None]:
     """
     是否收录。返回 (keep, reason_if_dropped)。
 
-    顺序很重要：名称黑名单先于厂商，厂商黑名单先于白名单
-    —— 正式厂商名下的 heretic 变体也要排除。
+    白名单语义：不在名单里就不收。
+    allowlist 由调用方传入 —— 实际是 data/vendors.toml 的全部键与别名。
     """
-    if keep_blocked:
-        return True, None
-
-    reason = is_blocked_name(model_id, name)
+    # 1) 名称层：无审查变体一律排除，不管厂商
+    reason = name_blocked(model_id, name)
     if reason:
         return False, reason
 
-    reason = is_blocked_vendor(vendor, allowlist)
+    # 2) 模态层
+    reason = non_chat(model_id, kind)
     if reason:
         return False, reason
 
-    reason = is_non_chat(kind, model_id, name)
-    if reason:
-        return False, reason
+    v = str(vendor or "").strip().lower()
+    allow = {str(x).strip().lower() for x in allowlist if x}
+
+    # 3) 明确拒绝
+    if not v or v in DENY:
+        return False, f"厂商未收录（{v or '空'}）"
+
+    # 4) 白名单：不在名单里就不收
+    if v not in allow:
+        return False, f"厂商未收录（{v}）"
 
     return True, None
