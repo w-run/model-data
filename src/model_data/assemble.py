@@ -34,13 +34,14 @@ context / max_output 取「能力」与「serving（经 mimi 实际可用）」�
 
 from __future__ import annotations
 
+import functools
 import re
 
 from datetime import datetime, timezone
 from typing import Any
 
-from . import (attribution, billing, currency, filtering, identity,
-               idnorm, notation, official_rules, vendors)
+from . import (attribution, billing, currency, family, filtering,
+               identity, idnorm, notation, official_rules, vendors)
 from .trust.engine import Evidence, aggregate, aggregate_pair
 
 # 产出顶层版本号：保持 2.0.0，因为结构与既有对接一致（仅新增可选字段）
@@ -78,10 +79,14 @@ _VARIANT_TAIL = __import__("re").compile(
     r"(:[a-z0-9_-]+|@[a-z0-9]+|-spot|-flex|-priority|-free)$", 2)
 
 
+@functools.lru_cache(maxsize=8192)
 def _norm_family(x: str) -> str:
-    x = _VARIANT_TAIL.sub("", str(x).lower())
-    x = identity.norm_key(x)
-    return identity.date_base(x) or x
+    """
+    家族键：剥渠道前缀 → 归一写法 → 去尾部日期（含短日期与 -latest 兜底）。
+
+    带缓存 —— 否则每个家族都要重算，实测把 03 阶段从 30 秒拖到 97 秒。
+    """
+    return family.family_of_with_short_date(family.normalize_spelling(x))
 
 
 def _compatible(ma: dict, mb: dict) -> tuple[bool, str]:
@@ -270,6 +275,14 @@ def _price(rows: list) -> tuple[dict | None, dict | None]:
     return {"unit": "USD/Mtok", **by_cur["USD"]}, None
 
 
+@functools.lru_cache(maxsize=16384)
+def _decide_cached(model_id: str, vendor: str, name: str, kind: str,
+                   allow_key: tuple[str, ...]) -> tuple[bool, str | None]:
+    return filtering.decide(
+        model_id=model_id, vendor=vendor, name=name, kind=kind,
+        allowlist=set(allow_key))
+
+
 def build_model(
     model_id: str,
     *,
@@ -353,6 +366,7 @@ def assemble(
     merged_obs: dict[str, list],
     declared: dict[str, dict[str, Any]],
     alias_index=None,
+    family_index=None,
     allowed_vendors: set[str] | None = None,
     *,
     mimi_models: set[str] | None = None,
@@ -379,65 +393,49 @@ def assemble(
     # 版本号不同 = 不同模型（v4 与 v4.1、sonnet-4-5 与 sonnet-5 各自独立）。
     # 族键统一走 norm_key，避免 deepseek-v4.1-flash / deepseek_v4.1-flash
     # 因大小写、下划线、小数点写法不同而被拆成两族（会产生重复条目）
+    # ── 族分组 ──────────────────────────────────────────────────────
+    # 规则来自主流源，不自己造：OpenRouter 的 canonical_slug 已经表达了
+    # 「无日期 id 是滚动别名 / 日期快照是独立身份」。
+    #   家族 = canonical 去掉尾部日期
+    #   deepseek-v4-flash 与 deepseek-v4-flash-0731 同族，各自保留 canonical
     families: dict[str, list[str]] = {}
     for mid in sorted(all_ids):
-        # 渠道变体（:batch / :free）一律归到基名所在的族，
-        # 不能各自按自己的 canonical 走 —— OpenRouter 给 :batch 变体的
-        # canonical 是 claude-4-7-opus-20260416 这种倒序格式，
-        # 解析后会变成 claude-opus-4.7，与主体的 claude-opus-4-7 分裂成两条。
+        # 渠道变体（:batch / @eu）归到基名所在的族
         base_mid = mid
-        vm = re.match(r"^(.*?)(:[a-z0-9_-]+)$", mid)
-        if vm:
+        if vm := re.match(r"^(.*?)(:[a-z0-9_-]+|@[a-z0-9]+)$", mid):
             base_mid = vm.group(1)
 
-        # 族键 = 输出 id，两者用同一个函数，避免「族键与 id 不同」
-        # 造成同族分裂（databricks-claude-opus-4-8 与 claude-opus-4-8 分家）。
+        # 族键 = 家族名。
         #
-        # 候选里优先取**官方格式**（claude-opus-4-8），因为 Claude 的规范
-        # id 由官方文档定义，第三方倒序写法（claude-4-8-opus-20260528）
-        # 与通用规则产物（claude-opus-4.8）都不算规范。
-        candidates = [canonical_output_id(base_mid)]
-        if alias_index:
-            candidates.append(canonical_output_id(alias_index.resolve(base_mid)))
-
-        official = [x for x in candidates if official_rules.parse_claude(x)]
-        if official:
-            # 官方格式里优先无日期、无多余段的那个
-            official.sort(key=lambda x: (len(x.split("-")), x))
-            key = official[0]
+        # 只有当「带日期快照」与「基础名」是**明确的快照关系**时才合并
+        # （由 canonical / 短日期后缀给出，见 family 模块）。
+        # 不按容量指纹拆分 —— 同一模型在不同源的容量常不一致
+        # （官方 200000/4000 vs 中转 189096/8000），那是数据分歧，
+        # 应由可信度投票解决，不该拆成两个模型。
+        #
+        # 反例（确实要分开）：qwen3-235b-a22b 与 qwen3-235b-a22b-2507。
+        # 它们不是快照关系（-2507 有自己的 canonical 且 canonical 不指向基础名），
+        # 名字像但规格不同 → 不同模型。
+        # 族键优先级：
+        #   1. 有 canonical 且 canonical 不同于自身 → 用 canonical 的家族
+        #      （canonical 是权威源的判断，比名字推断可靠）
+        #   2. 否则用自身写法的家族（含短日期/-latest 兜底）
+        #
+        # 不能取「较短的那个」：qwen3-235b-a22b-2507 的 canonical 是
+        # qwen3-235b-a22b-07-25，取短的会被并进 qwen3-235b-a22b，
+        # 而两者容量不同（256K vs 128K），是不同模型。
+        own = _norm_family(base_mid)
+        if family_index:
+            resolved = family_index.resolve(base_mid)
+            canon_fam = _norm_family(resolved)
+            # canonical 指向了带日期的具体快照 → 认它是独立模型
+            if family.snapshot_date(resolved) and canon_fam != _norm_family(base_mid):
+                fam_key = canon_fam
+            else:
+                fam_key = own
         else:
-            key = canonical_output_id(base_mid)
-
-        # Claude 按**官方文档**的规则折叠（不是猜名字）：
-        #   4.6 之前的无日期 ID 是别名，指向最新日期快照 → 合并
-        #   4.6 及以后的无日期 ID 是规范 ID，与快照是不同模型 → 不合并
-        # 见 official_rules.py 引用的原文。
-        claude_base = official_rules.claude_snapshot_base(key)
-        if claude_base:
-            key = identity.norm_key(claude_base)
-        elif official_rules.should_merge_dateless_with_snapshot(key):
-            # 别名形 ID 保持自身为键，装配时由 alias 逻辑并入目标
-            pass
-        else:
-            # 其它厂商：只折叠明确的日期快照
-            folded = identity.date_base(key)
-            if folded:
-                key = folded
-
-        families.setdefault(key, []).append(mid)
-
-    # 先为每个 id 推算一次容量/日期，供别名校验比对参数。
-    # 注意不能直接用 meta —— 它此时还没生成。
-    byid_all: dict[str, dict[str, Any]] = {}
-    _cache: dict[tuple, Any] = {}
-    for mid in all_ids:
-        rows_m = merged_obs.get(mid) or []
-        ctx_m, out_m = aggregate_pair(rows_m)
-        byid_all[mid] = {
-            "context": ctx_m.value if ctx_m else None,
-            "max_output": out_m.value if out_m else None,
-            "release_date": None,
-        }
+            fam_key = own
+        families.setdefault(fam_key, []).append(mid)
 
     models: list[dict[str, Any]] = []
     for root, members in families.items():
@@ -459,12 +457,23 @@ def assemble(
         if not members:
             continue
 
-        # 主体选择：优先 mimi 自有模型（有确定的归属与窗口），
-        # 其次取有元信息的、再其次取最短的写法（通常是基准名）
+        # 主体选择：优先能被权威源识别的写法，其余作为别名。
+        #
+        # 曾经的坑：mimi 自有模型（morph-dsv4flash）因 declared 有值而被选为
+        # primary，结果整个族以它命名，deepseek-v4-flash 反而成了别名。
+        # 正确的是「谁在权威源里有身份就用谁」。
         def pick_score(mid: str) -> tuple:
-            has_decl = 1 if declared.get(mid) else 0
+            has_canon = 1 if (family_index and
+                              family_index.resolve(mid) != family.normalize_spelling(mid)) else 0
+            is_base = 1 if not family.snapshot_date(
+                family.normalize_spelling(mid)) else 0
             has_meta = 1 if meta.get(mid) else 0
-            return (has_decl, has_meta, -len(mid), mid)
+            # 长度取负：越短越像基础名
+            clean = 1 if not re.match(r"^[a-z]+-", mid) or mid.startswith(
+                ("gpt-", "glm-", "kimi-", "qwen", "claude-", "gemini-", "grok-",
+                 "deepseek-", "mistral-", "llama-", "doubao-", "hunyuan-",
+                 "minimax-", "step-", "mimo-", "nova-", "ernie-")) else 0
+            return (clean, is_base, has_canon, has_meta, -len(mid), mid)
 
         primary = max(members, key=pick_score)
         decl = declared.get(primary) or next(
@@ -473,20 +482,20 @@ def assemble(
         if not rows and not decl:
             continue
 
+        # 同族全部写法（含各快照）作为别名 —— 单独提供某个快照时也能命中
         alias_pool = set(members)
         if alias_index:
             for m in members:
-                alias_pool |= alias_index.siblings(m)
-            alias_pool |= alias_index.siblings(root)
+                alias_pool |= alias_index.aliases_of(m)
 
-        # 剔除「看起来像别的模型」的别名。canonical_slug 有时会把
-        # 不同模型关联到一起（如 deepseek-r1 与 deepseek-r1-distill-qwen-32b），
-        # 这类别名会让搜索把不相干的结果带出来。
-        # 名字同族 + 参数不冲突，两个条件都要满足
-        alias_pool = {
-            a for a in alias_pool
-            if a == primary or _same_family(primary, a, byid_all)
-        }
+        # 别名只保留同族写法。canonical_slug 偶尔过度关联
+        # （如 deepseek-r1 与 deepseek-r1-distill-qwen-32b），用家族键拦掉，
+        # 避免搜索带出不相干结果。
+        # 别名需同族。族键在分组时已经带上了容量维度，
+        # 所以容量不同的快照本就不同族。
+        # 同一族键（已含容量维度）内的写法才是合法别名
+        primary_fam = _norm_family(primary)
+        alias_pool = {a for a in alias_pool if _norm_family(a) == primary_fam}
         alias_pool.discard(primary)
         alias_list = sorted({idnorm.canonical_id(a) for a in alias_pool if a})
 
@@ -524,12 +533,9 @@ def assemble(
     kept: list[dict[str, Any]] = []
     dropped: list[tuple[str, str]] = []
     for m in models:
-        ok, reason = filtering.decide(
-            model_id=m["id"],
-            vendor=m.get("vendor") or "",
-            name=m.get("name"),
-            kind=m.get("kind"),
-            allowlist=allowed_vendors,
+        ok, reason = _decide_cached(
+            m["id"], m.get("vendor") or "", m.get("name") or "",
+            m.get("kind") or "", tuple(sorted(allowed_vendors)),
         )
         if ok:
             kept.append(m)

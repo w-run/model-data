@@ -84,6 +84,17 @@ VENDOR_PREFIX: dict[str, str] = {
 
 _SORTED_PREFIX = sorted(VENDOR_PREFIX.items(), key=lambda kv: -len(kv[0]))
 
+# 预编译：{prefix: (紧邻数字的正则, 破折号正则)}
+# 否则 infer_vendor 每次都要 re.escape 整个表（实测 19 万次调用占了 22 秒）。
+import re as _re
+
+_PREFIX_VER_RE = {
+    p: _re.compile(r"^" + _re.escape(p) + r"\d") for p, _ in _SORTED_PREFIX
+}
+_PREFIX_DASH_VER_RE = {
+    p: _re.compile(r"^" + _re.escape(p) + r"[.-]\d") for p, _ in _SORTED_PREFIX
+}
+
 # 只匹配这些前缀时容易误伤（如 "step" 会命中 "stepladder"），
 # 要求其后必须紧跟数字或短横线。
 _NEEDS_BOUNDARY = {"step", "glm", "yi", "aya", "nova", "veo", "palm", "ring", "ling"}
@@ -109,7 +120,25 @@ def strip_channel(model_id: str) -> str:
     return s
 
 
+import functools as _ft
+
+
+@_ft.lru_cache(maxsize=16384)
+def _infer_vendor_cached(model_id: str, known_key: tuple[str, ...]) -> str | None:
+    return _infer_vendor(model_id, set(known_key))
+
+
 def infer_vendor(model_id: str, known: Iterable[str] = ()) -> str | None:
+    """
+    从模型 id 推断发布方。返回 None 表示无法判定。
+
+    带缓存：装配阶段同一 id 会被查多次（归因 + 过滤 + 输出）。
+    known 集合转成排序元组作为缓存键。
+    """
+    return _infer_vendor_cached(str(model_id or ""), tuple(sorted(set(known))))
+
+
+def _infer_vendor(model_id: str, known: Iterable[str] = ()) -> str | None:
     """
     从模型 id 推断发布方。返回 None 表示无法判定。
 
@@ -132,12 +161,12 @@ def infer_vendor(model_id: str, known: Iterable[str] = ()) -> str | None:
     for prefix, vendor in _SORTED_PREFIX:
         if base == prefix:
             return vendor
-        if re.match(rf"^{re.escape(prefix)}\d", base):
+        if _PREFIX_VER_RE[prefix].match(base):
             return vendor
         if base.startswith(prefix + "-") or base.startswith(prefix + "."):
             if prefix in _NEEDS_BOUNDARY:
                 # step-3.7 / glm-5.3 这类可以，step-xl / step-ladder 不行
-                if re.match(rf"^{re.escape(prefix)}[.-]\d", base):
+                if _PREFIX_DASH_VER_RE[prefix].match(base):
                     return vendor
                 continue
             return vendor

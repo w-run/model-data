@@ -1,288 +1,325 @@
 #!/usr/bin/env python3
 """
-构建入口
+构建入口（多阶段）
 
-    python -m model_data.cli              # 全量构建
-    python -m model_data.cli --offline    # 不联网（用缓存）
-    python -m model_data.cli -o /tmp/out  # 输出到别处
+    python -m model_data.cli                 # 全量（01→04）
+    python -m model_data.cli --from 03       # 从 03 开始跑到底
+    python -m model_data.cli --only 04       # 只重跑 04（改过滤规则时用，秒级）
+    python -m model_data.cli --keep          # 复用已有中间产物
 
-流程
-----
-  采集（models.dev 仓库 / LiteLLM / OpenRouter / mimi）
-    → 身份对齐（同族合并）
-    → 可信度聚合（分字段）
-    → mimi 声明值参证（不当硬上限）
-    → 产出（既有格式 + confidence 增量）
+阶段产物在 .build/：
+    01-collect.json    原始观测
+    02-identity.json   canonical / 族索引
+    03-assemble.json   模型条目（未取整、未过滤）
+    04-finalize.json   最终产出
+
+改一处只需重跑对应阶段，便于逐段验证。
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import os
-import subprocess
-import sys
+import re
+import tomllib
 from datetime import datetime
 from pathlib import Path
 
 from . import assemble, vendor_table
-from .vendors import load_from_toml
-from .identity import build_alias_index
+from .family import build_index as build_family_index
+from .pipeline import STAGES, Context, Stage, log, run_pipeline
 from .sources import collect
 from .sources import aliyun as aliyun_src
-from .sources import siliconflow as siliconflow_src
 from .sources import huggingface as hf_src
 from .sources import litellm as litellm_src
 from .sources import mimi as mimi_src
 from .sources import models_dev_api as models_dev_api_src
 from .sources import models_dev_repo, openrouter as openrouter_src
+from .sources import siliconflow as siliconflow_src
+from .vendors import BUILTIN_ALIASES, load_from_toml, vendor_aliases
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-CACHE = Path(os.environ.get("MODEL_DATA_CACHE", Path.home() / ".cache" / "model-data"))
+CACHE = Path(__import__("os").environ.get("MODEL_DATA_CACHE", Path.home() / ".cache" / "model-data"))
 
 
-def log(msg: str) -> None:
-    print(msg, flush=True)
-
+# ══ 阶段 01：采集 ══════════════════════════════════════════════════════════
 
 def ensure_models_dev_repo(offline: bool) -> Path | None:
     """稀疏克隆 models.dev 源仓库（只取 providers/，约 39MB）。"""
+    import subprocess
+
     target = CACHE / "models.dev"
     if target.exists():
         if offline:
             return target
         try:
-            subprocess.run(
-                ["git", "-C", str(target), "pull", "--ff-only", "-q"],
-                check=True, capture_output=True, timeout=180,
-            )
-            log("  models.dev repo: 已更新")
+            subprocess.run(["git", "-C", str(target), "pull", "--ff-only", "-q"],
+                           check=True, capture_output=True, timeout=180)
+            log("    models.dev repo: 已更新")
         except Exception as exc:  # noqa: BLE001
-            log(f"  models.dev repo: 更新失败，用现有副本（{exc.__class__.__name__}）")
+            log(f"    models.dev repo: 更新失败，用现有副本（{exc.__class__.__name__}）")
         return target
 
     if offline:
         return None
 
     CACHE.mkdir(parents=True, exist_ok=True)
-    log("  models.dev repo: 首次克隆（稀疏，约 39MB）...")
+    log("    models.dev repo: 首次克隆（稀疏，约 39MB）...")
     try:
-        subprocess.run(
-            ["git", "clone", "--depth", "1", "--filter=blob:none", "--sparse",
-             "https://github.com/sst/models.dev", str(target)],
-            check=True, capture_output=True, timeout=600,
-        )
-        subprocess.run(
-            ["git", "-C", str(target), "sparse-checkout", "set", "providers"],
-            check=True, capture_output=True, timeout=300,
-        )
-        log("  models.dev repo: OK")
+        subprocess.run(["git", "clone", "--depth", "1", "--filter=blob:none",
+                        "--sparse", "https://github.com/sst/models.dev", str(target)],
+                       check=True, capture_output=True, timeout=600)
+        subprocess.run(["git", "-C", str(target), "sparse-checkout", "set", "providers"],
+                       check=True, capture_output=True, timeout=300)
         return target
     except Exception as exc:  # noqa: BLE001
-        log(f"  models.dev repo: 克隆失败 {exc}")
+        log(f"    models.dev repo: 克隆失败 {exc}")
         return None
 
 
-def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="构建模型信息库")
-    ap.add_argument("-o", "--output-dir", type=Path, default=REPO_ROOT)
-    ap.add_argument("--offline", action="store_true")
-    ap.add_argument("--only", default="", help="逗号分隔：modelsdev,aliyun,siliconflow,huggingface,litellm,openrouter,mimi")
-    ap.add_argument("--strict", action="store_true", help="有 error 即退出非零")
-    ap.add_argument("--dump-observations", type=Path, default=None,
-                    help="把原始观测落盘，便于排查")
-    args = ap.parse_args(argv)
+def stage_collect(ctx: Context) -> None:
+    """
+    采集各源，产出**原始观测**（未合并、未去重），同时保存构建索引所需的原始数据。
 
-    sel = {s.strip() for s in args.only.split(",") if s.strip()}
+    产物结构：
+      {
+        "observations": {slug: [obs...]},   # 已按 loose_key 合并
+        "openrouter_raw": {...},            # 供 02 构建 canonical 索引
+        "modelsdev_api_raw": {...},
+        "mimi": {"declared": ..., "models": [...], "extra": ...},
+      }
+    """
+    sel = {s.strip() for s in ctx.only_sources.split(",") if s.strip()}
     def want(n: str) -> bool:
         return (not sel) or (n in sel)
 
-    # 厂商表是归一与别名的权威源，必须在任何采集之前加载
-    load_from_toml(str(REPO_ROOT / "data" / "vendors.toml"))
-    import tomllib as _tl
-    try:
-        with open(REPO_ROOT / "data" / "vendors.toml", "rb") as _f:
-            vendors_toml_ids = list(_tl.load(_f).keys())
-    except Exception:  # noqa: BLE001
-        vendors_toml_ids = []
-
-    log("=" * 64)
-    log("  model-data build")
-    log(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    log("=" * 64)
-
-    # ── 1. 采集 ────────────────────────────────────────────────────
-    obs_maps = []
+    obs_maps: list[dict] = []
     or_data: dict = {}
     md_api_data: dict = {}
 
     if want("modelsdev"):
-        repo = ensure_models_dev_repo(args.offline)
+        repo = ensure_models_dev_repo(ctx.offline)
         if repo:
             docs = models_dev_repo.scan(str(repo))
             n = sum(len(v) for v in docs.values())
-            log(f"  models.dev: {len(docs)} providers, {n} docs")
+            log(f"    models.dev: {len(docs)} providers, {n} docs")
             obs_maps.append(collect.observations_from_models_dev(docs))
-            # 国内 provider 的价格反推回人民币，优先于美元换算值
-            # 阶梯价只在 API 版有（仓库 TOML 缺），单独拉一次补上
-            if not args.offline:
+            if not ctx.offline:
                 try:
-                    api_data = models_dev_api_src.fetch()
-                    md_api_data = api_data
-                    tier_obs = collect.observations_from_models_dev_api(api_data)
-                    n = sum(len(v) for v in tier_obs.values())
-                    log(f"  models.dev API: {len(tier_obs)} 模型, {n} 条阶梯价")
-                    obs_maps.append(tier_obs)
+                    md_api_data = models_dev_api_src.fetch()
+                    tier_obs = collections_count(
+                        collect.observations_from_models_dev_api(md_api_data))
+                    log(f"    models.dev API: {tier_obs} 条观测")
+                    obs_maps.append(collect.observations_from_models_dev_api(md_api_data))
                 except Exception as exc:  # noqa: BLE001
-                    log(f"  models.dev API: FAIL {exc}")
-
+                    log(f"    models.dev API: FAIL {exc}")
 
     if want("litellm"):
         try:
-            data = litellm_src.fetch(offline=args.offline)
-            log(f"  litellm: {len(data)} entries")
+            data = litellm_src.fetch(offline=ctx.offline)
+            log(f"    litellm: {len(data)} entries")
             obs_maps.append(collect.observations_from_litellm(data))
         except Exception as exc:  # noqa: BLE001
-            log(f"  litellm: FAIL {exc}")
+            log(f"    litellm: FAIL {exc}")
 
     if want("aliyun"):
         try:
-            ali_obs = aliyun_src.observations(offline=args.offline)
-            n = sum(len(v) for v in ali_obs.values())
-            log(f"  aliyun: {len(ali_obs)} 模型, {n} 条观测（人民币原价）")
-            obs_maps.append(ali_obs)
+            o = aliyun_src.observations(offline=ctx.offline)
+            log(f"    aliyun: {len(o)} 模型, {collections_count(o)} 条观测（人民币）")
+            obs_maps.append(o)
         except Exception as exc:  # noqa: BLE001
-            log(f"  aliyun: FAIL {exc}")
+            log(f"    aliyun: FAIL {exc}")
 
     if want("siliconflow"):
         try:
-            sf_obs = siliconflow_src.observations(offline=args.offline)
-            n = sum(len(v) for v in sf_obs.values())
-            log(f"  siliconflow: {len(sf_obs)} 模型, {n} 条观测（人民币）")
-            obs_maps.append(sf_obs)
+            o = siliconflow_src.observations(offline=ctx.offline)
+            log(f"    siliconflow: {len(o)} 模型, {collections_count(o)} 条观测（人民币）")
+            obs_maps.append(o)
         except Exception as exc:  # noqa: BLE001
-            log(f"  siliconflow: FAIL {exc}")
+            log(f"    siliconflow: FAIL {exc}")
 
     if want("huggingface"):
         try:
-            data = hf_src.fetch(offline=args.offline)
-            models_n = len(data.get("data", []))
-            prov_n = sum(len(m.get("providers") or []) for m in data.get("data", []))
-            log(f"  huggingface: {models_n} models, {prov_n} provider entries")
+            data = hf_src.fetch(offline=ctx.offline)
+            log(f"    huggingface: {len(data.get('data', []))} models")
             obs_maps.append(hf_src.observations(data))
         except Exception as exc:  # noqa: BLE001
-            log(f"  huggingface: FAIL {exc}")
+            log(f"    huggingface: FAIL {exc}")
 
     if want("openrouter"):
         try:
-            data = openrouter_src.fetch(offline=args.offline)
-            or_data = data
-            log(f"  openrouter: {len(data.get('data', []))} models")
-            obs_maps.append(collect.observations_from_openrouter(data))
+            or_data = openrouter_src.fetch(offline=ctx.offline)
+            log(f"    openrouter: {len(or_data.get('data', []))} models")
+            obs_maps.append(collect.observations_from_openrouter(or_data))
         except Exception as exc:  # noqa: BLE001
-            log(f"  openrouter: FAIL {exc}")
+            log(f"    openrouter: FAIL {exc}")
 
     declared: dict = {}
-    mimi_models: set = set()
+    mimi_models: list[str] = []
     mimi_extra: dict = {}
     if want("mimi"):
         try:
             data = mimi_src.fetch()
             mimi_obs, declared = mimi_src.observations(data)
             mimi_extra = mimi_src.extra_fields(data)
-            mimi_models = {str(m.get("id")) for m in data.get("data", []) if m.get("id")}
+            mimi_models = [str(m.get("id")) for m in data.get("data", []) if m.get("id")]
             own = [x for x in mimi_models if mimi_src.is_own_model(x)]
-            log(f"  mimi: {len(mimi_models)} models（自有 {len(own)}）")
+            log(f"    mimi: {len(mimi_models)} models（自有 {len(own)}）")
             obs_maps.append(mimi_obs)
         except Exception as exc:  # noqa: BLE001
-            log(f"  mimi: FAIL {exc}")
+            log(f"    mimi: FAIL {exc}")
 
     if not obs_maps:
-        log("没有可用数据源，中止")
-        return 2
+        raise RuntimeError("没有可用数据源")
 
     merged = collect.merge_observations(*obs_maps)
+    log(f"    对齐后 {len(merged)} 个模型键")
 
-    if args.dump_observations:
-        payload = {
+    ctx.save("01", {
+        "observations": {
             k: [
                 {"field": o.field_name, "value": o.value, "source": o.source,
-                 "tier": o.tier, "valid": o.valid, "note": o.note}
+                 "tier": o.tier, "valid": o.valid, "note": o.note,
+                 "currency": o.currency, "provenance": o.provenance,
+                 "url": o.url, "observed_at": o.observed_at}
                 for o in v
             ]
             for k, v in merged.items()
-        }
-        args.dump_observations.write_text(
-            json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-        log(f"  观测已落盘: {args.dump_observations}")
+        },
+        "openrouter_raw": or_data,
+        "modelsdev_api_raw": md_api_data,
+        "mimi": {"declared": declared, "models": mimi_models, "extra": mimi_extra},
+    })
 
-    # ── 2. 装配 ────────────────────────────────────────────────────
-    # 用外部权威元数据构建别名索引（不做字符串猜测）
-    alias_index = build_alias_index(
-        ("openrouter", or_data),
-        ("models.dev", md_api_data),
+
+def collections_count(o: dict) -> int:
+    return sum(len(v) for v in o.values())
+
+
+# ══ 阶段 02：身份对齐 ══════════════════════════════════════════════════════
+
+def stage_identity(ctx: Context) -> None:
+    """
+    构建 canonical / 族索引。**规则来自主流源**（OpenRouter canonical_slug），
+    不自己造。
+
+    产物：
+      {"canonical": {写法: canonical}, "families": {族: [canonical...]},
+       "vendors_allowed": [...], "vendors_toml_ids": [...]}
+    """
+    d = ctx.load("01")
+    idx = build_family_index(
+        ("openrouter", d.get("openrouter_raw") or {}),
+        ("models.dev", d.get("modelsdev_api_raw") or {}),
     )
-    log(f"  别名索引: {len(alias_index.to_canonical)} 条 canonical 关系")
-    from .vendors import BUILTIN_ALIASES, vendor_aliases
+    log(f"    canonical 关系: {len(idx.canonical)}")
+    log(f"    家族数: {len(idx.family_members)}")
+
+    load_from_toml(str(REPO_ROOT / "data" / "vendors.toml"))
+    try:
+        with open(REPO_ROOT / "data" / "vendors.toml", "rb") as f:
+            vids = list(tomllib.load(f).keys())
+    except Exception:  # noqa: BLE001
+        vids = []
+
     allowed: set[str] = set()
-    for vid in vendors_toml_ids:
+    for vid in vids:
         allowed.add(vid.lower())
         allowed.update(a.lower() for a in vendor_aliases(vid))
     allowed.update(k.lower() for k in BUILTIN_ALIASES)
+    log(f"    白名单厂商写法: {len(allowed)}")
 
+    ctx.save("02", {
+        "canonical": idx.canonical,
+        "families": {k: sorted(v) for k, v in idx.family_members.items()},
+        "spellings": {k: sorted(v) for k, v in idx.spellings.items()},
+        "vendors_allowed": sorted(allowed),
+        "vendors_toml_ids": vids,
+    })
+
+
+# ══ 阶段 03：装配 ══════════════════════════════════════════════════════════
+
+def stage_assemble(ctx: Context, build_dir: Path) -> None:
+    """
+    按族装配模型条目（未取整、未过滤），便于单独检查装配结果。
+    """
+    d1 = ctx.load("01")
+    d2 = ctx.load("02")
+
+    from .family import CanonicalIndex
+    idx = CanonicalIndex()
+    idx.canonical = {k: v for k, v in d2["canonical"].items()}
+    idx.family_members = {k: set(v) for k, v in d2["families"].items()}
+    idx.spellings = {k: set(v) for k, v in d2["spellings"].items()}
+
+    # 观测还原成 Observation 对象
+    from .trust.engine import Observation
+    merged: dict[str, list[Observation]] = {}
+    for slug, rows in d1["observations"].items():
+        merged[slug] = [
+            Observation(
+                source=r["source"], tier=r["tier"], field_name=r["field"],
+                value=r["value"], valid=r["valid"], note=r.get("note"),
+                currency=r.get("currency", "USD"),
+                provenance=r.get("provenance", "none"),
+                url=r.get("url"), observed_at=r.get("observed_at"),
+            )
+            for r in rows
+        ]
+
+    m = d1.get("mimi") or {}
     models = assemble.assemble(
-        merged, declared,
-        alias_index=alias_index,
-        allowed_vendors=allowed,
-        mimi_models=mimi_models,
-        extra=mimi_extra,
+        merged, m.get("declared") or {},
+        alias_index=idx,
+        family_index=idx,
+        allowed_vendors=set(d2["vendors_allowed"]),
+        mimi_models=set(m.get("models") or []),
+        extra=m.get("extra") or {},
     )
-    out = assemble.wrap(models)
-
-    # ── 3. 校验 ────────────────────────────────────────────────────
-    # 校验最终产出（取整后），而不是取整前的中间态
-    problems = validate(out["models"])
-    if problems:
-        log("")
-        log(f"  校验: {len(problems)} 个问题")
-        for p in problems[:15]:
-            log(f"    {p}")
-    else:
-        log("")
-        log("  校验: 通过")
-
-    # ── 4. 写出 ────────────────────────────────────────────────────
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    (args.output_dir / "models.json").write_text(
-        json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    # 厂商表独立产出（搜索页需要按厂商/别名检索）
-    vtab = vendor_table.build(models, REPO_ROOT / "data" / "vendors.toml")
-    (args.output_dir / "vendors.json").write_text(
-        json.dumps(vtab, ensure_ascii=False, indent=2), encoding="utf-8")
+    log(f"    装配出 {len(models)} 条")
 
     dropped = assemble.assemble_stats.get("dropped") or []
     if dropped:
         from collections import Counter
         reasons = Counter(r.split("（")[0] for _, r in dropped)
-        log(f"  过滤掉: {len(dropped)} 个 —— " +
-            ", ".join(f"{k} {v}" for k, v in reasons.most_common()))
+        log("    过滤: " + ", ".join(f"{k} {v}" for k, v in reasons.most_common()))
+
+    ctx.save("03", {"models": models, "dropped": dropped})
+
+
+# ══ 阶段 04：定稿 ══════════════════════════════════════════════════════════
+
+def stage_finalize(ctx: Context) -> None:
+    """取整、校验、写出最终产出。"""
+    d = ctx.load("03")
+    models = d["models"]
+
+    out = assemble.wrap(models)
+    problems = validate(out["models"])
+
+    ctx.output_dir.mkdir(parents=True, exist_ok=True)
+    (ctx.output_dir / "models.json").write_text(
+        json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    vtab = vendor_table.build(models, REPO_ROOT / "data" / "vendors.toml")
+    (ctx.output_dir / "vendors.json").write_text(
+        json.dumps(vtab, ensure_ascii=False, indent=2), encoding="utf-8")
 
     levels: dict[str, int] = {}
     for m in models:
-        lv = m["confidence"]["level"]
-        levels[lv] = levels.get(lv, 0) + 1
+        levels[m["confidence"]["level"]] = levels.get(m["confidence"]["level"], 0) + 1
 
     log("")
-    log(f"  models: {len(models)}")
-    log(f"  confidence: {', '.join(f'{k}={v}' for k, v in sorted(levels.items()))}")
-    log(f"  vendors: {vtab['count']}")
-    log(f"  output: {args.output_dir}  (models.json / vendors.json)")
-    log("=" * 64)
-
-    if args.strict and problems:
-        return 1
-    return 0
+    log(f"    models: {len(models)}")
+    log(f"    confidence: {', '.join(f'{k}={v}' for k, v in sorted(levels.items()))}")
+    log(f"    vendors: {vtab['count']}")
+    if problems:
+        log(f"    校验: {len(problems)} 个问题")
+        for p in problems[:15]:
+            log(f"      {p}")
+    else:
+        log("    校验: 通过")
+    log(f"    output: {ctx.output_dir}")
 
 
 def validate(models: list[dict]) -> list[str]:
@@ -303,5 +340,45 @@ def validate(models: list[dict]) -> list[str]:
     return problems
 
 
+# ══ main ══════════════════════════════════════════════════════════════════
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="构建模型信息库（多阶段）")
+    ap.add_argument("-o", "--output-dir", type=Path, default=REPO_ROOT)
+    ap.add_argument("--build-dir", type=Path, default=None,
+                    help="中间产物目录，默认 <output>/.build")
+    ap.add_argument("--offline", action="store_true")
+    ap.add_argument("--only", default="", help="只跑指定阶段（01,02,03,04）")
+    ap.add_argument("--sources", default="",
+                    help="逗号分隔数据源：modelsdev,aliyun,siliconflow,huggingface,litellm,openrouter,mimi")
+    ap.add_argument("--from", dest="start", default="", help="从某阶段开始（如 03）")
+    ap.add_argument("--strict", action="store_true")
+    args = ap.parse_args(argv)
+
+    build_dir = args.build_dir or (args.output_dir / ".build")
+    build_dir.mkdir(parents=True, exist_ok=True)
+
+    ctx = Context(build_dir=build_dir, output_dir=args.output_dir,
+                  offline=args.offline, only_sources=args.sources)
+
+    log("=" * 64)
+    log("  model-data build（多阶段）")
+    log(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log(f"  产物目录: {build_dir}")
+    log("=" * 64)
+
+    stages = [
+        Stage("01", "collect", stage_collect),
+        Stage("02", "identity", stage_identity, needs=("01",)),
+        Stage("03", "assemble", lambda c: stage_assemble(c, build_dir), needs=("02",)),
+        Stage("04", "finalize", stage_finalize, needs=("03",)),
+    ]
+
+    run_pipeline(stages, ctx, start=args.start, stage_only=args.only)
+    log("")
+    log("  全部完成")
+    return 0
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

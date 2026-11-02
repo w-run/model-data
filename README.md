@@ -195,6 +195,70 @@ agnes-2.5-pro                 → unknown     （判不出来就留空）
 
 unknown 从 47% 降到 17.6%。
 
+## 构建流水线（多阶段）
+
+改一处不必全量重跑。中间产物在 `.build/`：
+
+| 阶段 | 做什么 | 产物 | 耗时 |
+|---|---|---|---|
+| `01 collect` | 采集各源 | `01-collect.json` | ~120s（网络） |
+| `02 identity` | canonical / 族分组 | `02-identity.json` | ~9s |
+| `03 assemble` | 按族装配 | `03-assemble.json` | ~30s |
+| `04 finalize` | 取整、过滤、写出 | `models.json` | ~2s |
+
+```sh
+python -m model_data.cli                 # 全量
+python -m model_data.cli --from 03       # 从 03 开始（改装配逻辑）
+python -m model_data.cli --only 04       # 只重跑 04（改过滤规则，秒级）
+```
+
+## 模型身份：跟随主流源，不自己造规则
+
+早期我用手写规则猜「哪些 id 是同一个模型」（去日期、剥前缀、转小数点），
+每次修完又冒新的重复。真相是**主流源已经把这件事表达出来了**。
+
+OpenRouter 的 `canonical_slug` 就是标准答案：
+
+| 请求用的 id | canonical_slug |
+|---|---|
+| `deepseek-v4-flash` | `deepseek-v4-flash-20260423` |
+| `deepseek-v4-flash-0731` | `deepseek-v4-flash-20260731` |
+| `qwen3-235b-a22b` | `qwen3-235b-a22b` |
+| `qwen3-235b-a22b-2507` | `qwen3-235b-a22b-07-25` |
+
+语义：
+- **无日期 id 是滚动别名**，canonical 指向它当时提供的那个快照
+- **每个日期快照有自己的 canonical**，是独立身份
+- **家族 = canonical 去掉尾部日期**
+
+于是 `deepseek-v4-flash` 与 `-0731` 归为一族，产出**一条**：
+
+```jsonc
+{
+  "id": "deepseek-v4-flash",
+  "context": 1024000, "max_output": 384000,
+  "aliases": ["deepseek-v4-flash-0423", "deepseek-v4-flash-0731",
+              "deepseek-v4-flash-20260423", "deepseek-v4-flash-20260731",
+              "deepseek-v4-flash-latest"]
+}
+```
+
+单独搜 `-0731` 也能命中，因为它就在 aliases 里。
+
+**确实不同的模型不会被合并**：`qwen3-235b-a22b`(128K) 与
+`qwen3-235b-a22b-2507`(256K) 的 canonical 各有归属，家族键不同。
+
+### Anthropic 的代际规则（官方原文）
+
+https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
+
+> For the 4.6 generation and later, the dateless ID is the canonical model ID.
+> It maps to a single, fixed model snapshot.
+> A 4.6-generation ID such as `claude-sonnet-4-6` is **not an alias**.
+> An alias such as `claude-sonnet-4-5` is a convenience pointer.
+
+即 4.6 之前无日期 ID 是别名、4.6 及以后是规范 ID，**方向按代际相反**。
+
 ## 数据源
 
 | 源 | 形态 | 说明 |
