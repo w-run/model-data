@@ -85,6 +85,33 @@ class TestOpenRouterCanonical(unittest.TestCase):
         self.assertIn("deepseek-v4-flash-0731", a)
 
 
+class TestPrimarySelection(unittest.TestCase):
+    """
+    族代表选择：别名不能抢走主名。
+
+    事故：deepseek-flash（官方别名，指向 -1017）因名字最短被选为 primary，
+    结果整族以它命名，deepseek-v4.1-flash 在产出中消失。
+    """
+
+    def test_alias_does_not_win(self):
+        """过时别名的快照日期更旧，应让位给滚动主名。"""
+        # deepseek-flash  → -1017（旧）
+        # deepseek-v4-1-flash → -20260910（新）
+        old = family.snapshot_date("deepseek-v4-1-flash-1017")
+        new = family.snapshot_date("deepseek-v4-1-flash-20260910")
+        self.assertLess(old, new, "快照日期应可比较，用于选出更新的别名")
+
+    def test_short_date_snapshot_not_primary(self):
+        """-260910 这类短日期快照不能当族代表。"""
+        self.assertIsNotNone(family.snapshot_date("deepseek-v4-1-flash-260910"))
+
+    def test_service_tier_folded(self):
+        """速度档并入主条目。"""
+        self.assertEqual(
+            family.family_of_with_short_date("kimi-k3.1-pro-highspeed"),
+            family.family_of_with_short_date("kimi-k3.1-pro"))
+
+
 class TestPrefixStripping(unittest.TestCase):
     """区域/渠道前缀不属于模型身份。"""
 

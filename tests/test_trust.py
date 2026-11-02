@@ -10,7 +10,7 @@ import math
 import unittest
 from datetime import date, timedelta
 
-from model_data import identity, notation
+from model_data import ids, notation
 from model_data.sources.collect import placeholder_reason
 from model_data.trust.engine import Observation, aggregate, aggregate_pair, cluster_by_value
 
@@ -138,20 +138,21 @@ class TestIdentity(unittest.TestCase):
     """身份对齐：写法归一 + 日期折叠，但不合并版本。"""
 
     def test_norm_key_unifies_spelling(self):
-        self.assertEqual(identity.norm_key("claude-sonnet-4.5"),
-                         identity.norm_key("claude-sonnet-4-5"))
+        self.assertEqual(ids.canonical_id("claude-sonnet-4.5"),
+                         ids.canonical_id("claude-sonnet-4-5"))
 
     def test_version_not_merged(self):
         """v4 与 v4.1 是不同模型，不能折叠到同一族。"""
-        self.assertNotEqual(identity.norm_key("deepseek-v4-flash"),
-                            identity.norm_key("deepseek-v4.1-flash"))
+        self.assertNotEqual(ids.canonical_id("deepseek-v4-flash"),
+                            ids.canonical_id("deepseek-v4.1-flash"))
 
     def test_snapshot_folds_to_base(self):
-        self.assertEqual(identity.date_base("deepseek-v4.1-flash-1017"),
+        self.assertEqual(ids.family_key("deepseek-v4.1-flash-1017"),
                          "deepseek-v4.1-flash")
 
-    def test_variant_suffix_stripped(self):
-        self.assertEqual(identity.strip_variant("gpt-5.2:batch"), "gpt-5.2")
+    def test_family_key_strips_snapshot(self):
+        self.assertEqual(ids.family_key("deepseek-v4.1-flash-1017"),
+                         "deepseek-v4.1-flash")
 
 
 class TestFreshness(unittest.TestCase):

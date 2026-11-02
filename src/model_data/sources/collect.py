@@ -262,6 +262,9 @@ def observations_from_litellm(data: dict[str, Any]) -> dict[str, list[Observatio
         slug = model.split("/")[-1]
         if not slug:
             continue
+        # 归一写法：github_copilot/claude-haiku-4.5 与 claude-haiku-4-5 是同一模型，
+        # 不归一会让同一模型在产出里分裂成两条。
+        slug = loose_key(slug)
 
         src = rec.get("source")
         prov = "pricing_url" if isinstance(src, str) and "pric" in src.lower() else (
@@ -421,13 +424,18 @@ def merge_observations(*maps: dict[str, list[Observation]]) -> dict[str, list[Ob
 
 def loose_key(slug: str) -> str:
     """
-    跨源对齐键。
+    跨源对齐键 —— 采集阶段就把同一模型的写法合并到同一 key。
 
-    用 identity.norm_key：小写 + 小数点/短横线统一，
-    **不折叠日期、不动版本号** —— 版本号不同是不同模型。
+    统一走 ids.canonical_id（全库唯一的归一实现）：
+      - 剥渠道/区域前缀     databricks-claude-opus-4-8 → claude-opus-4.8
+      - p 转义还原          deepseek-v4p1-flash → deepseek-v4.1-flash
+      - 版本加点            llama-3-1-8b → llama-3.1-8b
+      - Claude 官方格式     claude-opus-4-5 → claude-opus-4.5
+
+    **保留日期快照**：-0731 与主名是不同的 key，到阶段 03 才按族合并。
     """
-    from ..identity import norm_key
-    return norm_key(slug)
+    from ..ids import canonical_id
+    return canonical_id(slug)
 
 
 # ── models.dev API（仅用于补充仓库缺失的阶梯价）───────────────────────────

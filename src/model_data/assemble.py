@@ -40,8 +40,7 @@ import re
 from datetime import datetime, timezone
 from typing import Any
 
-from . import (attribution, billing, currency, family, filtering,
-               identity, idnorm, notation, official_rules, vendors)
+from . import attribution, billing, currency, family, filtering, ids, notation, vendors
 from .trust.engine import Evidence, aggregate, aggregate_pair
 
 # 产出顶层版本号：保持 2.0.0，因为结构与既有对接一致（仅新增可选字段）
@@ -59,37 +58,24 @@ _FIRST_PARTY_IDS: dict[str, bool] = {}
 
 def canonical_output_id(model_id: str) -> str:
     """
-    产出的模型 id（族键与条目 id 必须共用这一个函数，否则会出现
-    claude-opus-4-7 与 claude-opus-4.7 并存这样的重复）。
+    产出的模型 id —— 族键与条目 id **必须共用这一个函数**。
 
-    Claude 按官方格式：claude-{name}-{major}[-{minor}]
-    其余按通用规则：小写、版本小数点、剥离渠道前缀。
+    实现全部收敛到 ids.py（唯一的归一实现）。
+    重构前这里叠了 5 层调用、分属 5 个模块（idnorm / identity / official_rules /
+    family / attribution），每层都在猜下一层会不会处理，导致 bug 修不完。
     """
-    # 先剥离区域/渠道/厂商前缀（apac-anthropic-claude-opus-4-7 → claude-opus-4-7），
-    # 否则 parse_claude 认不出，会掉进通用的「横线转小数点」规则，
-    # 产生 claude-opus-4.7 这种与官方格式不符的 id。
-    stripped = official_rules.strip_cloud_prefix(str(model_id or "").lower())
-    k = identity.norm_key(stripped)
-    claude = official_rules.canonical_claude_id(k)
-    if claude:
-        return claude
-    return idnorm.canonical_id(model_id)
-
-
-# 别名属同一模型的校验：去掉日期快照与渠道/区域标记后必须一致。
-# 用于拦截 canonical_slug 的过度关联。
-_VARIANT_TAIL = __import__("re").compile(
-    r"(:[a-z0-9_-]+|@[a-z0-9]+|-spot|-flex|-priority|-free)$", 2)
+    return ids.canonical_id(model_id)
 
 
 @functools.lru_cache(maxsize=8192)
 def _norm_family(x: str) -> str:
     """
-    家族键：剥渠道前缀 → 归一写法 → 去尾部日期（含短日期与 -latest 兜底）。
+    家族键：canonical 去掉尾部日期快照，再剥服务档后缀。
 
-    带缓存 —— 否则每个家族都要重算，实测把 03 阶段从 30 秒拖到 97 秒。
+    服务档（-highspeed / -fast）是同一模型的不同调用档，共用规格。
     """
-    return family.family_of_with_short_date(family.normalize_spelling(x))
+    k = ids.family_key(x)
+    return family.strip_service_tier(k) or k
 
 
 def _compatible(ma: dict, mb: dict) -> tuple[bool, str]:
@@ -430,11 +416,16 @@ def assemble(
         # qwen3-235b-a22b-07-25，取短的会被并进 qwen3-235b-a22b，
         # 而两者容量不同（256K vs 128K），是不同模型。
         own = _norm_family(base_mid)
+        claude_official = ids.parse_claude(own)
         if family_index:
             resolved = family_index.resolve(base_mid)
             canon_fam = _norm_family(resolved)
-            # canonical 指向了带日期的具体快照 → 认它是独立模型
-            if family.snapshot_date(resolved) and canon_fam != _norm_family(base_mid):
+            if claude_official:
+                # Claude 一律用官方格式的家族名，**不采信 OpenRouter 的
+                # claude-4-7-opus-20260416 倒序写法** —— 否则同一模型会因
+                # 两个源的写法差异分裂成两族（claude-opus-4-7 与 4.7 并存）。
+                fam_key = own
+            elif family.snapshot_date(resolved) and canon_fam != own:
                 fam_key = canon_fam
             else:
                 fam_key = own
@@ -468,23 +459,36 @@ def assemble(
         if not members:
             continue
 
-        # 主体选择：优先能被权威源识别的写法，其余作为别名。
+        # 主体选择。
         #
-        # 曾经的坑：mimi 自有模型（morph-dsv4flash）因 declared 有值而被选为
-        # primary，结果整个族以它命名，deepseek-v4-flash 反而成了别名。
-        # 正确的是「谁在权威源里有身份就用谁」。
+        # 曾经的坑：deepseek-flash（官方别名，指向 -1017）因名字最短被选为
+        # primary，结果整族以它命名，deepseek-v4.1-flash 反而消失。
+        #
+        # 判据（依次比较）：
+        #   1. 名字不带渠道/厂商前缀（databricks-* / fw-* / morph-* 排除）
+        #   2. 自身是无日期的基础名
+        #   3. canonical 指向**最新**快照（滚动别名总是跟着最新；
+        #      过时的别名如 deepseek-flash→-1017 会被淘汰）
+        #   4. 名字最长（能表达完整信息，如 deepseek-v4-1-flash 胜过 flash）
         def pick_score(mid: str) -> tuple:
-            has_canon = 1 if (family_index and
-                              family_index.resolve(mid) != family.normalize_spelling(mid)) else 0
-            is_base = 1 if not family.snapshot_date(
-                family.normalize_spelling(mid)) else 0
-            has_meta = 1 if meta.get(mid) else 0
-            # 长度取负：越短越像基础名
-            clean = 1 if not re.match(r"^[a-z]+-", mid) or mid.startswith(
+            norm = family.normalize_spelling(mid)
+            resolved = family_index.resolve(mid) if family_index else norm
+            snap = family.snapshot_date(resolved) or ""
+
+            clean = 1 if not re.match(r"^[a-z0-9]+-", mid) or mid.startswith(
                 ("gpt-", "glm-", "kimi-", "qwen", "claude-", "gemini-", "grok-",
                  "deepseek-", "mistral-", "llama-", "doubao-", "hunyuan-",
                  "minimax-", "step-", "mimo-", "nova-", "ernie-")) else 0
-            return (clean, is_base, has_canon, has_meta, -len(mid), mid)
+            if re.match(r"^(databricks|fw|spot|morph|recraft|scaleway|cerebras)-", mid):
+                clean = 0
+
+            is_base = 1 if not family.snapshot_date(norm) else 0
+            # 渠道变体（:batch / @eu）不能当主体
+            is_variant = 0 if re.search(r"(:[a-z0-9_-]+|@[a-z0-9]+)$", mid) else 1
+            # 短日期快照（-260910）也不能当主体，只作别名
+            is_short_snap = 0 if re.search(r"-\d{4}$", norm) else 1
+            return (is_variant, is_short_snap, clean, is_base, snap,
+                    -len(mid), mid)
 
         primary = max(members, key=pick_score)
         decl = declared.get(primary) or next(
@@ -508,7 +512,7 @@ def assemble(
         primary_fam = _norm_family(primary)
         alias_pool = {a for a in alias_pool if _norm_family(a) == primary_fam}
         alias_pool.discard(primary)
-        alias_list = sorted({idnorm.canonical_id(a) for a in alias_pool if a})
+        alias_list = sorted({ids.canonical_id(a) for a in alias_pool if a})
 
         models.append(build_model(
             primary,

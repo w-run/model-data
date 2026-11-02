@@ -212,6 +212,31 @@ python -m model_data.cli --from 03       # 从 03 开始（改装配逻辑）
 python -m model_data.cli --only 04       # 只重跑 04（改过滤规则，秒级）
 ```
 
+## ID 归一：单一实现
+
+**全库只有一个归一函数** `ids.canonical_id()`。重构前这件事分散在 5 个模块
+（idnorm / identity / official_rules / family / attribution），
+调用方叠了四五层，每层都在猜下一层会不会处理，导致 bug 修不完。
+
+规则（按顺序）：
+
+| 步骤 | 作用 | 例 |
+|---|---|---|
+| ① 剥渠道/区域前缀 | 转售层不是模型身份 | `databricks-claude-opus-4-8` → `claude-opus-4.8` |
+| ② p 转义还原 | id 不允许点号时用 p | `deepseek-v4p1-flash` → `deepseek-v4.1-flash` |
+| ③ 写法归一 | 大小写/下划线/点号统一 | `DeepSeek_V4.1` → `deepseek-v4.1` |
+| ④ 版本加点 | 全库统一口径 | `llama-3-1-8b` → `llama-3.1-8b` |
+
+**厂商名只在「后面跟的是该厂商专属系列名」时才剥**：
+`anthropic-claude-x` → `claude-x`，但 `deepseek-v4.1-flash` 不动
+（`v4.1` 不是系列名，`deepseek` 是模型名本身）。
+
+**Claude 也走统一口径用小数点**（`claude-opus-4.5`）。这个库是给中转站和工具
+做映射表用的，消费方需要「一个模型一个规范 id」，不必为 Claude 单独写规则。
+官方写法 `claude-opus-4-5` 作为 alias 保留，双向都查得到。
+
+对外只有三个函数：`canonical_id` / `family_key` / `snapshot_date`。
+
 ## 模型身份：跟随主流源，不自己造规则
 
 早期我用手写规则猜「哪些 id 是同一个模型」（去日期、剥前缀、转小数点），

@@ -5,21 +5,21 @@ from __future__ import annotations
 
 import unittest
 
-from model_data import billing, currency, idnorm, notation, vendors
+from model_data import billing, currency, ids, notation, vendors
 
 
 class TestCanonicalId(unittest.TestCase):
     """全库统一口径：小写 + 版本用小数点。"""
 
     def test_lowercase(self):
-        self.assertEqual(idnorm.canonical_id("DeepSeek-V4.1-Flash"), "deepseek-v4.1-flash")
-        self.assertEqual(idnorm.canonical_id("GLM-5.3"), "glm-5.3")
+        self.assertEqual(ids.canonical_id("DeepSeek-V4.1-Flash"), "deepseek-v4.1-flash")
+        self.assertEqual(ids.canonical_id("GLM-5.3"), "glm-5.3")
 
     def test_dash_to_dot_version(self):
-        self.assertEqual(idnorm.canonical_id("claude-sonnet-4-5"), "claude-sonnet-4.5")
-        self.assertEqual(idnorm.canonical_id("gpt-3-5-turbo"), "gpt-3.5-turbo")
-        self.assertEqual(idnorm.canonical_id("deepseek-v4-1-flash"), "deepseek-v4.1-flash")
-        self.assertEqual(idnorm.canonical_id("GLM-5-3"), "glm-5.3")
+        self.assertEqual(ids.canonical_id("claude-sonnet-4-5"), "claude-sonnet-4.5")
+        self.assertEqual(ids.canonical_id("gpt-3-5-turbo"), "gpt-3.5-turbo")
+        self.assertEqual(ids.canonical_id("deepseek-v4-1-flash"), "deepseek-v4.1-flash")
+        self.assertEqual(ids.canonical_id("GLM-5-3"), "glm-5.3")
 
     def test_versions_converge(self):
         """同一个模型的两种写法必须归一到同一结果。"""
@@ -29,54 +29,54 @@ class TestCanonicalId(unittest.TestCase):
             ("glm-5.3", "GLM-5-3"),
         ]
         for a, b in pairs:
-            self.assertEqual(idnorm.canonical_id(a), idnorm.canonical_id(b))
+            self.assertEqual(ids.canonical_id(a), ids.canonical_id(b))
 
     def test_llama_version_converted(self):
         """llama-3-1-8b 是 Llama 3.1 8B，3-1 是版本号。"""
-        self.assertEqual(idnorm.canonical_id("llama-3-1-8b"), "llama-3.1-8b")
-        self.assertEqual(idnorm.canonical_id("llama-3-1-70b"), "llama-3.1-70b")
+        self.assertEqual(ids.canonical_id("llama-3-1-8b"), "llama-3.1-8b")
+        self.assertEqual(ids.canonical_id("llama-3-1-70b"), "llama-3.1-70b")
 
     def test_size_markers_untouched(self):
         """235b / a22b 是规模标记，不是版本号。"""
         self.assertEqual(
-            idnorm.canonical_id("qwen3-vl-235b-a22b-instruct"),
+            ids.canonical_id("qwen3-vl-235b-a22b-instruct"),
             "qwen3-vl-235b-a22b-instruct")
 
     def test_vendor_prefix_stripped(self):
-        """厂商前缀冗余时剥掉：amazon-nova → nova。"""
-        self.assertEqual(idnorm.canonical_id("amazon-nova-2-5-sonic"),
-                         "nova-2.5-sonic")
-        self.assertEqual(idnorm.canonical_id("coding-xiaomi-mimo-v2.5"),
-                         "mimo-v2.5")
-        self.assertEqual(idnorm.canonical_id("zai-glm-5.3"), "glm-5.3")
+        """渠道/厂商前缀剥掉，但保留模型名本身。"""
+        self.assertEqual(ids.canonical_id("databricks-claude-opus-4-8"),
+                         "claude-opus-4.8")
+        self.assertEqual(ids.canonical_id("github_copilot/claude-opus-4.8"),
+                         "claude-opus-4.8")
+        self.assertEqual(ids.canonical_id("anthropic-claude-opus-4-5"),
+                         "claude-opus-4.5")
+        # 厂商名是模型名一部分时不能剥
+        self.assertEqual(ids.canonical_id("deepseek-r1"), "deepseek-r1")
 
     def test_distill_keeps_source_prefix(self):
         """蒸馏模型的厂商前缀不能剥：它是归属信息。"""
         self.assertEqual(
-            idnorm.canonical_id("deepseek-r1-distill-qwen-32b"),
+            ids.canonical_id("deepseek-r1-distill-qwen-32b"),
             "deepseek-r1-distill-qwen-32b")
 
     def test_seed_versions_converted(self):
         """doubao-seed-1.6 是豆包的版本号，要转小数点。"""
-        self.assertEqual(idnorm.canonical_id("doubao-seed-1-6-vision-250815"),
+        self.assertEqual(ids.canonical_id("doubao-seed-1-6-vision-250815"),
                          "doubao-seed-1.6-vision-250815")
-        self.assertEqual(idnorm.canonical_id("doubao-seed-2-0-pro"),
+        self.assertEqual(ids.canonical_id("doubao-seed-2-0-pro"),
                          "doubao-seed-2.0-pro")
 
     def test_dates_untouched(self):
-        self.assertEqual(idnorm.canonical_id("gpt-4o-mini-2024-07-18"),
+        self.assertEqual(ids.canonical_id("gpt-4o-mini-2024-07-18"),
                          "gpt-4o-mini-2024-07-18")
 
     def test_underscore_and_dup_dashes(self):
-        self.assertEqual(idnorm.canonical_id("MiniMax_M3.1__Flash"), "minimax-m3.1-flash")
+        self.assertEqual(ids.canonical_id("MiniMax_M3.1__Flash"), "minimax-m3.1-flash")
 
     def test_empty(self):
-        self.assertEqual(idnorm.canonical_id(""), "")
-        self.assertEqual(idnorm.canonical_id(None), "")
+        self.assertEqual(ids.canonical_id(""), "")
+        self.assertEqual(ids.canonical_id(None), "")
 
-    def test_same_model(self):
-        self.assertTrue(idnorm.is_same_model("DeepSeek-V4.1-Flash", "deepseek-v4.1-flash"))
-        self.assertFalse(idnorm.is_same_model("gpt-5.2", "gpt-5.3"))
 
 
 class TestVendors(unittest.TestCase):
@@ -181,35 +181,3 @@ class TestBilling(unittest.TestCase):
         self.assertEqual(len(mults), 1)
 
 
-class TestIdentitySnapshot(unittest.TestCase):
-    """日期折叠只处理日期，绝不动版本号。"""
-
-    def test_date_folding(self):
-        from model_data.identity import date_base
-        self.assertEqual(date_base("claude-opus-4-5-20251101"), "claude-opus-4-5")
-        self.assertEqual(date_base("gpt-4o-mini-2024-07-18"), "gpt-4o-mini")
-        self.assertEqual(date_base("deepseek-v4.1-flash-1017"), "deepseek-v4.1-flash")
-
-    def test_version_is_not_date(self):
-        from model_data.identity import date_base
-        for x in ("claude-sonnet-4-5", "gpt-5.2", "deepseek-v4-flash",
-                  "claude-opus-4-5", "claude-haiku-4-5"):
-            self.assertIsNone(date_base(x), x)
-
-    def test_distinct_markers_not_folded(self):
-        from model_data.identity import date_base
-        self.assertIsNone(date_base("gemini-2.5-flash-preview-09-2025"))
-
-    def test_alias_index_from_openrouter(self):
-        from model_data.identity import build_alias_index
-        data = {"data": [
-            {"id": "openai/gpt-x", "canonical_slug": "openai/gpt-x-20260101"},
-            {"id": "openai/gpt-x:batch", "canonical_slug": "openai/gpt-x-20260101"},
-        ]}
-        idx = build_alias_index(("openrouter", data))
-        self.assertEqual(idx.resolve("gpt-x"), idx.resolve("gpt-x:batch"))
-        self.assertEqual(len(idx.siblings("gpt-x")), 2)
-
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)

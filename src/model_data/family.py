@@ -42,7 +42,7 @@ _FULL_DATE = re.compile(r"-(?P<date>\d{8})$")
 
 # 短日期快照：-0731 / -2509 / -2603（4 位，前两位月份、后两位年份，或反之）
 # 这类只在部分源出现，canonical 会给出完整形式，所以这里只用于兜底
-_SHORT_DATE = re.compile(r"-(?P<date>\d{4})$")
+_SHORT_DATE = re.compile(r"-(?P<date>\d{4}|\d{6})$")
 
 _PREFIX_RE = re.compile(
     r"^(?:"
@@ -141,8 +141,8 @@ def family_of_with_short_date(canonical_slug: str) -> str:
     base = family_of(s)
     if base != s:
         return base
-    # 短日期：-0423 / -2509（4 位纯数字，且前面还有内容）
-    m = re.search(r"-(\d{4})$", s)
+    # 短日期：-0423 / -2509（4 位）或 -260910（6 位 YYMMDD）
+    m = re.search(r"-(\d{4}|\d{6})$", s)
     if m and len(s) > len(m.group(0)) + 3:
         return s[: m.start()]
     # 滚动别名
@@ -246,10 +246,24 @@ class CanonicalIndex:
         return out
 
 
+# 版本号里的小数点转义：id 字段常不允许带点，于是用 p 代替
+#   deepseek-v4p1-flash  ==  deepseek-v4.1-flash
+#   glm-4p5              ==  glm-4.5
+#   qwen-1p5b            ==  qwen-1.5b（参数量也常这么写）
+# 只转「数字 + p + 数字」这一形态，避免误伤普通单词里的 p。
+_P_VERSION_ESCAPE = re.compile(r"(?<=\d)p(?=\d)", re.I)
+
+
 def normalize_spelling(slug: str) -> str:
-    """写法归一：小写、下划线/小数点归一为短横线、剥渠道前缀。"""
+    """
+    写法归一：小写、p 转义还原、下划线/小数点归为短横线、剥渠道前缀。
+
+        deepseek-v4p1-flash  → deepseek-v4-1-flash
+        deepseek-v4.1-flash  → deepseek-v4-1-flash
+    """
     s = str(slug or "").strip().lower()
     s = strip_provider_prefix(s)
+    s = _P_VERSION_ESCAPE.sub(".", s)     # 先把 p 转义还原成小数点
     s = s.replace("_", "-").replace(".", "-")
     while "--" in s:
         s = s.replace("--", "-")
