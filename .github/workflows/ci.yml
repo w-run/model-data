@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/**'
+      - 'tests/**'
       - 'data/**'
       - '.github/workflows/ci.yml'
 
@@ -15,7 +16,19 @@ permissions:
   contents: write
 
 jobs:
+  # 先跑单元测试：纯本地逻辑，秒级完成，失败就不必浪费一次构建+部署
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +43,9 @@ jobs:
       - name: Install deps
         run: pip install --upgrade pip && pip install tomli 2>/dev/null || true
 
+      # --strict：校验有 error 直接失败，不让脏数据上 gh-pages
       - name: Build
-        run: python -m scripts.build
+        run: python -m scripts.build --strict
         env:
           SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
           MIMI_API_KEY: ${{ secrets.MIMI_API_KEY }}

@@ -41,7 +41,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-VERSION = "2.0.0"
+from .limits import DEFAULT_OUTPUT_CAP, derive_recommended, is_placeholder, vote_limits
+from .sources import models_dev
+from . import validate as validator
+from .inherit import apply_inheritance
+
+VERSION = "3.0.0"
 BASE_DIR = Path(__file__).resolve().parent.parent
 MANUAL_PATH = BASE_DIR / "data" / "manual" / "overrides.json"
 UA = "w-run-model-data/2.0 (+https://github.com/w-run/model-data)"
@@ -69,6 +74,20 @@ def normalize_id(raw: str) -> str:
         s = s[: -len(suf)] if s.endswith(suf) else s
     s = s.replace("_", "-").replace(" ", "-")
     s = re.sub(r"-{2,}", "-", s).strip("-")
+    return s
+
+
+def loose_key(slug: str) -> str:
+    """
+    宽松匹配键：抹平两家源对同一模型的写法差异。
+        claude-sonnet-4.5  ==  claude-sonnet-4-5
+        gpt-5.2            ==  gpt-5-2
+        deepseek_v4.1      ==  deepseek-v4-1
+    只用于跨源对齐，不写进产出（产出里的 id 仍按 OpenRouter 写法）。
+    """
+    s = str(slug or "").strip().lower()
+    s = s.replace(".", "-").replace("_", "-")
+    s = re.sub(r"-+", "-", s).strip("-")
     return s
 
 
@@ -154,8 +173,10 @@ def fetch_openrouter() -> list[dict[str, Any]]:
                 "vendor": normalize_id(org),
                 "name": display,
                 "aliases": sorted(alias_keys(name_part, full_id)),
-                "context": m.get("context_length") or None,
-                "max_output": top.get("max_completion_tokens") or None,
+                # 原始上报值。是否可信由 limits.py 的跨源共识判定，
+                # 不能直接当成 max_output 用（可能是 floor(0.9*ctx) 占位）。
+                "_or_context": m.get("context_length") or None,
+                "_or_output": top.get("max_completion_tokens") or None,
                 "modalities": {"input": modalities_in or ["text"], "output": modalities_out},
                 "capabilities": caps,
                 "price": price if len(price) > 1 else None,
@@ -201,8 +222,8 @@ def fetch_mimi() -> list[dict[str, Any]]:
                 "vendor": "w-run",
                 "name": str(m.get("name") or raw_id),
                 "aliases": sorted(alias_keys(raw_id)),
-                "context": m.get("max_input_tokens") or None,
-                "max_output": m.get("max_output_tokens") or None,
+                "_or_context": m.get("max_input_tokens") or None,
+                "_or_output": m.get("max_output_tokens") or None,
                 "modalities": {"input": modalities_in, "output": ["text"]},
                 "capabilities": caps,
                 "price": {"unit": USD_UNIT, "input": 0.0, "output": 0.0},
@@ -244,6 +265,11 @@ def merge(base: dict[str, dict[str, Any]], incoming: list[dict[str, Any]]) -> di
         for key, value in model.items():
             if key in ("id", "aliases", "sources"):
                 continue
+            # 原始上报值：先到先得，不被低优先级源覆盖
+            if key.startswith("_or_"):
+                if cur.get(key) in (None, ""):
+                    cur[key] = value
+                continue
             if value in (None, "", {}, []) and key not in ("price",):
                 continue
             if cur.get(key) in (None, "", {}, []):
@@ -254,18 +280,22 @@ def merge(base: dict[str, dict[str, Any]], incoming: list[dict[str, Any]]) -> di
 
 
 def apply_manual(models: dict[str, dict[str, Any]], overrides: dict[str, dict[str, Any]]) -> None:
-    """人工标称：直接覆盖（含置 None/False 的显式关闭）。"""
+    """
+    人工标称：优先级最高。
+
+    limit / recommended 支持**深层合并**——只写要改的那几个字段，
+    其余（如 confidence、votes）保留自动推导的结果。
+    """
     for mid, patch in overrides.items():
         target = models.get(mid)
         if target is None:
-            # 允许手工新增官方没有的模型
             target = {
                 "id": mid,
                 "vendor": patch.get("vendor") or "w-run",
                 "name": patch.get("name") or mid,
                 "aliases": sorted(alias_keys(mid)),
-                "context": None,
-                "max_output": None,
+                "limit": {},
+                "recommended": {},
                 "modalities": None,
                 "capabilities": {},
                 "price": None,
@@ -277,13 +307,18 @@ def apply_manual(models: dict[str, dict[str, Any]], overrides: dict[str, dict[st
         for key, value in patch.items():
             if key in ("aliases", "sources"):
                 continue
-            if key == "capabilities" and isinstance(value, dict):
-                merged_caps = dict(target.get("capabilities") or {})
-                merged_caps.update(value)
-                target["capabilities"] = merged_caps
+            if key in ("capabilities", "limit", "recommended") and isinstance(value, dict):
+                merged = dict(target.get(key) or {})
+                merged.update(value)
+                target[key] = merged
                 continue
             target[key] = value
         target["sources"] = sorted(set(target.get("sources") or []) | {"manual"})
+        # 人工改了 limit 但没给 recommended → 重新推导，避免两者打架
+        if "limit" in patch and "recommended" not in patch:
+            rec = derive_recommended(target["limit"], output_cap=DEFAULT_OUTPUT_CAP)
+            rec["output_cap"] = DEFAULT_OUTPUT_CAP
+            target["recommended"] = rec
 
 
 # ── 输出 ───────────────────────────────────────────────────────────────────
@@ -343,6 +378,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build models.json / vendors.json / index.json")
     parser.add_argument("-o", "--output-dir", type=Path, default=BASE_DIR)
     parser.add_argument("--only", default="", help="逗号分隔的数据源，如 openrouter,mimi,manual")
+    parser.add_argument("--no-validate", action="store_true", help="跳过产出校验（不建议）")
+    parser.add_argument("--strict", action="store_true", help="有 error 即以非零码退出")
     args = parser.parse_args()
 
     selected = {s.strip() for s in args.only.split(",") if s.strip()}
@@ -353,21 +390,135 @@ def main() -> None:
     print(f"  {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 
+    # ── 1. 收集观测（跨源共识所需的原始票）──────────────────────────
+    observations: dict[str, list[dict[str, Any]]] = {}
+    first_party: set[str] = models_dev.DEFAULT_FIRST_PARTY
+    vendors_toml = BASE_DIR / "data" / "vendors.toml"
+    if vendors_toml.exists():
+        try:
+            first_party = models_dev.load_first_party_from_vendors(str(vendors_toml))
+            print(f"  vendors.toml: {len(first_party)} 个第一方厂商", flush=True)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  vendors.toml 读取失败，用内置白名单: {exc}", file=sys.stderr, flush=True)
+
+    if run("models_dev"):
+        try:
+            md_data = models_dev.fetch()
+            observations = models_dev.observations(md_data, first_party)
+            print(f"  models.dev: {len(md_data)} providers, {len(observations)} canonical slugs", flush=True)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  models.dev: FAIL {exc}", file=sys.stderr, flush=True)
+
+    # 宽松索引：两家源对同一模型常写成 4.5 / 4-5、gpt-5.2 / gpt-5-2。
+    # 精确匹配不上的（实测 94/427）都靠这一层找回。
+    loose_obs: dict[str, list[dict[str, Any]]] = {}
+    for slug, rows in observations.items():
+        loose_obs.setdefault(loose_key(slug), []).extend(rows)
+
+    def lookup(mid: str) -> list[dict[str, Any]]:
+        hit = observations.get(mid)
+        if hit:
+            return hit
+        return loose_obs.get(loose_key(mid), [])
+
+    # ── 2. 合并各源 ────────────────────────────────────────────────
     models: dict[str, dict[str, Any]] = {}
-    # 优先级从低到高依次合入：后合的在"补空"策略下不会覆盖已有值，
-    # 所以真正的优先级通过顺序体现——先合入的赢。
     if run("openrouter"):
         models = merge(models, fetch_openrouter())
     if run("mimi"):
         models = merge(models, fetch_mimi())
+
+    # ── 3. 用共识结果修正 limit / recommended ──────────────────────
+    now_iso = datetime.now(timezone.utc).isoformat()
+    stats = {"placeholder_patched": 0, "inferred": 0, "consensus": 0, "first_party": 0}
+    for mid, model in models.items():
+        obs = lookup(mid)
+        result = vote_limits(obs)
+
+        or_ctx = model.pop("_or_context", None)
+        or_out = model.pop("_or_output", None)
+        or_placeholder = is_placeholder(or_ctx, or_out)
+
+        ctx = result["context"] or or_ctx
+        mx = result["max_output"]
+        confidence = result["confidence"]
+
+        # 共识缺失 → 回落到自报值，但要标 inferred
+        if not result["context"]:
+            confidence = "inferred"
+        if not mx and or_out and not or_placeholder:
+            mx = or_out
+        if or_placeholder and result["max_output"]:
+            stats["placeholder_patched"] += 1
+
+        # 占位判定要在**最终 context** 下重做一次：
+        # OpenRouter 按自己的 context 上报（262144），共识后的 context 可能
+        # 不同（256000），此时 230400 恰好等于 floor(0.9*256000) —— 仍是占位。
+        if mx and is_placeholder(ctx, mx):
+            limit_placeholder_dropped = mx
+            mx = None
+            if confidence != "inferred":
+                confidence = "inferred"
+        else:
+            limit_placeholder_dropped = None
+
+        limit = {
+            "context": ctx,
+            "max_output": mx,
+            "semantics": "shared",
+            "confidence": confidence,
+            "votes": result.get("votes", 0),
+            "checked_at": now_iso[:10],
+            "sources": (result.get("sources") or ["openrouter"])[:8],
+        }
+        if or_ctx and ctx and or_ctx != ctx:
+            limit["openrouter_context"] = or_ctx
+        if or_placeholder:
+            limit["openrouter_placeholder_output"] = or_out
+        if limit_placeholder_dropped:
+            limit["dropped_placeholder_output"] = limit_placeholder_dropped
+
+        rec = derive_recommended(limit, output_cap=DEFAULT_OUTPUT_CAP)
+        rec["output_cap"] = DEFAULT_OUTPUT_CAP
+
+        model["limit"] = limit
+        model["recommended"] = rec
+        stats[confidence] = stats.get(confidence, 0) + 1
+
+    # ── 3b. 变体继承（:batch 等共用同一窗口）─────────────────────
+    inherited = apply_inheritance(models)
+    if inherited:
+        print(f"  变体继承: {inherited} 个", flush=True)
+
+    # ── 4. 人工标称（最高优先级，可覆盖上面一切）──────────────────
     if run("manual"):
         apply_manual(models, load_manual())
 
+    # ── 5. 校验 ───────────────────────────────────────────────────
+    violations = []
+    if not args.no_validate:
+        violations = validator.check_all(list(models.values()))
+        ok, text = validator.report(violations)
+        print()
+        print(text)
+        if not ok and args.strict:
+            print("\n校验未通过，中止。", file=sys.stderr)
+            sys.exit(1)
+
     write_outputs(args.output_dir, models)
 
-    filled = sum(1 for m in models.values() if m.get("context"))
+    # 统计必须在所有修正（含继承、人工覆盖）之后重新数，不能沿用循环里的计数
+    final = {"first_party": 0, "consensus": 0, "inferred": 0}
+    for m in models.values():
+        c = (m.get("limit") or {}).get("confidence")
+        if c in final:
+            final[c] += 1
+
     print()
-    print(f"  models: {len(models)}  (with context: {filled})")
+    print(f"  models: {len(models)}")
+    print(f"  confidence: first_party={final['first_party']} "
+          f"consensus={final['consensus']} inferred={final['inferred']}")
+    print(f"  placeholder 修正: {stats['placeholder_patched']}")
     print(f"  output: {args.output_dir}")
     print("=" * 60)
 

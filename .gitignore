@@ -33,3 +33,6 @@ check_*.py
 
 # 本地构建产物
 out/
+
+# Build artifact (generated locally, CI publishes to gh-pages)
+index.json
