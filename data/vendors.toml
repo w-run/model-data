@@ -1,132 +1,281 @@
-# 厂商配置
-# 只包含真正研发大模型的公司/实验室，不包含中转商/聚合商
-# name: 中国厂商使用中文名，国外厂商使用英文名
-# alias: 常见 provider 别名 ID 数组（如 OpenRouter、HuggingFace 上的组织名）
+# 厂商表 —— 单一权威源
+#
+# models 构建时直接读这张表做厂商归一与别名展开，不在代码里硬编码。
+#
+# 字段
+#   name      显示名（中国厂商用中文，国外用英文）
+#   alias     该厂商在各源的写法。**只要在任一源出现过，就要列全**，
+#             否则同一家会被当成两家（deepseek-ai / deepseekai / ds）
+#   website   官网
+#   api_docs  模型文档 / 定价页
+#   cn        是否按人民币计价（决定价格单位与来源优先级）
+#   region    cn / global，仅用于展示分类
+#
+# 注意：alias 里不要写聚合商/中转商，那些不是厂商。
+
+# ── 国际 ────────────────────────────────────────────────────────────────
 
 [openai]
 name = "OpenAI"
-alias = ["openai-community", "oai", "chatgpt"]
+alias = ["openai", "open-ai", "oai", "chatgpt", "gpt", "openai-community", "chat-latest"]
 website = "https://openai.com"
-api_docs = "https://platform.openai.com/docs/models"
+api_docs = "https://developers.openai.com/api/docs/models"
+cn = false
+region = "global"
 
 [anthropic]
 name = "Anthropic"
-alias = ["anthropic-community", "anthropic-ai", "claude"]
+alias = ["anthropic", "anthropic-ai", "anthropicai", "claude", "anthropic-community"]
 website = "https://www.anthropic.com"
-api_docs = "https://docs.anthropic.com/en/docs/about-claude/models"
+api_docs = "https://platform.claude.com/docs/en/models/overview"
+cn = false
+region = "global"
 
 [google]
 name = "Google"
-alias = ["gemini"]
+alias = ["google", "google-vertex", "google-vertex-ai", "gemini", "deepmind", "bard"]
 website = "https://ai.google"
 api_docs = "https://ai.google.dev/gemini-api/docs/models"
+cn = false
+region = "global"
 
 [meta]
 name = "Meta"
-alias = ["meta-llama", "meta-llm", "meta-ai"]
+alias = ["meta", "meta-llama", "meta-llm", "meta-ai", "llama", "facebook"]
 website = "https://ai.meta.com"
-api_docs = "https://llama.meta.com"
-
-[deepseek]
-name = "深度求索"
-alias = ["deepseek-ai"]
-website = "https://www.deepseek.com"
-api_docs = "https://api-docs.deepseek.com"
-
-[alibaba]
-name = "阿里云"
-alias = ["qwen", "aliyun"]
-website = "https://www.alibabacloud.com"
-api_docs = "https://www.alibabacloud.com/help/en/model-studio/models"
+api_docs = "https://developer.meta.com/ai/"
+cn = false
+region = "global"
 
 [mistral]
 name = "Mistral AI"
-alias = ["mistralai", "mistral-ai"]
+alias = ["mistral", "mistralai", "mistral-ai", "codestral", "ministral"]
 website = "https://mistral.ai"
-api_docs = "https://docs.mistral.ai/getting-started/models/"
+api_docs = "https://docs.mistral.ai/models"
+cn = false
+region = "global"
 
 [cohere]
 name = "Cohere"
-alias = ["cohereforai", "cohere-ai"]
+alias = ["cohere", "cohere-ai", "cohereforai", "coherelabs", "aya"]
 website = "https://cohere.com"
 api_docs = "https://docs.cohere.com/docs/models"
+cn = false
+region = "global"
 
 [xai]
 name = "xAI"
-alias = ["x-ai", "grok"]
+alias = ["xai", "x-ai", "x.ai", "grok"]
 website = "https://x.ai"
-api_docs = "https://docs.x.ai/docs/models"
+api_docs = "https://docs.x.ai/developers/models"
+cn = false
+region = "global"
 
 [nvidia]
 name = "NVIDIA"
-alias = ["nvidia-nim"]
+alias = ["nvidia", "nvidia-nim", "nvidia-ai", "nemotron"]
 website = "https://www.nvidia.com"
-api_docs = "https://docs.api.nvidia.com/nim/"
+api_docs = "https://docs.api.nvidia.com/nim/docs/introduction"
+cn = false
+region = "global"
 
-[minimax]
-name = "MiniMax"
-alias = ["minimax-ai"]
-website = "https://www.minimaxi.com"
-api_docs = "https://platform.minimax.io/docs/guides/quickstart"
+[amazon]
+name = "Amazon"
+alias = ["amazon", "aws", "amazon-bedrock", "aws-bedrock", "nova"]
+website = "https://aws.amazon.com"
+api_docs = "https://docs.aws.amazon.com/bedrock/"
+cn = false
+region = "global"
 
-[moonshot]
-name = "月之暗面"
-alias = ["moonshotai", "moonshot-ai"]
-website = "https://www.moonshot.cn"
-api_docs = "https://platform.moonshot.ai/docs/api/chat"
-
-[z-ai]
-name = "智谱AI"
-alias = ["zhipuai", "zhipu", "zai", "glm", "zai-org"]
-website = "https://www.zhipuai.cn"
-api_docs = "https://docs.z.ai/guides/overview/pricing"
-
-[xiaomi]
-name = "小米"
-alias = ["mimo"]
-website = "https://www.xiaomi.com"
-api_docs = "https://platform.xiaomimimo.com/#/docs"
-
-[tencent]
-name = "腾讯"
-alias = [ "tencentarc", "hunyuan", "tencent-ai", "tencent-cloud"]
-website = "https://cloud.tencent.com"
-api_docs = "https://cloud.tencent.com/document/product/1729"
+[microsoft]
+name = "Microsoft"
+alias = ["microsoft", "azure", "azure-cognitive-services", "phi"]
+website = "https://azure.microsoft.com"
+api_docs = "https://learn.microsoft.com/azure/ai-foundry/"
+cn = false
+region = "global"
 
 [perplexity]
 name = "Perplexity"
-alias = ["perplexity-ai"]
+alias = ["perplexity", "perplexity-ai", "perplexity-agent", "pplx", "sonar"]
 website = "https://www.perplexity.ai"
-api_docs = "https://docs.perplexity.ai"
-
-[stepfun]
-name = "阶跃星辰"
-alias = [ "stepfun-ai"]
-website = "https://www.stepfun.com"
-api_docs = "https://www.stepfun.com/docs"
-
-[bytedance]
-name = "字节跳动"
-alias = ["bytedance-seed", "doubao", "doubao-ai"]
-website = "https://www.bytedance.com"
-api_docs = "https://www.volcengine.com/docs/82379/1263482"
-
-[baidu]
-name = "百度"
-alias = ["baidu-ai", "baidu-wenxin", "wenxin", "qianfan", "qianfan-ai", "ernie"]
-website = "https://www.baidu.com"
-api_docs = "https://cloud.baidu.com/doc/WENXINWORKSHOP/index.html"
+api_docs = "https://docs.perplexity.ai/"
+cn = false
+region = "global"
 
 [sarvam]
 name = "Sarvam AI"
-alias = ["sarvamai", "sarvam-ai"]
+alias = ["sarvam", "sarvamai", "sarvam-ai"]
 website = "https://www.sarvam.ai"
-api_docs = "https://docs.sarvam.ai"
+api_docs = "https://docs.sarvam.ai/"
+cn = false
+region = "global"
 
+[ai21]
+name = "AI21 Labs"
+alias = ["ai21", "ai21labs", "jamba"]
+website = "https://www.ai21.com"
+api_docs = "https://docs.ai21.com/"
+cn = false
+region = "global"
 
+# ── 中国 ────────────────────────────────────────────────────────────────
+
+[deepseek]
+name = "深度求索"
+alias = ["deepseek", "deepseek-ai", "deepseekai", "deepseek_ai", "深度求索"]
+website = "https://www.deepseek.com"
+api_docs = "https://api-docs.deepseek.com/quick_start/pricing"
+cn = true
+region = "cn"
+
+[zhipuai]
+name = "智谱AI"
+alias = ["zhipuai", "zhipu", "z-ai", "zai", "zai-org", "z.ai", "bigmodel",
+         "智谱", "智谱AI", "chatglm", "glm"]
+website = "https://www.zhipuai.cn"
+api_docs = "https://docs.bigmodel.cn/cn/guide/models/overview"
+cn = true
+region = "cn"
+
+[moonshotai]
+name = "月之暗面"
+alias = ["moonshotai", "moonshot", "moonshot-ai", "moonshot-cn", "kimi",
+         "月之暗面", "moonshotcn"]
+website = "https://www.moonshot.cn"
+api_docs = "https://platform.moonshot.cn/docs/pricing/chat"
+cn = true
+region = "cn"
+
+[alibaba]
+name = "阿里云百炼"
+alias = ["alibaba", "alibaba-cn", "alibaba-coding-plan", "alibaba-coding-plan-cn",
+         "alibaba-token-plan", "alibaba-token-plan-cn", "aliyun", "qwen", "qwq",
+         "dashscope", "tongyi", "通义", "通义千问", "阿里云", "百炼"]
+website = "https://www.aliyun.com"
+api_docs = "https://help.aliyun.com/zh/model-studio/model-pricing"
+cn = true
+region = "cn"
+
+[bytedance]
+name = "字节跳动"
+alias = ["bytedance", "bytedance-seed", "volcengine", "doubao", "doubao-ai",
+         "ark", "seed", "字节跳动", "豆包", "火山引擎"]
+website = "https://www.volcengine.com"
+api_docs = "https://www.volcengine.com/docs/82379/1263482"
+cn = true
+region = "cn"
+
+[tencent]
+name = "腾讯"
+alias = ["tencent", "tencent-ai", "tencent-cloud", "tencent-coding-plan",
+         "tencent-token-plan", "tencent-tokenhub", "hunyuan", "腾讯", "混元"]
+website = "https://cloud.tencent.com"
+api_docs = "https://cloud.tencent.com/document/product/1729"
+cn = true
+region = "cn"
+
+[baidu]
+name = "百度"
+alias = ["baidu", "baidu-ai", "baidu-wenxin", "wenxin", "qianfan", "qianfan-ai",
+         "ernie", "百度", "文心", "千帆"]
+website = "https://cloud.baidu.com"
+api_docs = "https://cloud.baidu.com/doc/qianfan/index.html"
+cn = true
+region = "cn"
+
+[minimax]
+name = "MiniMax"
+alias = ["minimax", "minimax-ai", "minimaxai", "minimax-cn",
+         "minimax-cn-coding-plan", "minimax-coding-plan", "minimaxi", "abab"]
+website = "https://www.minimaxi.com"
+api_docs = "https://platform.minimaxi.com/docs"
+cn = true
+region = "cn"
+
+[stepfun]
+name = "阶跃星辰"
+alias = ["stepfun", "stepfun-ai", "stepfun-ai-step-plan", "stepfun-step-plan",
+         "step", "阶跃星辰"]
+website = "https://www.stepfun.com"
+api_docs = "https://platform.stepfun.com/docs"
+cn = true
+region = "cn"
+
+[xiaomi]
+name = "小米"
+alias = ["xiaomi", "xiaomimimo", "mimo", "xiaomi-token-plan-ams",
+         "xiaomi-token-plan-cn", "xiaomi-token-plan-sgp", "小米"]
+website = "https://platform.xiaomimimo.com"
+api_docs = "https://platform.xiaomimimo.com/#/docs"
+cn = true
+region = "cn"
+
+[sensenova]
+name = "商汤日日新"
+alias = ["sensenova", "sensetime", "nova", "商汤", "日日新"]
+website = "https://www.sensenova.cn"
+api_docs = "https://platform.sensenova.cn/doc"
+cn = true
+region = "cn"
+
+[inclusionai]
+name = "蚂蚁 InclusionAI"
+alias = ["inclusionai", "inclusion-ai", "ling", "ring", "蚂蚁"]
+website = "https://www.inclusionai.com"
+api_docs = "https://www.inclusionai.com/"
+cn = true
+region = "cn"
+
+[01ai]
+name = "零一万物"
+alias = ["01ai", "01-ai", "yi", "零一万物"]
+website = "https://www.lingyiwanwu.com"
+api_docs = "https://platform.lingyiwanwu.com/docs"
+cn = true
+region = "cn"
+
+[baichuan]
+name = "百川智能"
+alias = ["baichuan", "百川", "百川智能"]
+website = "https://www.baichuan-ai.com"
+api_docs = "https://platform.baichuan-ai.com/docs"
+cn = true
+region = "cn"
+
+[moonshot-ai-cn]
+name = "月之暗面（国内站）"
+alias = ["moonshot-ai-cn"]
+website = "https://platform.moonshot.cn"
+api_docs = "https://platform.moonshot.cn/docs/pricing/chat"
+cn = true
+region = "cn"
+
+[siliconflow]
+name = "硅基流动"
+alias = ["siliconflow", "siliconflow-cn", "silicon-flow", "硅基流动"]
+website = "https://siliconflow.cn"
+api_docs = "https://siliconflow.cn/pricing"
+cn = true
+region = "cn"
+aggregator = true
+
+[modelscope]
+name = "魔搭 ModelScope"
+alias = ["modelscope", "model-scope", "魔搭"]
+website = "https://modelscope.cn"
+api_docs = "https://modelscope.cn/docs"
+cn = true
+region = "cn"
+aggregator = true
+
+# ── 自有 ────────────────────────────────────────────────────────────────
 
 [w-run]
 name = "W/Run"
-alias = ["wrun", "w-run", "mimi"]
+alias = ["w-run", "wrun", "mimi", "workbuddy", "catpaw", "trae", "qoder"]
 website = "https://w-run.com"
-api_docs = "https://mimi.wrun.cc"
+api_docs = "https://mimi.wrun.cc/v1/models"
+cn = true
+region = "cn"
+own = true

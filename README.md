@@ -1,190 +1,203 @@
 # model-data
 
-模型信息库。目标不只是「列出模型」，而是给出**消费方直接能用**的参数。
+多源模型信息库，每个数值带**可信度**与**证据链**。
 
-产出（gh-pages 托管）：
+产出：`https://w-run.github.io/model-data/models.json`（每 2 小时重建）
+
+---
+
+## 解决什么问题
+
+上游 API 给的 `max_completion_tokens` 不能直接用。provider 没上报时，
+OpenRouter 会用 `floor(context × 0.9)` 填充：
+
+```
+deepseek-v4.1-flash:  context = 1048576  →  max_completion_tokens = 943718
+```
+
+`943718` 是 `1048576 × 0.9`，不是模型能力。拿它当 `max_tokens`，
+输入侧只剩 10%，几万 token 就开始自动压缩 —— 这是本库的出发点。
+
+三个源里这类脏值：models.dev 1410 条、OpenRouter 85/446、LiteLLM 若干。
+本库的做法不是「删掉脏值」，而是**判断哪些值可信、可信到什么程度**。
+
+---
+
+## 产出
 
 | 文件 | 内容 |
 |---|---|
-| `models.json` | 模型列表（含 `limit` / `recommended`） |
-| `vendors.json` | 厂商列表 |
-| `index.json` | 别名索引，`别名 -> 模型 id` |
+| `models.json` | 模型列表 |
+| `vendors.json` | 厂商表（显示名、别名、官网、文档、币种、是否自有） |
+| `index.html` | **搜索页**，按 id / 别名 / 厂商检索 |
 
----
+搜索页默认按发布日期降序，支持多关键词 AND、快捷过滤（人民币计价 / 高可信 / 视觉 / 推理 / 工具 / 自有）。
 
-## 为什么需要 `recommended`
+### models.json 格式
 
-上游（OpenRouter 等聚合平台）给的 `max_completion_tokens` 不能直接用。
-
-provider 没有上报这个值时，OpenRouter 会用 `floor(context * 0.9)` 填充：
-
-```
-deepseek-v4.1-flash:  context = 1048576  ->  max_completion_tokens = 943718
-```
-
-`943718` 看起来是个合法数字，实际是 `1048576 × 0.9`。把它当 `max_tokens` 传给
-客户端，输入侧就只剩 `104858`（10%）—— 喂到几万 token 就开始自动压缩/截断。
-
-本库会把这类**占位值识别出来并替换**，同时区分两个层面：
-
-- **`limit`** —— 客观能力。只用于校验「这条请求会不会被拒」。
-- **`recommended`** —— 使用预算。客户端直接拿这个值。
-
-### 示例
+与既有对接完全一致，仅新增 `confidence` / `release_date` / `billing` 等字段（不认识也不影响）：
 
 ```jsonc
 {
-  "id": "deepseek-v4.1-flash",
-  "limit": {
-    "context": 1000000,            // 总窗口
-    "max_output": 384000,          // 真实上限（硬限制）
-    "semantics": "shared",         // context 是输入+输出共享
-    "confidence": "first_party",   // 这个结论有多可信，见下文
-    "votes": 44,
-    "checked_at": "2026-11-02",
-    "sources": ["deepseek", "..."],
-    "openrouter_placeholder_output": 943718   // 被丢弃的原始值，留痕
-  },
-  "recommended": {
-    "input_budget": 868928,        // = context - output_budget
-    "output_budget": 131072,       // 128K 封顶
-    "output_cap": 131072
-  }
+  "version": "2.0.0",
+  "generated_at": "2026-11-02T...",
+  "count": 3099,
+  "models": [{
+    "id": "deepseek-v4.1-flash",
+    "vendor": "deepseek",
+    "name": "DeepSeek V4.1 Flash",
+    "aliases": ["deepseek-v4.1-flash"],
+    "context": 1024000,          // 十进制整 K，向下取整
+    "max_output": 384000,
+    "modalities": {"input": ["text", "image"], "output": ["text"]},
+    "capabilities": {"tool_call": true, "reasoning": true, "vision": true},
+    "price": {"unit": "USD/Mtok", "input": 0.3, "output": 1.2, "cache_read": 0.006},
+    "kind": "chat",
+    "description": "...",
+    "release_date": "2026-09-10",
+    "sources": ["litellm", "mimi", "models.dev", "openrouter"],
+
+    // ↓ 新增，可选读
+    "confidence": {
+      "level": "verified",
+      "overall": 1.0,
+      "context":     {"level": "verified", "confidence": 1.0, "agreement": 0.84, "n_sources": 32},
+      "max_output":  {"level": "verified", "confidence": 1.0, "agreement": 0.54, "n_sources": 30}
+    }
+  }]
 }
 ```
 
-**关键**：`limit.max_output` 是 384000，但 `recommended.output_budget` 只有 131072。
-真实上限更高，不代表应该一次吃满 —— 输出预算越大，留给输入的窗口越小。
+### 容量记法
+
+统一用**十进制整 K**，向下取整：
+
+```
+1048576 → 1024000      393216 → 384000      262144 → 256000
+```
+
+声明值本就是理论上限，tokenizer 边界、system prompt、特殊 token 都会占位，
+实际永远用不满 —— 取整不损失可用空间，且只向下取整，消费方按它算不会超限。
+
+取整后若 `max_output >= context`（把上下界拉平），会压到窗口的 3/4 并记入
+`exact` 供回溯。非整 K 的值（如 943718）原样保留，不强套。
 
 ---
 
-## `confidence` 的含义
+## 可信度怎么算
 
-| 值 | 含义 | 可信度 |
+`level` 五级：`verified` ≥0.90 · `high` ≥0.70 · `medium` ≥0.50 · `low` <0.50 · `unknown`
+
+### 源分层
+
+| tier | 源 | 权重 |
 |---|---|---|
-| `first_party` | 厂商官方口径（models.dev 的官方 provider） | 最高 |
-| `consensus` | 多个独立 provider 交叉一致 | 高 |
-| `inferred` | 无共识，回落到单一来源或继承值 | **用前请自己核对** |
+| `manual` | 人工标称 | 1.00 |
+| `first_party` | models.dev 第一方 provider（人工核对、带出处） | 0.95 |
+| `official_cloud` | Azure / Bedrock / Vertex 转售 | 0.80 |
+| `aggregator` | 聚合商 | 0.55 |
+| `community` | LiteLLM | 0.50 |
+| `openrouter` | OpenRouter（仅补覆盖） | 0.30 |
 
-消费方建议：`inferred` 的模型不要直接用于自动压缩阈值，或至少自己留 20% 余量。
+单条权重 = `tier + 出处加成(doc_url +0.10) × 新鲜度(180 天线性衰减)`。
+
+### 三条关键规则
+
+**1. 权威优先，不被票数稀释**
+
+20 家聚合商一致报 `1000000`，原因常是它们都从官方抄来后做了人类友好化取整，
+而非各自独立观测。所以有第一方条目时以它为准，聚合商票数不参与加权。
+
+**2. 上下文与输出必须同源**
+
+`context` 和 `max_output` 分开投票会拼出物理上不存在的组合：
+
+```
+unslopnemo-12b
+  models.dev/aimlapi   ctx=32768    out=32768(无效)
+  openrouter           ctx=1024000  out=819200
+→ ctx 取 32768，out 取 819200 —— 荒谬
+```
+
+所以对 `(context, max_output)` 整体聚类，每个簇内再定两个值，天然同源。
+
+**3. 等价容量要合并，不同容量要分开**
+
+```
+393216 (=384×1024)  与  384000 (=384×1000)   → 同一个 384K，合并
+1048576 (=1024²)    与  1000000 (=1000²)      → 不同容量，分开
+```
+
+用 K 倍数归一化而非百分比容差：`384000 % 1024 == 0`（=375×1024），
+只看「能否整除 1024」会把它算成 375K，所以要多基数并查集。
 
 ---
 
-## 数据是怎么定的
+## mimi 特殊处理
 
-### 1. 占位值识别
+`mimi.wrun.cc` 是自建聚合网关，兼有两类模型：
 
-```python
-output >= context           # 共享窗口下不可能
-output == floor(ctx * 0.9)  # OpenRouter 的填充公式
-```
+**自有模型**（`mimi-lite` / `mimi-free` / `mimi-flash`）
+别处没有，是唯一来源 → 采信，`level: "own"`，置信度 0.70。
+同一 id 多个上游条目时取**最小**（保守）。
 
-命中即丢弃，**绝不当成真实能力**，必要时留 `null` 也不给假值。
-
-### 2. 跨源共识投票
-
-models.dev 上同一模型有 200+ 个 provider 各自报数，按容量聚类投票：
-
-```
-deepseek-v4.1-flash 的 ctx 分布：
-  1048576  ← 48 票
-  1000000  ← 44 票        （1Mi vs 1M，都是 1M，聚类合并）
-  524288   ←  1 票        （512K，真的不同，独立）
-```
-
-- 聚类按「K 倍数」而非百分比容差。`393216 (=384×1024)` 和 `384000 (=384×1000)` 是同一个 384K，必须合并；`524288` 和 `500000` 是不同容量，必须分开。
-- **第一方票加权 2x**，但不给无限权重：官方孤票 vs 20 家聚合共识，还是共识赢。
-- 簇内取**众数**，不取 min —— 个别 provider 少报 16 个 token 会把结果带偏。
-
-### 3. 变体继承
-
-`:batch` / `:free` 等变体与基础模型共用同一窗口，但 models.dev 上没有独立条目。
-自身置信度不足时继承基础模型结论。`:vision` / `-exp` / `-preview` **不继承**（是不同模型）。
-
-### 4. 校验兜底
-
-CI 里强制校验（`--strict`，有 error 直接失败）：
-
-- `input_budget + output_budget <= context`
-- `output_budget <= max_output`
-- `confidence` 为 `first_party`/`consensus` 时，`max_output` 不得是占位值
-- 输入预算不得低于 context 的 50%
-- 全局：占位值残留率不得超过 25%
+**转售模型**（`deepseek-v4.1-flash` / `glm-5.3` …）
+中转层可能滞后或降配（实测 catpaw 报 600k，官方实为 1M）。
+所以**按保守值取会把能力压掉**，只作为一条普通观测参与投票。
 
 ---
 
-## 作为消费方怎么用
+## 数据源
 
-```python
-import json, urllib.request
+| 源 | 形态 | 说明 |
+|---|---|---|
+| `sst/models.dev` 仓库 | TOML | 稀疏克隆，有出处注释与核对日期，优先 |
+| LiteLLM | JSON | 社区维护，多数条目带 `source` URL |
+| OpenRouter | API | 仅补覆盖，占位值判无效 |
+| mimi | API | 自有模型 + 转售，见上 |
 
-data = json.load(urllib.request.urlopen("https://w-run.github.io/model-data/models.json"))
-model = next(m for m in data["models"] if m["id"] == "deepseek-v4.1-flash")
+models.dev 用仓库而非 API，是因为 API 只给裸数字，无从判断真假；
+TOML 里有 `# Sources (api-docs.deepseek.com, accessed 2026-10-19)`。
 
-rec = model["recommended"]
-max_tokens = rec["output_budget"]           # 传给 API 的 max_tokens
-compress_at = rec["input_budget"] * 0.8     # 自动压缩阈值，留 20% 余量
-
-if model["limit"]["confidence"] == "inferred":
-    compress_at *= 0.5                       # 数据不可靠，更保守
-```
-
-**不要**这么做：
-
-```python
-model["limit"]["max_output"]   # 别直接当 max_tokens —— 这是硬上限，不是预算
-model["limit"]["context"]      # 别直接当可用输入 —— 输出要占位置
-```
+86% 的 models.dev 条目靠 `base_model` 继承。解析器会沿链最多 8 跳解析，
+所以实际可用数据比 `[limit]` 的 51% 覆盖率高得多。
 
 ---
 
-## 本地开发
+## 开发
 
 ```sh
-python -m unittest discover -s tests -v    # 单元测试，不联网
-python -m scripts.build                    # 全量构建
-python -m scripts.build --strict           # 严格校验（CI 用）
-python -m scripts.build -o /tmp/out        # 输出到别处
-python -m scripts.build --only openrouter,manual   # 跳过 models.dev（离线调试）
+pip install -e .            # 或直接用 PYTHONPATH=src
+PYTHONPATH=src python -m unittest discover -s tests -v    # 单测，不联网
+PYTHONPATH=src python -m model_data.cli                   # 全量构建
+PYTHONPATH=src python -m model_data.cli --strict          # CI 用，有问题即失败
+PYTHONPATH=src python -m model_data.cli --only mimi       # 只跑单源
+PYTHONPATH=src python -m model_data.cli --offline         # 用缓存
+PYTHONPATH=src python -m model_data.cli --dump-observations obs.json   # 导出原始观测
 ```
 
 ### 目录
 
 ```
-scripts/
-  build.py      主流程：采集 -> 合并 -> 共识 -> 继承 -> 人工覆盖 -> 校验 -> 产出
-  limits.py     占位识别 / 聚类投票 / 预算推导   ← 核心逻辑，改动请先看 tests/
-  inherit.py    变体继承
-  validate.py   产出校验
-  sources/      models_dev.py（共识票源）
-  scrapers/     厂商专属爬虫（千帆/火山等，尚未接入 build）
-data/
-  vendors.toml  厂商元信息 + 第一方 provider 白名单
-  manual/       人工标称（最高优先级，支持深层合并）
+src/model_data/
+  cli.py              入口：采集 → 装配 → 校验 → 写出
+  assemble.py         证据 → 条目（保持既有格式）
+  identity.py         模型身份对齐（4.5/4-5、日期快照、:batch 变体）
+  notation.py         容量记法（向下取整 + 钳制）
+  trust/engine.py     可信度引擎：分层、聚类、投票、证据链
+  sources/
+    models_dev_repo.py  TOML 解析 + base_model 继承
+    collect.py          各源 → 统一 Observation
+    litellm.py openrouter.py mimi.py
 tests/
+data/vendors.toml     厂商元信息
 ```
-
-### 人工标称
-
-优先级最高，只写要改的字段即可（深层合并，其余保留自动推导）：
-
-```jsonc
-{
-  "models": {
-    "deepseek-v4.1-flash": {
-      "limit": { "max_output": 393216, "confidence": "first_party" },
-      "recommended": { "output_budget": 65536 }
-    }
-  }
-}
-```
-
-手改 `limit` 但没给 `recommended` 时，会自动重算预算，不会出现两者打架。
 
 ---
 
 ## 已知限制
 
-- `scrapers/` 里千帆、火山豆包等厂商专属采集器**尚未接入** `build.py`（当前是死代码）。
-- `:batch` 变体的价格与基础模型不同，继承只处理窗口，不处理价格。
-- 中文厂商（字节、腾讯、百度）在 models.dev 上没有第一方 provider，只能靠共识或人工。
+- `unknown` 归属仍有约 1700 个 —— 多为聚合商独有的小模型，无 org 信息可查。
+- 价格只取 `input`/`output`/`cache_read` 三项，阶梯价、batch 折扣未建模。
+- 同一模型的不同路由（`-fast` / `-flex`）被当作独立模型，未做归并。
+- LiteLLM 条目的 `observed_at` 全为空，新鲜度按 0.85 折损。
