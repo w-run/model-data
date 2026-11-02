@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-02T14:46:51.176435+00:00",
+  "generated_at": "2026-11-02T19:26:12.944828+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 297,
+      "model_count": 294,
       "currencies": [
         "CNY",
         "USD"
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 177,
+      "model_count": 181,
       "currencies": [
         "USD"
       ],
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 146,
+      "model_count": 145,
       "currencies": [
         "USD"
       ],
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 73,
+      "model_count": 89,
       "currencies": [
         "USD"
       ],
@@ -144,13 +144,34 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 68,
+      "model_count": 63,
       "currencies": [
         "CNY",
         "USD"
       ],
       "region": "cn",
       "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "aliases": [
+        "grok",
+        "x-ai",
+        "x.ai",
+        "xai"
+      ],
+      "website": "https://x.ai",
+      "api_docs": "https://docs.x.ai/developers/models",
+      "model_count": 62,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -174,13 +195,56 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 65,
+      "model_count": 59,
       "currencies": [
         "CNY",
         "USD"
       ],
       "region": "cn",
       "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "aliases": [
+        "nemotron",
+        "nvidia",
+        "nvidia-ai",
+        "nvidia-nim"
+      ],
+      "website": "https://www.nvidia.com",
+      "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
+      "model_count": 45,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "aliases": [
+        "anthropic",
+        "anthropic-ai",
+        "anthropic-community",
+        "anthropicai",
+        "claude"
+      ],
+      "website": "https://www.anthropic.com",
+      "api_docs": "https://platform.claude.com/docs/en/models/overview",
+      "model_count": 41,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -204,77 +268,13 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 54,
+      "model_count": 40,
       "currencies": [
         "CNY",
         "USD"
       ],
       "region": "cn",
       "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "xai",
-      "name": "xAI",
-      "aliases": [
-        "grok",
-        "x-ai",
-        "x.ai",
-        "xai"
-      ],
-      "website": "https://x.ai",
-      "api_docs": "https://docs.x.ai/developers/models",
-      "model_count": 53,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "anthropic",
-      "name": "Anthropic",
-      "aliases": [
-        "anthropic",
-        "anthropic-ai",
-        "anthropic-community",
-        "anthropicai",
-        "claude"
-      ],
-      "website": "https://www.anthropic.com",
-      "api_docs": "https://platform.claude.com/docs/en/models/overview",
-      "model_count": 46,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "nvidia",
-      "name": "NVIDIA",
-      "aliases": [
-        "nemotron",
-        "nvidia",
-        "nvidia-ai",
-        "nvidia-nim"
-      ],
-      "website": "https://www.nvidia.com",
-      "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 38,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -291,38 +291,12 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 34,
+      "model_count": 31,
       "currencies": [
         "USD"
       ],
       "region": "global",
       "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "minimax",
-      "name": "MiniMax",
-      "aliases": [
-        "abab",
-        "minimax",
-        "minimax-ai",
-        "minimax-cn",
-        "minimax-cn-coding-plan",
-        "minimax-coding-plan",
-        "minimaxai",
-        "minimaxi"
-      ],
-      "website": "https://www.minimaxi.com",
-      "api_docs": "https://platform.minimaxi.com/docs",
-      "model_count": 30,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -344,6 +318,32 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
+      "model_count": 28,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "aliases": [
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
       "model_count": 27,
       "currencies": [
         "CNY",
@@ -449,29 +449,6 @@
       "source": "manual"
     },
     {
-      "id": "amazon",
-      "name": "Amazon",
-      "aliases": [
-        "amazon",
-        "amazon-bedrock",
-        "aws",
-        "aws-bedrock",
-        "bedrock",
-        "nova"
-      ],
-      "website": "https://aws.amazon.com",
-      "api_docs": "https://docs.aws.amazon.com/bedrock/",
-      "model_count": 12,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "baidu",
       "name": "百度",
       "aliases": [
@@ -494,6 +471,29 @@
       ],
       "region": "cn",
       "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "aliases": [
+        "amazon",
+        "amazon-bedrock",
+        "aws",
+        "aws-bedrock",
+        "bedrock",
+        "nova"
+      ],
+      "website": "https://aws.amazon.com",
+      "api_docs": "https://docs.aws.amazon.com/bedrock/",
+      "model_count": 11,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"

@@ -128,10 +128,21 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g,
   (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-/* 容量的紧凑写法：1024000 → 1M，384000 → 384K */
+/* 容量的紧凑写法：按十进制单位换算，保留一位小数四舍五入。
+
+   1024000 → 1.024M → 1M        1048576 → 1.048M → 1M
+    384000 → 384K               256000 → 256K
+   2000000 → 2M                    8192 → 8.2K
+
+   这样不需要特殊进位规则：标称 1M 的模型自然会显示 1M。 */
 function fmtCap(n) {
   if (n == null) return "—";
-  if (n >= 1000000) return (n / 1000000).toFixed(n % 1000000 ? 2 : 0).replace(/\.0+$/, "") + "M";
+  // M 档保留一位小数（1.048M → 1M，2.1M 也保留）
+  if (n >= 1000000) {
+    const r = Math.round(n / 100000) / 10;
+    return (Number.isInteger(r) ? r : r.toFixed(1)) + "M";
+  }
+  // K 档直接取整：131072 → 131K
   if (n >= 1000) return Math.round(n / 1000) + "K";
   return String(n);
 }
