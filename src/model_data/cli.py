@@ -321,6 +321,9 @@ def stage_finalize(ctx: Context) -> None:
         log("    校验: 通过")
     log(f"    output: {ctx.output_dir}")
 
+    # 校验结果留给 main 判断 --strict
+    ctx.data["problems"] = problems
+
 
 def validate(models: list[dict]) -> list[str]:
     """产出校验：只看会不会坑到消费方。"""
@@ -377,6 +380,11 @@ def main(argv: list[str] | None = None) -> int:
     run_pipeline(stages, ctx, start=args.start, stage_only=args.only)
     log("")
     log("  全部完成")
+
+    problems = ctx.data.get("problems") or []
+    if args.strict and problems:
+        log(f"  --strict：{len(problems)} 个校验问题，返回非零")
+        return 1
     return 0
 
 

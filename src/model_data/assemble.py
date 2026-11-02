@@ -53,6 +53,9 @@ USD_MTOK = "USD/Mtok"
 # 过滤结果（供 CLI 汇总输出）
 assemble_stats: dict[str, Any] = {}
 
+# 由 assemble() 在分组时填充：id → 是否有第一方来源
+_FIRST_PARTY_IDS: dict[str, bool] = {}
+
 
 def canonical_output_id(model_id: str) -> str:
     """
@@ -277,10 +280,12 @@ def _price(rows: list) -> tuple[dict | None, dict | None]:
 
 @functools.lru_cache(maxsize=16384)
 def _decide_cached(model_id: str, vendor: str, name: str, kind: str,
-                   allow_key: tuple[str, ...]) -> tuple[bool, str | None]:
+                   description: str, allow_key: tuple[str, ...],
+                   has_first_party: bool = True) -> tuple[bool, str | None]:
     return filtering.decide(
         model_id=model_id, vendor=vendor, name=name, kind=kind,
-        allowlist=set(allow_key))
+        description=description, allowlist=set(allow_key),
+        has_first_party=has_first_party)
 
 
 def build_model(
@@ -451,6 +456,12 @@ def assemble(
 
         ctx_ev, out_ev = aggregate_pair(rows)
 
+        # 该族是否存在第一方观测（用于「安全变体需官方佐证」的判定）
+        has_fp = any(o.tier in ("first_party", "first_party_api")
+                     for o in rows)
+        for _m in members:
+            _FIRST_PARTY_IDS[_m] = has_fp
+
         # 一族只输出**一条**：同族内的其它写法（快照、别名、变体）
         # 全部并入 aliases。否则会产出多条互为别名的重复卡片 ——
         # 搜索任一种写法时会同时命中它们，看起来就是「一堆重复」。
@@ -535,7 +546,10 @@ def assemble(
     for m in models:
         ok, reason = _decide_cached(
             m["id"], m.get("vendor") or "", m.get("name") or "",
-            m.get("kind") or "", tuple(sorted(allowed_vendors)),
+            m.get("kind") or "", m.get("description") or "",
+            tuple(sorted(allowed_vendors)),
+            # 该族是否有第一方条目（决定安全专项变体能否收）
+            bool(_FIRST_PARTY_IDS.get(m["id"])),
         )
         if ok:
             kept.append(m)

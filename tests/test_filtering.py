@@ -11,7 +11,7 @@ KNOWN = {"alibaba", "anthropic", "openai", "deepseek", "google", "meta",
          "mistral", "xai", "moonshotai", "zhipuai", "amazon", "ai21", "stepfun"}
 
 
-ALLOW = {"deepseek", "anthropic", "openai", "alibaba", "zhipuai", "meta"}
+ALLOW = {"deepseek", "anthropic", "openai", "alibaba", "zhipuai", "meta", "google"}
 
 
 class TestFiltering(unittest.TestCase):
@@ -76,6 +76,59 @@ class TestFiltering(unittest.TestCase):
         ok, why = filtering.decide(model_id="bge-m3-embedding", vendor="meta",
                                    allowlist=ALLOW)
         self.assertFalse(ok)
+
+
+class TestCyberVariants(unittest.TestCase):
+    """
+    安全专项模型：只收厂商官方产品线。
+
+    依据：
+      OpenAI Daybreak / GPT-5.6 Cyber —— 官方文档
+      Google Gemini Cyber / Gemini 4 Argon Cyber Permissive —— 官方文档
+      deepseek-v4.1-flash-cyber —— 只有中转商，DeepSeek 官方无此条目
+    """
+
+    def test_official_cyber_kept(self):
+        for mid, v in (("gpt-5.6-cyber", "openai"),
+                       ("gemini-3.8-flash-cyber", "google"),
+                       ("gemini-4-argon-cyber-permissive", "google")):
+            ok, why = filtering.decide(model_id=mid, vendor=v, allowlist=ALLOW)
+            self.assertTrue(ok, f"{mid} 被误排除: {why}")
+
+    def test_third_party_cyber_excluded(self):
+        ok, why = filtering.decide(model_id="deepseek-v4.1-flash-cyber",
+                                   vendor="deepseek", allowlist=ALLOW)
+        self.assertFalse(ok)
+        self.assertIn("非官方产品线", why)
+
+    def test_normal_model_untouched(self):
+        ok, _ = filtering.decide(model_id="deepseek-v4.1-flash",
+                                 vendor="deepseek", allowlist=ALLOW)
+        self.assertTrue(ok)
+
+
+class TestDescriptionDeny(unittest.TestCase):
+    """
+    有些无审查微调的名称看不出问题，必须看描述。
+    实例：gemma-4-26b-a4b-it-cybersecurity 的描述写明
+          "based on the uncensored model"。
+    """
+
+    def test_description_reveals_uncensored(self):
+        ok, why = filtering.decide(
+            model_id="gemma-4-26b-a4b-it-cybersecurity",
+            vendor="google", allowlist=ALLOW,
+            description="cybersecurity-focused variant based on the uncensored model",
+        )
+        self.assertFalse(ok)
+        self.assertIn("无审查", why)
+
+    def test_clean_description_passes(self):
+        ok, _ = filtering.decide(
+            model_id="gemma-4-26b-a4b-it", vendor="google", allowlist=ALLOW,
+            description="A general instruction-tuned model.",
+        )
+        self.assertTrue(ok)
 
 
 class TestAttribution(unittest.TestCase):

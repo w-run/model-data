@@ -1,8 +1,8 @@
 name: Build & Deploy
 
 on:
-  # 每 2 小时重建一次。上游（厂商文档、models.dev 仓库）变动不频繁，
-  # 更高频只增加噪音；但两次/天又不足以跟上新模型发布节奏。
+  # 每 2 小时重建。上游（厂商文档、models.dev 仓库）变动不频繁，
+  # 更高频只增加噪音；两次/天又跟不上新模型发布节奏。
   schedule:
     - cron: '0 */2 * * *'
   workflow_dispatch: {}
@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  # 防止手动触发与定时任务撞车，同时只跑一个构建
+  # 定时任务与手动触发不并发，避免同时写 gh-pages
   group: build-deploy
   cancel-in-progress: false
 
@@ -31,9 +31,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: 单元测试（不联网）
-        run: |
-          pip install --upgrade pip
-          python -m unittest discover -s tests -v
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -v
 
   build:
     needs: test
@@ -48,35 +48,36 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: 安装依赖
-        run: pip install --upgrade pip
-
-      # models.dev 稀疏克隆约 39MB，每次跑都拉一次以免用旧数据
+      # models.dev 稀疏克隆约 39MB。用固定 key 让缓存真正复用，
+      # 否则每次都新建 key，restore-keys 虽能回退但保存不下来。
       - name: 缓存 models.dev 仓库
         uses: actions/cache@v4
         with:
           path: ~/.cache/model-data
-          key: model-data-cache-${{ github.run_id }}
+          key: model-data-${{ runner.os }}-${{ hashFiles('src/model_data/sources/models_dev_repo.py') }}
           restore-keys: |
-            model-data-cache-
+            model-data-${{ runner.os }}-
 
       - name: 构建
         env:
           PYTHONPATH: src
           MIMI_API_KEY: ${{ secrets.MIMI_API_KEY }}
         run: |
-          python -m model_data.cli -o out --strict \
-            --dump-observations out/observations.json
+          python -m model_data.cli -o out --strict
 
       - name: 汇总
         run: |
           python - <<'PY'
           import json, pathlib
           d = json.loads(pathlib.Path("out/models.json").read_text())
-          import json as j
-          v = j.loads(pathlib.Path("out/vendors.json").read_text())
+          v = json.loads(pathlib.Path("out/vendors.json").read_text())
           print(f"模型数: {d['count']}  厂商数: {v['count']}")
           print(f"生成时间: {d['generated_at']}")
+          levels = {}
+          for m in d["models"]:
+              lv = (m.get("confidence") or {}).get("level", "?")
+              levels[lv] = levels.get(lv, 0) + 1
+          print("可信度:", ", ".join(f"{k}={v}" for k, v in sorted(levels.items())))
           PY
 
       - name: 准备发布
@@ -92,12 +93,16 @@ jobs:
 
       - name: 部署到 gh-pages
         run: |
+          # 清掉已废弃的旧产物：index.json（旧别名索引）、logos/（旧 logo 资源）。
+          # CI 只做覆盖不删文件，不显式清理会让它们一直挂在线上。
+          rm -rf index.json logos
           cp /tmp/out/models.json /tmp/out/vendors.json /tmp/out/index.html .
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add models.json vendors.json index.html
-          git diff --cached --quiet && echo "无变化，跳过提交" || \
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+          else
             git commit -m "deploy: $(date -u +'%Y-%m-%d %H:%M UTC')"
-
-      - name: 推送
-        run: git push origin gh-pages
+            git push origin gh-pages
+          fi

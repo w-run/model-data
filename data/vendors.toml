@@ -141,7 +141,8 @@ region = "cn"
 [moonshotai]
 name = "月之暗面"
 alias = ["moonshotai", "moonshot", "moonshot-ai", "moonshot-cn", "kimi",
-         "月之暗面", "moonshotcn"]
+         "月之暗面", "moonshotcn", "moonshotai-cn", "moonshot-ai-cn",
+         "moonshotai-ai"]
 website = "https://www.moonshot.cn"
 api_docs = "https://platform.moonshot.cn/docs/pricing/chat"
 cn = true
@@ -240,14 +241,6 @@ name = "百川智能"
 alias = ["baichuan", "百川", "百川智能"]
 website = "https://www.baichuan-ai.com"
 api_docs = "https://platform.baichuan-ai.com/docs"
-cn = true
-region = "cn"
-
-[moonshot-ai-cn]
-name = "月之暗面（国内站）"
-alias = ["moonshot-ai-cn"]
-website = "https://platform.moonshot.cn"
-api_docs = "https://platform.moonshot.cn/docs/pricing/chat"
 cn = true
 region = "cn"
 

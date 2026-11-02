@@ -109,6 +109,17 @@ def expand_short_date(model_id: str, known_canonicals: dict[str, str]) -> str:
     return s
 
 
+# 服务档后缀：同一模型的另一种调用档（速度/优先级/弹性），不是独立模型。
+# 与渠道变体（-free/-spot）不同，这些在产出里应并入主条目。
+SERVICE_TIER_SUFFIX = re.compile(
+    r"-(highspeed|fast|turbo|flex|priority|speed|spot|max-speed)$", re.I)
+
+
+def strip_service_tier(slug: str) -> str:
+    """去掉服务档后缀：kimi-k3.1-pro-highspeed → kimi-k3.1-pro"""
+    return SERVICE_TIER_SUFFIX.sub("", str(slug or ""))
+
+
 def family_of_with_short_date(canonical_slug: str) -> str:
     """
     家族键的兜底：canonical 没有完整日期时，按短日期/滚动别名归族。
@@ -125,6 +136,8 @@ def family_of_with_short_date(canonical_slug: str) -> str:
     不做更激进的猜测 —— 版本号仍视为独立模型。
     """
     s = str(canonical_slug or "").strip().lower()
+    # 先剥服务档：速度/优先级档共用同一模型规格
+    s = strip_service_tier(s)
     base = family_of(s)
     if base != s:
         return base

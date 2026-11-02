@@ -41,6 +41,37 @@ NAME_DENY = re.compile(
     re.I,
 )
 
+# 描述里自曝「基于无审查模型」的，等同无审查微调。
+# 实例：gemma-4-26b-a4b-it-cybersecurity 的 description 是
+#   "cybersecurity-focused variant **based on the uncensored model**"
+# 名字里没有 uncensored 字样，只看名称会漏掉，必须看描述。
+DESC_DENY = re.compile(
+    r"(based on the uncensored|uncensored (?:model|variant|version)"
+    r"|without (?:safety|moderation)|no (?:safety|moderation) (?:filter|layer)"
+    r"|de-?censored|safety (?:guardrails?|filters?) (?:removed|stripped))",
+    re.I,
+)
+
+# 安全/网络安全专项模型：只收**厂商官方产品线**里的。
+#
+# 判据是「该厂商有没有官方的安全模型产品线」，而不是「这个 id 有没有第一方条目」
+# —— 后者不可靠：models.dev 未必收录厂商的每个官方变体。
+#
+# 已核实的官方产品线（文档链接写在注释里）：
+#   OpenAI  Daybreak 系列    GPT-5.6 Cyber
+#           https://platform.openai.com/docs/models
+#   Google  Gemini Cyber / Gemini 4 Argon Cyber Permissive
+#           https://cloud.google.com/vertex-ai/generative-ai/docs/models
+#
+# 反例（排除）：deepseek-v4.1-flash-cyber
+#   只出现在 llmgateway / inference.net，DeepSeek 官方只有 4 个条目
+#   （deepseek-flash / v4-flash / v4-pro / v4-flash-vision-exp），无此变体。
+CYBER_VARIANT = re.compile(
+    r"(cyber|cybersecurity|security[-_]?speciali[sz]ed|red[-_]?team)", re.I)
+
+# 拥有官方安全模型产品线的厂商
+CYBER_OFFICIAL_VENDORS = {"openai", "google"}
+
 # 非对话模态：与 chat 模型混在一起会污染容量统计。
 # diffusion 放在前面：diffusiongemma 这类把词根嵌在中间的组合也要命中。
 NON_CHAT = re.compile(
@@ -76,11 +107,17 @@ _DASH_VARIANT = re.compile(r"(-spot|-flex|-priority)$", re.I)
 _AT_VARIANT = re.compile(r"@(eu|us|ap|default|\d{6,8})$", re.I)
 
 
-def name_blocked(model_id: str, name: str | None = None) -> str | None:
+def name_blocked(model_id: str, name: str | None = None,
+                 description: str | None = None) -> str | None:
+    """名称或描述命中无审查特征则排除。"""
     for text in (model_id or "", name or ""):
         m = NAME_DENY.search(text)
         if m:
             return f"社区微调/无审查（{m.group(1)}）"
+    if description:
+        m = DESC_DENY.search(description)
+        if m:
+            return f"社区微调/无审查（描述自述：{m.group(1)}）"
     return None
 
 
@@ -116,7 +153,9 @@ def decide(
     vendor: str = "",
     name: str | None = None,
     kind: str | None = None,
+    description: str | None = None,
     allowlist: Iterable[str] = (),
+    has_first_party: bool = True,
 ) -> tuple[bool, str | None]:
     """
     是否收录。返回 (keep, reason_if_dropped)。
@@ -129,10 +168,16 @@ def decide(
     if suf:
         return False, f"渠道变体（{suf}）"
 
-    # 1) 名称层：无审查变体一律排除，不管厂商
-    reason = name_blocked(model_id, name)
+    # 1) 名称/描述层：无审查变体一律排除，不管厂商
+    reason = name_blocked(model_id, name, description)
     if reason:
         return False, reason
+
+    # 1b) 安全专项模型：只收官方产品线
+    if CYBER_VARIANT.search(model_id or ""):
+        v_cy = str(vendor or "").strip().lower()
+        if v_cy not in CYBER_OFFICIAL_VENDORS:
+            return False, f"安全变体非官方产品线（{v_cy}）"
 
     # 2) 模态层
     reason = non_chat(model_id, kind)
