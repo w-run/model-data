@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-01T16:11:42.563571+00:00",
+  "generated_at": "2026-11-02T09:03:24.569023+00:00",
   "count": 60,
   "vendors": [
     {
@@ -276,7 +276,7 @@
     {
       "id": "w-run",
       "name": "w-run",
-      "model_count": 6
+      "model_count": 3
     },
     {
       "id": "writer",
