@@ -176,7 +176,7 @@ def observations_from_models_dev(docs: dict[str, list[mdr.Doc]]) -> dict[str, li
                     currency="USD",
                 ))
 
-            # 归属厂商：只在有明确 org 目录或第一方 provider 时记录
+            # 归属厂商：优先用 org 目录（它指向发布方，而非转售渠道）
             org = mdr.org_of(doc)
             if org:
                 out.setdefault(slug, []).append(Observation(
@@ -190,9 +190,14 @@ def observations_from_models_dev(docs: dict[str, list[mdr.Doc]]) -> dict[str, li
                     valid=True,
                 ))
             elif tier == "first_party":
+                # 无 org 目录时退回 provider，但仅当 provider 本身就是发布方。
+                # 这里只作为**弱证据**（tier=aggregator）记录：
+                # alibaba-cn 转售 deepseek-r1-distill-qwen-14b 时，provider 是
+                # alibaba-cn，但模型是 DeepSeek 的 —— 若按第一方权重采信，
+                # 会把归属判错。真正的裁定交给 attribution 的 id 前缀推断。
                 out.setdefault(slug, []).append(Observation(
                     source=f"models.dev:{provider}",
-                    tier=tier,
+                    tier="aggregator",
                     field_name="vendor",
                     value=provider,
                     provenance=prov,

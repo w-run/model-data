@@ -31,15 +31,37 @@ class TestCanonicalId(unittest.TestCase):
         for a, b in pairs:
             self.assertEqual(idnorm.canonical_id(a), idnorm.canonical_id(b))
 
-    def test_model_numbers_untouched(self):
-        """型号编号不是版本号，不能乱转。"""
-        self.assertEqual(idnorm.canonical_id("llama-3-1-8b"), "llama-3-1-8b")
-        self.assertEqual(
-            idnorm.canonical_id("doubao-seed-1-6-vision-250815"),
-            "doubao-seed-1-6-vision-250815")
+    def test_llama_version_converted(self):
+        """llama-3-1-8b 是 Llama 3.1 8B，3-1 是版本号。"""
+        self.assertEqual(idnorm.canonical_id("llama-3-1-8b"), "llama-3.1-8b")
+        self.assertEqual(idnorm.canonical_id("llama-3-1-70b"), "llama-3.1-70b")
+
+    def test_size_markers_untouched(self):
+        """235b / a22b 是规模标记，不是版本号。"""
         self.assertEqual(
             idnorm.canonical_id("qwen3-vl-235b-a22b-instruct"),
             "qwen3-vl-235b-a22b-instruct")
+
+    def test_vendor_prefix_stripped(self):
+        """厂商前缀冗余时剥掉：amazon-nova → nova。"""
+        self.assertEqual(idnorm.canonical_id("amazon-nova-2-5-sonic"),
+                         "nova-2.5-sonic")
+        self.assertEqual(idnorm.canonical_id("coding-xiaomi-mimo-v2.5"),
+                         "mimo-v2.5")
+        self.assertEqual(idnorm.canonical_id("zai-glm-5.3"), "glm-5.3")
+
+    def test_distill_keeps_source_prefix(self):
+        """蒸馏模型的厂商前缀不能剥：它是归属信息。"""
+        self.assertEqual(
+            idnorm.canonical_id("deepseek-r1-distill-qwen-32b"),
+            "deepseek-r1-distill-qwen-32b")
+
+    def test_seed_versions_converted(self):
+        """doubao-seed-1.6 是豆包的版本号，要转小数点。"""
+        self.assertEqual(idnorm.canonical_id("doubao-seed-1-6-vision-250815"),
+                         "doubao-seed-1.6-vision-250815")
+        self.assertEqual(idnorm.canonical_id("doubao-seed-2-0-pro"),
+                         "doubao-seed-2.0-pro")
 
     def test_dates_untouched(self):
         self.assertEqual(idnorm.canonical_id("gpt-4o-mini-2024-07-18"),

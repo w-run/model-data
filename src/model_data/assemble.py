@@ -34,11 +34,13 @@ context / max_output 取「能力」与「serving（经 mimi 实际可用）」�
 
 from __future__ import annotations
 
+import re
+
 from datetime import datetime, timezone
 from typing import Any
 
 from . import (attribution, billing, currency, filtering, identity,
-               idnorm, notation, vendors)
+               idnorm, notation, official_rules, vendors)
 from .trust.engine import Evidence, aggregate, aggregate_pair
 
 # 产出顶层版本号：保持 2.0.0，因为结构与既有对接一致（仅新增可选字段）
@@ -49,6 +51,70 @@ USD_MTOK = "USD/Mtok"
 
 # 过滤结果（供 CLI 汇总输出）
 assemble_stats: dict[str, Any] = {}
+
+
+def canonical_output_id(model_id: str) -> str:
+    """
+    产出的模型 id（族键与条目 id 必须共用这一个函数，否则会出现
+    claude-opus-4-7 与 claude-opus-4.7 并存这样的重复）。
+
+    Claude 按官方格式：claude-{name}-{major}[-{minor}]
+    其余按通用规则：小写、版本小数点、剥离渠道前缀。
+    """
+    # 先剥离区域/渠道/厂商前缀（apac-anthropic-claude-opus-4-7 → claude-opus-4-7），
+    # 否则 parse_claude 认不出，会掉进通用的「横线转小数点」规则，
+    # 产生 claude-opus-4.7 这种与官方格式不符的 id。
+    stripped = official_rules.strip_cloud_prefix(str(model_id or "").lower())
+    k = identity.norm_key(stripped)
+    claude = official_rules.canonical_claude_id(k)
+    if claude:
+        return claude
+    return idnorm.canonical_id(model_id)
+
+
+# 别名属同一模型的校验：去掉日期快照与渠道/区域标记后必须一致。
+# 用于拦截 canonical_slug 的过度关联。
+_VARIANT_TAIL = __import__("re").compile(
+    r"(:[a-z0-9_-]+|@[a-z0-9]+|-spot|-flex|-priority|-free)$", 2)
+
+
+def _norm_family(x: str) -> str:
+    x = _VARIANT_TAIL.sub("", str(x).lower())
+    x = identity.norm_key(x)
+    return identity.date_base(x) or x
+
+
+def _compatible(ma: dict, mb: dict) -> tuple[bool, str]:
+    """
+    两个模型条目是否真的是同一个模型。
+
+    名字相近不足以判定 —— 必须有证据支持：
+      - 容量冲突（两边都有值且不同）→ 不同模型
+      - 发布日期冲突                  → 不同模型
+      - 容量完全一致                  → 强证据，可直接合并
+    例如 claude-sonnet-4-20250514 是 200K/64K，而 claude-sonnet-4 是 1M，
+    它们是两条不同记录，不能互相作为别名。
+    """
+    ac, bc = ma.get("context"), mb.get("context")
+    ao, bo = ma.get("max_output"), mb.get("max_output")
+    if ac and bc and ac != bc:
+        return False, "context 不同"
+    if ao and bo and ao != bo:
+        return False, "max_output 不同"
+    ad, bd = ma.get("release_date"), mb.get("release_date")
+    if ad and bd and ad != bd:
+        return False, "发布日期不同"
+    return True, ""
+
+
+def _same_family(a: str, b: str, byid: dict | None = None) -> bool:
+    """两个写法是否确定指向同一模型：名称同族 + 参数不冲突。"""
+    if _norm_family(a) != _norm_family(b):
+        return False
+    if byid and a in byid and b in byid:
+        ok, _ = _compatible(byid[a], byid[b])
+        return ok
+    return True
 
 
 def pick(evidence: Evidence | None, declared: dict[str, Any] | None, field: str) -> tuple[Any, dict]:
@@ -105,11 +171,23 @@ def infer_vendor(model_id: str, rows: list, extra: dict | None) -> str:
     首选 models.dev 的 org 信息（发布方，不是转售方），
     其次看第一方 provider 是否与 slug 前缀一致，最后才留 unknown。
     """
-    # 1) models.dev 的 org / 第一方 provider（已由 collect.py 标成 vendor 观测）
+    # 先用 id 前缀推断（它能识别「谁发布了这个模型」），再用 org 观测交叉校验
+    known = set(vendors.BUILTIN_ALIASES)
+    guessed = attribution.infer_vendor(model_id, known)
+    guessed = vendors.canonical_vendor(guessed) if guessed else None
+
+    # 1) models.dev 的 org 观测（指向发布方）
     vend = aggregate(rows, field_name="vendor")
-    if vend and vend.value:
-        # 归一到唯一厂商标识（deepseek-ai / deepseekai / ds → deepseek）
-        return vendors.canonical_vendor(str(vend.value))
+    observed = vendors.canonical_vendor(str(vend.value)) if (vend and vend.value) else None
+
+    # 冲突时以前缀推断为准：org 可能是转售渠道的目录
+    # （providers/alibaba/models/deepseek/... 的 provider 是 alibaba-cn）
+    if guessed and observed and guessed != observed:
+        return guessed
+    if observed:
+        return observed
+    if guessed:
+        return guessed
 
     # 2) mimi 自有模型
     if extra and extra.get("owned_by") and str(model_id).lower().startswith("mimi-"):
@@ -245,8 +323,11 @@ def build_model(
     if "image" in modalities_in:
         caps["vision"] = True
 
-    # 输出 id 统一口径：小写、版本用小数点
-    out_id = idnorm.canonical_id(model_id)
+    # 输出 id 统一口径。
+    # Claude 例外：官方格式是 claude-{name}-{major}[-{minor}]，
+    # 主版本省略 minor（claude-opus-4，没有 -0 / .0），
+    # 不能套用通用的「横线转小数点」规则。
+    out_id = canonical_output_id(model_id)
     return {
         "id": out_id,
         "vendor": (meta or {}).get("vendor") or infer_vendor(model_id, rows, e),
@@ -300,43 +381,125 @@ def assemble(
     # 因大小写、下划线、小数点写法不同而被拆成两族（会产生重复条目）
     families: dict[str, list[str]] = {}
     for mid in sorted(all_ids):
-        canon = alias_index.resolve(mid) if alias_index else mid
-        key = identity.norm_key(canon)
+        # 渠道变体（:batch / :free）一律归到基名所在的族，
+        # 不能各自按自己的 canonical 走 —— OpenRouter 给 :batch 变体的
+        # canonical 是 claude-4-7-opus-20260416 这种倒序格式，
+        # 解析后会变成 claude-opus-4.7，与主体的 claude-opus-4-7 分裂成两条。
+        base_mid = mid
+        vm = re.match(r"^(.*?)(:[a-z0-9_-]+)$", mid)
+        if vm:
+            base_mid = vm.group(1)
+
+        # 族键 = 输出 id，两者用同一个函数，避免「族键与 id 不同」
+        # 造成同族分裂（databricks-claude-opus-4-8 与 claude-opus-4-8 分家）。
+        #
+        # 候选里优先取**官方格式**（claude-opus-4-8），因为 Claude 的规范
+        # id 由官方文档定义，第三方倒序写法（claude-4-8-opus-20260528）
+        # 与通用规则产物（claude-opus-4.8）都不算规范。
+        candidates = [canonical_output_id(base_mid)]
+        if alias_index:
+            candidates.append(canonical_output_id(alias_index.resolve(base_mid)))
+
+        official = [x for x in candidates if official_rules.parse_claude(x)]
+        if official:
+            # 官方格式里优先无日期、无多余段的那个
+            official.sort(key=lambda x: (len(x.split("-")), x))
+            key = official[0]
+        else:
+            key = canonical_output_id(base_mid)
+
+        # Claude 按**官方文档**的规则折叠（不是猜名字）：
+        #   4.6 之前的无日期 ID 是别名，指向最新日期快照 → 合并
+        #   4.6 及以后的无日期 ID 是规范 ID，与快照是不同模型 → 不合并
+        # 见 official_rules.py 引用的原文。
+        claude_base = official_rules.claude_snapshot_base(key)
+        if claude_base:
+            key = identity.norm_key(claude_base)
+        elif official_rules.should_merge_dateless_with_snapshot(key):
+            # 别名形 ID 保持自身为键，装配时由 alias 逻辑并入目标
+            pass
+        else:
+            # 其它厂商：只折叠明确的日期快照
+            folded = identity.date_base(key)
+            if folded:
+                key = folded
+
         families.setdefault(key, []).append(mid)
+
+    # 先为每个 id 推算一次容量/日期，供别名校验比对参数。
+    # 注意不能直接用 meta —— 它此时还没生成。
+    byid_all: dict[str, dict[str, Any]] = {}
+    _cache: dict[tuple, Any] = {}
+    for mid in all_ids:
+        rows_m = merged_obs.get(mid) or []
+        ctx_m, out_m = aggregate_pair(rows_m)
+        byid_all[mid] = {
+            "context": ctx_m.value if ctx_m else None,
+            "max_output": out_m.value if out_m else None,
+            "release_date": None,
+        }
 
     models: list[dict[str, Any]] = []
     for root, members in families.items():
+        # merged_obs 的键是 loose_key 规范化形式，members 里存的是原始写法，
+        # 必须过一遍 loose_key 才能取到数据（否则族合并后会误判为无证据）
+        from .sources.collect import loose_key as _lk
         rows = []
         for k in members:
             rows.extend(merged_obs.get(k, []))
+            lk = _lk(k)
+            if lk != k:
+                rows.extend(merged_obs.get(lk, []))
 
         ctx_ev, out_ev = aggregate_pair(rows)
 
-        # 快照与基准名共享证据：rows 已含全部成员
-        for mid in members:
-            decl = declared.get(mid)
-            if not rows and not decl:
-                continue
-            # 别名：同族内其它写法 + 该 id 的所有已知变体写法，
-            # 让按任一种写法都能搜到（搜索页依赖这个）
-            alias_pool = set()
-            if alias_index:
-                alias_pool |= alias_index.siblings(mid)
-                alias_pool |= alias_index.siblings(root)
-            alias_pool |= set(members)
-            alias_pool.add(mid)
-            alias_list = sorted({idnorm.canonical_id(a) for a in alias_pool if a})
+        # 一族只输出**一条**：同族内的其它写法（快照、别名、变体）
+        # 全部并入 aliases。否则会产出多条互为别名的重复卡片 ——
+        # 搜索任一种写法时会同时命中它们，看起来就是「一堆重复」。
+        if not members:
+            continue
 
-            models.append(build_model(
-                mid,
-                ctx_ev=ctx_ev,
-                out_ev=out_ev,
-                declared=decl,
-                meta=meta.get(mid),
-                extra=extra.get(mid),
-                rows=rows,
-                aliases=alias_list,
-            ))
+        # 主体选择：优先 mimi 自有模型（有确定的归属与窗口），
+        # 其次取有元信息的、再其次取最短的写法（通常是基准名）
+        def pick_score(mid: str) -> tuple:
+            has_decl = 1 if declared.get(mid) else 0
+            has_meta = 1 if meta.get(mid) else 0
+            return (has_decl, has_meta, -len(mid), mid)
+
+        primary = max(members, key=pick_score)
+        decl = declared.get(primary) or next(
+            (declared[m] for m in members if declared.get(m)), None)
+
+        if not rows and not decl:
+            continue
+
+        alias_pool = set(members)
+        if alias_index:
+            for m in members:
+                alias_pool |= alias_index.siblings(m)
+            alias_pool |= alias_index.siblings(root)
+
+        # 剔除「看起来像别的模型」的别名。canonical_slug 有时会把
+        # 不同模型关联到一起（如 deepseek-r1 与 deepseek-r1-distill-qwen-32b），
+        # 这类别名会让搜索把不相干的结果带出来。
+        # 名字同族 + 参数不冲突，两个条件都要满足
+        alias_pool = {
+            a for a in alias_pool
+            if a == primary or _same_family(primary, a, byid_all)
+        }
+        alias_pool.discard(primary)
+        alias_list = sorted({idnorm.canonical_id(a) for a in alias_pool if a})
+
+        models.append(build_model(
+            primary,
+            ctx_ev=ctx_ev,
+            out_ev=out_ev,
+            declared=decl,
+            meta=meta.get(primary),
+            extra=extra.get(primary),
+            rows=rows,
+            aliases=alias_list,
+        ))
 
     # 去重：同一 id 可能因源写法不同产生两条，保留信息更全的一条
     dedup: dict[str, dict[str, Any]] = {}

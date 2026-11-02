@@ -49,6 +49,10 @@ VERSION_FOLLOWERS = {
     "latest", "thinking", "reasoning", "code", "coder", "sol", "terra", "luna",
     "argon", "opus", "sonnet", "haiku", "omni", "vl", "vision", "audio", "tts",
     "exp", "fast", "flex", "air", "turbo",
+    # 语音/多模态档位
+    "sonic", "realtime", "live", "nano", "instant", "previewv2",
+    # 能力/规模描述
+    "reasoning", "thinking", "instruct", "chat", "base", "it", "vision",
 }
 
 # 型号名里的固定词：出现在这些词之后，数字对**不是**版本号
@@ -58,6 +62,66 @@ NOT_VERSION_PREFIX = {
 }
 
 _SEP_RE = re.compile(r"-{2,}")
+
+
+# 云区域前缀：global- / us- / eu- / apac- / cn- …
+# 这些是**部署区域**标记，不是模型身份的一部分，必须剥离，
+# 否则 global-openai-gpt-6.1-terra 与 gpt-6.1-terra 会被当成两个模型。
+_REGION_PREFIX_RE = re.compile(
+    r"^(?:apac|us-gov|us-east|us-west|us|eu|global|cn|jp|kr|au|ca|uk|me|sa|af|ap)[-_]",
+    re.I,
+)
+
+# 变体后缀：:batch / :free / :thinking …（冒号分隔，不参与版本号解析）
+_VARIANT_TAIL_RE = re.compile(r"(:[a-z0-9_-]+)+$", re.I)
+
+# 渠道/部署前缀：这些是**转售渠道或服务档**，不是模型身份的一部分
+#   databricks-gpt-6.1-terra  → gpt-6.1-terra
+#   coding-xiaomi-mimo-v2.5   → xiaomi-mimo-v2.5（再经冗余厂商前缀 → mimo-v2.5）
+#   open-mistral-nemo         → mistral-nemo
+_CHANNEL_PREFIX_RE = re.compile(
+    r"^(?:databricks|bedrock|azure|vertex|oci|sagemaker|foundry|"
+    r"openrouter|novita|deepinfra|together|fireworks|groq|"
+    r"coding|open|pro|free|fast|turbo|"
+    r"@cf|cf|global)-",
+    re.I,
+)
+
+# 厂商别名前缀：中转商常把厂商别名拼在前面（zai-glm-5.3、qwen-qwen3-max）
+_VENDOR_ALIAS_PREFIX_RE = re.compile(
+    r"^(?:zai|z-ai|zhipu|bigmodel|glm)(?=-glm)-"
+    r"|^(?:qwen|aliyun|tongyi)(?=-qwen)-"
+    r"|^(?:moonshot|kimi)(?=-kimi)-"
+    r"|^(?:volcengine|doubao)(?=-doubao)-",
+    re.I,
+)
+
+# 厂商名冗余前缀：厂商名与模型自身名字重复时剥掉，不损失识别度。
+# 判据是「该前缀之后的部分本身就能唯一定位到这家厂商」：
+#     openai-gpt-…        → gpt- 只属于 OpenAI
+#     anthropic-claude-…  → claude- 只属于 Anthropic
+#     alibaba-qwen3-…     → qwen 只属于阿里（实测全库 qwen 系列均为 alibaba）
+#     moonshotai-kimi-…   → kimi 只属于月之暗面
+# 不剥的情况：前缀之后的名字**跨厂商使用**，例如
+#     deepseek-r1-distill-qwen-32b  → 剥掉 deepseek- 会变成 qwen-，归属就错了
+_REDUNDANT_VENDOR_PREFIX_RE = re.compile(
+    r"^(?:openai(?=-gpt|-chatgpt)|anthropic(?=-claude)|google(?=-gemini|-gemma)"
+    r"|meta(?=-llama)|mistralai(?=-mistral|-codestral)|moonshotai(?=-kimi)"
+    r"|zhipuai(?=-glm)|xai(?=-grok)|alibaba(?=-qwen|-qwq|-tongyi)"
+    r"|bytedance(?=-doubao)|tencent(?=-hunyuan)|baidu(?=-ernie|-wenxin)"
+    r"|xiaomi(?=-mimo)|nvidia(?=-nemotron)|amazon(?=-nova)|cohere(?=-command)"
+    r"|ai21(?=-jamba)|moonshot(?=-moonshot))-",
+    re.I,
+)
+
+
+def strip_region_prefix(s: str) -> str:
+    """剥离可能多层的区域前缀。"""
+    prev = None
+    while prev != s:
+        prev = s
+        s = _REGION_PREFIX_RE.sub("", s, count=1)
+    return s
 
 
 def canonical_id(raw: str) -> str:
@@ -70,11 +134,34 @@ def canonical_id(raw: str) -> str:
     'claude-sonnet-4.5'
     >>> canonical_id("llama-3-1-8b")
     'llama-3-1-8b'
+    >>> canonical_id("global-openai-gpt-6.1-terra")
+    'openai-gpt-6.1-terra'
+    >>> canonical_id("gpt-6-1-terra:batch")
+    'gpt-6.1-terra:batch'
     """
     s = str(raw or "").strip().lower().replace("_", "-")
     s = _SEP_RE.sub("-", s).strip("-")
     if not s:
         return ""
+
+    # 变体后缀先摘掉：`gpt-6-1-terra:batch` 里的 `:batch` 会挡住版本号识别
+    variant = ""
+    m_var = _VARIANT_TAIL_RE.search(s)
+    if m_var:
+        variant = m_var.group(0)
+        s = s[: m_var.start()]
+
+    # 区域前缀剥离：global-/us-/apac- 是部署标记，不属于模型身份
+    s = strip_region_prefix(s)
+
+    # 渠道前缀剥离：databricks-gpt-6.1-terra 就是 gpt-6.1-terra
+    s = _CHANNEL_PREFIX_RE.sub("", s, count=1)
+
+    # 厂商别名前缀：zai-glm-5.3 → glm-5.3
+    s = _VENDOR_ALIAS_PREFIX_RE.sub("", s, count=1)
+
+    # 冗余厂商前缀：openai-gpt-… / anthropic-claude-… 剥掉不损失识别度
+    s = _REDUNDANT_VENDOR_PREFIX_RE.sub("", s, count=1)
 
     parts = s.split("-")
     out: list[str] = []
@@ -117,7 +204,8 @@ def canonical_id(raw: str) -> str:
         out.append(cur)
         i += 1
 
-    return "-".join(out)
+    # 变体后缀原样拼回（:batch 等是同一模型的不同服务档，保留以区分计费）
+    return "-".join(out) + variant
 
 
 def _is_version_segment(token: str) -> bool:
@@ -134,38 +222,59 @@ def _is_short_number(token: str) -> bool:
 
 
 def _at_version_prefix(parts: list[str], i: int) -> bool:
-    """第 i 段之前是否构成「版本号可以开始」的语境。"""
+    """
+    第 i 段之前是否构成「版本号可以开始」的语境。
+
+    关键是别把「型号编号」误当版本：
+        llama-3-1-8b      3-1 后面跟 8b（规模），是型号编号，不转
+        doubao-seed-2-0   2-0 后面是 pro/lite/结尾，是版本号，要转
+        doubao-seed-1-6   1-6 后面是 thinking 这类后缀，也是版本号
+    所以判断依据是**数字对之后是什么**，而不是前面是什么词。
+    seed/vl 这类词本身不能一票否决。
+    """
     if i == 0:
         return True
     prev = parts[i - 1]
-    if prev in NOT_VERSION_PREFIX:
-        return False
     # 前一段是年份（4 位数字）时，后面的 07-18 是日期，不是版本
     if prev.isdigit() and len(prev) == 4:
         return False
-    # 含字母（claude-sonnet / gpt）或含数字（v4 / qwen3）都算版本前缀
-    return any(c.isalpha() or c.isdigit() for c in prev)
+    # 前一段必须含字母或数字（纯符号不可能）
+    if not any(c.isalnum() for c in prev):
+        return False
+    return True
 
 
 def _at_version_end(parts: list[str], idx: int) -> bool:
     """
-    idx 处是否为「版本号结束」的位置。
+    idx 处是否**不阻碍**前面的数字对构成版本号。
 
-    - 到结尾
-    - 紧跟已知后缀词（turbo / mini / pro …）
-    - 紧跟日期段（claude-opus-4-5-20251101）
+    这里只排除两类明确不是版本的场景：
+      - 紧跟 2 位日期段（claude-opus-4-5-20251101 的 20251101 是快照）
+    其余都放行 —— 包括规模标记（llama-3-1-8b 的 8b）：
+    `llama-3-1-8b` 是 Llama **3.1** 8B，3-1 确实是版本号，
+    后面跟参数量并不否定前面是版本。
     """
     if idx >= len(parts):
         return True
     nxt = parts[idx]
     if nxt in VERSION_FOLLOWERS:
         return True
+    # v1 / v2 子版本标记（claude-opus-4-6-v1）
+    if re.fullmatch(r"v\d{1,2}", nxt):
+        return True
+    # 日期快照：6 位以上纯数字（claude-opus-4-5-20251101）
+    # 它是**版本号的合法结束位置**（4-5 转成 4.5 后停住），
+    # 但不能被继续吸收 —— 吸收循环里有独立的长度判断拦它。
     if nxt.isdigit() and len(nxt) >= 6:
         return True
-    # 紧跟「数字+字母」的规模标记（8b / 27b）→ 说明前面是型号编号，不是版本
+    # 规模标记（8b / 27b / 235b）—— 版本号之后的常见跟随，不构成否定
     if re.fullmatch(r"\d+[a-z]+", nxt):
-        return False
-    return False
+        return True
+    # 纯数字段：可能是 4-5-1 的多级版本，交给调用方继续吸收
+    if nxt.isdigit():
+        return True
+    # 普通单词（pro / sonic / thinking …）也不阻碍
+    return bool(re.fullmatch(r"[a-z]+", nxt))
 
 
 def is_same_model(a: str, b: str) -> bool:

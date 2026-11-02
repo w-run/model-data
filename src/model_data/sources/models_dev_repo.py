@@ -150,9 +150,14 @@ def org_of(doc: Doc) -> str | None:
 
     例：providers/alibaba/models/qwen/qwen3-max.toml
         provider=alibaba（阿里云在提供）
-        org=qwen（通义千问发布会）
+        org=qwen（通义千问发布）
 
-    有嵌套 org 时取 org，否则退回 provider。
+    注意 org 也不总是发布方：阿里云转售 DeepSeek 蒸馏模型时，路径是
+     providers/alibaba/models/deepseek/deepseek-r1-distill-qwen-14b.toml
+    org 会给出 deepseek（正确），但如果只看 provider 就会错标成 alibaba。
+
+    因此本函数只负责取 org，**不负责判断可信度** —— 由装配层的
+    attribution 模块结合模型名前缀做最终裁定。
     """
     if "/" in doc.doc_id:
         return doc.doc_id.split("/")[0].lower()
