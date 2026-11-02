@@ -99,13 +99,11 @@ def apply_to_model(model: dict) -> dict:
         out["exact"] = exact
         out["max_output"] = outp
 
-    # confidence 里记的 mimi_declared 也要跟着取整，否则两份文件不一致
-    conf = dict(model.get("confidence") or {})
-    for field in ("context", "max_output"):
-        block = conf.get(field)
-        if isinstance(block, dict) and "mimi_declared" in block:
-            b = dict(block)
-            b["mimi_declared"] = round_k(b["mimi_declared"])
-            conf[field] = b
-    out["confidence"] = conf
+    # channel_limits 也要跟着取整，否则与主字段口径不一致
+    cl = model.get("channel_limits")
+    if isinstance(cl, dict) and cl:
+        out["channel_limits"] = {
+            k: (round_k(v) if k in ("input", "output") else v)
+            for k, v in cl.items()
+        }
     return out

@@ -122,6 +122,37 @@ class TestSnapshotDate(unittest.TestCase):
         self.assertEqual(ids.snapshot_date("glm-5.3"), None)
 
 
+class TestChannelLimits(unittest.TestCase):
+    """渠道限制：只有比标称值小时才记录，且直接列字段。"""
+
+    def test_only_smaller_recorded(self):
+        from model_data.assemble import _channel_limits
+        # 渠道更小 → 记录
+        self.assertEqual(
+            _channel_limits(1024000, 384000,
+                            {"context": 1000000, "output": 128000}),
+            {"input": 1000000, "output": 128000})
+
+    def test_bigger_not_recorded(self):
+        """渠道值更大不算限制（只是统计口径差异）。"""
+        from model_data.assemble import _channel_limits
+        self.assertIsNone(
+            _channel_limits(1024000, 128000,
+                            {"context": 1024000, "output": 384000}))
+
+    def test_equal_not_recorded(self):
+        from model_data.assemble import _channel_limits
+        self.assertIsNone(
+            _channel_limits(1024000, 128000,
+                            {"context": 1024000, "output": 128000}))
+
+    def test_independent_fields(self):
+        """上下文与输出分别判断。"""
+        from model_data.assemble import _channel_limits
+        r = _channel_limits(1024000, 384000, {"output": 128000})
+        self.assertEqual(r, {"output": 128000})
+
+
 class TestIdempotent(unittest.TestCase):
     """归一必须幂等，否则族键与输出 id 会不同步。"""
 

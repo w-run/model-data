@@ -30,6 +30,7 @@ from .family import build_index as build_family_index
 from .pipeline import STAGES, Context, Stage, log, run_pipeline
 from .sources import collect
 from .sources import aliyun as aliyun_src
+from .sources import bigmodel as bigmodel_src
 from .sources import huggingface as hf_src
 from .sources import litellm as litellm_src
 from .sources import mimi as mimi_src
@@ -129,6 +130,14 @@ def stage_collect(ctx: Context) -> None:
             obs_maps.append(o)
         except Exception as exc:  # noqa: BLE001
             log(f"    aliyun: FAIL {exc}")
+
+    if want("bigmodel"):
+        try:
+            o = bigmodel_src.observations(offline=ctx.offline)
+            log(f"    bigmodel: {len(o)} 模型, {collections_count(o)} 条观测（官方规格）")
+            obs_maps.append(o)
+        except Exception as exc:  # noqa: BLE001
+            log(f"    bigmodel: FAIL {exc}")
 
     if want("siliconflow"):
         try:
@@ -353,7 +362,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--only", default="", help="只跑指定阶段（01,02,03,04）")
     ap.add_argument("--sources", default="",
-                    help="逗号分隔数据源：modelsdev,aliyun,siliconflow,huggingface,litellm,openrouter,mimi")
+                    help="逗号分隔数据源：modelsdev,aliyun,bigmodel,siliconflow,huggingface,litellm,openrouter,mimi")
     ap.add_argument("--from", dest="start", default="", help="从某阶段开始（如 03）")
     ap.add_argument("--strict", action="store_true")
     args = ap.parse_args(argv)

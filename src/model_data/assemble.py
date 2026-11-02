@@ -150,11 +150,46 @@ def pick(evidence: Evidence | None, declared: dict[str, Any] | None, field: str)
     if cap is None:
         return None, {"level": "unknown", "confidence": 0.0, "source": "none"}
 
-    # ② 有证据 → 以证据为准，mimi 声明仅留痕
-    out = {"level": evidence.level, "confidence": evidence.confidence, "source": "consensus"}
-    if decl is not None and decl != cap:
-        out["mimi_declared"] = decl
-    return cap, out
+    # ② 有证据 → 以证据为准。mimi 的差异值记到 channel_limits，
+    # 不塞进 confidence（那里是可信度，不是渠道能力）。
+    return cap, {"level": evidence.level, "confidence": evidence.confidence,
+                 "source": "consensus"}
+
+
+def _channel_limits(context, max_output, declared: dict | None) -> dict | None:
+    """
+    渠道带来的**真实约束**：上下文与输出分别判断，只有比标称值小时才列出。
+
+    设计取舍
+    --------
+    - 不写渠道名（这里只有 mimi 一个来源，写死反而累赘）
+    - 不包裹一层 {"mimi": {...}}，直接列被限制的字段
+    - 两项分别判断：可能只有输出被砍，上下文正常
+
+        "channel_limits": {"output": 128000}     // 标称 384000
+        "channel_limits": {"input": 1000000, "output": 128000}
+
+    渠道值 ≥ 标称值时不算限制（那只是统计口径差异），整条省略。
+    """
+    decl = declared or {}
+    if not decl:
+        return None
+
+    mimi_in = decl.get("context")
+    mimi_out = decl.get("output")
+
+    # 用**取整后**的值比较：最终产出是取整值，若取整后相等就不算限制
+    from .notation import round_k
+    limits: dict[str, Any] = {}
+    if mimi_in and context:
+        r_in, r_ctx = round_k(mimi_in), round_k(context)
+        if r_in and r_ctx and r_in < r_ctx:
+            limits["input"] = mimi_in
+    if mimi_out and max_output:
+        r_out, r_max = round_k(mimi_out), round_k(max_output)
+        if r_out and r_max and r_out < r_max:
+            limits["output"] = mimi_out
+    return limits or None
 
 
 def infer_vendor(model_id: str, rows: list, extra: dict | None) -> str:
@@ -317,6 +352,10 @@ def build_model(
     release_date = _best_text(rows, "release_date")
     price, price_usd = _price(rows)
     billing_block = billing.build_billing(rows)
+
+    # 渠道能力：mimi 网关实际报的窗口，与库中值不一致才记。
+    # 消费方按 recommended 选型，走 mimi 时按这里传参会更准。
+    channel_limits = _channel_limits(context, max_output, declared)
     sources = sorted({o.source.split(":")[0] for o in rows}) or []
     modalities_in = e.get("input_modalities") or ["text"]
     caps: dict[str, Any] = {}
@@ -344,6 +383,7 @@ def build_model(
         "price": price,
         **({"price_usd": price_usd} if price_usd else {}),
         **({"billing": billing_block} if billing_block else {}),
+        **({"channel_limits": channel_limits} if channel_limits else {}),
         "kind": e.get("kind") or (meta or {}).get("kind") or "chat",
         "description": description,
         "release_date": release_date,
