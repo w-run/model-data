@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-03T05:29:53.569334+00:00",
+  "generated_at": "2026-11-03T13:42:36.346758+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 187,
+      "model_count": 191,
       "currencies": [
         "USD"
       ],
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "USD"
       ],
@@ -389,7 +389,7 @@
       ],
       "website": "https://www.inclusionai.com",
       "api_docs": "https://www.inclusionai.com/",
-      "model_count": 17,
+      "model_count": 16,
       "currencies": [
         "CNY",
         "USD"

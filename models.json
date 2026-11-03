@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-03T05:29:53.493268+00:00",
-  "count": 1400,
+  "generated_at": "2026-11-03T13:42:36.272329+00:00",
+  "count": 1404,
   "models": [
     {
       "id": "active-speaker-detection",
@@ -757,6 +757,46 @@
       "name": "c4ai-command-r7b-12-2024",
       "aliases": [
         "c4ai-command-r7b-12-2024"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "c4ai-command-r7b-arabic-02-2025",
+      "vendor": "cohere",
+      "name": "c4ai-command-r7b-arabic-02-2025",
+      "aliases": [
+        "c4ai-command-r7b-arabic-02-2025"
       ],
       "context": null,
       "max_output": null,
@@ -1995,8 +2035,7 @@
             "input": 0.5,
             "output": 2.5,
             "currency": "USD",
-            "cache_read": 0.05,
-            "cache_write": 0.625
+            "cache_read": 0.05
           },
           {
             "over": 100001,
@@ -2351,7 +2390,6 @@
       "modalities": {
         "input": [
           "image",
-          "pdf",
           "text"
         ],
         "output": [
@@ -12106,7 +12144,8 @@
         "input": [
           "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -20338,9 +20377,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.58,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.59758,
+            "output": 1.79274,
+            "currency": "USD",
+            "cache_read": 0.11952,
+            "cache_write": 0.0
           }
         ]
       },
@@ -20501,10 +20542,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.2911,
-            "output": 0.8734,
+            "input": 0.29879,
+            "output": 0.89637,
             "currency": "USD",
-            "cache_read": 0.0582
+            "cache_read": 0.05976,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -20592,10 +20634,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.0,
-            "output": 0.0,
+            "input": 0.0437,
+            "output": 0.4367,
             "currency": "USD",
-            "cache_read": 0.0
+            "cache_read": 0.0044
           }
         ]
       },
@@ -21092,10 +21134,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1747,
-            "output": 1.1645,
+            "input": 0.17927,
+            "output": 1.19516,
             "currency": "USD",
-            "cache_read": 0.0349
+            "cache_read": 0.03585,
+            "cache_write": 0.0
           }
         ]
       },
@@ -21462,10 +21505,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5823,
-            "output": 2.3291,
+            "input": 0.59758,
+            "output": 2.39032,
             "currency": "USD",
-            "cache_read": 0.1165
+            "cache_read": 0.11952,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22202,10 +22246,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.87,
-            "output": 3.18,
+            "input": 0.89637,
+            "output": 3.28669,
             "currency": "USD",
-            "cache_read": 0.22
+            "cache_read": 0.22409,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22319,10 +22364,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1709,
-            "output": 4.098,
+            "input": 1.19516,
+            "output": 4.18306,
             "currency": "USD",
-            "cache_read": 0.2927
+            "cache_read": 0.29879,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -23080,7 +23126,8 @@
       "modalities": {
         "input": [
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -23295,10 +23342,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.0165,
-            "output": 3.7754,
+            "input": 1.04577,
+            "output": 3.88427,
             "currency": "USD",
-            "cache_read": 0.2614
+            "cache_read": 0.26891,
+            "cache_write": 0.0
           }
         ]
       },
@@ -23358,13 +23406,13 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.0285,
-        "output": 0.0923,
-        "cache_read": 0.0285
+        "input": 0.0313,
+        "output": 0.0846,
+        "cache_read": 0.03
       },
       "billing": {
         "cache": {
-          "read": 0.0285,
+          "read": 0.03,
           "read_currency": "USD"
         }
       },
@@ -23678,6 +23726,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "pdf",
           "text"
         ],
         "output": [
@@ -29557,8 +29606,7 @@
             "input": 0.4,
             "output": 1.8,
             "currency": "USD",
-            "cache_read": 0.04,
-            "cache_write": 0.5
+            "cache_read": 0.04
           }
         ],
         "multipliers": [
@@ -29770,8 +29818,7 @@
             "input": 8.0,
             "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.8,
-            "cache_write": 10.0
+            "cache_read": 0.8
           }
         ],
         "multipliers": [
@@ -30033,8 +30080,7 @@
             "input": 4.0,
             "output": 18.0,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 5.0
+            "cache_read": 0.4
           }
         ],
         "multipliers": [
@@ -30246,8 +30292,7 @@
             "input": 20.0,
             "output": 75.0,
             "currency": "USD",
-            "cache_read": 2.0,
-            "cache_write": 25.0
+            "cache_read": 2.0
           },
           {
             "over": 272001,
@@ -30522,8 +30567,7 @@
             "input": 0.2,
             "output": 0.75,
             "currency": "USD",
-            "cache_read": 0.02,
-            "cache_write": 0.25
+            "cache_read": 0.02
           },
           {
             "over": 272001,
@@ -30841,17 +30885,16 @@
             "input": 4.0,
             "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 5.0
+            "cache_read": 0.4
           },
           {
             "over": 272001,
             "type": "context",
-            "input": 4.0,
-            "output": 15.0,
+            "input": 8.0,
+            "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 5.0
+            "cache_read": 0.8,
+            "cache_write": 10.0
           }
         ]
       },
@@ -31056,8 +31099,7 @@
             "input": 4.0,
             "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.2,
-            "cache_write": 5.0
+            "cache_read": 0.2
           },
           {
             "over": 272001,
@@ -31282,7 +31324,8 @@
             "input": 2.0,
             "output": 7.5,
             "currency": "USD",
-            "cache_read": 0.1
+            "cache_read": 0.1,
+            "cache_write": 2.5
           },
           {
             "over": 272001,
@@ -33674,7 +33717,6 @@
       "modalities": {
         "input": [
           "audio",
-          "image",
           "text"
         ],
         "output": [
@@ -33683,8 +33725,7 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
-        "vision": true
+        "reasoning": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -33729,6 +33770,56 @@
       }
     },
     {
+      "id": "gpt-realtime-2.1-2026-07-07",
+      "vendor": "openai",
+      "name": "gpt-realtime-2.1-2026-07-07",
+      "aliases": [
+        "gpt-realtime-2.1-2026-07-07"
+      ],
+      "context": 32000,
+      "max_output": 4000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.51,
+        "level": "medium"
+      },
+      "exact": {
+        "max_output": 4096
+      }
+    },
+    {
       "id": "gpt-realtime-2.1-mini",
       "vendor": "openai",
       "name": "gpt-realtime-2.1-mini",
@@ -33746,7 +33837,8 @@
         ]
       },
       "capabilities": {
-        "tool_call": true
+        "tool_call": true,
+        "reasoning": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -33784,6 +33876,56 @@
         },
         "overall": 0.2794,
         "level": "low"
+      },
+      "exact": {
+        "max_output": 4096
+      }
+    },
+    {
+      "id": "gpt-realtime-2.1-mini-2026-07-07",
+      "vendor": "openai",
+      "name": "gpt-realtime-2.1-mini-2026-07-07",
+      "aliases": [
+        "gpt-realtime-2.1-mini-2026-07-07"
+      ],
+      "context": 32000,
+      "max_output": 4000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.51,
+        "level": "medium"
       },
       "exact": {
         "max_output": 4096
@@ -34042,6 +34184,100 @@
         },
         "overall": 0.2454,
         "level": "low"
+      }
+    },
+    {
+      "id": "gpt-realtime-translate-2026-05-06",
+      "vendor": "openai",
+      "name": "gpt-realtime-translate-2026-05-06",
+      "aliases": [
+        "gpt-realtime-translate-2026-05-06"
+      ],
+      "context": 32000,
+      "max_output": 4000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.51,
+        "level": "medium"
+      },
+      "exact": {
+        "max_output": 4096
+      }
+    },
+    {
+      "id": "gpt-realtime-translate-2026-05-07",
+      "vendor": "openai",
+      "name": "gpt-realtime-translate-2026-05-07",
+      "aliases": [
+        "gpt-realtime-translate-2026-05-07"
+      ],
+      "context": 32000,
+      "max_output": 4000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.51,
+        "level": "medium"
+      },
+      "exact": {
+        "max_output": 4096
       }
     },
     {
@@ -36708,7 +36944,7 @@
             "input": 4.0,
             "output": 12.0,
             "currency": "USD",
-            "cache_read": 1.0
+            "cache_read": 0.6
           },
           {
             "over": 200001,
@@ -40699,13 +40935,13 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1824,
+        "input": 0.1548,
         "output": 9.3388,
-        "cache_read": 0.18
+        "cache_read": 0.15
       },
       "billing": {
         "cache": {
-          "read": 0.18,
+          "read": 0.15,
           "read_currency": "USD",
           "write": 2.0,
           "write_currency": "USD"
@@ -41564,65 +41800,6 @@
         },
         "overall": 0.5137,
         "level": "medium"
-      },
-      "exact": {
-        "max_output": 262144
-      }
-    },
-    {
-      "id": "ling-3.1-flash-1019-free",
-      "vendor": "inclusionai",
-      "name": "inclusionAI: Ling 3.1 Flash 1019 (free)",
-      "aliases": [
-        "ling-3.1-flash-1019-free"
-      ],
-      "context": 1000000,
-      "max_output": 256000,
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true
-      },
-      "price": null,
-      "billing": {
-        "cache": {
-          "read": 0.0,
-          "read_currency": "USD",
-          "write": 0.0,
-          "write_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "An updated checkpoint of inclusionAI's Ling 3.1 Flash, provided free of charge by Novita AI until November 3, 2026. Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model with 25B active parameters out of 560B total and a 1M-token context window.",
-      "release_date": "2025-08-26",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "low",
-          "confidence": 0.4675,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "low",
-          "confidence": 0.4675,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.4675,
-        "level": "low"
       },
       "exact": {
         "max_output": 262144
@@ -42810,7 +42987,7 @@
         "llama-3.1-70b-instruct-turbo"
       ],
       "context": 128000,
-      "max_output": 16000,
+      "max_output": 8000,
       "modalities": {
         "input": [
           "text"
@@ -42864,7 +43041,7 @@
       },
       "exact": {
         "context": 131072,
-        "max_output": 16384
+        "max_output": 8192
       }
     },
     {
@@ -44108,12 +44285,12 @@
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4214,
+          "confidence": 0.3518,
           "source": "consensus",
-          "agreement": 0.7644,
+          "agreement": 0.624,
           "n_sources": 12
         },
-        "overall": 0.4214,
+        "overall": 0.3518,
         "level": "low"
       },
       "exact": {
@@ -45036,22 +45213,23 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1591,
+          "confidence": 0.1907,
           "source": "consensus",
-          "agreement": 0.2486,
-          "n_sources": 9
+          "agreement": 0.2974,
+          "n_sources": 11
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2478,
+          "confidence": 0.2507,
           "source": "consensus",
           "agreement": 0.3265,
-          "n_sources": 5
+          "n_sources": 6
         },
-        "overall": 0.1591,
+        "overall": 0.1907,
         "level": "low"
       },
       "exact": {
+        "context": 131072,
         "max_output": 8192
       }
     },
@@ -49949,7 +50127,6 @@
       "description": "MiMo omni model for text, image, video, audio, and agents",
       "release_date": "2026-04-22",
       "sources": [
-        "hf",
         "litellm",
         "models.dev",
         "models.dev-api",
@@ -49958,9 +50135,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2935,
+          "confidence": 0.3144,
           "source": "consensus",
-          "agreement": 0.4667,
+          "agreement": 0.5,
           "n_sources": 11
         },
         "max_output": {
@@ -50659,7 +50836,6 @@
       "max_output": 80000,
       "modalities": {
         "input": [
-          "image",
           "text"
         ],
         "output": [
@@ -50669,8 +50845,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "vision": true
+        "structured_output": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -51526,14 +51701,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6532,
+          "agreement": 0.6582,
           "n_sources": 21
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8564,
+          "agreement": 0.8611,
           "n_sources": 18
         },
         "overall": 1.0,
@@ -51963,7 +52138,6 @@
       "modalities": {
         "input": [
           "image",
-          "pdf",
           "text"
         ],
         "output": [
@@ -54695,15 +54869,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7191,
-          "n_sources": 12
+          "agreement": 0.8001,
+          "n_sources": 11
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 0.7229,
-          "n_sources": 12
+          "n_sources": 11
         },
         "overall": 1.0,
         "level": "verified"
@@ -54861,7 +55035,7 @@
         "mistral-small-3.2-24b-instruct-2506"
       ],
       "context": 128000,
-      "max_output": null,
+      "max_output": 32000,
       "modalities": {
         "input": [
           "image",
@@ -54893,6 +55067,7 @@
       "description": "Efficient Mistral model for fast chat, extraction, and production assistants",
       "release_date": "2025-06-20",
       "sources": [
+        "litellm",
         "models.dev",
         "models.dev-api",
         "openrouter"
@@ -54900,20 +55075,23 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3415,
+          "confidence": 0.3956,
           "source": "consensus",
-          "agreement": 0.6,
-          "n_sources": 5
+          "agreement": 0.7143,
+          "n_sources": 7
         },
         "max_output": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none",
-          "agreement": 0.6842,
-          "n_sources": 2
+          "level": "low",
+          "confidence": 0.2797,
+          "source": "consensus",
+          "agreement": 0.4483,
+          "n_sources": 6
         },
-        "overall": 0.3415,
+        "overall": 0.2797,
         "level": "low"
+      },
+      "exact": {
+        "max_output": 32768
       }
     },
     {
@@ -55539,7 +55717,6 @@
       "max_output": 4000,
       "modalities": {
         "input": [
-          "pdf",
           "text"
         ],
         "output": [
@@ -62261,11 +62438,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.25,
-            "output": 2.0,
+            "input": 0.173,
+            "output": 1.721,
             "currency": "USD",
-            "cache_read": 0.05,
-            "cache_write": 0.3125
+            "cache_read": 0.0346,
+            "cache_write": 0.21625
           }
         ]
       },
@@ -62825,7 +63002,9 @@
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "structured_output": true
+      },
       "price": {
         "unit": "CNY/Mtok",
         "input": 0.5,
@@ -62834,14 +63013,7 @@
       "price_usd": {
         "unit": "USD/Mtok",
         "input": 0.072,
-        "output": 0.287,
-        "cache_read": 0.05015
-      },
-      "billing": {
-        "cache": {
-          "read": 0.05015,
-          "read_currency": "USD"
-        }
+        "output": 0.287
       },
       "kind": "chat",
       "description": "Qwen instruction model for multilingual chat, reasoning, and tool use",
@@ -62854,19 +63026,19 @@
       "confidence": {
         "context": {
           "level": "verified",
-          "confidence": 0.97,
+          "confidence": 0.95,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 1
         },
         "max_output": {
           "level": "verified",
-          "confidence": 0.97,
+          "confidence": 0.95,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 1
         },
-        "overall": 0.97,
+        "overall": 0.95,
         "level": "verified"
       },
       "exact": {
@@ -64036,6 +64208,7 @@
       "max_output": 32000,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
@@ -64044,7 +64217,8 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true
+        "reasoning": true,
+        "vision": true
       },
       "price": {
         "unit": "CNY/Mtok",
@@ -66000,6 +66174,7 @@
       "description": "Qwen instruction model for multilingual chat, reasoning, and tool use",
       "release_date": "2024-09-18",
       "sources": [
+        "hf",
         "litellm",
         "models.dev",
         "models.dev-api",
@@ -66008,9 +66183,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2656,
+          "confidence": 0.2375,
           "source": "consensus",
-          "agreement": 0.4538,
+          "agreement": 0.4058,
           "n_sources": 7
         },
         "max_output": {
@@ -66020,7 +66195,7 @@
           "agreement": 0.6215,
           "n_sources": 4
         },
-        "overall": 0.2656,
+        "overall": 0.2375,
         "level": "low"
       },
       "exact": {
@@ -68528,15 +68703,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.75,
-            "output": 3.75,
+            "input": 0.323,
+            "output": 1.291,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.2,
-            "output": 6.0,
+            "input": 0.538,
+            "output": 2.151,
             "currency": "USD"
           }
         ],
@@ -68682,8 +68857,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.29,
-            "output": 5.15,
+            "input": 1.291,
+            "output": 5.161,
             "currency": "USD"
           },
           {
@@ -68697,8 +68872,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 2.151,
+            "output": 8.602,
             "currency": "USD"
           },
           {
@@ -68977,11 +69152,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.6,
-            "output": 9.6,
+            "input": 0.717,
+            "output": 3.584,
             "currency": "USD",
-            "cache_read": 0.32,
-            "cache_write": 2.0
+            "cache_read": 0.1434,
+            "cache_write": 0.89625
           }
         ]
       },
@@ -69527,18 +69702,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 2.4,
-            "output": 12.0,
-            "currency": "USD",
-            "cache_read": 0.48
+            "input": 0.574,
+            "output": 2.294,
+            "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 3.0,
-            "output": 15.0,
-            "currency": "USD",
-            "cache_read": 0.6
+            "input": 1.004,
+            "output": 4.014,
+            "currency": "USD"
           }
         ]
       },
@@ -70297,8 +70470,7 @@
         "input": [
           "audio",
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -71457,20 +71629,20 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.3,
-            "output": 2.4,
+            "input": 0.215,
+            "output": 2.15,
             "currency": "USD",
-            "cache_read": 0.06,
-            "cache_write": 0.375
+            "cache_read": 0.043,
+            "cache_write": 0.26875
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.6,
-            "output": 4.8,
+            "input": 0.43,
+            "output": 4.301,
             "currency": "USD",
-            "cache_read": 0.12,
-            "cache_write": 0.75
+            "cache_read": 0.086,
+            "cache_write": 0.5375
           }
         ]
       },
@@ -71788,8 +71960,7 @@
             "type": "context",
             "input": 0.287,
             "output": 2.294,
-            "currency": "USD",
-            "cache_read": 0.287
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -71946,8 +72117,7 @@
             "type": "context",
             "input": 0.258,
             "output": 2.064,
-            "currency": "USD",
-            "cache_read": 0.258
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -72430,8 +72600,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.23,
-            "output": 1.83,
+            "input": 0.229,
+            "output": 1.835,
             "currency": "USD"
           }
         ],
@@ -72598,8 +72768,7 @@
             "type": "context",
             "input": 0.43,
             "output": 2.58,
-            "currency": "USD",
-            "cache_read": 0.43
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -73634,7 +73803,7 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.29,
+            "input": 0.287,
             "output": 1.72,
             "currency": "USD"
           },
@@ -73643,9 +73812,7 @@
             "type": "context",
             "input": 0.5,
             "output": 3.0,
-            "currency": "USD",
-            "cache_read": 0.1,
-            "cache_write": 0.625
+            "currency": "USD"
           },
           {
             "over": 256001,
@@ -74925,11 +75092,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.2,
-            "output": 4.8,
+            "input": 0.96,
+            "output": 3.84,
             "currency": "USD",
-            "cache_read": 0.12,
-            "cache_write": 1.5
+            "cache_read": 0.192,
+            "cache_write": 1.2
           },
           {
             "over": 262144,
@@ -76076,7 +76243,7 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.201,
+        "input": 0.2,
         "output": 0.5,
         "cache_read": 0.05
       },
@@ -77070,10 +77237,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.17812,
-            "output": 2.37494,
-            "currency": "USD",
-            "cache_read": 0.02375
+            "input": 0.173913,
+            "output": 2.318841,
+            "currency": "USD"
           },
           {
             "over": 128000,
@@ -77164,10 +77330,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.04453,
-            "output": 0.4453,
-            "currency": "USD",
-            "cache_read": 0.00445
+            "input": 0.043478,
+            "output": 0.434783,
+            "currency": "USD"
           },
           {
             "over": 128000,
@@ -77346,18 +77511,17 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.67,
-            "output": 3.36,
+            "input": 0.695652,
+            "output": 3.478261,
             "currency": "USD",
-            "cache_read": 0.14
+            "cache_read": 0.13913
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
-            "currency": "USD",
-            "cache_read": 0.27
+            "input": 1.0,
+            "output": 6.0,
+            "currency": "USD"
           }
         ]
       },
@@ -77497,18 +77661,17 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.13,
-            "output": 0.76,
+            "input": 0.130435,
+            "output": 0.782609,
             "currency": "USD",
-            "cache_read": 0.03
+            "cache_read": 0.026087
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.25,
-            "output": 1.51,
-            "currency": "USD",
-            "cache_read": 0.05
+            "input": 0.5,
+            "output": 4.0,
+            "currency": "USD"
           }
         ]
       },
@@ -77586,18 +77749,17 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.06,
-            "output": 0.56,
+            "input": 0.057971,
+            "output": 0.57971,
             "currency": "USD",
-            "cache_read": 0.02
+            "cache_read": 0.011594
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.12,
-            "output": 1.12,
-            "currency": "USD",
-            "cache_read": 0.03
+            "input": 0.2,
+            "output": 0.8,
+            "currency": "USD"
           }
         ]
       },
@@ -77676,18 +77838,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.67,
-            "output": 3.36,
+            "input": 0.695652,
+            "output": 3.478261,
             "currency": "USD",
-            "cache_read": 0.14
+            "cache_read": 0.13913
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
+            "input": 1.391304,
+            "output": 6.956522,
             "currency": "USD",
-            "cache_read": 0.27
+            "cache_read": 0.278261
           }
         ]
       },
@@ -79416,7 +79578,6 @@
       "description": "StepFun flash model for efficient multimodal reasoning, coding, and tool use",
       "release_date": "2026-01-29",
       "sources": [
-        "hf",
         "models.dev",
         "models.dev-api",
         "openrouter",
@@ -79425,9 +79586,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4316,
+          "confidence": 0.4155,
           "source": "consensus",
-          "agreement": 0.7412,
+          "agreement": 0.717,
           "n_sources": 6
         },
         "max_output": {
@@ -79504,7 +79665,6 @@
       "release_date": "2026-05-29",
       "sources": [
         "aliyun",
-        "hf",
         "litellm",
         "models.dev",
         "models.dev-api",
@@ -79513,7 +79673,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5795,
+          "confidence": 0.5778,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 6
