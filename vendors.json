@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-02T23:20:03.662203+00:00",
+  "generated_at": "2026-11-03T03:26:56.864659+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 181,
+      "model_count": 187,
       "currencies": [
         "USD"
       ],
@@ -131,6 +131,27 @@
       "source": "manual"
     },
     {
+      "id": "xai",
+      "name": "xAI",
+      "aliases": [
+        "grok",
+        "x-ai",
+        "x.ai",
+        "xai"
+      ],
+      "website": "https://x.ai",
+      "api_docs": "https://docs.x.ai/developers/models",
+      "model_count": 64,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "deepseek",
       "name": "深度求索",
       "aliases": [
@@ -144,34 +165,13 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 62,
+      "model_count": 63,
       "currencies": [
         "CNY",
         "USD"
       ],
       "region": "cn",
       "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "xai",
-      "name": "xAI",
-      "aliases": [
-        "grok",
-        "x-ai",
-        "x.ai",
-        "xai"
-      ],
-      "website": "https://x.ai",
-      "api_docs": "https://docs.x.ai/developers/models",
-      "model_count": 62,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 45,
+      "model_count": 46,
       "currencies": [
         "USD"
       ],
@@ -239,7 +239,7 @@
       ],
       "website": "https://www.anthropic.com",
       "api_docs": "https://platform.claude.com/docs/en/models/overview",
-      "model_count": 41,
+      "model_count": 43,
       "currencies": [
         "USD"
       ],
