@@ -31,6 +31,7 @@ from .pipeline import STAGES, Context, Stage, log, run_pipeline
 from .sources import collect
 from .sources import aliyun as aliyun_src
 from .sources import bigmodel as bigmodel_src
+from .sources import minimax as minimax_src
 from .sources import huggingface as hf_src
 from .sources import litellm as litellm_src
 from .sources import mimi as mimi_src
@@ -138,6 +139,14 @@ def stage_collect(ctx: Context) -> None:
             obs_maps.append(o)
         except Exception as exc:  # noqa: BLE001
             log(f"    bigmodel: FAIL {exc}")
+
+    if want("minimax"):
+        try:
+            o = minimax_src.observations(offline=ctx.offline)
+            log(f"    minimax: {len(o)} 模型, {collections_count(o)} 条观测（官方规格）")
+            obs_maps.append(o)
+        except Exception as exc:  # noqa: BLE001
+            log(f"    minimax: FAIL {exc}")
 
     if want("siliconflow"):
         try:

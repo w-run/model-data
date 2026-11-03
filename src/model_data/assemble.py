@@ -252,6 +252,35 @@ def infer_vendor(model_id: str, rows: list, extra: dict | None) -> str:
     return "unknown"
 
 
+def _modalities_in(rows: list, extra: dict | None) -> list[str]:
+    """
+    输入模态：优先 mimi（自家网关，最贴近实际可用），
+    否则取观测里票数最多的那组。
+    """
+    if extra and extra.get("input_modalities"):
+        return list(extra["input_modalities"])
+
+    votes: dict[tuple, int] = {}
+    for o in rows:
+        if o.field_name == "input_modalities" and isinstance(o.value, (list, tuple)) and o.value:
+            key = tuple(sorted(str(x) for x in o.value))
+            votes[key] = votes.get(key, 0) + 1
+    if not votes:
+        return ["text"]
+    return list(max(votes.items(), key=lambda kv: kv[1])[0])
+
+
+def _cap(rows: list, field: str, extra: dict | None, extra_key: str) -> bool:
+    """
+    能力标志：mimi 有明确值就用它，否则看观测里 True/False 哪方票多。
+    """
+    if extra and extra.get(extra_key):
+        return True
+    true_n = sum(1 for o in rows if o.field_name == field and o.value is True)
+    false_n = sum(1 for o in rows if o.field_name == field and o.value is False)
+    return true_n > false_n
+
+
 def _best_text(rows: list, field: str) -> str | None:
     """文本字段（name/description）：按权重重取值最长的那个，够用了。"""
     ev = aggregate(rows, field_name=field)
@@ -369,13 +398,20 @@ def build_model(
     # 消费方按 recommended 选型，走 mimi 时按这里传参会更准。
     channel_limits = _channel_limits(context, max_output, declared)
     sources = sorted({o.source.split(":")[0] for o in rows}) or []
-    modalities_in = e.get("input_modalities") or ["text"]
+    modalities_in = _modalities_in(rows, e)
+
     caps: dict[str, Any] = {}
-    if e.get("supports_tool_call"):
+    # 能力从观测投票得出（之前完全没采集，导致 capabilities 全空）
+    if _cap(rows, "cap_tool_call", e, "supports_tool_call"):
         caps["tool_call"] = True
-    if e.get("supports_reasoning"):
+    if _cap(rows, "cap_reasoning", e, "supports_reasoning"):
         caps["reasoning"] = True
-    if "image" in modalities_in:
+    if _cap(rows, "cap_structured_output", e, "supports_structured_output"):
+        caps["structured_output"] = True
+    if _cap(rows, "cap_open_weights", e, "open_weights"):
+        caps["open_weights"] = True
+    # 视觉：模态里有 image，或 LiteLLM 明确标了 supports_vision
+    if "image" in modalities_in or _cap(rows, "cap_vision", e, "supports_vision"):
         caps["vision"] = True
 
     # 输出 id 统一口径。

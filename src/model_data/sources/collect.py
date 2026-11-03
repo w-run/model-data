@@ -61,7 +61,10 @@ def observations_from_models_dev(docs: dict[str, list[mdr.Doc]]) -> dict[str, li
     for provider, items in docs.items():
         tier = mdr.tier_of(provider)
         for doc in items:
-            slug = mdr.canonical_key(doc)
+            # 归一：MiniMax-M3.1-Flash 与 minimax-m3.1-flash 是同一模型，
+            # 不归一会让官方条目落到独立 key 上，被聚合商的数据盖过。
+            from ..ids import canonical_id
+            slug = canonical_id(mdr.canonical_key(doc))
             resolved = mdr.resolve_limit(doc, index)
 
             # 出处质量
@@ -266,6 +269,41 @@ def observations_from_litellm(data: dict[str, Any]) -> dict[str, list[Observatio
         # 不归一会让同一模型在产出里分裂成两条。
         slug = loose_key(slug)
 
+        # ── 能力与模态 ──
+        # LiteLLM 的 supports_* 覆盖最广（3700+ 条），是空 capabilities 的主要来源
+        for key_name, field_name in (
+            ("supports_function_calling", "cap_tool_call"),
+            ("supports_tool_choice", "cap_tool_call"),
+            ("supports_reasoning", "cap_reasoning"),
+            ("supports_response_schema", "cap_structured_output"),
+            ("supports_vision", "cap_vision"),
+            ("supports_pdf_input", "cap_pdf"),
+        ):
+            val = rec.get(key_name)
+            if isinstance(val, bool) and val:
+                out.setdefault(slug, []).append(Observation(
+                    source=f"litellm:{rec.get('litellm_provider', '?')}",
+                    tier="community",
+                    field_name=field_name,
+                    value=True,
+                    provenance="doc_url" if rec.get("source") else "none",
+                    url=rec.get("source") if isinstance(rec.get("source"), str) else None,
+                    observed_at=None,
+                    valid=True,
+                ))
+
+        # 模态：vision 支持即代表能看图
+        if rec.get("supports_vision") is True:
+            out.setdefault(slug, []).append(Observation(
+                source=f"litellm:{rec.get('litellm_provider', '?')}",
+                tier="community",
+                field_name="input_modalities",
+                value=("image", "text"),
+                provenance="none",
+                observed_at=None,
+                valid=True,
+            ))
+
         src = rec.get("source")
         prov = "pricing_url" if isinstance(src, str) and "pric" in src.lower() else (
             "doc_url" if isinstance(src, str) and src.startswith("http") else "none")
@@ -457,6 +495,40 @@ def observations_from_models_dev_api(data: dict[str, Any]) -> dict[str, list[Obs
             if not isinstance(m, dict):
                 continue
             slug = str(m.get("canonical_model_id") or m.get("id") or doc_id).split("/")[-1]
+
+            # ── 能力与模态 ──
+            # models.dev API 有这些字段，之前完全没采集，导致 capabilities 全空。
+            mods = m.get("modalities") or {}
+            mod_in = mods.get("input")
+            if isinstance(mod_in, list) and mod_in:
+                out.setdefault(slug, []).append(Observation(
+                    source=f"models.dev-api:{provider}",
+                    tier=tier,
+                    field_name="input_modalities",
+                    value=tuple(sorted(str(x) for x in mod_in)),
+                    provenance="api_live",
+                    url="https://models.dev/api.json",
+                    observed_at=None,
+                    valid=True,
+                ))
+
+            for key, field_name in (("tool_call", "cap_tool_call"),
+                                    ("reasoning", "cap_reasoning"),
+                                    ("structured_output", "cap_structured_output"),
+                                    ("attachment", "cap_attachment"),
+                                    ("open_weights", "cap_open_weights")):
+                val = m.get(key)
+                if isinstance(val, bool):
+                    out.setdefault(slug, []).append(Observation(
+                        source=f"models.dev-api:{provider}",
+                        tier=tier,
+                        field_name=field_name,
+                        value=val,
+                        provenance="api_live",
+                        url="https://models.dev/api.json",
+                        observed_at=None,
+                        valid=True,
+                    ))
 
             # 发布日期：API 覆盖 100%，用来补仓库缺失的部分
             rel = m.get("release_date")

@@ -36,11 +36,18 @@ except ModuleNotFoundError:  # py<3.11
 
 # 真正研发模型的厂商。与 data/vendors.toml 对应，但这里独立维护，
 # 因为需要区分「官方直营」和「官方云的转售」。
+# 第一方 = **模型发布方**（自家权重）。
+# 注意 NVIDIA 不在此列：它是托管平台，跑的是别家的模型
+# （nemotron 是自家的，但 models.dev 里 nvidia 也代理了一堆第三方模型），
+# 若算作第一方，它的限额会压过真正作者的说法。
 FIRST_PARTY_PROVIDERS = {
     "openai", "anthropic", "google", "deepseek", "alibaba", "alibaba-cn",
     "xai", "mistral", "moonshotai", "zhipuai", "minimax", "stepfun",
-    "nvidia", "meta", "cohere", "perplexity", "sarvam", "xiaomi",
+    "meta", "cohere", "perplexity", "sarvam", "xiaomi",
     "bytedance", "tencent", "baidu", "amazon",
+    # 自家的模型系列托管在自家平台
+    "minimax-cn", "moonshotai-cn", "alibaba-coding-plan",
+    "minimax-coding-plan", "moonshotai-coding-plan",
 }
 
 # 官方云转售：同一个模型，但是二手渠道，可能有平台侧限制
@@ -189,11 +196,14 @@ def resolve_limit(doc: Doc, index: dict[str, Doc], _seen: set[str] | None = None
     ctx = limit.get("context")
     out = limit.get("output")
 
-    if ctx:
+    # 只写了 output 没写 context 也是有效条目 ——
+    # MiniMax 官方就只声明 [{limit} output = 524288]，上下文要另找。
+    # 之前要求 ctx 存在才返回，导致官方口径被整条丢弃。
+    if ctx or out:
         return {
             "context": ctx,
             "output": out,
-            "inherited_from": None if len(_seen) == 1 else None,
+            "inherited_from": None,
             "hops": len(_seen) - 1,
         }
 

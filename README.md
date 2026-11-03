@@ -147,6 +147,20 @@ unslopnemo-12b
 
 ---
 
+## 能力与模态
+
+`capabilities` 从各源的 `supports_*` 字段投票得出，不是写死的：
+
+| 源 | 字段 | 覆盖 |
+|---|---|---|
+| models.dev API | `tool_call` / `reasoning` / `structured_output` / `modalities` | 95% |
+| LiteLLM | `supports_function_calling` / `supports_reasoning` / `supports_vision` | 3700+ 条 |
+| HuggingFace | `architecture.input_modalities` | 135 |
+| mimi | 自家网关的实际能力 | 自有模型 |
+
+空 `capabilities` 从 99% 降到 21%——剩下的多是 LiteLLM 里没有 `supports_*`
+字段的老模型（如 `babbage-002`），源本身就没这个信息。
+
 ## 收录过滤：白名单制
 
 **默认不收录，只有明确认可的厂商才进。** 白名单就是 `data/vendors.toml` 的段名 +

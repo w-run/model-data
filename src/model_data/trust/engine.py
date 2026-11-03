@@ -391,6 +391,10 @@ def aggregate_pair(observations: list[Observation], *, today: date | None = None
     # 20 家聚合商一致报 1000000，常见的真实原因是它们都从官方抄来后做了
     # 人类友好化取整（1048576 → 1000000），而非各自独立观测。
     # 所以只要存在第一方簇，就取它；仅当第一方内部自相矛盾时才在组内投票。
+    # 没有任何带 context 的声明时（只有 output 的族）直接返回
+    if not scored:
+        return None, None
+
     auth_scored = [c for c in scored
                    if any(d["tier"] in AUTHORITATIVE_TIERS for d in c["members"])]
     pool = auth_scored or scored
