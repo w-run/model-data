@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-04T17:47:10.932373+00:00",
+  "generated_at": "2026-11-04T23:15:40.933791+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 293,
+      "model_count": 295,
       "currencies": [
         "CNY",
         "USD"
@@ -166,7 +166,7 @@
       ],
       "website": "https://x.ai",
       "api_docs": "https://docs.x.ai/developers/models",
-      "model_count": 64,
+      "model_count": 65,
       "currencies": [
         "USD"
       ],
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 60,
+      "model_count": 62,
       "currencies": [
         "CNY",
         "USD"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 46,
+      "model_count": 48,
       "currencies": [
         "USD"
       ],
@@ -367,7 +367,7 @@
       ],
       "website": "https://www.perplexity.ai",
       "api_docs": "https://docs.perplexity.ai/",
-      "model_count": 20,
+      "model_count": 26,
       "currencies": [
         "USD"
       ],
