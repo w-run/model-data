@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-04T08:40:48.103750+00:00",
+  "generated_at": "2026-11-04T17:47:10.932373+00:00",
   "count": 30,
   "vendors": [
     {
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 64,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 59,
+      "model_count": 60,
       "currencies": [
         "CNY",
         "USD"
@@ -302,6 +302,32 @@
       "source": "manual"
     },
     {
+      "id": "minimax",
+      "name": "MiniMax",
+      "aliases": [
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
+      "model_count": 28,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "moonshotai",
       "name": "月之暗面",
       "aliases": [
@@ -319,32 +345,6 @@
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
       "model_count": 28,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "minimax",
-      "name": "MiniMax",
-      "aliases": [
-        "abab",
-        "minimax",
-        "minimax-ai",
-        "minimax-cn",
-        "minimax-cn-coding-plan",
-        "minimax-coding-plan",
-        "minimaxai",
-        "minimaxi"
-      ],
-      "website": "https://www.minimaxi.com",
-      "api_docs": "https://platform.minimaxi.com/docs",
-      "model_count": 27,
       "currencies": [
         "CNY",
         "USD"
@@ -476,6 +476,31 @@
       "source": "manual"
     },
     {
+      "id": "xiaomi",
+      "name": "小米",
+      "aliases": [
+        "mimo",
+        "xiaomi",
+        "xiaomi-token-plan-ams",
+        "xiaomi-token-plan-cn",
+        "xiaomi-token-plan-sgp",
+        "xiaomimimo",
+        "小米"
+      ],
+      "website": "https://platform.xiaomimimo.com",
+      "api_docs": "https://platform.xiaomimimo.com/#/docs",
+      "model_count": 12,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "amazon",
       "name": "Amazon",
       "aliases": [
@@ -515,31 +540,6 @@
       ],
       "region": "global",
       "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "xiaomi",
-      "name": "小米",
-      "aliases": [
-        "mimo",
-        "xiaomi",
-        "xiaomi-token-plan-ams",
-        "xiaomi-token-plan-cn",
-        "xiaomi-token-plan-sgp",
-        "xiaomimimo",
-        "小米"
-      ],
-      "website": "https://platform.xiaomimimo.com",
-      "api_docs": "https://platform.xiaomimimo.com/#/docs",
-      "model_count": 11,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
