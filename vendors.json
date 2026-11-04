@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-04T01:55:30.426856+00:00",
+  "generated_at": "2026-11-04T08:40:48.103750+00:00",
   "count": 30,
   "vendors": [
     {
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "USD"
       ],
@@ -378,29 +378,6 @@
       "source": "manual"
     },
     {
-      "id": "inclusionai",
-      "name": "蚂蚁 InclusionAI",
-      "aliases": [
-        "inclusion-ai",
-        "inclusionai",
-        "ling",
-        "ring",
-        "蚂蚁"
-      ],
-      "website": "https://www.inclusionai.com",
-      "api_docs": "https://www.inclusionai.com/",
-      "model_count": 16,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "tencent",
       "name": "腾讯",
       "aliases": [
@@ -417,6 +394,29 @@
       ],
       "website": "https://cloud.tencent.com",
       "api_docs": "https://cloud.tencent.com/document/product/1729",
+      "model_count": 17,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "inclusionai",
+      "name": "蚂蚁 InclusionAI",
+      "aliases": [
+        "inclusion-ai",
+        "inclusionai",
+        "ling",
+        "ring",
+        "蚂蚁"
+      ],
+      "website": "https://www.inclusionai.com",
+      "api_docs": "https://www.inclusionai.com/",
       "model_count": 16,
       "currencies": [
         "CNY",
