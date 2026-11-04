@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-03T20:25:36.369876+00:00",
+  "generated_at": "2026-11-04T01:55:30.426856+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 191,
+      "model_count": 187,
       "currencies": [
         "USD"
       ],
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 158,
+      "model_count": 157,
       "currencies": [
         "USD"
       ],
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 145,
+      "model_count": 143,
       "currencies": [
         "USD"
       ],
@@ -131,6 +131,31 @@
       "source": "manual"
     },
     {
+      "id": "deepseek",
+      "name": "深度求索",
+      "aliases": [
+        "deepseek",
+        "deepseek-ai",
+        "deepseek_ai",
+        "deepseekai",
+        "depthseek",
+        "ds",
+        "深度求索"
+      ],
+      "website": "https://www.deepseek.com",
+      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
+      "model_count": 64,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "xai",
       "name": "xAI",
       "aliases": [
@@ -147,31 +172,6 @@
       ],
       "region": "global",
       "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "deepseek",
-      "name": "深度求索",
-      "aliases": [
-        "deepseek",
-        "deepseek-ai",
-        "deepseek_ai",
-        "deepseekai",
-        "depthseek",
-        "ds",
-        "深度求索"
-      ],
-      "website": "https://www.deepseek.com",
-      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 63,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 32,
+      "model_count": 31,
       "currencies": [
         "USD"
       ],
