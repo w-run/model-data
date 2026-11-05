@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-05T14:03:36.468522+00:00",
+  "generated_at": "2026-11-05T21:47:13.808510+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 189,
+      "model_count": 190,
       "currencies": [
         "USD"
       ],
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 157,
+      "model_count": 158,
       "currencies": [
         "USD"
       ],
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "USD"
       ],
