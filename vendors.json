@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-04T23:15:40.933791+00:00",
+  "generated_at": "2026-11-05T05:19:27.295334+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 187,
+      "model_count": 189,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 66,
+      "model_count": 65,
       "currencies": [
         "CNY",
         "USD"
@@ -166,7 +166,7 @@
       ],
       "website": "https://x.ai",
       "api_docs": "https://docs.x.ai/developers/models",
-      "model_count": 65,
+      "model_count": 64,
       "currencies": [
         "USD"
       ],
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 32,
+      "model_count": 31,
       "currencies": [
         "USD"
       ],
