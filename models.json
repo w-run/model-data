@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-06T17:13:12.482717+00:00",
-  "count": 1418,
+  "generated_at": "2026-11-06T22:45:09.378856+00:00",
+  "count": 1420,
   "models": [
     {
       "id": "active-speaker-detection",
@@ -757,6 +757,46 @@
       "name": "c4ai-command-r7b-12-2024",
       "aliases": [
         "c4ai-command-r7b-12-2024"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "c4ai-command-r7b-arabic-02-2025",
+      "vendor": "cohere",
+      "name": "c4ai-command-r7b-arabic-02-2025",
+      "aliases": [
+        "c4ai-command-r7b-arabic-02-2025"
       ],
       "context": null,
       "max_output": null,
@@ -1992,11 +2032,11 @@
           {
             "over": 100000,
             "type": "context",
-            "input": 0.5,
-            "output": 2.5,
+            "input": 0.55,
+            "output": 2.75,
             "currency": "USD",
-            "cache_read": 0.05,
-            "cache_write": 0.625
+            "cache_read": 0.055,
+            "cache_write": 0.6875
           },
           {
             "over": 100001,
@@ -2351,6 +2391,7 @@
       "modalities": {
         "input": [
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -8712,11 +8753,75 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9099,
+          "agreement": 0.909,
           "n_sources": 23
         },
         "overall": 1.0,
         "level": "verified"
+      },
+      "exact": {
+        "context": 1048576,
+        "max_output": 393216
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-latest",
+      "vendor": "deepseek",
+      "name": "DeepSeek V4 Flash Latest",
+      "aliases": [
+        "deepseek-v4-flash-latest"
+      ],
+      "context": 1024000,
+      "max_output": 384000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.0434,
+        "output": 0.3,
+        "cache_read": 0.035
+      },
+      "billing": {
+        "cache": {
+          "read": 0.035,
+          "read_currency": "USD"
+        }
+      },
+      "kind": "chat",
+      "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family.",
+      "release_date": "2026-08-01",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.5801,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 2
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.5801,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 2
+        },
+        "overall": 0.5801,
+        "level": "medium"
       },
       "exact": {
         "context": 1048576,
@@ -9502,14 +9607,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7676,
+          "agreement": 0.7705,
           "n_sources": 27
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5175,
+          "agreement": 0.5344,
           "n_sources": 24
         },
         "overall": 1.0,
@@ -9527,10 +9632,11 @@
       "aliases": [
         "deepseek-v4.1-flash-1017-ultrafast"
       ],
-      "context": 1000000,
-      "max_output": 128000,
+      "context": 1024000,
+      "max_output": 384000,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
@@ -9541,7 +9647,6 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "open_weights": true,
         "vision": true
       },
       "price": {
@@ -9567,23 +9672,24 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2454,
+          "confidence": 0.3364,
           "source": "consensus",
-          "agreement": 0.5,
-          "n_sources": 2
+          "agreement": 0.6667,
+          "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2454,
+          "confidence": 0.2523,
           "source": "consensus",
           "agreement": 0.5,
-          "n_sources": 2
+          "n_sources": 3
         },
-        "overall": 0.2454,
+        "overall": 0.2523,
         "level": "low"
       },
       "exact": {
-        "max_output": 131072
+        "context": 1048576,
+        "max_output": 393216
       }
     },
     {
@@ -11441,8 +11547,7 @@
       "modalities": {
         "input": [
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -12213,7 +12318,9 @@
       "max_output": 65535,
       "modalities": {
         "input": [
+          "audio",
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -13235,9 +13342,10 @@
           {
             "over": 200000,
             "type": "context",
-            "input": 0.07,
-            "output": 0.43,
-            "currency": "USD"
+            "input": 0.5,
+            "output": 3.0,
+            "currency": "USD",
+            "cache_read": 0.05
           }
         ],
         "multipliers": [
@@ -16548,6 +16656,7 @@
       "description": "Open Gemma instruction model for efficient chat and self-hosted deployments",
       "release_date": "2025-03-12",
       "sources": [
+        "hf",
         "litellm",
         "models.dev",
         "models.dev-api",
@@ -16556,19 +16665,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4099,
+          "confidence": 0.4373,
           "source": "consensus",
-          "agreement": 0.8642,
-          "n_sources": 5
+          "agreement": 0.8825,
+          "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3765,
+          "confidence": 0.381,
           "source": "consensus",
           "agreement": 0.7442,
-          "n_sources": 5
+          "n_sources": 6
         },
-        "overall": 0.3765,
+        "overall": 0.381,
         "level": "low"
       },
       "exact": {
@@ -20660,10 +20769,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.2911,
-            "output": 0.8734,
+            "input": 0.29879,
+            "output": 0.89637,
             "currency": "USD",
-            "cache_read": 0.0582
+            "cache_read": 0.05976,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -20751,10 +20861,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.0,
-            "output": 0.0,
+            "input": 0.0437,
+            "output": 0.4367,
             "currency": "USD",
-            "cache_read": 0.0
+            "cache_read": 0.0044
           }
         ]
       },
@@ -21173,10 +21283,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5823,
-            "output": 2.3291,
-            "currency": "USD",
-            "cache_read": 0.1165
+            "input": 0.5714,
+            "output": 2.29,
+            "currency": "USD"
           }
         ]
       },
@@ -21253,10 +21362,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1747,
-            "output": 1.1645,
+            "input": 0.17927,
+            "output": 1.19516,
             "currency": "USD",
-            "cache_read": 0.0349
+            "cache_read": 0.03585,
+            "cache_write": 0.0
           }
         ]
       },
@@ -21623,10 +21733,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5823,
-            "output": 2.3291,
+            "input": 0.59758,
+            "output": 2.39032,
             "currency": "USD",
-            "cache_read": 0.1165
+            "cache_read": 0.11952,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22421,10 +22532,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.87,
-            "output": 3.18,
+            "input": 0.89637,
+            "output": 3.28669,
             "currency": "USD",
-            "cache_read": 0.22
+            "cache_read": 0.22409,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22538,10 +22650,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1709,
-            "output": 4.098,
+            "input": 1.19516,
+            "output": 4.18306,
             "currency": "USD",
-            "cache_read": 0.2927
+            "cache_read": 0.29879,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22944,7 +23057,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8087,
+          "agreement": 0.811,
           "n_sources": 27
         },
         "max_output": {
@@ -23349,8 +23462,7 @@
       "modalities": {
         "input": [
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -23565,10 +23677,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.0165,
-            "output": 3.7754,
+            "input": 1.04577,
+            "output": 3.88427,
             "currency": "USD",
-            "cache_read": 0.2614
+            "cache_read": 0.26891,
+            "cache_write": 0.0
           }
         ]
       },
@@ -30310,11 +30423,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 20.0,
-            "output": 75.0,
+            "input": 22.0,
+            "output": 82.5,
             "currency": "USD",
-            "cache_read": 2.0,
-            "cache_write": 25.0
+            "cache_read": 2.2,
+            "cache_write": 27.5
           },
           {
             "over": 272001,
@@ -30955,11 +31068,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 4.0,
-            "output": 15.0,
+            "input": 4.4,
+            "output": 16.5,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 5.0
+            "cache_read": 0.44,
+            "cache_write": 5.5
           },
           {
             "over": 272001,
@@ -31170,20 +31283,20 @@
           {
             "over": 272000,
             "type": "context",
+            "input": 4.4,
+            "output": 16.5,
+            "currency": "USD",
+            "cache_read": 0.22,
+            "cache_write": 5.5
+          },
+          {
+            "over": 272001,
+            "type": "context",
             "input": 4.0,
             "output": 15.0,
             "currency": "USD",
             "cache_read": 0.2,
             "cache_write": 5.0
-          },
-          {
-            "over": 272001,
-            "type": "context",
-            "input": 8.0,
-            "output": 30.0,
-            "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 10.0
           }
         ],
         "multipliers": [
@@ -31396,11 +31509,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 2.0,
-            "output": 7.5,
+            "input": 2.2,
+            "output": 8.25,
             "currency": "USD",
-            "cache_read": 0.1,
-            "cache_write": 2.5
+            "cache_read": 0.11,
+            "cache_write": 2.75
           },
           {
             "over": 272001,
@@ -33142,10 +33255,10 @@
       ],
       "confidence": {
         "context": {
-          "level": "medium",
-          "confidence": 0.5006,
+          "level": "low",
+          "confidence": 0.4978,
           "source": "consensus",
-          "agreement": 0.7897,
+          "agreement": 0.7858,
           "n_sources": 20
         },
         "max_output": {
@@ -33155,8 +33268,8 @@
           "agreement": 0.7591,
           "n_sources": 16
         },
-        "overall": 0.5006,
-        "level": "medium"
+        "overall": 0.4978,
+        "level": "low"
       },
       "exact": {
         "max_output": 16384
@@ -33906,7 +34019,6 @@
       "modalities": {
         "input": [
           "audio",
-          "image",
           "text"
         ],
         "output": [
@@ -33915,8 +34027,7 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
-        "vision": true
+        "reasoning": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -37378,7 +37489,7 @@
           {
             "over": 200000,
             "type": "context",
-            "input": 4.0,
+            "input": 2.0,
             "output": 12.0,
             "currency": "USD",
             "cache_read": 1.0
@@ -39276,19 +39387,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4587,
+          "confidence": 0.3596,
           "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 3
+          "agreement": 0.7692,
+          "n_sources": 4
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3899,
+          "confidence": 0.2329,
           "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 3
+          "agreement": 0.5862,
+          "n_sources": 4
         },
-        "overall": 0.3899,
+        "overall": 0.2329,
         "level": "low"
       }
     },
@@ -39348,20 +39459,20 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5669,
+          "confidence": 0.5443,
           "source": "consensus",
-          "agreement": 0.9508,
-          "n_sources": 8
+          "agreement": 0.9062,
+          "n_sources": 9
         },
         "max_output": {
-          "level": "medium",
-          "confidence": 0.5355,
+          "level": "low",
+          "confidence": 0.4573,
           "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 7
+          "agreement": 0.8467,
+          "n_sources": 8
         },
-        "overall": 0.5355,
-        "level": "medium"
+        "overall": 0.4573,
+        "level": "low"
       },
       "exact": {
         "context": 1048576
@@ -40578,7 +40689,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8065,
+          "agreement": 0.8152,
           "n_sources": 11
         },
         "max_output": {
@@ -40678,7 +40789,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6905,
+          "agreement": 0.6987,
           "n_sources": 17
         },
         "max_output": {
@@ -51103,6 +51214,7 @@
       "max_output": 80000,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
@@ -51112,7 +51224,8 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true
+        "structured_output": true,
+        "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -51908,10 +52021,10 @@
           {
             "over": 524288,
             "type": "context",
-            "input": 0.6,
-            "output": 2.4,
+            "input": 1.2,
+            "output": 4.8,
             "currency": "USD",
-            "cache_read": 0.12
+            "cache_read": 0.24
           }
         ],
         "multipliers": [
@@ -51953,14 +52066,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6586,
+          "agreement": 0.6521,
           "n_sources": 23
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8394,
+          "agreement": 0.837,
           "n_sources": 20
         },
         "overall": 1.0,
@@ -56011,7 +56124,6 @@
       "max_output": 4000,
       "modalities": {
         "input": [
-          "pdf",
           "text"
         ],
         "output": [
@@ -63105,11 +63217,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.173,
-            "output": 1.721,
+            "input": 0.25,
+            "output": 2.0,
             "currency": "USD",
-            "cache_read": 0.0346,
-            "cache_write": 0.21625
+            "cache_read": 0.05,
+            "cache_write": 0.3125
           }
         ]
       },
@@ -64307,11 +64419,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.78,
-            "output": 2.34,
+            "input": 1.2,
+            "output": 3.6,
             "currency": "USD",
-            "cache_read": 0.156,
-            "cache_write": 0.975
+            "cache_read": 0.24,
+            "cache_write": 1.5
           }
         ]
       },
@@ -64875,7 +64987,6 @@
       "max_output": 32000,
       "modalities": {
         "input": [
-          "image",
           "text"
         ],
         "output": [
@@ -64884,8 +64995,7 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
-        "vision": true
+        "reasoning": true
       },
       "price": {
         "unit": "CNY/Mtok",
@@ -66841,7 +66951,6 @@
       "description": "Qwen instruction model for multilingual chat, reasoning, and tool use",
       "release_date": "2024-09-18",
       "sources": [
-        "hf",
         "litellm",
         "models.dev",
         "models.dev-api",
@@ -66850,9 +66959,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2375,
+          "confidence": 0.2656,
           "source": "consensus",
-          "agreement": 0.4058,
+          "agreement": 0.4538,
           "n_sources": 7
         },
         "max_output": {
@@ -66862,7 +66971,7 @@
           "agreement": 0.6215,
           "n_sources": 4
         },
-        "overall": 0.2375,
+        "overall": 0.2656,
         "level": "low"
       },
       "exact": {
@@ -69390,15 +69499,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.323,
-            "output": 1.291,
+            "input": 0.75,
+            "output": 3.75,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.538,
-            "output": 2.151,
+            "input": 1.2,
+            "output": 6.0,
             "currency": "USD"
           }
         ],
@@ -69544,8 +69653,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.304348,
-            "output": 5.217391,
+            "input": 2.7,
+            "output": 13.5,
             "currency": "USD"
           },
           {
@@ -69559,8 +69668,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 2.173913,
-            "output": 8.695652,
+            "input": 4.5,
+            "output": 22.5,
             "currency": "USD"
           },
           {
@@ -69821,29 +69930,29 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.325,
-            "output": 1.625,
+            "input": 0.5,
+            "output": 2.5,
             "currency": "USD",
-            "cache_read": 0.065,
-            "cache_write": 0.40625
+            "cache_read": 0.1,
+            "cache_write": 0.625
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.52,
-            "output": 2.6,
+            "input": 0.8,
+            "output": 4.0,
             "currency": "USD",
-            "cache_read": 0.104,
-            "cache_write": 0.65
+            "cache_read": 0.16,
+            "cache_write": 1.0
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.717,
-            "output": 3.584,
+            "input": 1.6,
+            "output": 9.6,
             "currency": "USD",
-            "cache_read": 0.1434,
-            "cache_write": 0.89625
+            "cache_read": 0.32,
+            "cache_write": 2.0
           }
         ]
       },
@@ -71157,7 +71266,8 @@
         "input": [
           "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -72316,20 +72426,20 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.215,
-            "output": 2.15,
+            "input": 0.3,
+            "output": 2.4,
             "currency": "USD",
-            "cache_read": 0.043,
-            "cache_write": 0.26875
+            "cache_read": 0.06,
+            "cache_write": 0.375
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.43,
-            "output": 4.301,
+            "input": 0.6,
+            "output": 4.8,
             "currency": "USD",
-            "cache_read": 0.086,
-            "cache_write": 0.5375
+            "cache_read": 0.12,
+            "cache_write": 0.75
           }
         ]
       },
@@ -73192,9 +73302,7 @@
       "max_output": 8000,
       "modalities": {
         "input": [
-          "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -73203,8 +73311,7 @@
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "open_weights": true,
-        "vision": true
+        "open_weights": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -77932,15 +78039,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.173913,
-            "output": 2.318841,
-            "currency": "USD"
+            "input": 0.17812,
+            "output": 2.37494,
+            "currency": "USD",
+            "cache_read": 0.02375
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.347826,
-            "output": 3.478261,
+            "input": 0.5,
+            "output": 4.0,
             "currency": "USD"
           },
           {
@@ -78025,15 +78133,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.043478,
-            "output": 0.434783,
-            "currency": "USD"
+            "input": 0.04453,
+            "output": 0.4453,
+            "currency": "USD",
+            "cache_read": 0.00445
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.086957,
-            "output": 0.869565,
+            "input": 0.1,
+            "output": 0.8,
             "currency": "USD"
           }
         ]
@@ -78111,18 +78220,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.17,
-            "output": 2.27,
-            "currency": "USD",
-            "cache_read": 0.023
+            "input": 0.1715,
+            "output": 2.286,
+            "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.34,
-            "output": 3.41,
-            "currency": "USD",
-            "cache_read": 0.023
+            "input": 0.343,
+            "output": 3.43,
+            "currency": "USD"
           },
           {
             "over": 128001,
@@ -78214,10 +78321,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
+            "input": 1.0,
+            "output": 6.0,
             "currency": "USD",
-            "cache_read": 0.27
+            "cache_read": 0.2
           }
         ]
       },
@@ -78365,10 +78472,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.25,
-            "output": 1.51,
-            "currency": "USD",
-            "cache_read": 0.05
+            "input": 0.5,
+            "output": 4.0,
+            "currency": "USD"
           }
         ]
       },
@@ -78455,10 +78561,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.12,
-            "output": 1.12,
+            "input": 0.2,
+            "output": 0.8,
             "currency": "USD",
-            "cache_read": 0.03
+            "cache_read": 0.2
           }
         ]
       },
@@ -78545,10 +78651,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
+            "input": 1.0,
+            "output": 6.0,
             "currency": "USD",
-            "cache_read": 0.27
+            "cache_read": 0.2
           }
         ]
       },
