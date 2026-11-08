@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-08T04:39:36.410554+00:00",
+  "generated_at": "2026-11-08T12:49:28.774565+00:00",
   "count": 1420,
   "models": [
     {
@@ -757,6 +757,46 @@
       "name": "c4ai-command-r7b-12-2024",
       "aliases": [
         "c4ai-command-r7b-12-2024"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "c4ai-command-r7b-arabic-02-2025",
+      "vendor": "cohere",
+      "name": "c4ai-command-r7b-arabic-02-2025",
+      "aliases": [
+        "c4ai-command-r7b-arabic-02-2025"
       ],
       "context": null,
       "max_output": null,
@@ -9288,7 +9328,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7708,
+          "agreement": 0.7668,
           "n_sources": 24
         },
         "overall": 1.0,
@@ -9566,85 +9606,18 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7669,
+          "agreement": 0.7589,
           "n_sources": 27
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.4687,
+          "agreement": 0.489,
           "n_sources": 24
         },
         "overall": 1.0,
         "level": "verified"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 393216
-      }
-    },
-    {
-      "id": "deepseek-v4.1-flash-1017-ultrafast",
-      "vendor": "deepseek",
-      "name": "DeepSeek V4.1 Flash 1017 Ultrafast",
-      "aliases": [
-        "deepseek-v4.1-flash-1017-ultrafast"
-      ],
-      "context": 1024000,
-      "max_output": 384000,
-      "modalities": {
-        "input": [
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 3.0,
-        "output": 12.0,
-        "cache_read": 0.06
-      },
-      "billing": {
-        "cache": {
-          "read": 0.06,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Fast DeepSeek model for efficient chat, coding help, and agent loops",
-      "release_date": "2026-10-23",
-      "sources": [
-        "litellm",
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "low",
-          "confidence": 0.3364,
-          "source": "consensus",
-          "agreement": 0.6667,
-          "n_sources": 3
-        },
-        "max_output": {
-          "level": "low",
-          "confidence": 0.2523,
-          "source": "consensus",
-          "agreement": 0.5,
-          "n_sources": 3
-        },
-        "overall": 0.2523,
-        "level": "low"
       },
       "exact": {
         "context": 1048576,
@@ -12222,7 +12195,8 @@
         "input": [
           "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -20560,9 +20534,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.58,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.59758,
+            "output": 1.79274,
+            "currency": "USD",
+            "cache_read": 0.11952,
+            "cache_write": 0.0
           }
         ]
       },
@@ -20723,9 +20699,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.29,
-            "output": 0.86,
-            "currency": "USD"
+            "input": 0.29879,
+            "output": 0.89637,
+            "currency": "USD",
+            "cache_read": 0.05976,
+            "cache_write": 0.0
           }
         ],
         "multipliers": [
@@ -22484,8 +22462,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.86,
-            "output": 3.154,
+            "input": 0.869565,
+            "output": 3.188406,
             "currency": "USD"
           }
         ],
@@ -23628,9 +23606,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1,
-            "output": 3.8,
-            "currency": "USD"
+            "input": 1.04577,
+            "output": 3.88427,
+            "currency": "USD",
+            "cache_read": 0.26891,
+            "cache_write": 0.0
           }
         ]
       },
@@ -29900,11 +29880,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 8.0,
-            "output": 30.0,
+            "input": 10.0,
+            "output": 45.0,
             "currency": "USD",
-            "cache_read": 0.8,
-            "cache_write": 10.0
+            "cache_read": 1.0,
+            "cache_write": 12.5
           }
         ],
         "multipliers": [
@@ -31030,11 +31010,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 8.0,
-            "output": 30.0,
+            "input": 4.0,
+            "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.8,
-            "cache_write": 10.0
+            "cache_read": 0.4,
+            "cache_write": 5.0
           }
         ]
       },
@@ -31245,11 +31225,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 4.0,
-            "output": 15.0,
+            "input": 8.0,
+            "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.2,
-            "cache_write": 5.0
+            "cache_read": 0.4,
+            "cache_write": 10.0
           }
         ],
         "multipliers": [
@@ -33963,6 +33943,7 @@
       "modalities": {
         "input": [
           "audio",
+          "image",
           "text"
         ],
         "output": [
@@ -33971,7 +33952,8 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true
+        "reasoning": true,
+        "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -35326,10 +35308,10 @@
           {
             "over": 200000,
             "type": "context",
-            "input": 2.83,
-            "output": 5.67,
+            "input": 2.5,
+            "output": 5.0,
             "currency": "USD",
-            "cache_read": 0.45
+            "cache_read": 0.4
           }
         ]
       },
@@ -36249,10 +36231,10 @@
           {
             "over": 200000,
             "type": "context",
-            "input": 2.83,
-            "output": 5.67,
+            "input": 2.5,
+            "output": 5.0,
             "currency": "USD",
-            "cache_read": 0.45
+            "cache_read": 0.4
           },
           {
             "over": 200001,
@@ -37574,7 +37556,8 @@
             "input": 2.0,
             "output": 4.0,
             "currency": "USD",
-            "cache_read": 0.4
+            "cache_read": 0.4,
+            "cache_write": 2.0
           },
           {
             "over": 200001,
@@ -37966,13 +37949,17 @@
       "max_output": null,
       "modalities": {
         "input": [
+          "audio",
+          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "vision": true
+      },
       "price": null,
       "kind": "chat",
       "description": null,
@@ -38007,13 +37994,16 @@
       "max_output": null,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "vision": true
+      },
       "price": null,
       "kind": "chat",
       "description": null,
@@ -41250,13 +41240,13 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1567,
-        "output": 10.1398,
-        "cache_read": 0.15
+        "input": 0.1605,
+        "output": 10.1583,
+        "cache_read": 0.16
       },
       "billing": {
         "cache": {
-          "read": 0.15,
+          "read": 0.16,
           "read_currency": "USD",
           "write": 2.0,
           "write_currency": "USD"
@@ -51167,7 +51157,6 @@
       "max_output": 80000,
       "modalities": {
         "input": [
-          "image",
           "text"
         ],
         "output": [
@@ -51177,8 +51166,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "vision": true
+        "structured_output": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -51966,10 +51954,10 @@
           {
             "over": 512000,
             "type": "context",
-            "input": 0.6275,
-            "output": 2.5098,
+            "input": 0.6,
+            "output": 2.4,
             "currency": "USD",
-            "cache_read": 0.1255
+            "cache_read": 0.12
           },
           {
             "over": 524288,
@@ -52502,6 +52490,7 @@
       "modalities": {
         "input": [
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -55329,7 +55318,7 @@
         "mistral-small-3.2-24b-instruct-2506"
       ],
       "context": 128000,
-      "max_output": 32000,
+      "max_output": null,
       "modalities": {
         "input": [
           "image",
@@ -55361,7 +55350,6 @@
       "description": "Efficient Mistral model for fast chat, extraction, and production assistants",
       "release_date": "2025-06-20",
       "sources": [
-        "litellm",
         "models.dev",
         "models.dev-api",
         "openrouter"
@@ -55369,23 +55357,20 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3956,
+          "confidence": 0.3415,
           "source": "consensus",
-          "agreement": 0.7143,
-          "n_sources": 7
+          "agreement": 0.6,
+          "n_sources": 5
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.2797,
-          "source": "consensus",
-          "agreement": 0.4483,
-          "n_sources": 6
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none",
+          "agreement": 0.6842,
+          "n_sources": 2
         },
-        "overall": 0.2797,
+        "overall": 0.3415,
         "level": "low"
-      },
-      "exact": {
-        "max_output": 32768
       }
     },
     {
@@ -55439,15 +55424,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8428,
-          "n_sources": 11
+          "agreement": 0.7574,
+          "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 0.7317,
-          "n_sources": 11
+          "n_sources": 12
         },
         "overall": 1.0,
         "level": "verified"
@@ -56080,6 +56065,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "pdf",
           "text"
         ],
         "output": [
@@ -69654,8 +69640,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.291,
-            "output": 5.161,
+            "input": 1.304348,
+            "output": 5.217391,
             "currency": "USD"
           },
           {
@@ -69669,8 +69655,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 2.151,
-            "output": 8.602,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           },
           {
@@ -70499,15 +70485,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.574,
-            "output": 2.294,
+            "input": 1.449275,
+            "output": 5.797101,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.004,
-            "output": 4.014,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           }
         ]
@@ -72757,7 +72743,8 @@
             "type": "context",
             "input": 0.287,
             "output": 2.294,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.287
           }
         ],
         "multipliers": [
@@ -72914,7 +72901,8 @@
             "type": "context",
             "input": 0.258,
             "output": 2.064,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.258
           }
         ],
         "multipliers": [
@@ -73396,7 +73384,8 @@
             "type": "context",
             "input": 0.229,
             "output": 1.835,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.229
           }
         ],
         "multipliers": [
@@ -73560,8 +73549,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.43,
-            "output": 2.58,
+            "input": 0.434783,
+            "output": 2.608696,
             "currency": "USD"
           }
         ],
@@ -74609,8 +74598,8 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.5,
-            "output": 3.0,
+            "input": 0.573,
+            "output": 3.44,
             "currency": "USD"
           },
           {
@@ -75138,9 +75127,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.0,
-            "output": 4.0,
-            "currency": "USD"
+            "input": 0.66,
+            "output": 3.961,
+            "currency": "USD",
+            "cache_read": 0.066,
+            "cache_write": 0.825
           },
           {
             "over": 262144,
@@ -75353,11 +75344,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 2.5,
-            "output": 7.5,
+            "input": 1.101,
+            "output": 6.602,
             "currency": "USD",
-            "cache_read": 0.0625,
-            "cache_write": 0.78
+            "cache_read": 0.1101,
+            "cache_write": 1.37625
           }
         ]
       },
@@ -78221,16 +78212,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1715,
-            "output": 2.286,
-            "currency": "USD"
+            "input": 0.17812,
+            "output": 2.37494,
+            "currency": "USD",
+            "cache_read": 0.02375
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.343,
-            "output": 3.43,
-            "currency": "USD"
+            "input": 0.35624,
+            "output": 3.56241,
+            "currency": "USD",
+            "cache_read": 0.02375
           },
           {
             "over": 128001,

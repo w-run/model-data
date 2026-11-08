@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-08T04:39:36.491091+00:00",
+  "generated_at": "2026-11-08T12:49:28.854304+00:00",
   "count": 30,
   "vendors": [
     {
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 66,
+      "model_count": 65,
       "currencies": [
         "CNY",
         "USD"
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "USD"
       ],
