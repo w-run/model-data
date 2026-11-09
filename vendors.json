@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-09T04:50:05.003585+00:00",
+  "generated_at": "2026-11-09T15:19:34.987349+00:00",
   "count": 30,
   "vendors": [
     {
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "USD"
       ],
