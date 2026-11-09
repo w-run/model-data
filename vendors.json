@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-09T15:19:34.987349+00:00",
+  "generated_at": "2026-11-09T23:58:33.387735+00:00",
   "count": 30,
   "vendors": [
     {
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 143,
+      "model_count": 144,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 65,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -239,7 +239,7 @@
       ],
       "website": "https://www.anthropic.com",
       "api_docs": "https://platform.claude.com/docs/en/models/overview",
-      "model_count": 43,
+      "model_count": 45,
       "currencies": [
         "USD"
       ],
