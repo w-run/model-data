@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-09T23:58:33.387735+00:00",
+  "generated_at": "2026-11-10T06:57:40.954800+00:00",
   "count": 30,
   "vendors": [
     {
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 144,
+      "model_count": 145,
       "currencies": [
         "USD"
       ],
