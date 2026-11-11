@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-11T04:52:35.103377+00:00",
+  "generated_at": "2026-11-11T13:39:21.687260+00:00",
   "count": 30,
   "vendors": [
     {
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 89,
+      "model_count": 90,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 65,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -268,7 +268,7 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 40,
+      "model_count": 38,
       "currencies": [
         "CNY",
         "USD"
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 32,
+      "model_count": 31,
       "currencies": [
         "USD"
       ],
@@ -445,7 +445,7 @@
       ],
       "website": "https://cloud.baidu.com",
       "api_docs": "https://cloud.baidu.com/doc/qianfan/index.html",
-      "model_count": 14,
+      "model_count": 13,
       "currencies": [
         "USD"
       ],

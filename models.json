@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-11T04:52:35.043103+00:00",
-  "count": 1438,
+  "generated_at": "2026-11-11T13:39:21.608143+00:00",
+  "count": 1436,
   "models": [
     {
       "id": "active-speaker-detection",
@@ -757,46 +757,6 @@
       "name": "c4ai-command-r7b-12-2024",
       "aliases": [
         "c4ai-command-r7b-12-2024"
-      ],
-      "context": null,
-      "max_output": null,
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {},
-      "price": null,
-      "kind": "chat",
-      "description": null,
-      "release_date": null,
-      "sources": [
-        "hf"
-      ],
-      "confidence": {
-        "context": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "max_output": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "overall": 0.0,
-        "level": "unknown"
-      }
-    },
-    {
-      "id": "c4ai-command-r7b-arabic-02-2025",
-      "vendor": "cohere",
-      "name": "c4ai-command-r7b-arabic-02-2025",
-      "aliases": [
-        "c4ai-command-r7b-arabic-02-2025"
       ],
       "context": null,
       "max_output": null,
@@ -2123,11 +2083,11 @@
           {
             "over": 100000,
             "type": "context",
-            "input": 0.55,
-            "output": 2.75,
+            "input": 0.5,
+            "output": 2.5,
             "currency": "USD",
-            "cache_read": 0.055,
-            "cache_write": 0.6875
+            "cache_read": 0.05,
+            "cache_write": 0.625
           },
           {
             "over": 100001,
@@ -3711,7 +3671,9 @@
             "type": "context",
             "input": 6.0,
             "output": 22.5,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.6,
+            "cache_write": 7.5
           }
         ],
         "multipliers": [
@@ -8893,11 +8855,75 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8838,
+          "agreement": 0.8818,
           "n_sources": 25
         },
         "overall": 1.0,
         "level": "verified"
+      },
+      "exact": {
+        "context": 1048576,
+        "max_output": 393216
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-latest",
+      "vendor": "deepseek",
+      "name": "DeepSeek V4 Flash Latest",
+      "aliases": [
+        "deepseek-v4-flash-latest"
+      ],
+      "context": 1024000,
+      "max_output": 384000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.0434,
+        "output": 0.3,
+        "cache_read": 0.035
+      },
+      "billing": {
+        "cache": {
+          "read": 0.035,
+          "read_currency": "USD"
+        }
+      },
+      "kind": "chat",
+      "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family.",
+      "release_date": "2026-08-01",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.5801,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 2
+        },
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.5801,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 2
+        },
+        "overall": 0.5801,
+        "level": "medium"
       },
       "exact": {
         "context": 1048576,
@@ -11727,65 +11753,6 @@
       }
     },
     {
-      "id": "ernie-5.5-flash-preview",
-      "vendor": "baidu",
-      "name": "Baidu: ERNIE-5.5-Flash-Preview",
-      "aliases": [
-        "ernie-5.5-flash-preview"
-      ],
-      "context": 1024000,
-      "max_output": null,
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.28,
-        "output": 1.13,
-        "cache_read": 0.028
-      },
-      "billing": {
-        "cache": {
-          "read": 0.028,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "ERNIE 5.5 Flash Preview is the latest foundation model in the ERNIE family, with comprehensive improvements in coding, agentic capabilities, knowledge work, and deep research. It has 280 billion total...",
-      "release_date": "2026-11-10",
-      "sources": [
-        "models.dev",
-        "models.dev-api",
-        "openrouter"
-      ],
-      "confidence": {
-        "context": {
-          "level": "low",
-          "confidence": 0.4165,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 2
-        },
-        "max_output": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "overall": 0.4165,
-        "level": "low"
-      }
-    },
-    {
       "id": "ernie-light-dt-1.0-intl",
       "vendor": "baidu",
       "name": "Baidu: ERNIE-Light-DT-1.0",
@@ -11830,19 +11797,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4165,
+          "confidence": 0.4472,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4165,
+          "confidence": 0.4472,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 3
         },
-        "overall": 0.4165,
+        "overall": 0.4472,
         "level": "low"
       },
       "exact": {
@@ -12279,9 +12246,9 @@
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.339,
+          "confidence": 0.3623,
           "source": "consensus",
-          "agreement": 0.5131,
+          "agreement": 0.5733,
           "n_sources": 10
         },
         "overall": 0.2497,
@@ -12422,7 +12389,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9498,
+          "agreement": 0.952,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -12502,7 +12469,9 @@
       "max_output": 65535,
       "modalities": {
         "input": [
+          "audio",
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -13124,9 +13093,9 @@
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.308,
+          "confidence": 0.335,
           "source": "consensus",
-          "agreement": 0.6625,
+          "agreement": 0.7062,
           "n_sources": 5
         },
         "overall": 0.2385,
@@ -13571,7 +13540,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9411,
+          "agreement": 0.9441,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -13871,7 +13840,8 @@
             "type": "context",
             "input": 4.0,
             "output": 18.0,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.4
           }
         ]
       },
@@ -13949,19 +13919,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1697,
+          "confidence": 0.2421,
           "source": "consensus",
-          "agreement": 0.3657,
+          "agreement": 0.5045,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3276,
+          "confidence": 0.4587,
           "source": "consensus",
-          "agreement": 0.725,
-          "n_sources": 4
+          "agreement": 1.0,
+          "n_sources": 3
         },
-        "overall": 0.1697,
+        "overall": 0.2421,
         "level": "low"
       },
       "exact": {
@@ -14701,7 +14671,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9066,
+          "agreement": 0.911,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -20952,8 +20922,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.58,
-            "output": 1.72,
+            "input": 0.548,
+            "output": 1.644,
             "currency": "USD"
           }
         ]
@@ -21115,10 +21085,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.2911,
-            "output": 0.8734,
+            "input": 0.274,
+            "output": 0.822,
             "currency": "USD",
-            "cache_read": 0.0582
+            "cache_read": 0.0548
           }
         ],
         "multipliers": [
@@ -21615,10 +21585,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5823,
-            "output": 2.3291,
-            "currency": "USD",
-            "cache_read": 0.1165
+            "input": 0.5714,
+            "output": 2.29,
+            "currency": "USD"
           }
         ]
       },
@@ -21695,10 +21664,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1747,
-            "output": 1.1645,
+            "input": 0.17927,
+            "output": 1.19516,
             "currency": "USD",
-            "cache_read": 0.0349
+            "cache_read": 0.03585,
+            "cache_write": 0.0
           }
         ]
       },
@@ -22065,10 +22035,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5823,
-            "output": 2.3291,
+            "input": 0.62,
+            "output": 2.47,
             "currency": "USD",
-            "cache_read": 0.1165
+            "cache_read": 0.13,
+            "cache_write": 0.62
           }
         ],
         "multipliers": [
@@ -22863,10 +22834,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.87,
-            "output": 3.18,
-            "currency": "USD",
-            "cache_read": 0.22
+            "input": 0.869565,
+            "output": 3.188406,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -22980,10 +22950,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1709,
-            "output": 4.098,
+            "input": 1.2,
+            "output": 4.4,
             "currency": "USD",
-            "cache_read": 0.2927
+            "cache_read": 0.3,
+            "cache_write": 1.2
           }
         ],
         "multipliers": [
@@ -23793,8 +23764,7 @@
       "modalities": {
         "input": [
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -24009,10 +23979,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.0165,
-            "output": 3.7754,
+            "input": 0.986,
+            "output": 3.662004,
             "currency": "USD",
-            "cache_read": 0.2614
+            "cache_read": 0.253402
           }
         ]
       },
@@ -24394,7 +24364,6 @@
       "max_output": 4000,
       "modalities": {
         "input": [
-          "pdf",
           "text"
         ],
         "output": [
@@ -29812,7 +29781,8 @@
             "type": "context",
             "input": 60.0,
             "output": 270.0,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 3.0
           }
         ],
         "multipliers": [
@@ -30069,11 +30039,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 0.44,
-            "output": 1.98,
+            "input": 0.4,
+            "output": 1.8,
             "currency": "USD",
-            "cache_read": 0.044,
-            "cache_write": 0.55
+            "cache_read": 0.04,
+            "cache_write": 0.5
           }
         ],
         "multipliers": [
@@ -30545,11 +30515,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 4.4,
-            "output": 19.8,
+            "input": 4.0,
+            "output": 18.0,
             "currency": "USD",
-            "cache_read": 0.44,
-            "cache_write": 5.5
+            "cache_read": 0.4,
+            "cache_write": 5.0
           }
         ],
         "multipliers": [
@@ -31084,20 +31054,20 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 0.22,
-            "output": 0.825,
-            "currency": "USD",
-            "cache_read": 0.022,
-            "cache_write": 0.275
-          },
-          {
-            "over": 272001,
-            "type": "context",
             "input": 0.2,
             "output": 0.75,
             "currency": "USD",
             "cache_read": 0.02,
             "cache_write": 0.25
+          },
+          {
+            "over": 272001,
+            "type": "context",
+            "input": 0.4,
+            "output": 1.5,
+            "currency": "USD",
+            "cache_read": 0.04,
+            "cache_write": 0.5
           }
         ]
       },
@@ -31403,20 +31373,20 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 4.4,
-            "output": 16.5,
+            "input": 4.0,
+            "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.44,
-            "cache_write": 5.5
+            "cache_read": 0.4,
+            "cache_write": 5.0
           },
           {
             "over": 272001,
             "type": "context",
-            "input": 8.0,
-            "output": 30.0,
+            "input": 4.0,
+            "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.8,
-            "cache_write": 10.0
+            "cache_read": 0.4,
+            "cache_write": 5.0
           }
         ]
       },
@@ -31618,11 +31588,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 4.4,
-            "output": 16.5,
+            "input": 4.0,
+            "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.22,
-            "cache_write": 5.5
+            "cache_read": 0.2,
+            "cache_write": 5.0
           },
           {
             "over": 272001,
@@ -32481,7 +32451,7 @@
       "aliases": [
         "gpt-daybreak-blue-5.6-sol"
       ],
-      "context": 1050000,
+      "context": 922000,
       "max_output": 128000,
       "modalities": {
         "input": [
@@ -33582,9 +33552,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4998,
+          "confidence": 0.496,
           "source": "consensus",
-          "agreement": 0.7896,
+          "agreement": 0.7822,
           "n_sources": 20
         },
         "max_output": {
@@ -33594,7 +33564,7 @@
           "agreement": 0.7585,
           "n_sources": 16
         },
-        "overall": 0.4998,
+        "overall": 0.496,
         "level": "low"
       },
       "exact": {
@@ -34345,7 +34315,6 @@
       "modalities": {
         "input": [
           "audio",
-          "image",
           "text"
         ],
         "output": [
@@ -34354,8 +34323,7 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
-        "vision": true
+        "reasoning": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -38350,17 +38318,13 @@
       "max_output": null,
       "modalities": {
         "input": [
-          "audio",
-          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {
-        "vision": true
-      },
+      "capabilities": {},
       "price": null,
       "kind": "chat",
       "description": null,
@@ -38395,16 +38359,13 @@
       "max_output": null,
       "modalities": {
         "input": [
-          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {
-        "vision": true
-      },
+      "capabilities": {},
       "price": null,
       "kind": "chat",
       "description": null,
@@ -41809,7 +41770,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.1824,
-        "output": 9.3388,
+        "output": 11.0055,
         "cache_read": 0.18
       },
       "billing": {
@@ -50938,10 +50899,10 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.8,
-            "output": 4.0,
+            "input": 0.88,
+            "output": 4.4,
             "currency": "USD",
-            "cache_read": 0.16
+            "cache_read": 0.176
           }
         ],
         "multipliers": [
@@ -51042,10 +51003,10 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 2.0,
-            "output": 6.0,
+            "input": 2.2,
+            "output": 6.6,
             "currency": "USD",
-            "cache_read": 0.4
+            "cache_read": 0.44
           }
         ],
         "multipliers": [
@@ -51642,7 +51603,7 @@
       "aliases": [
         "minimax-h3-image-highspeed"
       ],
-      "context": null,
+      "context": 4000,
       "max_output": null,
       "modalities": {
         "input": [
@@ -51659,24 +51620,29 @@
         "output": 3.8
       },
       "kind": "chat",
-      "description": "Image model for prompt-driven generation, editing, and visual design workflows",
-      "release_date": "2026-11-10",
+      "description": "Image generation model",
+      "release_date": "2026-11-11",
       "sources": [
         "models.dev"
       ],
       "confidence": {
         "context": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
+          "level": "medium",
+          "confidence": 0.5525,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
         },
         "max_output": {
           "level": "unknown",
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.0,
-        "level": "unknown"
+        "overall": 0.5525,
+        "level": "medium"
+      },
+      "exact": {
+        "context": 4096
       }
     },
     {
@@ -52369,14 +52335,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5876,
+          "agreement": 0.608,
           "n_sources": 21
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7986,
+          "agreement": 0.8132,
           "n_sources": 20
         },
         "overall": 1.0,
@@ -52574,10 +52540,11 @@
           {
             "over": 512000,
             "type": "context",
-            "input": 0.6,
-            "output": 2.4,
+            "input": 0.66,
+            "output": 2.63,
             "currency": "USD",
-            "cache_read": 0.12
+            "cache_read": 0.132,
+            "cache_write": 0.66
           },
           {
             "over": 524288,
@@ -53110,6 +53077,7 @@
       "modalities": {
         "input": [
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -54953,6 +54921,57 @@
       }
     },
     {
+      "id": "mistral-large-4-latest",
+      "vendor": "mistral",
+      "name": "mistral-large-4-latest",
+      "aliases": [
+        "mistral-large-4-latest"
+      ],
+      "context": 1024000,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.51,
+        "level": "medium"
+      },
+      "exact": {
+        "context": 1048576
+      }
+    },
+    {
       "id": "mistral-large-4.0",
       "vendor": "mistral",
       "name": "Mistral: Mistral Large 4",
@@ -56684,6 +56703,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "pdf",
           "text"
         ],
         "output": [
@@ -57435,7 +57455,7 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4472,
+          "confidence": 0.4587,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
@@ -57445,7 +57465,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.4472,
+        "overall": 0.4587,
         "level": "low"
       },
       "exact": {
@@ -57499,7 +57519,8 @@
             "input": 0.3,
             "output": 1.5,
             "currency": "USD",
-            "cache_read": 0.012
+            "cache_read": 0.012,
+            "cache_write": 0.0
           }
         ]
       },
@@ -58619,19 +58640,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3077,
+          "confidence": 0.3313,
           "source": "consensus",
-          "agreement": 0.4372,
-          "n_sources": 9
+          "agreement": 0.5365,
+          "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.1513,
+          "confidence": 0.2168,
           "source": "consensus",
-          "agreement": 0.3259,
-          "n_sources": 8
+          "agreement": 0.2925,
+          "n_sources": 7
         },
-        "overall": 0.1513,
+        "overall": 0.2168,
         "level": "low"
       }
     },
@@ -63919,11 +63940,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.25,
-            "output": 2.0,
+            "input": 0.173,
+            "output": 1.721,
             "currency": "USD",
-            "cache_read": 0.05,
-            "cache_write": 0.3125
+            "cache_read": 0.0346,
+            "cache_write": 0.21625
           }
         ]
       },
@@ -65432,11 +65453,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.2,
-            "output": 3.6,
+            "input": 0.78,
+            "output": 2.34,
             "currency": "USD",
-            "cache_read": 0.24,
-            "cache_write": 1.5
+            "cache_read": 0.156,
+            "cache_write": 0.975
           }
         ]
       },
@@ -66000,6 +66021,7 @@
       "max_output": 32000,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
@@ -66008,7 +66030,8 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true
+        "reasoning": true,
+        "vision": true
       },
       "price": {
         "unit": "CNY/Mtok",
@@ -70513,15 +70536,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.75,
-            "output": 3.75,
+            "input": 0.323,
+            "output": 1.291,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.2,
-            "output": 6.0,
+            "input": 0.538,
+            "output": 2.151,
             "currency": "USD"
           }
         ],
@@ -70667,8 +70690,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.29,
-            "output": 5.15,
+            "input": 1.304348,
+            "output": 5.217391,
             "currency": "USD"
           },
           {
@@ -70682,8 +70705,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           },
           {
@@ -70944,29 +70967,29 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5,
-            "output": 2.5,
+            "input": 0.325,
+            "output": 1.625,
             "currency": "USD",
-            "cache_read": 0.1,
-            "cache_write": 0.625
+            "cache_read": 0.065,
+            "cache_write": 0.40625
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.8,
-            "output": 4.0,
+            "input": 0.52,
+            "output": 2.6,
             "currency": "USD",
-            "cache_read": 0.16,
-            "cache_write": 1.0
+            "cache_read": 0.104,
+            "cache_write": 0.65
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 1.6,
-            "output": 9.6,
+            "input": 0.717,
+            "output": 3.584,
             "currency": "USD",
-            "cache_read": 0.32,
-            "cache_write": 2.0
+            "cache_read": 0.1434,
+            "cache_write": 0.89625
           }
         ]
       },
@@ -71512,15 +71535,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.574,
-            "output": 2.294,
+            "input": 1.449275,
+            "output": 5.797101,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.004,
-            "output": 4.014,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           }
         ]
@@ -72280,8 +72303,7 @@
         "input": [
           "audio",
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -73440,20 +73462,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.3,
-            "output": 2.4,
-            "currency": "USD",
-            "cache_read": 0.06,
-            "cache_write": 0.375
+            "input": 0.2054,
+            "output": 2.054,
+            "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.6,
-            "output": 4.8,
-            "currency": "USD",
-            "cache_read": 0.12,
-            "cache_write": 0.75
+            "input": 0.411,
+            "output": 4.11,
+            "currency": "USD"
           }
         ]
       },
@@ -73769,8 +73787,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.287,
-            "output": 2.294,
+            "input": 0.2818,
+            "output": 2.2544,
             "currency": "USD"
           }
         ],
@@ -73926,8 +73944,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.258,
-            "output": 2.064,
+            "input": 0.2536,
+            "output": 2.0288,
             "currency": "USD"
           }
         ],
@@ -74411,8 +74429,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.229,
-            "output": 1.835,
+            "input": 0.2254,
+            "output": 1.8032,
             "currency": "USD"
           }
         ],
@@ -74577,8 +74595,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.43,
-            "output": 2.58,
+            "input": 0.434783,
+            "output": 2.608696,
             "currency": "USD"
           }
         ],
@@ -74968,16 +74986,20 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.115,
-            "output": 1.147,
-            "currency": "USD"
+            "input": 0.1126,
+            "output": 1.126,
+            "currency": "USD",
+            "cache_read": 0.01126,
+            "cache_write": 0.14075
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.172,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.169,
+            "output": 1.69,
+            "currency": "USD",
+            "cache_read": 0.0169,
+            "cache_write": 0.21125
           }
         ]
       },
@@ -75619,18 +75641,20 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.29,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.274,
+            "output": 1.644,
+            "currency": "USD",
+            "cache_read": 0.0274,
+            "cache_write": 0.3425
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.5,
-            "output": 3.0,
+            "input": 0.548,
+            "output": 3.288,
             "currency": "USD",
-            "cache_read": 0.1,
-            "cache_write": 0.625
+            "cache_read": 0.0548,
+            "cache_write": 0.685
           },
           {
             "over": 256001,
@@ -76157,9 +76181,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.0,
-            "output": 4.0,
-            "currency": "USD"
+            "input": 0.75,
+            "output": 4.5,
+            "currency": "USD",
+            "cache_read": 0.075,
+            "cache_write": 0.94
           },
           {
             "over": 262144,
@@ -76372,11 +76398,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 2.0,
-            "output": 6.0,
+            "input": 1.25,
+            "output": 7.5,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 2.5
+            "cache_read": 0.124,
+            "cache_write": 1.57
           }
         ]
       },
@@ -76510,17 +76536,19 @@
             "over": 32000,
             "type": "context",
             "input": 0.1,
-            "output": 0.4,
+            "output": 0.37,
             "currency": "USD",
-            "cache_read": 0.02
+            "cache_read": 0.02,
+            "cache_write": 0.12
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.2,
-            "output": 0.8,
+            "input": 0.19,
+            "output": 0.74,
             "currency": "USD",
-            "cache_read": 0.04
+            "cache_read": 0.04,
+            "cache_write": 0.24
           }
         ]
       },
@@ -76914,11 +76942,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.2,
-            "output": 4.8,
+            "input": 0.96,
+            "output": 3.75,
             "currency": "USD",
-            "cache_read": 0.24,
-            "cache_write": 1.5
+            "cache_read": 0.096,
+            "cache_write": 1.2
           },
           {
             "over": 262144,
@@ -79024,16 +79052,15 @@
       "vendor": "bytedance",
       "name": "Doubao-Seed 1.6",
       "aliases": [
-        "seed-1.6",
-        "seed-1.6-250615",
-        "seed-1.6-250915"
+        "seed-1.6"
       ],
       "context": 256000,
       "max_output": 32000,
       "modalities": {
         "input": [
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -79049,11 +79076,11 @@
         "unit": "USD/Mtok",
         "input": 0.115942,
         "output": 1.15942,
-        "cache_read": 0.05
+        "cache_read": 0.02375
       },
       "billing": {
         "cache": {
-          "read": 0.05,
+          "read": 0.02375,
           "read_currency": "USD"
         },
         "tiers": [
@@ -79067,17 +79094,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.5,
-            "output": 4.0,
+            "input": 0.347826,
+            "output": 3.478261,
             "currency": "USD"
-          },
-          {
-            "over": 128001,
-            "type": "context",
-            "input": 0.5,
-            "output": 4.0,
-            "currency": "USD",
-            "cache_read": 0.05
           }
         ]
       },
@@ -79086,26 +79105,25 @@
       "release_date": "2025-10-15",
       "sources": [
         "models.dev",
-        "models.dev-api",
-        "openrouter"
+        "models.dev-api"
       ],
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5137,
+          "confidence": 0.5525,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 1
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.4893,
+          "level": "medium",
+          "confidence": 0.5525,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 1
         },
-        "overall": 0.4893,
-        "level": "low"
+        "overall": 0.5525,
+        "level": "medium"
       },
       "exact": {
         "context": 262144,
@@ -79117,8 +79135,7 @@
       "vendor": "bytedance",
       "name": "Doubao-Seed 1.6 Flash",
       "aliases": [
-        "seed-1.6-flash",
-        "seed-1.6-flash-250715"
+        "seed-1.6-flash"
       ],
       "context": 256000,
       "max_output": 32000,
@@ -79160,8 +79177,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.1,
-            "output": 0.8,
+            "input": 0.086957,
+            "output": 0.869565,
             "currency": "USD"
           }
         ]
@@ -79171,26 +79188,25 @@
       "release_date": "2025-08-28",
       "sources": [
         "models.dev",
-        "models.dev-api",
-        "openrouter"
+        "models.dev-api"
       ],
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5122,
+          "confidence": 0.5504,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 2
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.4931,
+          "level": "medium",
+          "confidence": 0.5504,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 2
         },
-        "overall": 0.4931,
-        "level": "low"
+        "overall": 0.5504,
+        "level": "medium"
       },
       "exact": {
         "context": 262144,
@@ -79202,11 +79218,10 @@
       "vendor": "bytedance",
       "name": "Doubao-Seed-1.8",
       "aliases": [
-        "seed-1.8",
-        "seed-1.8-251228"
+        "seed-1.8"
       ],
-      "context": 256000,
-      "max_output": 8000,
+      "context": 224000,
+      "max_output": null,
       "modalities": {
         "input": [
           "image",
@@ -79239,26 +79254,16 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.17,
-            "output": 2.27,
-            "currency": "USD",
-            "cache_read": 0.023
+            "input": 0.1715,
+            "output": 2.286,
+            "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.34,
-            "output": 3.41,
-            "currency": "USD",
-            "cache_read": 0.023
-          },
-          {
-            "over": 128001,
-            "type": "context",
-            "input": 0.5,
-            "output": 4.0,
-            "currency": "USD",
-            "cache_read": 0.05
+            "input": 0.343,
+            "output": 3.43,
+            "currency": "USD"
           }
         ]
       },
@@ -79273,23 +79278,18 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3985,
+          "confidence": 0.2794,
           "source": "consensus",
-          "agreement": 0.7447,
-          "n_sources": 3
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5801,
-          "source": "consensus",
-          "agreement": 1.0,
+          "agreement": 0.5217,
           "n_sources": 2
         },
-        "overall": 0.3985,
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.2794,
         "level": "low"
-      },
-      "exact": {
-        "max_output": 8192
       }
     },
     {
@@ -79334,18 +79334,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.67,
-            "output": 3.36,
+            "input": 0.695652,
+            "output": 3.478261,
             "currency": "USD",
-            "cache_read": 0.14
+            "cache_read": 0.13913
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
+            "input": 1.391304,
+            "output": 6.956522,
             "currency": "USD",
-            "cache_read": 0.27
+            "cache_read": 0.278261
           }
         ]
       },
@@ -79355,25 +79355,24 @@
       "sources": [
         "litellm",
         "models.dev",
-        "models.dev-api",
-        "openrouter"
+        "models.dev-api"
       ],
       "confidence": {
         "context": {
-          "level": "low",
-          "confidence": 0.4993,
+          "level": "medium",
+          "confidence": 0.5159,
           "source": "consensus",
-          "agreement": 0.8329,
-          "n_sources": 7
+          "agreement": 0.8265,
+          "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4296,
+          "confidence": 0.4574,
           "source": "consensus",
-          "agreement": 0.728,
-          "n_sources": 7
+          "agreement": 0.7107,
+          "n_sources": 6
         },
-        "overall": 0.4296,
+        "overall": 0.4574,
         "level": "low"
       }
     },
@@ -79485,18 +79484,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.13,
-            "output": 0.76,
+            "input": 0.130435,
+            "output": 0.782609,
             "currency": "USD",
-            "cache_read": 0.03
+            "cache_read": 0.026087
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.25,
-            "output": 1.51,
+            "input": 0.26087,
+            "output": 1.565217,
             "currency": "USD",
-            "cache_read": 0.05
+            "cache_read": 0.052174
           }
         ]
       },
@@ -79575,18 +79574,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.06,
-            "output": 0.56,
+            "input": 0.057971,
+            "output": 0.57971,
             "currency": "USD",
-            "cache_read": 0.02
+            "cache_read": 0.011594
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.12,
-            "output": 1.12,
+            "input": 0.115942,
+            "output": 1.15942,
             "currency": "USD",
-            "cache_read": 0.03
+            "cache_read": 0.023188
           }
         ]
       },
@@ -79665,18 +79664,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.67,
-            "output": 3.36,
+            "input": 0.695652,
+            "output": 3.478261,
             "currency": "USD",
-            "cache_read": 0.14
+            "cache_read": 0.13913
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.34,
-            "output": 6.71,
+            "input": 1.391304,
+            "output": 6.956522,
             "currency": "USD",
-            "cache_read": 0.27
+            "cache_read": 0.278261
           }
         ]
       },
@@ -80079,46 +80078,6 @@
       }
     },
     {
-      "id": "seedance-1.5-pro",
-      "vendor": "bytedance",
-      "name": "seedance-1.5-pro",
-      "aliases": [
-        "seedance-1.5-pro"
-      ],
-      "context": null,
-      "max_output": null,
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {},
-      "price": null,
-      "kind": "chat",
-      "description": null,
-      "release_date": null,
-      "sources": [
-        "models.dev"
-      ],
-      "confidence": {
-        "context": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "max_output": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "overall": 0.0,
-        "level": "unknown"
-      }
-    },
-    {
       "id": "seedance-2.0",
       "vendor": "bytedance",
       "name": "Seedance 2",
@@ -80281,50 +80240,6 @@
       "kind": "chat",
       "description": "Video model for prompt-guided generation, editing, and motion workflows",
       "release_date": "2025-06-11",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "max_output": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
-        },
-        "overall": 0.0,
-        "level": "unknown"
-      }
-    },
-    {
-      "id": "seedance-v1.5-pro",
-      "vendor": "bytedance",
-      "name": "Seedance v1.5 Pro",
-      "aliases": [
-        "seedance-v1.5-pro"
-      ],
-      "context": null,
-      "max_output": null,
-      "modalities": {
-        "input": [
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "vision": true
-      },
-      "price": null,
-      "kind": "chat",
-      "description": "Video model for prompt-guided generation, editing, and motion workflows",
-      "release_date": "2025-12-16",
       "sources": [
         "models.dev",
         "models.dev-api"
