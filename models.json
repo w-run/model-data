@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-12T12:13:51.333124+00:00",
-  "count": 1436,
+  "generated_at": "2026-11-12T21:19:44.198456+00:00",
+  "count": 1439,
   "models": [
     {
       "id": "active-speaker-detection",
@@ -655,6 +655,46 @@
       "sources": [
         "models.dev",
         "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "c4ai-command-a-03-2025",
+      "vendor": "cohere",
+      "name": "c4ai-command-a-03-2025",
+      "aliases": [
+        "c4ai-command-a-03-2025"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
       ],
       "confidence": {
         "context": {
@@ -1708,14 +1748,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9851,
+          "agreement": 0.9854,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9846,
+          "agreement": 0.9849,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -3032,14 +3072,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9304,
+          "agreement": 0.9316,
           "n_sources": 17
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9581,
+          "agreement": 0.9589,
           "n_sources": 16
         },
         "overall": 1.0,
@@ -3671,9 +3711,7 @@
             "type": "context",
             "input": 6.0,
             "output": 22.5,
-            "currency": "USD",
-            "cache_read": 0.6,
-            "cache_write": 7.5
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -3785,14 +3823,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9816,
+          "agreement": 0.982,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9807,
+          "agreement": 0.9811,
           "n_sources": 14
         },
         "overall": 1.0,
@@ -4390,11 +4428,97 @@
       }
     },
     {
+      "id": "command-a-plus-05-2026-bf16",
+      "vendor": "cohere",
+      "name": "command-a-plus-05-2026-bf16",
+      "aliases": [
+        "command-a-plus-05-2026-bf16"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
       "id": "command-a-plus-05-2026-fp8",
       "vendor": "cohere",
       "name": "command-a-plus-05-2026-fp8",
       "aliases": [
         "command-a-plus-05-2026-fp8"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "hf"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "command-a-plus-05-2026-w4a4",
+      "vendor": "cohere",
+      "name": "command-a-plus-05-2026-w4a4",
+      "aliases": [
+        "command-a-plus-05-2026-w4a4"
       ],
       "context": null,
       "max_output": null,
@@ -5706,70 +5830,6 @@
       }
     },
     {
-      "id": "deepseek-chat-cheaper",
-      "vendor": "deepseek",
-      "name": "DeepSeek V3/Chat Cheaper",
-      "aliases": [
-        "deepseek-chat-cheaper"
-      ],
-      "context": 128000,
-      "max_output": 8000,
-      "modalities": {
-        "input": [
-          "pdf",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "tool_call": true,
-        "structured_output": true,
-        "open_weights": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.1,
-        "output": 0.425,
-        "cache_read": 0.05
-      },
-      "billing": {
-        "cache": {
-          "read": 0.05,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Chat-tuned GPT model for conversational assistance, writing, and tool workflows",
-      "release_date": "2025-04-15",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "max_output": 8192
-      }
-    },
-    {
       "id": "deepseek-chat-v3-0324",
       "vendor": "deepseek",
       "name": "DeepSeek V3",
@@ -6438,12 +6498,12 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.66,
-        "output": 4.0139,
-        "cache_read": 0.105
+        "output": 2.5,
+        "cache_read": 0.04
       },
       "billing": {
         "cache": {
-          "read": 0.105,
+          "read": 0.04,
           "read_currency": "USD"
         }
       },
@@ -8079,14 +8139,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4085,
+          "agreement": 0.3953,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
-          "confidence": 1.0,
+          "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.5491,
+          "agreement": 0.5179,
           "n_sources": 11
         },
         "overall": 0.963,
@@ -8715,6 +8775,58 @@
         },
         "overall": 0.0,
         "level": "unknown"
+      }
+    },
+    {
+      "id": "deepseek-v3.2-thinking",
+      "vendor": "deepseek",
+      "name": "DeepSeek: DeepSeek V3.2 Thinking",
+      "aliases": [
+        "deepseek-v3.2-thinking"
+      ],
+      "context": 128000,
+      "max_output": 8000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.62,
+        "output": 1.85
+      },
+      "kind": "chat",
+      "description": "DeepSeek‑V3.2 from DeepSeek harmonizes high computational efficiency with superior reasoning and agent performance. It builds on three main techniques: DeepSeek Sparse Attention for long‑context efficiency, a scalable reinforcement learning framework, and a large‑scale agentic task synthesis pipeline. This model excels at long-context reasoning and agentic tasks, efficiently handling extended inputs while maintaining strong accuracy. Its sparse attention design enables it to process complex, multi-step workflows without excessive compute costs. Overall, DeepSeek‑V3.2 targets long‑context reasoning, tool‑using agents, and efficient deployment in production environments.",
+      "release_date": "2025-12-01",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.4675,
+        "level": "low"
       }
     },
     {
@@ -9468,15 +9580,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.803,
-          "n_sources": 28
+          "agreement": 0.7958,
+          "n_sources": 29
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7664,
-          "n_sources": 24
+          "agreement": 0.7587,
+          "n_sources": 25
         },
         "overall": 1.0,
         "level": "verified"
@@ -9489,7 +9601,7 @@
     {
       "id": "deepseek-v4.1-flash",
       "vendor": "deepseek",
-      "name": "DeepSeek V4.1 Flash Fast",
+      "name": "DeepSeek V4.1 Flash",
       "aliases": [
         "deepseek-v4.1-flash",
         "deepseek-v4.1-flash-1017",
@@ -9753,15 +9865,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7588,
-          "n_sources": 27
+          "agreement": 0.7509,
+          "n_sources": 28
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5158,
-          "n_sources": 24
+          "agreement": 0.5005,
+          "n_sources": 25
         },
         "overall": 1.0,
         "level": "verified"
@@ -9926,6 +10038,72 @@
       },
       "exact": {
         "context": 1048576
+      }
+    },
+    {
+      "id": "deepseek-v4.1-flash-latest",
+      "vendor": "deepseek",
+      "name": "deepseek-v4.1-flash-latest",
+      "aliases": [
+        "deepseek-v4.1-flash-latest"
+      ],
+      "context": 1024000,
+      "max_output": 384000,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 0.135,
+        "output": 0.54,
+        "cache_read": 0.003
+      },
+      "billing": {
+        "cache": {
+          "read": 0.003,
+          "read_currency": "USD"
+        }
+      },
+      "kind": "chat",
+      "description": "Fast DeepSeek model for efficient chat, coding help, and agent loops",
+      "release_date": "2026-10-17",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "low",
+          "confidence": 0.2454,
+          "source": "consensus",
+          "agreement": 0.5,
+          "n_sources": 2
+        },
+        "max_output": {
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.2454,
+        "level": "low"
+      },
+      "exact": {
+        "context": 1048576,
+        "max_output": 393216
       }
     },
     {
@@ -11953,130 +12131,6 @@
       }
     },
     {
-      "id": "gemini-2.0-pro-exp-02.05",
-      "vendor": "google",
-      "name": "Gemini 2.0 Pro 0205",
-      "aliases": [
-        "gemini-2.0-pro-exp-02.05"
-      ],
-      "context": 2048000,
-      "max_output": 8000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.989,
-        "output": 7.956,
-        "cache_read": 0.49725
-      },
-      "billing": {
-        "cache": {
-          "read": 0.49725,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-02-05",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 2097152,
-        "max_output": 8192
-      }
-    },
-    {
-      "id": "gemini-2.0-pro-reasoner",
-      "vendor": "google",
-      "name": "Gemini 2.0 Pro Reasoner",
-      "aliases": [
-        "gemini-2.0-pro-reasoner"
-      ],
-      "context": 128000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {},
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.292,
-        "output": 4.998,
-        "cache_read": 0.323
-      },
-      "billing": {
-        "cache": {
-          "read": 0.323,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2024-01-01",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "max_output": 65536
-      }
-    },
-    {
       "id": "gemini-2.5-computer-use-preview-10-2025",
       "vendor": "google",
       "name": "Gemini 2.5 Computer Use Preview 10-2025",
@@ -12390,27 +12444,23 @@
         "input": [
           "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
         ]
       },
       "capabilities": {
+        "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
         "input": 0.09,
-        "output": 0.36,
-        "cache_read": 0.015
-      },
-      "billing": {
-        "cache": {
-          "read": 0.015,
-          "read_currency": "USD"
-        }
+        "output": 0.36
       },
       "kind": "chat",
       "description": null,
@@ -12445,9 +12495,7 @@
       "max_output": 65535,
       "modalities": {
         "input": [
-          "audio",
           "image",
-          "pdf",
           "text"
         ],
         "output": [
@@ -12463,18 +12511,11 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.09,
-        "output": 0.36,
-        "cache_read": 0.01
-      },
-      "billing": {
-        "cache": {
-          "read": 0.01,
-          "read_currency": "USD"
-        }
+        "output": 0.36
       },
       "kind": "chat",
       "description": "Low-latency Gemini model for high-volume multimodal and agent workloads",
-      "release_date": "2025-09-25",
+      "release_date": "2025-09-26",
       "sources": [
         "litellm",
         "models.dev",
@@ -12723,90 +12764,29 @@
       }
     },
     {
-      "id": "gemini-2.5-flash-preview-04.17",
-      "vendor": "google",
-      "name": "Gemini 2.5 Flash Preview Thinking",
-      "aliases": [
-        "gemini-2.5-flash-preview-04.17"
-      ],
-      "context": 1024000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "reasoning": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.15,
-        "output": 3.5,
-        "cache_read": 0.015
-      },
-      "billing": {
-        "cache": {
-          "read": 0.015,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-04-17",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 65536
-      }
-    },
-    {
       "id": "gemini-2.5-flash-preview-05.20",
       "vendor": "google",
       "name": "gemini-2.5-flash-preview-05-20",
       "aliases": [
         "gemini-2.5-flash-preview-05.20"
       ],
-      "context": 1048000,
+      "context": null,
       "max_output": null,
       "modalities": {
         "input": [
+          "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
         ]
       },
       "capabilities": {
+        "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -12830,29 +12810,27 @@
       ],
       "confidence": {
         "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
         },
         "max_output": {
           "level": "unknown",
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.5525,
-        "level": "medium"
+        "overall": 0.0,
+        "level": "unknown"
       }
     },
     {
       "id": "gemini-2.5-flash-preview-09-2025",
       "vendor": "google",
-      "name": "Gemini 2.5 Flash Preview (09/2025)",
+      "name": "gemini-2.5-flash-preview-09-2025",
       "aliases": [
         "gemini-2.5-flash-preview-09-2025"
       ],
-      "context": 1024000,
+      "context": 1000000,
       "max_output": 64000,
       "modalities": {
         "input": [
@@ -12865,25 +12843,17 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true,
         "structured_output": true,
         "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
         "input": 0.3,
-        "output": 2.5,
-        "cache_read": 0.03
-      },
-      "billing": {
-        "cache": {
-          "read": 0.03,
-          "read_currency": "USD"
-        }
+        "output": 2.5
       },
       "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-09-25",
+      "description": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "release_date": "2025-09-26",
       "sources": [
         "litellm",
         "models.dev",
@@ -12892,91 +12862,22 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3774,
+          "confidence": 0.2454,
           "source": "consensus",
-          "agreement": 0.6857,
-          "n_sources": 3
+          "agreement": 0.5,
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.323,
+          "confidence": 0.2454,
           "source": "consensus",
-          "agreement": 0.5417,
-          "n_sources": 3
+          "agreement": 0.5,
+          "n_sources": 2
         },
-        "overall": 0.323,
+        "overall": 0.2454,
         "level": "low"
       },
       "exact": {
-        "context": 1048576,
-        "max_output": 65536
-      }
-    },
-    {
-      "id": "gemini-2.5-flash-preview-09-2025-thinking",
-      "vendor": "google",
-      "name": "Gemini 2.5 Flash Preview (09/2025) – Thinking",
-      "aliases": [
-        "gemini-2.5-flash-preview-09-2025-thinking"
-      ],
-      "context": 1024000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "pdf",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "tool_call": true,
-        "reasoning": true,
-        "structured_output": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 0.3,
-        "output": 2.5,
-        "cache_read": 0.03
-      },
-      "billing": {
-        "cache": {
-          "read": 0.03,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-09-25",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 1048576,
         "max_output": 65536
       }
     },
@@ -13083,71 +12984,6 @@
       }
     },
     {
-      "id": "gemini-2.5-pro-exp-03.25",
-      "vendor": "google",
-      "name": "Gemini 2.5 Pro Experimental 0325",
-      "aliases": [
-        "gemini-2.5-pro-exp-03.25"
-      ],
-      "context": 1024000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "reasoning": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 10.0,
-        "cache_read": 0.25
-      },
-      "billing": {
-        "cache": {
-          "read": 0.25,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-03-25",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 65536
-      }
-    },
-    {
       "id": "gemini-2.5-pro-preview",
       "vendor": "google",
       "name": "gemini-2.5-pro-preview-06-05",
@@ -13229,144 +13065,14 @@
       }
     },
     {
-      "id": "gemini-2.5-pro-preview-03.25",
-      "vendor": "google",
-      "name": "Gemini 2.5 Pro Preview 0325",
-      "aliases": [
-        "gemini-2.5-pro-preview-03.25"
-      ],
-      "context": 1024000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "reasoning": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 10.0,
-        "cache_read": 0.25
-      },
-      "billing": {
-        "cache": {
-          "read": 0.25,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-03-25",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 65536
-      }
-    },
-    {
-      "id": "gemini-2.5-pro-preview-05.06",
-      "vendor": "google",
-      "name": "Gemini 2.5 Pro Preview 0506",
-      "aliases": [
-        "gemini-2.5-pro-preview-05.06"
-      ],
-      "context": 1024000,
-      "max_output": 64000,
-      "modalities": {
-        "input": [
-          "audio",
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "capabilities": {
-        "reasoning": true,
-        "vision": true
-      },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 2.5,
-        "output": 10.0,
-        "cache_read": 0.25
-      },
-      "billing": {
-        "cache": {
-          "read": 0.25,
-          "read_currency": "USD"
-        }
-      },
-      "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-05-06",
-      "sources": [
-        "models.dev",
-        "models.dev-api"
-      ],
-      "confidence": {
-        "context": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "max_output": {
-          "level": "medium",
-          "confidence": 0.5525,
-          "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
-        },
-        "overall": 0.5525,
-        "level": "medium"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 65536
-      }
-    },
-    {
       "id": "gemini-3-flash",
       "vendor": "google",
       "name": "Gemini 3 Flash",
       "aliases": [
         "gemini-3-flash"
       ],
-      "context": 1024000,
-      "max_output": 64000,
+      "context": 1000000,
+      "max_output": 65000,
       "modalities": {
         "input": [
           "image",
@@ -13405,24 +13111,20 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2894,
+          "confidence": 0.2936,
           "source": "consensus",
-          "agreement": 0.6176,
-          "n_sources": 2
+          "agreement": 0.5333,
+          "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3142,
+          "confidence": 0.3774,
           "source": "consensus",
-          "agreement": 0.5417,
-          "n_sources": 2
+          "agreement": 0.6857,
+          "n_sources": 3
         },
-        "overall": 0.2894,
+        "overall": 0.2936,
         "level": "low"
-      },
-      "exact": {
-        "context": 1048576,
-        "max_output": 65536
       }
     },
     {
@@ -15378,7 +15080,7 @@
         "cache": {
           "read": 0.1,
           "read_currency": "USD",
-          "write": 0.375,
+          "write": 2.0,
           "write_currency": "USD"
         },
         "multipliers": [
@@ -15405,9 +15107,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4214,
+          "confidence": 0.4391,
           "source": "consensus",
-          "agreement": 0.7527,
+          "agreement": 0.781,
           "n_sources": 6
         },
         "max_output": {
@@ -15469,6 +15171,76 @@
           "source": "none"
         },
         "overall": 0.4675,
+        "level": "low"
+      },
+      "exact": {
+        "context": 1048576
+      }
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "vendor": "google",
+      "name": "Gemini 4 Hydrogen",
+      "aliases": [
+        "gemini-4-hydrogen"
+      ],
+      "context": 1024000,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "audio",
+          "image",
+          "pdf",
+          "text",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 1.5,
+        "output": 7.5,
+        "cache_read": 0.075
+      },
+      "billing": {
+        "cache": {
+          "read": 0.075,
+          "read_currency": "USD",
+          "write": 0.041667,
+          "write_currency": "USD"
+        }
+      },
+      "kind": "chat",
+      "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than...",
+      "release_date": "2026-11-12",
+      "sources": [
+        "litellm",
+        "models.dev",
+        "models.dev-api",
+        "openrouter"
+      ],
+      "confidence": {
+        "context": {
+          "level": "low",
+          "confidence": 0.3888,
+          "source": "consensus",
+          "agreement": 0.8197,
+          "n_sources": 5
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.3888,
         "level": "low"
       },
       "exact": {
@@ -15586,12 +15358,12 @@
     {
       "id": "gemini-exp-1206",
       "vendor": "google",
-      "name": "Gemini 2.0 Pro 1206",
+      "name": "gemini-exp-1206",
       "aliases": [
         "gemini-exp-1114"
       ],
-      "context": 2048000,
-      "max_output": 8000,
+      "context": 1024000,
+      "max_output": 65535,
       "modalities": {
         "input": [
           "image",
@@ -15603,50 +15375,37 @@
       },
       "capabilities": {
         "tool_call": true,
+        "reasoning": true,
         "structured_output": true,
         "vision": true
       },
-      "price": {
-        "unit": "USD/Mtok",
-        "input": 1.258,
-        "output": 4.998,
-        "cache_read": 0.629
-      },
-      "billing": {
-        "cache": {
-          "read": 0.629,
-          "read_currency": "USD"
-        }
-      },
+      "price": null,
       "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2024-12-06",
+      "description": null,
+      "release_date": null,
       "sources": [
-        "litellm",
-        "models.dev",
-        "models.dev-api"
+        "litellm"
       ],
       "confidence": {
         "context": {
-          "level": "low",
-          "confidence": 0.3017,
+          "level": "medium",
+          "confidence": 0.51,
           "source": "consensus",
-          "agreement": 0.52,
-          "n_sources": 2
+          "agreement": 1.0,
+          "n_sources": 1
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.3017,
+          "level": "medium",
+          "confidence": 0.51,
           "source": "consensus",
-          "agreement": 0.52,
-          "n_sources": 2
+          "agreement": 1.0,
+          "n_sources": 1
         },
-        "overall": 0.3017,
-        "level": "low"
+        "overall": 0.51,
+        "level": "medium"
       },
       "exact": {
-        "context": 2097152,
-        "max_output": 8192
+        "context": 1048576
       }
     },
     {
@@ -16285,7 +16044,7 @@
         "gemini-omni-flash-preview"
       ],
       "context": 128000,
-      "max_output": 64000,
+      "max_output": 57920,
       "modalities": {
         "input": [
           "image",
@@ -16297,15 +16056,16 @@
       },
       "capabilities": {
         "reasoning": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
         "input": 1.5,
-        "output": 17.5
+        "output": 9.0
       },
       "kind": "chat",
-      "description": null,
+      "description": "Gemini Omni Flash (Preview) is a multimodal model designed for video, image, and text tasks. It is optimized for video generation, offering video output alongside text responses in a single model.",
       "release_date": "2026-06-30",
       "sources": [
         "litellm",
@@ -16314,25 +16074,24 @@
       ],
       "confidence": {
         "context": {
-          "level": "verified",
-          "confidence": 1.0,
+          "level": "low",
+          "confidence": 0.2752,
           "source": "consensus",
-          "agreement": 0.8243,
-          "n_sources": 4
-        },
-        "max_output": {
-          "level": "verified",
-          "confidence": 0.99,
-          "source": "consensus",
-          "agreement": 1.0,
+          "agreement": 0.5,
           "n_sources": 3
         },
-        "overall": 0.99,
-        "level": "verified"
+        "max_output": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.2752,
+        "level": "low"
       },
       "exact": {
-        "context": 131072,
-        "max_output": 65536
+        "context": 131072
       }
     },
     {
@@ -17728,7 +17487,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.94,
+          "agreement": 0.9418,
           "n_sources": 12
         },
         "max_output": {
@@ -18339,7 +18098,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Agares v1 is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -18395,7 +18161,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Animus V14.1 is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -18451,7 +18224,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B AssGuard is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -18641,7 +18421,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Dark Gemistry is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -18763,7 +18550,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "ArliAI-hosted Gemma 4 31B Fabled finetune for mythic narrative writing, adventure scenes, and multimodal roleplay.",
@@ -18885,7 +18679,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Gembrain X Core is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -18941,7 +18742,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Isometry RP is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -19786,7 +19594,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "ArliAI-hosted Gemma 4 31B K1 v5 finetune for plot progression, action scenes, and multimodal roleplay.",
@@ -19842,7 +19657,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B MeroMero is a community creative finetune for emotive dialogue, relationship scenes, and multimodal roleplay.",
@@ -19964,7 +19786,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B Novelist is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -20086,7 +19915,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Gemma 4 31B StyleTune is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -20467,7 +20303,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.351,
-        "output": 0.555
+        "output": 0.555,
+        "cache_read": 0.12
+      },
+      "billing": {
+        "cache": {
+          "read": 0.12,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": null,
@@ -20947,11 +20790,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.59758,
-            "output": 1.79274,
-            "currency": "USD",
-            "cache_read": 0.11952,
-            "cache_write": 0.0
+            "input": 0.58,
+            "output": 1.72,
+            "currency": "USD"
           }
         ]
       },
@@ -21112,11 +20953,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.29879,
-            "output": 0.89637,
-            "currency": "USD",
-            "cache_read": 0.05976,
-            "cache_write": 0.0
+            "input": 0.29,
+            "output": 0.86,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -21204,10 +21043,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.0437,
-            "output": 0.4367,
+            "input": 0.0,
+            "output": 0.0,
             "currency": "USD",
-            "cache_read": 0.0044
+            "cache_read": 0.0
           }
         ]
       },
@@ -21692,11 +21531,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.17927,
-            "output": 1.19516,
+            "input": 0.1747,
+            "output": 1.1645,
             "currency": "USD",
-            "cache_read": 0.03585,
-            "cache_write": 0.0
+            "cache_read": 0.0349
           }
         ]
       },
@@ -22063,11 +21901,11 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.59758,
-            "output": 2.39032,
+            "input": 0.62,
+            "output": 2.47,
             "currency": "USD",
-            "cache_read": 0.11952,
-            "cache_write": 0.0
+            "cache_read": 0.13,
+            "cache_write": 0.62
           }
         ],
         "multipliers": [
@@ -22263,7 +22101,7 @@
         }
       },
       "kind": "chat",
-      "description": null,
+      "description": "GLM-4.7-Flash balances high performance with efficiency, making it the perfect lightweight deployment option.",
       "release_date": "2026-01-19",
       "sources": [
         "bigmodel",
@@ -22862,11 +22700,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.89637,
-            "output": 3.28669,
-            "currency": "USD",
-            "cache_read": 0.22409,
-            "cache_write": 0.0
+            "input": 0.86,
+            "output": 3.154,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -22983,7 +22819,8 @@
             "input": 1.1,
             "output": 3.851,
             "currency": "USD",
-            "cache_read": 0.22
+            "cache_read": 0.22,
+            "cache_write": 1.375
           }
         ],
         "multipliers": [
@@ -23125,14 +22962,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6876,
+          "agreement": 0.687,
           "n_sources": 31
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6608,
+          "agreement": 0.6827,
           "n_sources": 27
         },
         "overall": 1.0,
@@ -23385,14 +23222,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8111,
-          "n_sources": 27
+          "agreement": 0.8031,
+          "n_sources": 28
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.678,
+          "agreement": 0.6957,
           "n_sources": 25
         },
         "overall": 1.0,
@@ -23482,8 +23319,8 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7818,
-          "n_sources": 30
+          "agreement": 0.7717,
+          "n_sources": 31
         },
         "max_output": {
           "level": "verified",
@@ -23793,8 +23630,7 @@
       "modalities": {
         "input": [
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -24009,11 +23845,9 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.04577,
-            "output": 3.88427,
-            "currency": "USD",
-            "cache_read": 0.26891,
-            "cache_write": 0.0
+            "input": 1.1,
+            "output": 3.8,
+            "currency": "USD"
           }
         ]
       },
@@ -24395,7 +24229,6 @@
       "max_output": 4000,
       "modalities": {
         "input": [
-          "pdf",
           "text"
         ],
         "output": [
@@ -27882,6 +27715,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -27897,7 +27731,7 @@
         }
       },
       "kind": "chat",
-      "description": "Image model for prompt-driven generation, editing, and visual design workflows",
+      "description": "An upgraded version of GPT-5 that adapts thinking time more precisely to the question to spend more time on complex questions and respond more quickly to simpler tasks.",
       "release_date": "2025-11-12",
       "sources": [
         "models.dev",
@@ -27906,19 +27740,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5525,
+          "confidence": 0.51,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5525,
+          "confidence": 0.51,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.5525,
+        "overall": 0.51,
         "level": "medium"
       }
     },
@@ -28762,14 +28596,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7579,
+          "agreement": 0.7587,
           "n_sources": 20
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8702,
+          "agreement": 0.8707,
           "n_sources": 17
         },
         "overall": 1.0,
@@ -29073,14 +28907,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.869,
+          "agreement": 0.8695,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9058,
+          "agreement": 0.9062,
           "n_sources": 14
         },
         "overall": 1.0,
@@ -29211,14 +29045,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8521,
+          "agreement": 0.8528,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8741,
+          "agreement": 0.8747,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -29315,7 +29149,8 @@
             "type": "context",
             "input": 60.0,
             "output": 270.0,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 3.0
           }
         ]
       },
@@ -29333,14 +29168,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7913,
+          "agreement": 0.7927,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8918,
+          "agreement": 0.8927,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -29500,14 +29335,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7415,
+          "agreement": 0.7423,
           "n_sources": 21
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.856,
+          "agreement": 0.8565,
           "n_sources": 19
         },
         "overall": 1.0,
@@ -29813,7 +29648,8 @@
             "type": "context",
             "input": 60.0,
             "output": 270.0,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 3.0
           }
         ],
         "multipliers": [
@@ -29842,14 +29678,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8026,
+          "agreement": 0.8042,
           "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9588,
+          "agreement": 0.9592,
           "n_sources": 9
         },
         "overall": 1.0,
@@ -31094,11 +30930,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 0.4,
-            "output": 1.5,
+            "input": 0.2,
+            "output": 0.75,
             "currency": "USD",
-            "cache_read": 0.04,
-            "cache_write": 0.5
+            "cache_read": 0.02,
+            "cache_write": 0.25
           }
         ]
       },
@@ -31628,11 +31464,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 8.0,
-            "output": 30.0,
+            "input": 4.0,
+            "output": 15.0,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 10.0
+            "cache_read": 0.2,
+            "cache_write": 5.0
           }
         ],
         "multipliers": [
@@ -34007,7 +33843,7 @@
         "output": 0.6
       },
       "kind": "chat",
-      "description": null,
+      "description": "GPT OSS Safeguard 120B is OpenAI’s open-weight safety model for content moderation and guardrail enforcement. It helps teams evaluate content against custom safety policies and build scalable, adaptable protections for production AI applications.",
       "release_date": "2025-10-29",
       "sources": [
         "litellm",
@@ -34017,19 +33853,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5147,
+          "confidence": 0.5143,
           "source": "consensus",
-          "agreement": 0.8566,
+          "agreement": 0.8724,
           "n_sources": 5
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6194,
+          "confidence": 0.5984,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 4
         },
-        "overall": 0.5147,
+        "overall": 0.5143,
         "level": "medium"
       }
     },
@@ -36735,9 +36571,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3017,
+          "confidence": 0.357,
           "source": "consensus",
-          "agreement": 0.52,
+          "agreement": 0.6667,
           "n_sources": 2
         },
         "max_output": {
@@ -36745,7 +36581,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.3017,
+        "overall": 0.357,
         "level": "low"
       }
     },
@@ -36963,7 +36799,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 2.0,
-        "output": 6.0
+        "output": 6.0,
+        "cache_read": 0.2
+      },
+      "billing": {
+        "cache": {
+          "read": 0.2,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Grok model for agentic tool use, reasoning, coding, and live assistance",
@@ -36976,10 +36819,10 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2653,
+          "confidence": 0.2333,
           "source": "consensus",
-          "agreement": 0.4795,
-          "n_sources": 5
+          "agreement": 0.4167,
+          "n_sources": 6
         },
         "max_output": {
           "level": "unknown",
@@ -36988,7 +36831,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.2653,
+        "overall": 0.2333,
         "level": "low"
       }
     },
@@ -37013,6 +36856,7 @@
       },
       "capabilities": {
         "tool_call": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -37047,7 +36891,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5525,
+          "confidence": 0.51,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
@@ -37057,7 +36901,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.5525,
+        "overall": 0.51,
         "level": "medium"
       }
     },
@@ -37182,7 +37026,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 2.0,
-        "output": 6.0
+        "output": 6.0,
+        "cache_read": 0.2
+      },
+      "billing": {
+        "cache": {
+          "read": 0.2,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Grok model for agentic tool use, reasoning, coding, and live assistance",
@@ -37195,10 +37046,10 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2653,
+          "confidence": 0.2333,
           "source": "consensus",
-          "agreement": 0.4795,
-          "n_sources": 5
+          "agreement": 0.4167,
+          "n_sources": 6
         },
         "max_output": {
           "level": "unknown",
@@ -37207,7 +37058,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.2653,
+        "overall": 0.2333,
         "level": "low"
       }
     },
@@ -37233,6 +37084,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -37267,7 +37119,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5525,
+          "confidence": 0.51,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
@@ -37277,7 +37129,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.5525,
+        "overall": 0.51,
         "level": "medium"
       }
     },
@@ -38350,13 +38202,17 @@
       "max_output": null,
       "modalities": {
         "input": [
+          "audio",
+          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "vision": true
+      },
       "price": null,
       "kind": "chat",
       "description": null,
@@ -38391,13 +38247,16 @@
       "max_output": null,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "vision": true
+      },
       "price": null,
       "kind": "chat",
       "description": null,
@@ -38746,9 +38605,51 @@
       }
     },
     {
+      "id": "grok4.7",
+      "vendor": "xai",
+      "name": "grok4.7",
+      "aliases": [
+        "grok4.7"
+      ],
+      "context": 500000,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "litellm"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.51,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.51,
+        "level": "medium"
+      }
+    },
+    {
       "id": "happyhorse-1.0",
       "vendor": "alibaba",
-      "name": "happyhorse-1.0",
+      "name": "HappyHorse-1.0 Image-to-Video",
       "aliases": [
         "happyhorse-1.0"
       ],
@@ -38788,7 +38689,7 @@
     {
       "id": "happyhorse-1.1",
       "vendor": "alibaba",
-      "name": "happyhorse-1.1",
+      "name": "HappyHorse-1.1 Image-to-Video",
       "aliases": [
         "happyhorse-1.1"
       ],
@@ -39393,7 +39294,7 @@
     {
       "id": "hy-mt2-lite",
       "vendor": "tencent",
-      "name": "Tencent Hy-MT2-Lite",
+      "name": "Tencent: Tencent Hy-MT2-Lite",
       "aliases": [
         "hy-mt2-lite"
       ],
@@ -39414,7 +39315,7 @@
         "output": 0.177
       },
       "kind": "chat",
-      "description": "Tencent Hy reasoning model for coding, instruction following, and agent tasks",
+      "description": "Hy-MT2-Lite is Tencent Cloud Hunyuan’s lightweight 1.8B translation model, combining efficient performance with an 8K-token context window and broad multilingual coverage. It supports translation across 33 languages and five ethnic Chinese and dialect variants, delivering strong results on benchmarks including FLORES-200 and WMT25. Designed for professional and real-world business use, it reliably follows instructions for structured, delimiter-preserving, context-aware, glossary-guided, and style-specific translation.",
       "release_date": "2026-06-12",
       "sources": [
         "models.dev",
@@ -39472,7 +39373,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5206,
+          "confidence": 0.5132,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
@@ -39494,7 +39395,7 @@
     {
       "id": "hy-mt2-pro",
       "vendor": "tencent",
-      "name": "Tencent Hy-MT2-Pro",
+      "name": "Tencent: Tencent Hy-MT2-Pro",
       "aliases": [
         "hy-mt2-pro"
       ],
@@ -39508,14 +39409,16 @@
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "structured_output": true
+      },
       "price": {
         "unit": "USD/Mtok",
         "input": 0.074,
         "output": 0.295
       },
       "kind": "chat",
-      "description": "Tencent Hy reasoning model for coding, instruction following, and agent tasks",
+      "description": "Hy-MT2-Pro is Tencent Cloud Hunyuan’s flagship translation model, featuring 30B-A3B parameters and an 8K-token context window. It delivers bidirectional translation across 33 core language pairs, plus five minority-language and dialect pairs. With industry-leading performance on FLORES-200 and WMT25, it excels in specialized domains and real-world business scenarios while supporting structured, contextual, terminology-aware, style-specific, and delimiter-preserving translation.",
       "release_date": "2026-05-21",
       "sources": [
         "models.dev",
@@ -39800,19 +39703,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.41,
+          "confidence": 0.4261,
           "source": "consensus",
-          "agreement": 0.8154,
+          "agreement": 0.8421,
           "n_sources": 5
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3388,
+          "confidence": 0.3761,
           "source": "consensus",
-          "agreement": 0.7143,
+          "agreement": 0.7736,
           "n_sources": 5
         },
-        "overall": 0.3388,
+        "overall": 0.3761,
         "level": "low"
       }
     },
@@ -41156,7 +41059,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.823,
+          "agreement": 0.8148,
           "n_sources": 11
         },
         "max_output": {
@@ -41256,7 +41159,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6904,
+          "agreement": 0.6986,
           "n_sources": 17
         },
         "max_output": {
@@ -41406,10 +41309,10 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4272,
+          "confidence": 0.4319,
           "source": "consensus",
-          "agreement": 0.7131,
-          "n_sources": 16
+          "agreement": 0.72,
+          "n_sources": 17
         },
         "max_output": {
           "level": "low",
@@ -41582,10 +41485,10 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4744,
+          "confidence": 0.4692,
           "source": "consensus",
-          "agreement": 0.7546,
-          "n_sources": 18
+          "agreement": 0.7424,
+          "n_sources": 19
         },
         "max_output": {
           "level": "low",
@@ -41754,9 +41657,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4782,
+          "confidence": 0.4811,
           "source": "consensus",
-          "agreement": 0.8758,
+          "agreement": 0.8816,
           "n_sources": 9
         },
         "max_output": {
@@ -41766,7 +41669,7 @@
           "agreement": 0.8209,
           "n_sources": 8
         },
-        "overall": 0.4782,
+        "overall": 0.4783,
         "level": "low"
       },
       "exact": {
@@ -42412,7 +42315,7 @@
     {
       "id": "ling-3.0-flash-fin",
       "vendor": "inclusionai",
-      "name": "Ling 3.0 Flash Fin Free",
+      "name": "inclusionAI: Ling 3.0 Flash Fin",
       "aliases": [
         "ling-3.0-flash-fin"
       ],
@@ -42444,30 +42347,31 @@
         }
       },
       "kind": "chat",
-      "description": null,
+      "description": "Ling 3.0 Flash Fin is InclusionAI’s finance-enhanced MoE language model, combining 124 billion total parameters with approximately 5.1 billion active parameters for efficient financial reasoning. Its 256K context window, function calling, and support for complex, multi-step investment workflows make it ideal for financial research, analysis, long-horizon planning, and execution, while retaining strong capabilities in coding and mathematics.",
       "release_date": "2026-08-27",
       "sources": [
         "hf",
         "models.dev",
-        "models.dev-api"
+        "models.dev-api",
+        "openrouter"
       ],
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5682,
+          "confidence": 0.5064,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 3
         },
         "max_output": {
-          "level": "medium",
-          "confidence": 0.5801,
+          "level": "low",
+          "confidence": 0.4587,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 2
+          "n_sources": 3
         },
-        "overall": 0.5682,
-        "level": "medium"
+        "overall": 0.4587,
+        "level": "low"
       },
       "exact": {
         "context": 262144
@@ -42476,7 +42380,7 @@
     {
       "id": "ling-3.0-flash-sante",
       "vendor": "inclusionai",
-      "name": "ling-3.0-flash-sante",
+      "name": "inclusionAI: Ling 3.0 Flash Sante",
       "aliases": [
         "ling-3.0-flash-sante"
       ],
@@ -42507,28 +42411,29 @@
         }
       },
       "kind": "chat",
-      "description": "Efficient model for low-latency assistance, extraction, and routine automation",
+      "description": "Ling-3.0-Flash-Sante is inclusionAI’s language model specialized for health and medicine, built on a Mixture-of-Experts architecture with 124 billion total parameters and approximately 5.1 billion active per token. With a 256K context window and function calling, it supports medical knowledge reasoning, evidence-based retrieval, and complex medical workflows while retaining general reasoning, coding, and agentic capabilities.",
       "release_date": "2026-09-04",
       "sources": [
         "models.dev",
-        "models.dev-api"
+        "models.dev-api",
+        "openrouter"
       ],
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4675,
+          "confidence": 0.4165,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4675,
+          "confidence": 0.4165,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
-        "overall": 0.4675,
+        "overall": 0.4165,
         "level": "low"
       }
     },
@@ -42718,20 +42623,20 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5244,
+          "confidence": 0.5091,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
         },
         "max_output": {
-          "level": "medium",
-          "confidence": 0.5137,
+          "level": "low",
+          "confidence": 0.4954,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
         },
-        "overall": 0.5137,
-        "level": "medium"
+        "overall": 0.4954,
+        "level": "low"
       },
       "exact": {
         "max_output": 262144
@@ -44100,11 +44005,11 @@
         "unit": "USD/Mtok",
         "input": 0.22,
         "output": 0.22,
-        "cache_read": 0.0272
+        "cache_read": 0.01
       },
       "billing": {
         "cache": {
-          "read": 0.0272,
+          "read": 0.01,
           "read_currency": "USD"
         }
       },
@@ -51585,7 +51490,7 @@
       "vendor": "minimax",
       "name": "H3",
       "aliases": [
-        "minimax-h3"
+        "minimax-h3-highspeed"
       ],
       "context": null,
       "max_output": null,
@@ -51629,7 +51534,7 @@
     {
       "id": "minimax-h3-image",
       "vendor": "minimax",
-      "name": "MiniMax H3 Image Highspeed",
+      "name": "minimax-h3-image",
       "aliases": [
         "minimax-h3-image-highspeed"
       ],
@@ -51650,8 +51555,8 @@
         "output": 3.8
       },
       "kind": "chat",
-      "description": "Image generation model",
-      "release_date": "2026-11-11",
+      "description": null,
+      "release_date": null,
       "sources": [
         "models.dev"
       ],
@@ -51673,6 +51578,46 @@
       },
       "exact": {
         "context": 4096
+      }
+    },
+    {
+      "id": "minimax-h3-lite",
+      "vendor": "minimax",
+      "name": "minimax-h3-lite",
+      "aliases": [
+        "minimax-h3-lite"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "models.dev"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
       }
     },
     {
@@ -51703,6 +51648,46 @@
       "sources": [
         "models.dev",
         "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.0,
+        "level": "unknown"
+      }
+    },
+    {
+      "id": "minimax-hailuo-02",
+      "vendor": "minimax",
+      "name": "minimax-hailuo-02",
+      "aliases": [
+        "minimax-hailuo-02"
+      ],
+      "context": null,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {},
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": null,
+      "sources": [
+        "models.dev"
       ],
       "confidence": {
         "context": {
@@ -51785,13 +51770,13 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.23,
-        "output": 0.96,
-        "cache_read": 0.05
+        "input": 0.2719,
+        "output": 1.0676,
+        "cache_read": 0.0544
       },
       "billing": {
         "cache": {
-          "read": 0.05,
+          "read": 0.0544,
           "read_currency": "USD"
         }
       },
@@ -51825,7 +51810,7 @@
     {
       "id": "minimax-m1",
       "vendor": "minimax",
-      "name": "MiniMax M1",
+      "name": "MiniMax-M1",
       "aliases": [
         "minimax-m1"
       ],
@@ -51839,46 +51824,38 @@
           "text"
         ]
       },
-      "capabilities": {},
+      "capabilities": {
+        "tool_call": true
+      },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.1394,
-        "output": 1.3328,
-        "cache_read": 0.0697
-      },
-      "billing": {
-        "cache": {
-          "read": 0.0697,
-          "read_currency": "USD"
-        }
+        "input": 0.132,
+        "output": 1.254
       },
       "kind": "chat",
-      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
-      "release_date": "2025-01-08",
+      "description": "MiniMax model for chat, coding, office work, and agentic tasks",
+      "release_date": "2025-06-16",
       "sources": [
         "models.dev",
         "models.dev-api"
       ],
       "confidence": {
         "context": {
-          "level": "medium",
-          "confidence": 0.51,
+          "level": "low",
+          "confidence": 0.4675,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
-          "level": "medium",
-          "confidence": 0.51,
+          "level": "low",
+          "confidence": 0.4675,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.51,
-        "level": "medium"
-      },
-      "exact": {
-        "max_output": 131072
+        "overall": 0.4675,
+        "level": "low"
       }
     },
     {
@@ -51907,14 +51884,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.55,
-        "output": 2.2,
-        "cache_read": 0.3026
-      },
-      "billing": {
-        "cache": {
-          "read": 0.3026,
-          "read_currency": "USD"
-        }
+        "output": 2.2
       },
       "kind": "chat",
       "description": "MiniMax model for chat, coding, office work, and agentic tasks",
@@ -51964,6 +51934,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "open_weights": true
       },
       "price": {
@@ -52004,15 +51975,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5936,
-          "n_sources": 13
+          "agreement": 0.5708,
+          "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 0.6224,
-          "n_sources": 13
+          "n_sources": 14
         },
         "overall": 1.0,
         "level": "verified"
@@ -52193,14 +52164,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6569,
+          "agreement": 0.6682,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9089,
+          "agreement": 0.9132,
           "n_sources": 11
         },
         "overall": 1.0,
@@ -52257,19 +52228,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2936,
+          "confidence": 0.2404,
           "source": "consensus",
-          "agreement": 0.5333,
-          "n_sources": 3
+          "agreement": 0.4286,
+          "n_sources": 4
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2936,
+          "confidence": 0.2404,
           "source": "consensus",
-          "agreement": 0.5333,
-          "n_sources": 3
+          "agreement": 0.4286,
+          "n_sources": 4
         },
-        "overall": 0.2936,
+        "overall": 0.2404,
         "level": "low"
       },
       "exact": {
@@ -52372,7 +52343,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8134,
+          "agreement": 0.8073,
           "n_sources": 20
         },
         "overall": 1.0,
@@ -52525,7 +52496,7 @@
     {
       "id": "minimax-m3",
       "vendor": "minimax",
-      "name": "MiniMax-M3",
+      "name": "MiniMax M3",
       "aliases": [
         "minimax-m3"
       ],
@@ -52570,10 +52541,10 @@
           {
             "over": 512000,
             "type": "context",
-            "input": 0.6,
-            "output": 2.4,
+            "input": 0.6275,
+            "output": 2.5098,
             "currency": "USD",
-            "cache_read": 0.12
+            "cache_read": 0.1255
           },
           {
             "over": 524288,
@@ -52623,15 +52594,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6518,
-          "n_sources": 23
+          "agreement": 0.6428,
+          "n_sources": 24
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8371,
-          "n_sources": 20
+          "agreement": 0.811,
+          "n_sources": 21
         },
         "overall": 1.0,
         "level": "verified"
@@ -53114,6 +53085,7 @@
         ]
       },
       "capabilities": {
+        "tool_call": true,
         "open_weights": true,
         "vision": true
       },
@@ -53130,7 +53102,7 @@
         }
       },
       "kind": "chat",
-      "description": "Compact Mistral model for edge, latency-sensitive, and cost-efficient workloads",
+      "description": "Ministral 3 14B is the largest model in the Ministral 3 family, offering state-of-the-art capabilities and performance comparable to its larger Mistral Small 3.2 24B counterpart. Optimized for local deployment, it delivers high performance across diverse hardware, including local setups.",
       "release_date": "2025-12-02",
       "sources": [
         "models.dev",
@@ -53744,19 +53716,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5848,
+          "confidence": 0.5797,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 4
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5351,
+          "confidence": 0.5376,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 3
+          "n_sources": 4
         },
-        "overall": 0.5351,
+        "overall": 0.5376,
         "level": "medium"
       }
     },
@@ -53848,7 +53820,7 @@
       },
       "capabilities": {
         "tool_call": true,
-        "open_weights": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -53874,19 +53846,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3279,
+          "confidence": 0.378,
           "source": "consensus",
-          "agreement": 0.5652,
+          "agreement": 0.7059,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3279,
+          "confidence": 0.378,
           "source": "consensus",
-          "agreement": 0.5652,
+          "agreement": 0.7059,
           "n_sources": 2
         },
-        "overall": 0.3279,
+        "overall": 0.378,
         "level": "low"
       },
       "exact": {
@@ -54776,17 +54748,17 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6359,
-          "n_sources": 12
+          "agreement": 0.5887,
+          "n_sources": 13
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3025,
+          "confidence": 0.219,
           "source": "consensus",
-          "agreement": 0.4643,
-          "n_sources": 12
+          "agreement": 0.4348,
+          "n_sources": 13
         },
-        "overall": 0.3025,
+        "overall": 0.219,
         "level": "low"
       },
       "exact": {
@@ -55165,8 +55137,8 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6442,
-          "n_sources": 7
+          "agreement": 0.5591,
+          "n_sources": 8
         },
         "max_output": {
           "level": "unknown",
@@ -56736,6 +56708,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "pdf",
           "text"
         ],
         "output": [
@@ -58295,7 +58268,7 @@
         }
       },
       "kind": "chat",
-      "description": "Open Llama multimodal model for image understanding and text reasoning",
+      "description": "Muse Wonder is Meta’s model for frontier coding, long-running agents, and advanced computer use. It plans long tasks, delegates work to sub-agents, and recovers from errors.",
       "release_date": "2026-10-12",
       "sources": [
         "litellm",
@@ -59061,6 +59034,55 @@
       }
     },
     {
+      "id": "nemotron-3.5-lightning-free",
+      "vendor": "nvidia",
+      "name": "NVIDIA: Nemotron 3.5 Lightning Free",
+      "aliases": [
+        "nemotron-3.5-lightning-free"
+      ],
+      "context": 1000000,
+      "max_output": 65000,
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": "Nemotron 3.5 Lightning is an open-weight reasoning and chat model for long-running agents, sub-agent work, chatbots, and RAG systems. The model has 30B parameters with 3B active per token, in a hybrid Mixture-of-Experts design that interleaves Mamba-2 and MoE layers with a few attention layers. It has a 1M token context window and supports tool calling and structured outputs. The provider may retain prompts and responses for model improvement.",
+      "release_date": "2026-10-14",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "overall": 0.4675,
+        "level": "low"
+      }
+    },
+    {
       "id": "nemotron-3.5-super-120b-a12b",
       "vendor": "nvidia",
       "name": "nemotron-3.5-super-120b-a12b",
@@ -59432,7 +59454,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6917,
+          "confidence": 0.6248,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
@@ -59444,7 +59466,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.6917,
+        "overall": 0.6248,
         "level": "medium"
       },
       "exact": {
@@ -59480,7 +59502,7 @@
         "output": 0.23
       },
       "kind": "chat",
-      "description": null,
+      "description": "NVIDIA-Nemotron-Nano-9B-v2 is a large language model (LLM) trained from scratch by NVIDIA, and designed as a unified model for both reasoning and non-reasoning tasks. It responds to user queries and tasks by first generating a reasoning trace and then concluding with a final response. The model's reasoning capabilities can be controlled via a system prompt. If the user prefers the model to provide its final answer without intermediate reasoning traces, it can be configured to do so.\\",
       "release_date": "2025-08-18",
       "sources": [
         "models.dev",
@@ -59750,7 +59772,7 @@
       "aliases": [
         "nova-2-lite"
       ],
-      "context": null,
+      "context": 1000000,
       "max_output": null,
       "modalities": {
         "input": [
@@ -59811,17 +59833,19 @@
       ],
       "confidence": {
         "context": {
-          "level": "unknown",
-          "confidence": 0.0,
-          "source": "none"
+          "level": "low",
+          "confidence": 0.4675,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
         },
         "max_output": {
           "level": "unknown",
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.0,
-        "level": "unknown"
+        "overall": 0.4675,
+        "level": "low"
       }
     },
     {
@@ -59927,7 +59951,7 @@
         }
       },
       "kind": "chat",
-      "description": null,
+      "description": "A very low cost multimodal model that is lightning fast for processing image, video, and text inputs.",
       "release_date": "2024-12-03",
       "sources": [
         "litellm",
@@ -59937,19 +59961,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
-        "overall": 0.425,
+        "overall": 0.4686,
         "level": "low"
       },
       "exact": {
@@ -60037,7 +60061,8 @@
         ]
       },
       "capabilities": {
-        "tool_call": true
+        "tool_call": true,
+        "structured_output": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -60054,7 +60079,7 @@
         }
       },
       "kind": "chat",
-      "description": null,
+      "description": "A text-only model that delivers the lowest latency responses at very low cost.",
       "release_date": "2024-12-03",
       "sources": [
         "litellm",
@@ -60064,19 +60089,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
-        "overall": 0.425,
+        "overall": 0.4686,
         "level": "low"
       },
       "exact": {
@@ -60217,6 +60242,7 @@
       },
       "capabilities": {
         "tool_call": true,
+        "structured_output": true,
         "vision": true
       },
       "price": {
@@ -60254,7 +60280,7 @@
         ]
       },
       "kind": "chat",
-      "description": null,
+      "description": "A highly capable multimodal model with the best combination of accuracy, speed, and cost for a wide range of tasks.",
       "release_date": "2024-12-03",
       "sources": [
         "litellm",
@@ -60264,19 +60290,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.425,
+          "confidence": 0.4686,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
-        "overall": 0.425,
+        "overall": 0.4686,
         "level": "low"
       },
       "exact": {
@@ -61146,14 +61172,14 @@
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 6
+          "n_sources": 7
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 6
+          "n_sources": 7
         },
         "overall": 1.0,
         "level": "verified"
@@ -61186,14 +61212,7 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 150.0,
-        "output": 600.0,
-        "cache_read": 75.0
-      },
-      "billing": {
-        "cache": {
-          "read": 75.0,
-          "read_currency": "USD"
-        }
+        "output": 600.0
       },
       "kind": "chat",
       "description": "O-series reasoning model for hard analysis, math, coding, and planning",
@@ -61399,7 +61418,7 @@
         ]
       },
       "kind": "chat",
-      "description": "O-series reasoning model for hard analysis, math, coding, and planning",
+      "description": "Smaller o-series reasoner for economical coding, math, and planning tasks",
       "release_date": "2024-12-20",
       "sources": [
         "litellm",
@@ -62806,11 +62825,11 @@
         "unit": "USD/Mtok",
         "input": 0.36,
         "output": 0.4,
-        "cache_read": 0.1785
+        "cache_read": 0.18
       },
       "billing": {
         "cache": {
-          "read": 0.1785,
+          "read": 0.18,
           "read_currency": "USD"
         }
       },
@@ -62955,7 +62974,7 @@
     {
       "id": "qwen-3-14b",
       "vendor": "alibaba",
-      "name": "Qwen3-14B",
+      "name": "Qwen: Qwen3-14B",
       "aliases": [
         "qwen-3-14b"
       ],
@@ -62971,7 +62990,8 @@
       },
       "capabilities": {
         "tool_call": true,
-        "reasoning": true
+        "reasoning": true,
+        "structured_output": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -62979,7 +62999,7 @@
         "output": 0.24
       },
       "kind": "chat",
-      "description": "Qwen instruction model for multilingual chat, reasoning, and tool use",
+      "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support",
       "release_date": "2025-04-28",
       "sources": [
         "litellm",
@@ -62989,19 +63009,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4686,
+          "confidence": 0.476,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4686,
+          "confidence": 0.476,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.4686,
+        "overall": 0.476,
         "level": "low"
       },
       "exact": {
@@ -63972,11 +63992,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.25,
-            "output": 2.0,
+            "input": 0.173,
+            "output": 1.721,
             "currency": "USD",
-            "cache_read": 0.05,
-            "cache_write": 0.3125
+            "cache_read": 0.0346,
+            "cache_write": 0.21625
           }
         ]
       },
@@ -65485,11 +65505,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.2,
-            "output": 3.6,
+            "input": 0.689,
+            "output": 6.881,
             "currency": "USD",
-            "cache_read": 0.24,
-            "cache_write": 1.5
+            "cache_read": 0.1378,
+            "cache_write": 0.86125
           }
         ]
       },
@@ -66612,7 +66632,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.25,
-        "output": 0.5
+        "output": 0.5,
+        "cache_read": 0.15
+      },
+      "billing": {
+        "cache": {
+          "read": 0.15,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "AI Singapore’s Qwen-based multilingual model, adapted for Southeast Asian languages and cultural contexts. Supports text chat and tool calling with a 128K context window.",
@@ -69285,9 +69312,9 @@
         },
         "max_output": {
           "level": "verified",
-          "confidence": 1.0,
+          "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.6107,
+          "agreement": 0.4566,
           "n_sources": 9
         },
         "overall": 0.963,
@@ -69372,11 +69399,11 @@
         "unit": "USD/Mtok",
         "input": 0.7,
         "output": 2.8,
-        "cache_read": 0.0175
+        "cache_read": 0.0574
       },
       "billing": {
         "cache": {
-          "read": 0.0175,
+          "read": 0.0574,
           "read_currency": "USD"
         }
       },
@@ -69393,8 +69420,8 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5998,
-          "n_sources": 9
+          "agreement": 0.6544,
+          "n_sources": 8
         },
         "max_output": {
           "level": "verified",
@@ -69980,11 +70007,11 @@
         "unit": "USD/Mtok",
         "input": 0.7,
         "output": 2.8,
-        "cache_read": 0.05
+        "cache_read": 0.04625
       },
       "billing": {
         "cache": {
-          "read": 0.05,
+          "read": 0.04625,
           "read_currency": "USD"
         },
         "multipliers": [
@@ -70566,15 +70593,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.75,
-            "output": 3.75,
+            "input": 0.323,
+            "output": 1.291,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 1.2,
-            "output": 6.0,
+            "input": 0.538,
+            "output": 2.151,
             "currency": "USD"
           }
         ],
@@ -70720,8 +70747,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.29,
-            "output": 5.15,
+            "input": 1.291,
+            "output": 5.161,
             "currency": "USD"
           },
           {
@@ -70735,8 +70762,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 2.151,
+            "output": 8.602,
             "currency": "USD"
           },
           {
@@ -70997,29 +71024,29 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5,
-            "output": 2.5,
+            "input": 0.216,
+            "output": 0.861,
             "currency": "USD",
-            "cache_read": 0.1,
-            "cache_write": 0.625
+            "cache_read": 0.0432,
+            "cache_write": 0.27
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.8,
-            "output": 4.0,
+            "input": 0.359,
+            "output": 1.434,
             "currency": "USD",
-            "cache_read": 0.16,
-            "cache_write": 1.0
+            "cache_read": 0.0718,
+            "cache_write": 0.44875
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 1.6,
-            "output": 9.6,
+            "input": 0.717,
+            "output": 3.584,
             "currency": "USD",
-            "cache_read": 0.32,
-            "cache_write": 2.0
+            "cache_read": 0.1434,
+            "cache_write": 0.89625
           }
         ]
       },
@@ -71565,15 +71592,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.43,
-            "output": 5.72,
+            "input": 0.574,
+            "output": 2.294,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 1.004,
+            "output": 4.014,
             "currency": "USD"
           }
         ]
@@ -71749,7 +71776,7 @@
     {
       "id": "qwen3-max-thinking",
       "vendor": "alibaba",
-      "name": "Qwen 3 Max Thinking",
+      "name": "Qwen: Qwen 3 Max Thinking",
       "aliases": [
         "qwen3-max-thinking"
       ],
@@ -71766,8 +71793,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
-        "structured_output": true,
-        "open_weights": true
+        "structured_output": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -71800,7 +71826,7 @@
         ]
       },
       "kind": "chat",
-      "description": "Qwen reasoning model for deliberate problem solving, math, and coding",
+      "description": "Compared with the snapshot as of September 23, 2025, the Qwen-3 series Max model in this release achieves an effective integration of thinking and non-thinking modes, resulting in a comprehensive and substantial improvement in the model’s overall performance. In thinking mode, the model simultaneously supports web search, web information extraction, and a code interpreter tool, enabling it to tackle more complex and challenging problems with greater accuracy by leveraging external tools while engaging in slow, deliberative reasoning. This version is based on a snapshot taken on January 23, 2026.",
       "release_date": "2026-01-23",
       "sources": [
         "litellm",
@@ -72333,8 +72359,7 @@
         "input": [
           "audio",
           "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -72930,9 +72955,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2662,
+          "confidence": 0.2368,
           "source": "consensus",
-          "agreement": 0.4451,
+          "agreement": 0.3988,
           "n_sources": 9
         },
         "max_output": {
@@ -72942,7 +72967,7 @@
           "agreement": 0.4483,
           "n_sources": 8
         },
-        "overall": 0.2662,
+        "overall": 0.2368,
         "level": "low"
       },
       "exact": {
@@ -73388,7 +73413,7 @@
     {
       "id": "qwen3-vl-instruct",
       "vendor": "alibaba",
-      "name": "Qwen3 VL Instruct",
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct",
       "aliases": [
         "qwen3-vl-instruct"
       ],
@@ -73405,7 +73430,6 @@
       },
       "capabilities": {
         "tool_call": true,
-        "open_weights": true,
         "vision": true
       },
       "price": {
@@ -73421,7 +73445,7 @@
         }
       },
       "kind": "chat",
-      "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "description": "The Qwen3 series VL models has been comprehensively upgraded in areas such as visual coding and spatial perception. Its visual perception and recognition capabilities have significantly improved, supporting the understanding of ultra-long videos, and its OCR functionality has undergone a major enhancement.",
       "release_date": "2025-09-23",
       "sources": [
         "models.dev",
@@ -73493,20 +73517,20 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.3,
-            "output": 2.4,
+            "input": 0.215,
+            "output": 2.15,
             "currency": "USD",
-            "cache_read": 0.06,
-            "cache_write": 0.375
+            "cache_read": 0.043,
+            "cache_write": 0.26875
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.6,
-            "output": 4.8,
+            "input": 0.43,
+            "output": 4.301,
             "currency": "USD",
-            "cache_read": 0.12,
-            "cache_write": 0.75
+            "cache_read": 0.086,
+            "cache_write": 0.5375
           }
         ]
       },
@@ -73824,8 +73848,7 @@
             "type": "context",
             "input": 0.287,
             "output": 2.294,
-            "currency": "USD",
-            "cache_read": 0.287
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -73982,8 +74005,7 @@
             "type": "context",
             "input": 0.258,
             "output": 2.064,
-            "currency": "USD",
-            "cache_read": 0.258
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -74069,7 +74091,14 @@
       "price": {
         "unit": "USD/Mtok",
         "input": 0.306,
-        "output": 0.306
+        "output": 0.306,
+        "cache_read": 0.153
+      },
+      "billing": {
+        "cache": {
+          "read": 0.153,
+          "read_currency": "USD"
+        }
       },
       "kind": "chat",
       "description": "Qwen3.5 27B Blossom V6.4 Derestricted is a community creative finetune for reasoning, multimodal chat, expressive writing, and roleplay.",
@@ -74371,9 +74400,7 @@
       "max_output": 8000,
       "modalities": {
         "input": [
-          "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -74382,8 +74409,7 @@
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "open_weights": true,
-        "vision": true
+        "open_weights": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -74466,10 +74492,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.229,
-            "output": 1.835,
-            "currency": "USD",
-            "cache_read": 0.229
+            "input": 0.23,
+            "output": 1.83,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -74635,8 +74660,7 @@
             "type": "context",
             "input": 0.43,
             "output": 2.58,
-            "currency": "USD",
-            "cache_read": 0.43
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -75025,20 +75049,16 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.1126,
-            "output": 1.126,
-            "currency": "USD",
-            "cache_read": 0.01126,
-            "cache_write": 0.14075
+            "input": 0.115,
+            "output": 1.147,
+            "currency": "USD"
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.169,
-            "output": 1.69,
-            "currency": "USD",
-            "cache_read": 0.0169,
-            "cache_write": 0.21125
+            "input": 0.172,
+            "output": 1.72,
+            "currency": "USD"
           }
         ]
       },
@@ -75680,17 +75700,16 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.29,
+            "input": 0.287,
             "output": 1.72,
             "currency": "USD"
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.45,
-            "output": 2.76,
-            "currency": "USD",
-            "cache_read": 0.45
+            "input": 0.573,
+            "output": 3.44,
+            "currency": "USD"
           },
           {
             "over": 256001,
@@ -76217,10 +76236,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.0,
-            "output": 4.0,
+            "input": 0.66,
+            "output": 3.961,
             "currency": "USD",
-            "cache_read": 1.0
+            "cache_read": 0.066,
+            "cache_write": 0.825
           },
           {
             "over": 262144,
@@ -76433,10 +76453,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 2.0,
-            "output": 6.0,
+            "input": 1.101,
+            "output": 6.602,
             "currency": "USD",
-            "cache_read": 2.0
+            "cache_read": 0.1101,
+            "cache_write": 1.37625
           }
         ]
       },
@@ -76569,18 +76590,20 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1,
-            "output": 0.4,
+            "input": 0.08887,
+            "output": 0.35549,
             "currency": "USD",
-            "cache_read": 0.02
+            "cache_read": 0.017774,
+            "cache_write": 0.11109
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.2,
-            "output": 0.8,
+            "input": 0.17774,
+            "output": 0.71098,
             "currency": "USD",
-            "cache_read": 0.04
+            "cache_read": 0.035548,
+            "cache_write": 0.22218
           }
         ]
       },
@@ -76974,10 +76997,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 1.2,
-            "output": 4.8,
+            "input": 0.826,
+            "output": 3.301,
             "currency": "USD",
-            "cache_read": 1.2
+            "cache_read": 0.1652,
+            "cache_write": 1.0325
           },
           {
             "over": 262144,
@@ -77122,20 +77146,23 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2246,
+          "confidence": 0.2392,
           "source": "consensus",
-          "agreement": 0.3631,
+          "agreement": 0.3915,
           "n_sources": 14
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2727,
+          "confidence": 0.3151,
           "source": "consensus",
-          "agreement": 0.4464,
+          "agreement": 0.5373,
           "n_sources": 8
         },
-        "overall": 0.2246,
+        "overall": 0.2392,
         "level": "low"
+      },
+      "exact": {
+        "max_output": 131072
       }
     },
     {
@@ -78324,24 +78351,23 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2066,
+          "confidence": 0.2126,
           "source": "consensus",
-          "agreement": 0.3403,
-          "n_sources": 15
+          "agreement": 0.3519,
+          "n_sources": 16
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2368,
+          "confidence": 0.2445,
           "source": "consensus",
-          "agreement": 0.4071,
-          "n_sources": 14
+          "agreement": 0.4222,
+          "n_sources": 15
         },
-        "overall": 0.2066,
+        "overall": 0.2126,
         "level": "low"
       },
       "exact": {
-        "context": 262144,
-        "max_output": 131072
+        "context": 262144
       }
     },
     {
@@ -79289,10 +79315,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.8,
-            "output": 4.8,
+            "input": 1.391304,
+            "output": 6.956522,
             "currency": "USD",
-            "cache_read": 0.8
+            "cache_read": 0.278261
           }
         ]
       },
@@ -79439,10 +79465,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.62,
-            "output": 5.0,
+            "input": 0.26087,
+            "output": 1.565217,
             "currency": "USD",
-            "cache_read": 0.62
+            "cache_read": 0.052174
           }
         ]
       },
@@ -79529,10 +79555,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.24,
-            "output": 1.0,
+            "input": 0.115942,
+            "output": 1.15942,
             "currency": "USD",
-            "cache_read": 0.24
+            "cache_read": 0.023188
           }
         ]
       },
@@ -79619,10 +79645,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 1.26,
-            "output": 7.58,
+            "input": 1.391304,
+            "output": 6.956522,
             "currency": "USD",
-            "cache_read": 1.26
+            "cache_read": 0.278261
           }
         ]
       },
@@ -83487,9 +83513,55 @@
       }
     },
     {
+      "id": "wan2.6",
+      "vendor": "alibaba",
+      "name": "Wan2.6 Image-to-Video Flash",
+      "aliases": [
+        "wan2.6"
+      ],
+      "context": 400000,
+      "max_output": null,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true
+      },
+      "price": null,
+      "kind": "chat",
+      "description": null,
+      "release_date": "2025-12-03",
+      "sources": [
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "medium",
+          "confidence": 0.5525,
+          "source": "consensus",
+          "agreement": 1.0,
+          "n_sources": 1
+        },
+        "max_output": {
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none"
+        },
+        "overall": 0.5525,
+        "level": "medium"
+      }
+    },
+    {
       "id": "wan2.7",
       "vendor": "alibaba",
-      "name": "wan2.7",
+      "name": "Wan2.7 Image-to-Video",
       "aliases": [
         "wan2.7"
       ],

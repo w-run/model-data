@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-12T12:13:51.393010+00:00",
+  "generated_at": "2026-11-12T21:19:44.240007+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 301,
+      "model_count": 302,
       "currencies": [
         "CNY",
         "USD"
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 161,
+      "model_count": 155,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 65,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -166,7 +166,7 @@
       ],
       "website": "https://x.ai",
       "api_docs": "https://docs.x.ai/developers/models",
-      "model_count": 65,
+      "model_count": 66,
       "currencies": [
         "USD"
       ],
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 48,
+      "model_count": 49,
       "currencies": [
         "USD"
       ],
@@ -291,12 +291,38 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 32,
+      "model_count": 35,
       "currencies": [
         "USD"
       ],
       "region": "global",
       "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "aliases": [
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
+      "model_count": 31,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -319,32 +345,6 @@
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
       "model_count": 30,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "minimax",
-      "name": "MiniMax",
-      "aliases": [
-        "abab",
-        "minimax",
-        "minimax-ai",
-        "minimax-cn",
-        "minimax-cn-coding-plan",
-        "minimax-coding-plan",
-        "minimaxai",
-        "minimaxi"
-      ],
-      "website": "https://www.minimaxi.com",
-      "api_docs": "https://platform.minimaxi.com/docs",
-      "model_count": 29,
       "currencies": [
         "CNY",
         "USD"
