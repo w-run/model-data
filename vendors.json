@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-13T11:52:56.288972+00:00",
+  "generated_at": "2026-11-13T19:15:23.745312+00:00",
   "count": 30,
   "vendors": [
     {
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 68,
+      "model_count": 67,
       "currencies": [
         "CNY",
         "USD"
