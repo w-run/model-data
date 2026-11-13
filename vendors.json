@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-12T21:19:44.240007+00:00",
+  "generated_at": "2026-11-13T02:25:32.011709+00:00",
   "count": 30,
   "vendors": [
     {
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 66,
+      "model_count": 68,
       "currencies": [
         "CNY",
         "USD"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 49,
+      "model_count": 48,
       "currencies": [
         "USD"
       ],
@@ -268,7 +268,7 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 37,
+      "model_count": 39,
       "currencies": [
         "CNY",
         "USD"
