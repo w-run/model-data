@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-15T22:30:48.095648+00:00",
+  "generated_at": "2026-11-16T04:56:45.660455+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 302,
+      "model_count": 303,
       "currencies": [
         "CNY",
         "USD"
