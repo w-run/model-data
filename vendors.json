@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-16T14:54:54.977424+00:00",
+  "generated_at": "2026-11-16T23:59:21.300527+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 303,
+      "model_count": 304,
       "currencies": [
         "CNY",
         "USD"
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 90,
+      "model_count": 91,
       "currencies": [
         "USD"
       ],
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 48,
+      "model_count": 50,
       "currencies": [
         "USD"
       ],
@@ -268,7 +268,7 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 39,
+      "model_count": 38,
       "currencies": [
         "CNY",
         "USD"
@@ -344,7 +344,7 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
-      "model_count": 30,
+      "model_count": 31,
       "currencies": [
         "CNY",
         "USD"
