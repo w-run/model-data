@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-16T04:56:45.660455+00:00",
+  "generated_at": "2026-11-16T14:54:54.977424+00:00",
   "count": 30,
   "vendors": [
     {
@@ -378,29 +378,6 @@
       "source": "manual"
     },
     {
-      "id": "inclusionai",
-      "name": "蚂蚁 InclusionAI",
-      "aliases": [
-        "inclusion-ai",
-        "inclusionai",
-        "ling",
-        "ring",
-        "蚂蚁"
-      ],
-      "website": "https://www.inclusionai.com",
-      "api_docs": "https://www.inclusionai.com/",
-      "model_count": 18,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "tencent",
       "name": "腾讯",
       "aliases": [
@@ -417,7 +394,30 @@
       ],
       "website": "https://cloud.tencent.com",
       "api_docs": "https://cloud.tencent.com/document/product/1729",
-      "model_count": 18,
+      "model_count": 20,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "inclusionai",
+      "name": "蚂蚁 InclusionAI",
+      "aliases": [
+        "inclusion-ai",
+        "inclusionai",
+        "ling",
+        "ring",
+        "蚂蚁"
+      ],
+      "website": "https://www.inclusionai.com",
+      "api_docs": "https://www.inclusionai.com/",
+      "model_count": 17,
       "currencies": [
         "CNY",
         "USD"
@@ -582,7 +582,8 @@
       "api_docs": "https://platform.stepfun.com/docs",
       "model_count": 4,
       "currencies": [
-        "CNY"
+        "CNY",
+        "USD"
       ],
       "region": "cn",
       "cn": true,
