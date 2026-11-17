@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-16T23:59:21.300527+00:00",
+  "generated_at": "2026-11-17T07:43:41.099555+00:00",
   "count": 30,
   "vendors": [
     {
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 62,
+      "model_count": 61,
       "currencies": [
         "CNY",
         "USD"
@@ -268,7 +268,7 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 38,
+      "model_count": 39,
       "currencies": [
         "CNY",
         "USD"
