@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-18T00:35:44.572538+00:00",
+  "generated_at": "2026-11-18T09:47:17.750824+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 304,
+      "model_count": 305,
       "currencies": [
         "CNY",
         "USD"
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 195,
+      "model_count": 197,
       "currencies": [
         "USD"
       ],
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 50,
+      "model_count": 51,
       "currencies": [
         "USD"
       ],
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 34,
+      "model_count": 35,
       "currencies": [
         "USD"
       ],
