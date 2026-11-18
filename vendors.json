@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-18T09:47:17.750824+00:00",
+  "generated_at": "2026-11-18T18:40:21.471659+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 305,
+      "model_count": 306,
       "currencies": [
         "CNY",
         "USD"
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 155,
+      "model_count": 156,
       "currencies": [
         "USD"
       ],
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 61,
+      "model_count": 63,
       "currencies": [
         "CNY",
         "USD"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 51,
+      "model_count": 50,
       "currencies": [
         "USD"
       ],
@@ -567,6 +567,26 @@
       "source": "manual"
     },
     {
+      "id": "sarvam",
+      "name": "Sarvam AI",
+      "aliases": [
+        "sarvam",
+        "sarvam-ai",
+        "sarvamai"
+      ],
+      "website": "https://www.sarvam.ai",
+      "api_docs": "https://docs.sarvam.ai/",
+      "model_count": 4,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "stepfun",
       "name": "阶跃星辰",
       "aliases": [
@@ -587,26 +607,6 @@
       ],
       "region": "cn",
       "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "sarvam",
-      "name": "Sarvam AI",
-      "aliases": [
-        "sarvam",
-        "sarvam-ai",
-        "sarvamai"
-      ],
-      "website": "https://www.sarvam.ai",
-      "api_docs": "https://docs.sarvam.ai/",
-      "model_count": 3,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
