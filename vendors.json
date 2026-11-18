@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-17T17:24:57.300529+00:00",
+  "generated_at": "2026-11-18T00:35:44.572538+00:00",
   "count": 30,
   "vendors": [
     {
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 190,
+      "model_count": 195,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 68,
+      "model_count": 67,
       "currencies": [
         "CNY",
         "USD"
@@ -291,7 +291,7 @@
       ],
       "website": "https://cohere.com",
       "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 35,
+      "model_count": 34,
       "currencies": [
         "USD"
       ],
@@ -429,6 +429,27 @@
       "source": "manual"
     },
     {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "aliases": [
+        "azure",
+        "azure-cognitive-services",
+        "microsoft",
+        "phi"
+      ],
+      "website": "https://azure.microsoft.com",
+      "api_docs": "https://learn.microsoft.com/azure/ai-foundry/",
+      "model_count": 15,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "baidu",
       "name": "百度",
       "aliases": [
@@ -513,27 +534,6 @@
       ],
       "website": "https://aws.amazon.com",
       "api_docs": "https://docs.aws.amazon.com/bedrock/",
-      "model_count": 11,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "aliases": [
-        "azure",
-        "azure-cognitive-services",
-        "microsoft",
-        "phi"
-      ],
-      "website": "https://azure.microsoft.com",
-      "api_docs": "https://learn.microsoft.com/azure/ai-foundry/",
       "model_count": 11,
       "currencies": [
         "USD"
