@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-19T09:55:42.810386+00:00",
+  "generated_at": "2026-11-19T18:53:11.309138+00:00",
   "count": 30,
   "vendors": [
     {
@@ -302,32 +302,6 @@
       "source": "manual"
     },
     {
-      "id": "minimax",
-      "name": "MiniMax",
-      "aliases": [
-        "abab",
-        "minimax",
-        "minimax-ai",
-        "minimax-cn",
-        "minimax-cn-coding-plan",
-        "minimax-coding-plan",
-        "minimaxai",
-        "minimaxi"
-      ],
-      "website": "https://www.minimaxi.com",
-      "api_docs": "https://platform.minimaxi.com/docs",
-      "model_count": 31,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "moonshotai",
       "name": "月之暗面",
       "aliases": [
@@ -344,6 +318,32 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
+      "model_count": 32,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "aliases": [
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
+      ],
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
       "model_count": 31,
       "currencies": [
         "CNY",
