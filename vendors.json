@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-20T09:43:36.742856+00:00",
+  "generated_at": "2026-11-20T18:21:09.968454+00:00",
   "count": 30,
   "vendors": [
     {
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 157,
+      "model_count": 158,
       "currencies": [
         "USD"
       ],
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 91,
+      "model_count": 95,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 66,
+      "model_count": 68,
       "currencies": [
         "CNY",
         "USD"
