@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-20T01:40:47.203629+00:00",
+  "generated_at": "2026-11-20T09:43:36.742856+00:00",
   "count": 30,
   "vendors": [
     {
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 156,
+      "model_count": 157,
       "currencies": [
         "USD"
       ],
@@ -144,7 +144,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 68,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
