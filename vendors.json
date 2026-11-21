@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-21T17:08:31.180094+00:00",
+  "generated_at": "2026-11-21T22:48:25.517138+00:00",
   "count": 30,
   "vendors": [
     {
@@ -318,7 +318,7 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
-      "model_count": 32,
+      "model_count": 33,
       "currencies": [
         "CNY",
         "USD"
