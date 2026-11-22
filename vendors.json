@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-22T14:07:52.389024+00:00",
+  "generated_at": "2026-11-22T21:33:56.389972+00:00",
   "count": 30,
   "vendors": [
     {
@@ -131,6 +131,31 @@
       "source": "manual"
     },
     {
+      "id": "deepseek",
+      "name": "深度求索",
+      "aliases": [
+        "deepseek",
+        "deepseek-ai",
+        "deepseek_ai",
+        "deepseekai",
+        "depthseek",
+        "ds",
+        "深度求索"
+      ],
+      "website": "https://www.deepseek.com",
+      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
+      "model_count": 66,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "xai",
       "name": "xAI",
       "aliases": [
@@ -147,31 +172,6 @@
       ],
       "region": "global",
       "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "deepseek",
-      "name": "深度求索",
-      "aliases": [
-        "deepseek",
-        "deepseek-ai",
-        "deepseek_ai",
-        "deepseekai",
-        "depthseek",
-        "ds",
-        "深度求索"
-      ],
-      "website": "https://www.deepseek.com",
-      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 65,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
