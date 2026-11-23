@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
-  "generated_at": "2026-11-22T21:33:56.333656+00:00",
-  "count": 1461,
+  "generated_at": "2026-11-23T02:16:56.356473+00:00",
+  "count": 1462,
   "models": [
     {
       "id": "active-speaker-detection",
@@ -502,19 +502,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -1767,15 +1767,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9874,
-          "n_sources": 15
+          "agreement": 0.9875,
+          "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.987,
-          "n_sources": 15
+          "agreement": 0.9871,
+          "n_sources": 16
         },
         "overall": 1.0,
         "level": "verified"
@@ -2002,19 +2002,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5597,
+          "confidence": 0.5592,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5597,
+          "confidence": 0.5592,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.5597,
+        "overall": 0.5592,
         "level": "medium"
       }
     },
@@ -2550,7 +2550,6 @@
       "modalities": {
         "input": [
           "image",
-          "pdf",
           "text"
         ],
         "output": [
@@ -2738,7 +2737,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8766,
+          "agreement": 0.8765,
           "n_sources": 12
         },
         "max_output": {
@@ -2839,14 +2838,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8764,
+          "agreement": 0.8784,
           "n_sources": 17
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9787,
+          "agreement": 0.979,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -2990,14 +2989,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9176,
+          "agreement": 0.9187,
           "n_sources": 18
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.976,
+          "agreement": 0.9763,
           "n_sources": 16
         },
         "overall": 1.0,
@@ -3091,14 +3090,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9384,
+          "agreement": 0.9391,
           "n_sources": 18
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9633,
+          "agreement": 0.9638,
           "n_sources": 17
         },
         "overall": 1.0,
@@ -3221,9 +3220,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4763,
+          "confidence": 0.4764,
           "source": "consensus",
-          "agreement": 0.8503,
+          "agreement": 0.8504,
           "n_sources": 8
         },
         "max_output": {
@@ -3379,19 +3378,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5648,
+          "confidence": 0.5644,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5648,
+          "confidence": 0.5644,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.5648,
+        "overall": 0.5644,
         "level": "medium"
       }
     },
@@ -3521,9 +3520,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1801,
+          "confidence": 0.1802,
           "source": "consensus",
-          "agreement": 0.3669,
+          "agreement": 0.3671,
           "n_sources": 4
         },
         "max_output": {
@@ -3533,7 +3532,7 @@
           "agreement": 0.6774,
           "n_sources": 2
         },
-        "overall": 0.1801,
+        "overall": 0.1802,
         "level": "low"
       }
     },
@@ -3729,7 +3728,9 @@
             "type": "context",
             "input": 6.0,
             "output": 22.5,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.6,
+            "cache_write": 7.5
           }
         ],
         "multipliers": [
@@ -3760,14 +3761,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8145,
+          "agreement": 0.8173,
           "n_sources": 19
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9436,
+          "agreement": 0.9447,
           "n_sources": 18
         },
         "overall": 1.0,
@@ -3841,14 +3842,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9854,
+          "agreement": 0.9856,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9848,
+          "agreement": 0.985,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -4160,7 +4161,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8059,
+          "agreement": 0.8145,
           "n_sources": 11
         },
         "max_output": {
@@ -5360,19 +5361,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.533,
+          "confidence": 0.5317,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.533,
+          "confidence": 0.5317,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.533,
+        "overall": 0.5317,
         "level": "medium"
       },
       "exact": {
@@ -6661,7 +6662,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5531,
+          "confidence": 0.5527,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
@@ -6671,7 +6672,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.5531,
+        "overall": 0.5527,
         "level": "medium"
       },
       "exact": {
@@ -6702,8 +6703,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.8897,
-        "output": 1.4675,
+        "input": 0.03,
+        "output": 0.03,
         "cache_read": 0.0924
       },
       "billing": {
@@ -6723,9 +6724,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3521,
+          "confidence": 0.351,
           "source": "consensus",
-          "agreement": 0.5611,
+          "agreement": 0.5606,
           "n_sources": 2
         },
         "max_output": {
@@ -6733,7 +6734,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.3521,
+        "overall": 0.351,
         "level": "low"
       }
     },
@@ -6962,17 +6963,17 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.2321,
+          "agreement": 0.2322,
           "n_sources": 22
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2229,
+          "confidence": 0.2227,
           "source": "consensus",
-          "agreement": 0.333,
+          "agreement": 0.3329,
           "n_sources": 17
         },
-        "overall": 0.2229,
+        "overall": 0.2227,
         "level": "low"
       },
       "exact": {
@@ -7418,14 +7419,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.2723,
+          "agreement": 0.272,
           "n_sources": 7
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6684,
+          "agreement": 0.668,
           "n_sources": 5
         },
         "overall": 0.963,
@@ -7471,7 +7472,7 @@
           "level": "high",
           "confidence": 0.873,
           "source": "consensus",
-          "agreement": 0.5148,
+          "agreement": 0.5143,
           "n_sources": 2
         },
         "max_output": {
@@ -7523,7 +7524,7 @@
           "level": "verified",
           "confidence": 0.97,
           "source": "consensus",
-          "agreement": 0.6892,
+          "agreement": 0.6888,
           "n_sources": 2
         },
         "max_output": {
@@ -7581,7 +7582,7 @@
           "level": "high",
           "confidence": 0.891,
           "source": "consensus",
-          "agreement": 0.6025,
+          "agreement": 0.6021,
           "n_sources": 3
         },
         "max_output": {
@@ -7639,14 +7640,14 @@
           "level": "verified",
           "confidence": 0.927,
           "source": "consensus",
-          "agreement": 0.3098,
+          "agreement": 0.3094,
           "n_sources": 5
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.97,
           "source": "consensus",
-          "agreement": 0.7001,
+          "agreement": 0.6996,
           "n_sources": 2
         },
         "overall": 0.927,
@@ -7696,7 +7697,7 @@
           "level": "high",
           "confidence": 0.873,
           "source": "consensus",
-          "agreement": 0.5148,
+          "agreement": 0.5143,
           "n_sources": 2
         },
         "max_output": {
@@ -8036,7 +8037,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.3676,
+          "agreement": 0.3674,
           "n_sources": 14
         },
         "overall": 1.0,
@@ -8125,14 +8126,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.393,
+          "agreement": 0.3929,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5478,
+          "agreement": 0.5475,
           "n_sources": 11
         },
         "overall": 0.963,
@@ -8188,19 +8189,19 @@
       "confidence": {
         "context": {
           "level": "high",
-          "confidence": 0.7038,
+          "confidence": 0.7028,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "high",
-          "confidence": 0.7038,
+          "confidence": 0.7028,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.7038,
+        "overall": 0.7028,
         "level": "high"
       },
       "exact": {
@@ -8264,17 +8265,17 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.3976,
+          "agreement": 0.3978,
           "n_sources": 10
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3461,
+          "confidence": 0.3455,
           "source": "consensus",
-          "agreement": 0.5399,
+          "agreement": 0.5396,
           "n_sources": 8
         },
-        "overall": 0.3461,
+        "overall": 0.3455,
         "level": "low"
       },
       "exact": {
@@ -8318,19 +8319,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       }
     },
@@ -8459,7 +8460,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.612,
+          "agreement": 0.6121,
           "n_sources": 20
         },
         "max_output": {
@@ -8525,14 +8526,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.2628,
+          "agreement": 0.2624,
           "n_sources": 9
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.3933,
+          "agreement": 0.3929,
           "n_sources": 7
         },
         "overall": 0.963,
@@ -8585,19 +8586,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3668,
+          "confidence": 0.3657,
           "source": "consensus",
-          "agreement": 0.5395,
+          "agreement": 0.539,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3668,
+          "confidence": 0.3657,
           "source": "consensus",
-          "agreement": 0.5395,
+          "agreement": 0.539,
           "n_sources": 2
         },
-        "overall": 0.3668,
+        "overall": 0.3657,
         "level": "low"
       }
     },
@@ -8647,19 +8648,19 @@
       "confidence": {
         "context": {
           "level": "high",
-          "confidence": 0.7038,
+          "confidence": 0.7028,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "verified",
-          "confidence": 0.9167,
+          "confidence": 0.9148,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.7038,
+        "overall": 0.7028,
         "level": "high"
       },
       "exact": {
@@ -9004,7 +9005,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7398,
+          "agreement": 0.7397,
           "n_sources": 31
         },
         "overall": 1.0,
@@ -9275,19 +9276,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5392,
+          "confidence": 0.5388,
           "source": "consensus",
           "agreement": 0.8792,
           "n_sources": 10
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5869,
+          "confidence": 0.5862,
           "source": "consensus",
-          "agreement": 0.9148,
+          "agreement": 0.9147,
           "n_sources": 8
         },
-        "overall": 0.5392,
+        "overall": 0.5388,
         "level": "medium"
       },
       "exact": {
@@ -9572,14 +9573,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8251,
+          "agreement": 0.8263,
           "n_sources": 31
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7969,
+          "agreement": 0.7993,
           "n_sources": 27
         },
         "overall": 1.0,
@@ -9939,7 +9940,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8245,
+          "agreement": 0.8308,
           "n_sources": 34
         },
         "max_output": {
@@ -10016,6 +10017,73 @@
         },
         "overall": 0.4675,
         "level": "low"
+      }
+    },
+    {
+      "id": "deepseek-v4.1-flash-1017-ultrafast",
+      "vendor": "deepseek",
+      "name": "DeepSeek V4.1 Flash 1017 Ultrafast",
+      "aliases": [
+        "deepseek-v4.1-flash-1017-ultrafast"
+      ],
+      "context": 1024000,
+      "max_output": 384000,
+      "modalities": {
+        "input": [
+          "image",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "tool_call": true,
+        "reasoning": true,
+        "structured_output": true,
+        "vision": true
+      },
+      "price": {
+        "unit": "USD/Mtok",
+        "input": 2.4,
+        "output": 9.6,
+        "cache_read": 0.048
+      },
+      "billing": {
+        "cache": {
+          "read": 0.048,
+          "read_currency": "USD"
+        }
+      },
+      "kind": "chat",
+      "description": "Fast DeepSeek model for efficient chat, coding help, and agent loops",
+      "release_date": "2026-11-06",
+      "sources": [
+        "litellm",
+        "models.dev",
+        "models.dev-api"
+      ],
+      "confidence": {
+        "context": {
+          "level": "low",
+          "confidence": 0.3928,
+          "source": "consensus",
+          "agreement": 0.7556,
+          "n_sources": 3
+        },
+        "max_output": {
+          "level": "low",
+          "confidence": 0.2872,
+          "source": "consensus",
+          "agreement": 0.5217,
+          "n_sources": 3
+        },
+        "overall": 0.2872,
+        "level": "low"
+      },
+      "exact": {
+        "context": 1048576,
+        "max_output": 393216
       }
     },
     {
@@ -10460,17 +10528,17 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8066,
+          "agreement": 0.8068,
           "n_sources": 7
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5245,
+          "confidence": 0.5231,
           "source": "consensus",
-          "agreement": 0.7174,
+          "agreement": 0.717,
           "n_sources": 6
         },
-        "overall": 0.5245,
+        "overall": 0.5231,
         "level": "medium"
       },
       "exact": {
@@ -10736,19 +10804,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5278,
+          "confidence": 0.5265,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5278,
+          "confidence": 0.5265,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.5278,
+        "overall": 0.5265,
         "level": "medium"
       },
       "exact": {
@@ -10792,19 +10860,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       }
     },
@@ -10845,19 +10913,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       }
     },
@@ -10899,19 +10967,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       }
     },
@@ -10974,19 +11042,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5575,
+          "confidence": 0.5568,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.5575,
+        "overall": 0.5568,
         "level": "medium"
       }
     },
@@ -12347,19 +12415,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2502,
+          "confidence": 0.2503,
           "source": "consensus",
-          "agreement": 0.4455,
+          "agreement": 0.4456,
           "n_sources": 10
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3636,
+          "confidence": 0.3638,
           "source": "consensus",
-          "agreement": 0.5755,
+          "agreement": 0.5757,
           "n_sources": 10
         },
-        "overall": 0.2502,
+        "overall": 0.2503,
         "level": "low"
       },
       "exact": {
@@ -12490,14 +12558,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9565,
+          "agreement": 0.9566,
           "n_sources": 10
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.95,
+          "agreement": 0.9502,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -13042,19 +13110,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2391,
+          "confidence": 0.2392,
           "source": "consensus",
-          "agreement": 0.4893,
+          "agreement": 0.4894,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3363,
+          "confidence": 0.3364,
           "source": "consensus",
-          "agreement": 0.709,
+          "agreement": 0.7093,
           "n_sources": 5
         },
-        "overall": 0.2391,
+        "overall": 0.2392,
         "level": "low"
       },
       "exact": {
@@ -13290,14 +13358,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8595,
+          "agreement": 0.8628,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9422,
+          "agreement": 0.9437,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -13676,9 +13744,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2423,
+          "confidence": 0.2424,
           "source": "consensus",
-          "agreement": 0.5048,
+          "agreement": 0.505,
           "n_sources": 6
         },
         "max_output": {
@@ -13688,7 +13756,7 @@
           "agreement": 1.0,
           "n_sources": 3
         },
-        "overall": 0.2423,
+        "overall": 0.2424,
         "level": "low"
       },
       "exact": {
@@ -13736,19 +13804,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2253,
+          "confidence": 0.2254,
           "source": "consensus",
-          "agreement": 0.5163,
+          "agreement": 0.5166,
           "n_sources": 4
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2914,
+          "confidence": 0.2904,
           "source": "consensus",
-          "agreement": 0.4091,
+          "agreement": 0.4086,
           "n_sources": 4
         },
-        "overall": 0.2253,
+        "overall": 0.2254,
         "level": "low"
       },
       "exact": {
@@ -14001,7 +14069,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9422,
+          "agreement": 0.9453,
           "n_sources": 8
         },
         "max_output": {
@@ -14225,14 +14293,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.824,
+          "agreement": 0.8274,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9007,
+          "agreement": 0.9028,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -14421,14 +14489,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8285,
+          "agreement": 0.832,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.905,
+          "agreement": 0.9072,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -14492,9 +14560,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3766,
+          "confidence": 0.3767,
           "source": "consensus",
-          "agreement": 0.6976,
+          "agreement": 0.6977,
           "n_sources": 6
         },
         "max_output": {
@@ -14504,7 +14572,7 @@
           "agreement": 0.8254,
           "n_sources": 6
         },
-        "overall": 0.3766,
+        "overall": 0.3767,
         "level": "low"
       },
       "exact": {
@@ -14629,9 +14697,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3286,
+          "confidence": 0.3287,
           "source": "consensus",
-          "agreement": 0.6095,
+          "agreement": 0.6096,
           "n_sources": 7
         },
         "max_output": {
@@ -14797,9 +14865,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2829,
+          "confidence": 0.2831,
           "source": "consensus",
-          "agreement": 0.5204,
+          "agreement": 0.5206,
           "n_sources": 8
         },
         "max_output": {
@@ -14809,7 +14877,7 @@
           "agreement": 0.6778,
           "n_sources": 8
         },
-        "overall": 0.2829,
+        "overall": 0.2831,
         "level": "low"
       },
       "exact": {
@@ -15054,7 +15122,7 @@
           "level": "low",
           "confidence": 0.3558,
           "source": "consensus",
-          "agreement": 0.6453,
+          "agreement": 0.6454,
           "n_sources": 7
         },
         "max_output": {
@@ -16794,19 +16862,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -16926,23 +16994,24 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4618,
+          "confidence": 0.4761,
           "source": "consensus",
-          "agreement": 0.9061,
+          "agreement": 0.9155,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4108,
+          "confidence": 0.4493,
           "source": "consensus",
-          "agreement": 0.7963,
+          "agreement": 0.8358,
           "n_sources": 6
         },
-        "overall": 0.4108,
+        "overall": 0.4493,
         "level": "low"
       },
       "exact": {
-        "context": 131072
+        "context": 131072,
+        "max_output": 8192
       }
     },
     {
@@ -17014,16 +17083,16 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2787,
+          "confidence": 0.2788,
           "source": "consensus",
-          "agreement": 0.4935,
+          "agreement": 0.4936,
           "n_sources": 14
         },
         "max_output": {
           "level": "low",
           "confidence": 0.1567,
           "source": "consensus",
-          "agreement": 0.2732,
+          "agreement": 0.2734,
           "n_sources": 14
         },
         "overall": 0.1567,
@@ -17119,9 +17188,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4762,
+          "confidence": 0.461,
           "source": "consensus",
-          "agreement": 0.9002,
+          "agreement": 0.8873,
           "n_sources": 6
         },
         "max_output": {
@@ -17644,14 +17713,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8691,
+          "agreement": 0.8714,
           "n_sources": 17
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8529,
+          "agreement": 0.8581,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -19026,14 +19095,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7689,
+          "agreement": 0.772,
           "n_sources": 23
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9315,
+          "agreement": 0.9336,
           "n_sources": 16
         },
         "overall": 1.0,
@@ -20242,8 +20311,6 @@
       "max_output": null,
       "modalities": {
         "input": [
-          "audio",
-          "image",
           "text"
         ],
         "output": [
@@ -20254,8 +20321,7 @@
         "tool_call": true,
         "reasoning": true,
         "structured_output": true,
-        "open_weights": true,
-        "vision": true
+        "open_weights": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -21053,8 +21119,8 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.58,
-            "output": 1.72,
+            "input": 0.548,
+            "output": 1.644,
             "currency": "USD"
           }
         ]
@@ -21074,17 +21140,17 @@
           "level": "low",
           "confidence": 0.3979,
           "source": "consensus",
-          "agreement": 0.6575,
+          "agreement": 0.6576,
           "n_sources": 9
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2678,
+          "confidence": 0.2673,
           "source": "consensus",
-          "agreement": 0.4645,
+          "agreement": 0.4642,
           "n_sources": 9
         },
-        "overall": 0.2678,
+        "overall": 0.2673,
         "level": "low"
       },
       "exact": {
@@ -21215,9 +21281,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.29,
-            "output": 0.86,
-            "currency": "USD"
+            "input": 0.2911,
+            "output": 0.8734,
+            "currency": "USD",
+            "cache_read": 0.0582
           }
         ],
         "multipliers": [
@@ -21248,14 +21315,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4574,
+          "agreement": 0.4433,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8642,
+          "agreement": 0.8646,
           "n_sources": 12
         },
         "overall": 0.963,
@@ -21714,9 +21781,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.5714,
-            "output": 2.29,
-            "currency": "USD"
+            "input": 0.5823,
+            "output": 2.3291,
+            "currency": "USD",
+            "cache_read": 0.1165
           }
         ]
       },
@@ -21818,7 +21886,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8405,
+          "agreement": 0.8406,
           "n_sources": 9
         },
         "max_output": {
@@ -22164,9 +22232,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.572,
-            "output": 2.29,
-            "currency": "USD"
+            "input": 0.5823,
+            "output": 2.3291,
+            "currency": "USD",
+            "cache_read": 0.1165
           }
         ],
         "multipliers": [
@@ -22215,14 +22284,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.5178,
+          "agreement": 0.5011,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6489,
+          "agreement": 0.6493,
           "n_sources": 14
         },
         "overall": 0.963,
@@ -22311,14 +22380,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.2322,
+          "agreement": 0.2323,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.4765,
+          "agreement": 0.4767,
           "n_sources": 12
         },
         "overall": 0.963,
@@ -22487,19 +22556,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6045,
+          "confidence": 0.6036,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6045,
+          "confidence": 0.6036,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.6045,
+        "overall": 0.6036,
         "level": "medium"
       }
     },
@@ -22917,9 +22986,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.9,
-            "output": 3.2,
-            "currency": "USD"
+            "input": 0.87,
+            "output": 3.18,
+            "currency": "USD",
+            "cache_read": 0.22
           }
         ],
         "multipliers": [
@@ -22969,14 +23039,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5394,
+          "agreement": 0.5275,
           "n_sources": 21
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4439,
+          "agreement": 0.444,
           "n_sources": 18
         },
         "overall": 0.963,
@@ -23033,10 +23103,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1,
-            "output": 3.851,
+            "input": 1.1709,
+            "output": 4.098,
             "currency": "USD",
-            "cache_read": 0.22
+            "cache_read": 0.2927
           }
         ],
         "multipliers": [
@@ -23075,9 +23145,9 @@
       "confidence": {
         "context": {
           "level": "verified",
-          "confidence": 1.0,
+          "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4746,
+          "agreement": 0.4522,
           "n_sources": 22
         },
         "max_output": {
@@ -23087,7 +23157,7 @@
           "agreement": 0.3102,
           "n_sources": 21
         },
-        "overall": 1.0,
+        "overall": 0.963,
         "level": "verified"
       },
       "exact": {
@@ -23203,7 +23273,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6761,
+          "agreement": 0.6763,
           "n_sources": 28
         },
         "overall": 1.0,
@@ -23462,7 +23532,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6755,
+          "agreement": 0.6756,
           "n_sources": 31
         },
         "overall": 1.0,
@@ -23549,14 +23619,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8086,
-          "n_sources": 37
+          "agreement": 0.8009,
+          "n_sources": 38
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5044,
+          "agreement": 0.5045,
           "n_sources": 32
         },
         "overall": 1.0,
@@ -24024,9 +24094,10 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.1,
-            "output": 3.8,
-            "currency": "USD"
+            "input": 1.0165,
+            "output": 3.7754,
+            "currency": "USD",
+            "cache_read": 0.2614
           }
         ]
       },
@@ -24045,7 +24116,7 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4036,
+          "agreement": 0.4037,
           "n_sources": 7
         },
         "max_output": {
@@ -24413,19 +24484,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -24480,14 +24551,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.4982,
+          "agreement": 0.4981,
           "n_sources": 11
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6736,
+          "agreement": 0.6735,
           "n_sources": 8
         },
         "overall": 1.0,
@@ -24508,6 +24579,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "pdf",
           "text"
         ],
         "output": [
@@ -24742,7 +24814,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7296,
+          "agreement": 0.7295,
           "n_sources": 9
         },
         "max_output": {
@@ -25129,14 +25201,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8436,
+          "agreement": 0.8472,
           "n_sources": 15
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9116,
+          "agreement": 0.914,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -25250,14 +25322,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8919,
+          "agreement": 0.8946,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9706,
+          "agreement": 0.9715,
           "n_sources": 11
         },
         "overall": 1.0,
@@ -25585,14 +25657,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9078,
+          "agreement": 0.9077,
           "n_sources": 6
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9078,
+          "agreement": 0.9077,
           "n_sources": 6
         },
         "overall": 1.0,
@@ -25885,14 +25957,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9407,
+          "agreement": 0.9423,
           "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9381,
+          "agreement": 0.9399,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -26501,19 +26573,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2803,
+          "confidence": 0.2802,
           "source": "consensus",
-          "agreement": 0.4844,
+          "agreement": 0.4845,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2896,
+          "confidence": 0.2897,
           "source": "consensus",
-          "agreement": 0.5432,
+          "agreement": 0.5434,
           "n_sources": 7
         },
-        "overall": 0.2803,
+        "overall": 0.2802,
         "level": "low"
       }
     },
@@ -26665,19 +26737,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5323,
+          "confidence": 0.5319,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5323,
+          "confidence": 0.5319,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
         },
-        "overall": 0.5323,
+        "overall": 0.5319,
         "level": "medium"
       },
       "exact": {
@@ -26747,19 +26819,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2682,
+          "confidence": 0.2685,
           "source": "consensus",
-          "agreement": 0.5226,
+          "agreement": 0.5231,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2682,
+          "confidence": 0.2685,
           "source": "consensus",
-          "agreement": 0.5226,
+          "agreement": 0.5231,
           "n_sources": 2
         },
-        "overall": 0.2682,
+        "overall": 0.2685,
         "level": "low"
       }
     },
@@ -26972,14 +27044,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.72,
+          "agreement": 0.7252,
           "n_sources": 18
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.793,
+          "agreement": 0.7971,
           "n_sources": 18
         },
         "overall": 1.0,
@@ -27108,14 +27180,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.796,
+          "agreement": 0.8005,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8511,
+          "agreement": 0.8546,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -27488,14 +27560,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8731,
+          "agreement": 0.8759,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.93,
+          "agreement": 0.9316,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -27651,19 +27723,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3802,
+          "confidence": 0.3791,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3802,
+          "confidence": 0.3791,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 2
         },
-        "overall": 0.3802,
+        "overall": 0.3791,
         "level": "low"
       }
     },
@@ -28330,19 +28402,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3802,
+          "confidence": 0.3791,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3802,
+          "confidence": 0.3791,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 2
         },
-        "overall": 0.3802,
+        "overall": 0.3791,
         "level": "low"
       }
     },
@@ -28628,19 +28700,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.29,
+          "confidence": 0.2903,
           "source": "consensus",
-          "agreement": 0.5909,
+          "agreement": 0.5914,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3802,
+          "confidence": 0.3791,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 2
         },
-        "overall": 0.29,
+        "overall": 0.2903,
         "level": "low"
       },
       "exact": {
@@ -28712,14 +28784,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8977,
+          "agreement": 0.8976,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9154,
+          "agreement": 0.9153,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -28941,14 +29013,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7713,
+          "agreement": 0.7745,
           "n_sources": 20
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8783,
+          "agreement": 0.8803,
           "n_sources": 17
         },
         "overall": 1.0,
@@ -29252,7 +29324,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8707,
+          "agreement": 0.8706,
           "n_sources": 15
         },
         "max_output": {
@@ -29512,14 +29584,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7932,
+          "agreement": 0.7994,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8925,
+          "agreement": 0.8961,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -29679,14 +29751,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7647,
+          "agreement": 0.7677,
           "n_sources": 21
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8712,
+          "agreement": 0.8731,
           "n_sources": 20
         },
         "overall": 1.0,
@@ -30291,9 +30363,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1951,
+          "confidence": 0.1952,
           "source": "consensus",
-          "agreement": 0.334,
+          "agreement": 0.3341,
           "n_sources": 15
         },
         "max_output": {
@@ -30303,7 +30375,7 @@
           "agreement": 0.6434,
           "n_sources": 10
         },
-        "overall": 0.1951,
+        "overall": 0.1952,
         "level": "low"
       }
     },
@@ -30462,11 +30534,11 @@
           {
             "over": 272000,
             "type": "context",
-            "input": 5.0,
-            "output": 22.5,
+            "input": 8.0,
+            "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.5,
-            "cache_write": 6.25
+            "cache_read": 0.8,
+            "cache_write": 10.0
           }
         ],
         "multipliers": [
@@ -30778,7 +30850,7 @@
           "level": "low",
           "confidence": 0.206,
           "source": "consensus",
-          "agreement": 0.3616,
+          "agreement": 0.3617,
           "n_sources": 11
         },
         "max_output": {
@@ -31652,11 +31724,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 4.0,
-            "output": 15.0,
+            "input": 8.0,
+            "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.4,
-            "cache_write": 5.0
+            "cache_read": 0.8,
+            "cache_write": 10.0
           }
         ],
         "multipliers": [
@@ -31887,11 +31959,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 4.0,
-            "output": 15.0,
+            "input": 8.0,
+            "output": 30.0,
             "currency": "USD",
-            "cache_read": 0.2,
-            "cache_write": 5.0
+            "cache_read": 0.4,
+            "cache_write": 10.0
           }
         ],
         "multipliers": [
@@ -32239,6 +32311,7 @@
       "modalities": {
         "input": [
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -32277,11 +32350,11 @@
           {
             "over": 272001,
             "type": "context",
-            "input": 16.0,
-            "output": 60.0,
+            "input": 32.0,
+            "output": 120.0,
             "currency": "USD",
-            "cache_read": 0.8,
-            "cache_write": 20.0
+            "cache_read": 1.6,
+            "cache_write": 40.0
           }
         ]
       },
@@ -32453,6 +32526,7 @@
       "modalities": {
         "input": [
           "image",
+          "pdf",
           "text"
         ],
         "output": [
@@ -34404,19 +34478,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5194,
+          "confidence": 0.5192,
           "source": "consensus",
           "agreement": 0.808,
           "n_sources": 23
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5991,
+          "confidence": 0.5983,
           "source": "consensus",
-          "agreement": 0.7625,
+          "agreement": 0.7623,
           "n_sources": 18
         },
-        "overall": 0.5194,
+        "overall": 0.5192,
         "level": "medium"
       },
       "exact": {
@@ -34662,19 +34736,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.48,
+          "confidence": 0.4799,
           "source": "consensus",
           "agreement": 0.7676,
           "n_sources": 16
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6245,
+          "confidence": 0.6234,
           "source": "consensus",
-          "agreement": 0.7574,
+          "agreement": 0.7571,
           "n_sources": 15
         },
-        "overall": 0.48,
+        "overall": 0.4799,
         "level": "low"
       },
       "exact": {
@@ -34838,9 +34912,9 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5159,
+          "confidence": 0.5161,
           "source": "consensus",
-          "agreement": 0.8751,
+          "agreement": 0.8754,
           "n_sources": 5
         },
         "max_output": {
@@ -34850,7 +34924,7 @@
           "agreement": 1.0,
           "n_sources": 4
         },
-        "overall": 0.5159,
+        "overall": 0.5161,
         "level": "medium"
       }
     },
@@ -36161,19 +36235,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4524,
+          "confidence": 0.4522,
           "source": "consensus",
-          "agreement": 0.7377,
+          "agreement": 0.7376,
           "n_sources": 7
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4042,
+          "confidence": 0.403,
           "source": "consensus",
-          "agreement": 0.5594,
+          "agreement": 0.5589,
           "n_sources": 5
         },
-        "overall": 0.4042,
+        "overall": 0.403,
         "level": "low"
       },
       "exact": {
@@ -36219,7 +36293,8 @@
             "type": "context",
             "input": 0.4,
             "output": 1.0,
-            "currency": "USD"
+            "currency": "USD",
+            "cache_read": 0.05
           }
         ]
       },
@@ -36411,19 +36486,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4429,
+          "confidence": 0.4432,
           "source": "consensus",
-          "agreement": 0.7242,
+          "agreement": 0.7246,
           "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4472,
+          "confidence": 0.4476,
           "source": "consensus",
-          "agreement": 0.5416,
+          "agreement": 0.5421,
           "n_sources": 3
         },
-        "overall": 0.4429,
+        "overall": 0.4432,
         "level": "low"
       },
       "exact": {
@@ -36618,10 +36693,10 @@
           {
             "over": 200000,
             "type": "context",
-            "input": 2.5,
-            "output": 5.0,
+            "input": 1.25,
+            "output": 2.5,
             "currency": "USD",
-            "cache_read": 0.4
+            "cache_read": 0.2
           },
           {
             "over": 200001,
@@ -36646,14 +36721,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.5244,
+          "agreement": 0.5496,
           "n_sources": 9
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8785,
+          "agreement": 0.8916,
           "n_sources": 9
         },
         "overall": 0.963,
@@ -36738,14 +36813,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.425,
+          "agreement": 0.4536,
           "n_sources": 9
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8375,
+          "agreement": 0.8575,
           "n_sources": 9
         },
         "overall": 0.963,
@@ -38314,14 +38389,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7955,
+          "agreement": 0.8021,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9027,
+          "agreement": 0.907,
           "n_sources": 13
         },
         "overall": 1.0,
@@ -38420,7 +38495,7 @@
             "input": 4.0,
             "output": 12.0,
             "currency": "USD",
-            "cache_read": 0.6
+            "cache_read": 1.0
           },
           {
             "over": 200001,
@@ -38664,7 +38739,7 @@
             "over": 200000,
             "type": "context",
             "input": 4.0,
-            "output": 12.0,
+            "output": 9.0,
             "currency": "USD",
             "cache_read": 1.0
           },
@@ -39894,7 +39969,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5999,
+          "confidence": 0.5993,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
@@ -39904,7 +39979,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.5999,
+        "overall": 0.5993,
         "level": "medium"
       }
     },
@@ -40583,19 +40658,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5022,
+          "confidence": 0.502,
           "source": "consensus",
           "agreement": 0.8375,
           "n_sources": 11
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4158,
+          "confidence": 0.4154,
           "source": "consensus",
-          "agreement": 0.6816,
+          "agreement": 0.6815,
           "n_sources": 10
         },
-        "overall": 0.4158,
+        "overall": 0.4154,
         "level": "low"
       },
       "exact": {
@@ -40610,7 +40685,7 @@
       "aliases": [
         "hy4"
       ],
-      "context": 1024000,
+      "context": 1000000,
       "max_output": 64000,
       "modalities": {
         "input": [
@@ -40654,23 +40729,20 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4865,
+          "confidence": 0.4985,
           "source": "consensus",
-          "agreement": 0.9034,
+          "agreement": 0.9125,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3805,
+          "confidence": 0.4241,
           "source": "consensus",
-          "agreement": 0.7736,
+          "agreement": 0.8182,
           "n_sources": 6
         },
-        "overall": 0.3805,
+        "overall": 0.4241,
         "level": "low"
-      },
-      "exact": {
-        "context": 1048576
       }
     },
     {
@@ -41842,14 +41914,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8493,
+          "agreement": 0.8492,
           "n_sources": 8
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5918,
+          "agreement": 0.5914,
           "n_sources": 8
         },
         "overall": 1.0,
@@ -41906,7 +41978,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6045,
+          "confidence": 0.6036,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
@@ -41916,7 +41988,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.6045,
+        "overall": 0.6036,
         "level": "medium"
       },
       "exact": {
@@ -41958,19 +42030,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -42077,14 +42149,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7391,
+          "agreement": 0.739,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5399,
+          "agreement": 0.5396,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -42177,7 +42249,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7464,
+          "agreement": 0.7465,
           "n_sources": 18
         },
         "max_output": {
@@ -42329,7 +42401,7 @@
           "level": "low",
           "confidence": 0.4432,
           "source": "consensus",
-          "agreement": 0.7293,
+          "agreement": 0.7294,
           "n_sources": 18
         },
         "max_output": {
@@ -42510,19 +42582,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5194,
+          "confidence": 0.5216,
           "source": "consensus",
-          "agreement": 0.8011,
+          "agreement": 0.8046,
           "n_sources": 20
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4149,
+          "confidence": 0.4147,
           "source": "consensus",
-          "agreement": 0.6114,
+          "agreement": 0.6113,
           "n_sources": 17
         },
-        "overall": 0.4149,
+        "overall": 0.4147,
         "level": "low"
       },
       "exact": {
@@ -42682,7 +42754,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5164,
+          "confidence": 0.5163,
           "source": "consensus",
           "agreement": 0.8399,
           "n_sources": 16
@@ -43889,9 +43961,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3781,
+          "confidence": 0.3776,
           "source": "consensus",
-          "agreement": 0.6762,
+          "agreement": 0.676,
           "n_sources": 2
         },
         "max_output": {
@@ -43899,7 +43971,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.3781,
+        "overall": 0.3776,
         "level": "low"
       }
     },
@@ -44682,19 +44754,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3647,
+          "confidence": 0.3643,
           "source": "consensus",
-          "agreement": 0.6286,
+          "agreement": 0.6284,
           "n_sources": 4
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5853,
+          "confidence": 0.5846,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.3647,
+        "overall": 0.3643,
         "level": "low"
       },
       "exact": {
@@ -45058,9 +45130,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4292,
+          "confidence": 0.4291,
           "source": "consensus",
-          "agreement": 0.702,
+          "agreement": 0.7019,
           "n_sources": 14
         },
         "max_output": {
@@ -45877,19 +45949,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2716,
+          "confidence": 0.2718,
           "source": "consensus",
-          "agreement": 0.5796,
+          "agreement": 0.5801,
           "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3947,
+          "confidence": 0.3936,
           "source": "consensus",
-          "agreement": 0.5807,
+          "agreement": 0.5802,
           "n_sources": 2
         },
-        "overall": 0.2716,
+        "overall": 0.2718,
         "level": "low"
       }
     },
@@ -46053,19 +46125,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5063,
+          "confidence": 0.5061,
           "source": "consensus",
           "agreement": 0.8045,
           "n_sources": 20
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4649,
+          "confidence": 0.4651,
           "source": "consensus",
-          "agreement": 0.7364,
+          "agreement": 0.7366,
           "n_sources": 12
         },
-        "overall": 0.4649,
+        "overall": 0.4651,
         "level": "low"
       },
       "exact": {
@@ -46202,19 +46274,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6045,
+          "confidence": 0.6036,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6045,
+          "confidence": 0.6036,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.6045,
+        "overall": 0.6036,
         "level": "medium"
       },
       "exact": {
@@ -46686,19 +46758,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4266,
+          "confidence": 0.425,
           "source": "consensus",
-          "agreement": 0.594,
+          "agreement": 0.5934,
           "n_sources": 2
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.684,
+          "confidence": 0.6822,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.4266,
+        "overall": 0.425,
         "level": "low"
       },
       "exact": {
@@ -46818,17 +46890,17 @@
           "level": "low",
           "confidence": 0.2619,
           "source": "consensus",
-          "agreement": 0.4218,
+          "agreement": 0.4219,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2255,
+          "confidence": 0.2253,
           "source": "consensus",
-          "agreement": 0.3528,
+          "agreement": 0.3527,
           "n_sources": 8
         },
-        "overall": 0.2255,
+        "overall": 0.2253,
         "level": "low"
       },
       "exact": {
@@ -47154,7 +47226,7 @@
           "level": "low",
           "confidence": 0.212,
           "source": "consensus",
-          "agreement": 0.3675,
+          "agreement": 0.3676,
           "n_sources": 8
         },
         "max_output": {
@@ -50501,9 +50573,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4813,
+          "confidence": 0.4815,
           "source": "consensus",
-          "agreement": 0.8053,
+          "agreement": 0.8056,
           "n_sources": 5
         },
         "max_output": {
@@ -50513,7 +50585,7 @@
           "agreement": 1.0,
           "n_sources": 4
         },
-        "overall": 0.4813,
+        "overall": 0.4815,
         "level": "low"
       }
     },
@@ -51610,7 +51682,7 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4426,
+          "confidence": 0.442,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
@@ -51622,7 +51694,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.4426,
+        "overall": 0.442,
         "level": "low"
       },
       "exact": {
@@ -51828,19 +51900,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3008,
+          "confidence": 0.3005,
           "source": "consensus",
-          "agreement": 0.5172,
+          "agreement": 0.517,
           "n_sources": 11
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2493,
+          "confidence": 0.249,
           "source": "consensus",
-          "agreement": 0.4805,
+          "agreement": 0.4803,
           "n_sources": 11
         },
-        "overall": 0.2493,
+        "overall": 0.249,
         "level": "low"
       },
       "exact": {
@@ -51935,7 +52007,7 @@
           "level": "low",
           "confidence": 0.2532,
           "source": "consensus",
-          "agreement": 0.4531,
+          "agreement": 0.4532,
           "n_sources": 8
         },
         "max_output": {
@@ -52063,14 +52135,14 @@
           "level": "low",
           "confidence": 0.212,
           "source": "consensus",
-          "agreement": 0.4092,
+          "agreement": 0.4093,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2637,
+          "confidence": 0.2638,
           "source": "consensus",
-          "agreement": 0.5309,
+          "agreement": 0.5311,
           "n_sources": 7
         },
         "overall": 0.212,
@@ -52834,6 +52906,7 @@
       "capabilities": {
         "tool_call": true,
         "reasoning": true,
+        "structured_output": true,
         "open_weights": true
       },
       "price": {
@@ -52874,15 +52947,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6182,
-          "n_sources": 12
+          "agreement": 0.6334,
+          "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6583,
-          "n_sources": 12
+          "agreement": 0.6769,
+          "n_sources": 13
         },
         "overall": 1.0,
         "level": "verified"
@@ -52992,7 +53065,8 @@
       "vendor": "minimax",
       "name": "MiniMax-M2.1",
       "aliases": [
-        "minimax-m2.1"
+        "minimax-m2.1",
+        "minimax-m2.1-highspeed"
       ],
       "context": 200000,
       "max_output": 128000,
@@ -53063,7 +53137,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6679,
+          "agreement": 0.6678,
           "n_sources": 14
         },
         "max_output": {
@@ -53226,14 +53300,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5138,
-          "n_sources": 23
+          "agreement": 0.5232,
+          "n_sources": 24
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7228,
+          "agreement": 0.7229,
           "n_sources": 22
         },
         "overall": 1.0,
@@ -53365,14 +53439,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6409,
+          "agreement": 0.6466,
           "n_sources": 19
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8987,
+          "agreement": 0.9012,
           "n_sources": 18
         },
         "overall": 1.0,
@@ -53431,18 +53505,18 @@
           {
             "over": 512000,
             "type": "context",
-            "input": 1.2,
-            "output": 4.8,
-            "currency": "USD",
-            "cache_read": 0.24
-          },
-          {
-            "over": 524288,
-            "type": "context",
             "input": 0.6,
             "output": 2.4,
             "currency": "USD",
             "cache_read": 0.12
+          },
+          {
+            "over": 524288,
+            "type": "context",
+            "input": 1.2,
+            "output": 4.8,
+            "currency": "USD",
+            "cache_read": 0.24
           }
         ],
         "multipliers": [
@@ -53483,14 +53557,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6054,
+          "agreement": 0.6021,
           "n_sources": 26
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7783,
+          "agreement": 0.7841,
           "n_sources": 22
         },
         "overall": 1.0,
@@ -53639,17 +53713,17 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.1403,
+          "agreement": 0.1438,
           "n_sources": 14
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5468,
+          "confidence": 0.5467,
           "source": "consensus",
           "agreement": 0.9004,
           "n_sources": 13
         },
-        "overall": 0.5468,
+        "overall": 0.5467,
         "level": "medium"
       }
     },
@@ -54321,9 +54395,9 @@
       "confidence": {
         "context": {
           "level": "verified",
-          "confidence": 1.0,
+          "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.6419,
+          "agreement": 0.5901,
           "n_sources": 9
         },
         "max_output": {
@@ -54454,8 +54528,8 @@
         "ministral-3-8b-instruct",
         "ministral-3-8b-instruct-2512"
       ],
-      "context": 128000,
-      "max_output": 8000,
+      "context": 256000,
+      "max_output": 32000,
       "modalities": {
         "input": [
           "image",
@@ -54495,19 +54569,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2712,
+          "confidence": 0.2514,
           "source": "consensus",
-          "agreement": 0.4198,
+          "agreement": 0.4894,
           "n_sources": 7
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2709,
+          "confidence": 0.2332,
           "source": "consensus",
-          "agreement": 0.5082,
+          "agreement": 0.4374,
           "n_sources": 7
         },
-        "overall": 0.2709,
+        "overall": 0.2332,
         "level": "low"
       }
     },
@@ -54522,6 +54596,7 @@
       "max_output": 4000,
       "modalities": {
         "input": [
+          "image",
           "text"
         ],
         "output": [
@@ -54529,7 +54604,8 @@
         ]
       },
       "capabilities": {
-        "tool_call": true
+        "tool_call": true,
+        "vision": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -55134,9 +55210,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2713,
+          "confidence": 0.2704,
           "source": "consensus",
-          "agreement": 0.3883,
+          "agreement": 0.3878,
           "n_sources": 3
         },
         "max_output": {
@@ -55144,7 +55220,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.2713,
+        "overall": 0.2704,
         "level": "low"
       },
       "exact": {
@@ -55742,17 +55818,17 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3939,
+          "confidence": 0.3617,
           "source": "consensus",
-          "agreement": 0.6209,
-          "n_sources": 5
+          "agreement": 0.564,
+          "n_sources": 6
         },
         "max_output": {
           "level": "unknown",
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.3939,
+        "overall": 0.3617,
         "level": "low"
       },
       "exact": {
@@ -55766,7 +55842,7 @@
       "aliases": [
         "mistral-large-4-1t-a52b"
       ],
-      "context": 512000,
+      "context": 1024000,
       "max_output": null,
       "modalities": {
         "input": [
@@ -55783,8 +55859,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.77,
-        "output": 2.31
+        "input": 0.7,
+        "output": 2.1
       },
       "kind": "chat",
       "description": null,
@@ -55810,7 +55886,7 @@
         "level": "verified"
       },
       "exact": {
-        "context": 524288
+        "context": 1048576
       }
     },
     {
@@ -56100,7 +56176,7 @@
         "mistral-medium-3.1"
       ],
       "context": 128000,
-      "max_output": 104857,
+      "max_output": 32000,
       "modalities": {
         "input": [
           "image",
@@ -56118,8 +56194,8 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.44,
-        "output": 2.2,
+        "input": 0.4,
+        "output": 2.0,
         "cache_read": 0.044
       },
       "billing": {
@@ -56139,23 +56215,20 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.255,
+          "confidence": 0.4239,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.255,
+          "level": "medium",
+          "confidence": 0.5801,
           "source": "consensus",
           "agreement": 1.0,
-          "n_sources": 1
+          "n_sources": 2
         },
-        "overall": 0.255,
+        "overall": 0.4239,
         "level": "low"
-      },
-      "exact": {
-        "context": 131072
       }
     },
     {
@@ -56274,17 +56347,17 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.5468,
+          "agreement": 0.5115,
           "n_sources": 10
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3184,
+          "confidence": 0.3178,
           "source": "consensus",
-          "agreement": 0.534,
+          "agreement": 0.5337,
           "n_sources": 10
         },
-        "overall": 0.3184,
+        "overall": 0.3178,
         "level": "low"
       },
       "exact": {
@@ -57001,7 +57074,7 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4758,
+          "confidence": 0.4756,
           "source": "consensus",
           "agreement": 0.8624,
           "n_sources": 6
@@ -57013,7 +57086,7 @@
           "agreement": 0.6207,
           "n_sources": 6
         },
-        "overall": 0.4758,
+        "overall": 0.4756,
         "level": "low"
       },
       "exact": {
@@ -57029,7 +57102,7 @@
         "mistral-small-3.2-24b-instruct-2506"
       ],
       "context": 128000,
-      "max_output": 32000,
+      "max_output": null,
       "modalities": {
         "input": [
           "image",
@@ -57061,7 +57134,6 @@
       "description": "Efficient Mistral model for fast chat, extraction, and production assistants",
       "release_date": "2025-06-20",
       "sources": [
-        "litellm",
         "models.dev",
         "models.dev-api",
         "openrouter"
@@ -57069,23 +57141,20 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3956,
+          "confidence": 0.3796,
           "source": "consensus",
-          "agreement": 0.7143,
-          "n_sources": 7
+          "agreement": 0.6559,
+          "n_sources": 5
         },
         "max_output": {
-          "level": "low",
-          "confidence": 0.2797,
-          "source": "consensus",
-          "agreement": 0.4483,
-          "n_sources": 6
+          "level": "unknown",
+          "confidence": 0.0,
+          "source": "none",
+          "agreement": 0.6842,
+          "n_sources": 2
         },
-        "overall": 0.2797,
+        "overall": 0.3796,
         "level": "low"
-      },
-      "exact": {
-        "max_output": 32768
       }
     },
     {
@@ -57139,15 +57208,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8365,
-          "n_sources": 11
+          "agreement": 0.7481,
+          "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
           "agreement": 0.6812,
-          "n_sources": 11
+          "n_sources": 12
         },
         "overall": 1.0,
         "level": "verified"
@@ -58595,8 +58664,15 @@
             "input": 0.3,
             "output": 1.5,
             "currency": "USD",
-            "cache_read": 0.012,
-            "cache_write": 0.0
+            "cache_read": 0.012
+          },
+          {
+            "over": 200001,
+            "type": "context",
+            "input": 0.3,
+            "output": 1.5,
+            "currency": "USD",
+            "cache_read": 0.012
           }
         ]
       },
@@ -58611,19 +58687,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4888,
+          "confidence": 0.3279,
           "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
+          "agreement": 0.6389,
+          "n_sources": 2
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4888,
+          "confidence": 0.3279,
           "source": "consensus",
-          "agreement": 1.0,
-          "n_sources": 1
+          "agreement": 0.6389,
+          "n_sources": 2
         },
-        "overall": 0.4888,
+        "overall": 0.3279,
         "level": "low"
       },
       "exact": {
@@ -59487,19 +59563,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2509,
+          "confidence": 0.251,
           "source": "consensus",
-          "agreement": 0.4935,
+          "agreement": 0.4938,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2464,
+          "confidence": 0.2466,
           "source": "consensus",
-          "agreement": 0.4668,
+          "agreement": 0.4671,
           "n_sources": 6
         },
-        "overall": 0.2464,
+        "overall": 0.2466,
         "level": "low"
       },
       "exact": {
@@ -59703,19 +59779,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3162,
+          "confidence": 0.316,
           "source": "consensus",
           "agreement": 0.4977,
           "n_sources": 8
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2848,
+          "confidence": 0.2839,
           "source": "consensus",
-          "agreement": 0.3887,
+          "agreement": 0.3883,
           "n_sources": 6
         },
-        "overall": 0.2848,
+        "overall": 0.2839,
         "level": "low"
       }
     },
@@ -59830,9 +59906,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3241,
+          "confidence": 0.3237,
           "source": "consensus",
-          "agreement": 0.4819,
+          "agreement": 0.4817,
           "n_sources": 13
         },
         "max_output": {
@@ -60031,7 +60107,7 @@
       "aliases": [
         "nemotron-3.5-lightning"
       ],
-      "context": 1000000,
+      "context": 1024000,
       "max_output": 64000,
       "modalities": {
         "input": [
@@ -60049,13 +60125,13 @@
       },
       "price": {
         "unit": "USD/Mtok",
-        "input": 0.184,
-        "output": 0.495,
-        "cache_read": 0.0368
+        "input": 0.15,
+        "output": 0.5,
+        "cache_read": 0.03
       },
       "billing": {
         "cache": {
-          "read": 0.0,
+          "read": 0.03,
           "read_currency": "USD",
           "write": 0.07,
           "write_currency": "USD"
@@ -60073,22 +60149,23 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2573,
+          "confidence": 0.2618,
           "source": "consensus",
-          "agreement": 0.4083,
+          "agreement": 0.4353,
           "n_sources": 7
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3005,
+          "confidence": 0.3009,
           "source": "consensus",
-          "agreement": 0.477,
+          "agreement": 0.4775,
           "n_sources": 7
         },
-        "overall": 0.2573,
+        "overall": 0.2618,
         "level": "low"
       },
       "exact": {
+        "context": 1048576,
         "max_output": 65536
       }
     },
@@ -60308,19 +60385,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5099,
+          "confidence": 0.5173,
           "source": "consensus",
-          "agreement": 0.747,
+          "agreement": 0.7665,
           "n_sources": 5
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3903,
+          "confidence": 0.3906,
           "source": "consensus",
-          "agreement": 0.6329,
+          "agreement": 0.6334,
           "n_sources": 5
         },
-        "overall": 0.3903,
+        "overall": 0.3906,
         "level": "low"
       },
       "exact": {
@@ -60565,19 +60642,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5278,
+          "confidence": 0.5265,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5278,
+          "confidence": 0.5265,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.5278,
+        "overall": 0.5265,
         "level": "medium"
       },
       "exact": {
@@ -61705,9 +61782,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4335,
+          "confidence": 0.4623,
           "source": "consensus",
-          "agreement": 0.75,
+          "agreement": 0.8,
           "n_sources": 3
         },
         "max_output": {
@@ -61715,7 +61792,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.4335,
+        "overall": 0.4623,
         "level": "low"
       },
       "exact": {
@@ -64167,19 +64244,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -65144,11 +65221,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.173,
-            "output": 1.721,
+            "input": 0.25,
+            "output": 2.0,
             "currency": "USD",
-            "cache_read": 0.0346,
-            "cache_write": 0.21625
+            "cache_read": 0.05,
+            "cache_write": 0.3125
           }
         ]
       },
@@ -65166,14 +65243,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.708,
+          "agreement": 0.7318,
           "n_sources": 5
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.708,
+          "agreement": 0.7318,
           "n_sources": 5
         },
         "overall": 1.0,
@@ -65360,19 +65437,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -66176,7 +66253,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5645,
+          "agreement": 0.5644,
           "n_sources": 7
         },
         "overall": 1.0,
@@ -66368,7 +66445,7 @@
           "level": "verified",
           "confidence": 0.99,
           "source": "consensus",
-          "agreement": 0.8596,
+          "agreement": 0.8594,
           "n_sources": 4
         },
         "max_output": {
@@ -66653,11 +66730,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.78,
-            "output": 2.34,
+            "input": 1.2,
+            "output": 3.6,
             "currency": "USD",
-            "cache_read": 0.156,
-            "cache_write": 0.975
+            "cache_read": 0.24,
+            "cache_write": 1.5
           }
         ]
       },
@@ -66676,14 +66753,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5539,
+          "agreement": 0.5784,
           "n_sources": 10
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6426,
+          "agreement": 0.6652,
           "n_sources": 9
         },
         "overall": 1.0,
@@ -67916,14 +67993,14 @@
           "level": "high",
           "confidence": 0.891,
           "source": "consensus",
-          "agreement": 0.4838,
+          "agreement": 0.4837,
           "n_sources": 4
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.99,
           "source": "consensus",
-          "agreement": 0.4838,
+          "agreement": 0.4837,
           "n_sources": 4
         },
         "overall": 0.891,
@@ -68277,19 +68354,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -69199,19 +69276,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2371,
+          "confidence": 0.2369,
           "source": "consensus",
-          "agreement": 0.4057,
+          "agreement": 0.4056,
           "n_sources": 7
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3643,
+          "confidence": 0.3641,
           "source": "consensus",
-          "agreement": 0.622,
+          "agreement": 0.6222,
           "n_sources": 4
         },
-        "overall": 0.2371,
+        "overall": 0.2369,
         "level": "low"
       },
       "exact": {
@@ -69312,19 +69389,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4487,
+          "confidence": 0.4486,
           "source": "consensus",
-          "agreement": 0.7922,
+          "agreement": 0.7923,
           "n_sources": 5
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4249,
+          "confidence": 0.4242,
           "source": "consensus",
-          "agreement": 0.7148,
+          "agreement": 0.7146,
           "n_sources": 5
         },
-        "overall": 0.4249,
+        "overall": 0.4242,
         "level": "low"
       },
       "exact": {
@@ -69691,9 +69768,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.471,
+          "confidence": 0.4711,
           "source": "consensus",
-          "agreement": 0.8054,
+          "agreement": 0.8056,
           "n_sources": 7
         },
         "max_output": {
@@ -69701,7 +69778,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.471,
+        "overall": 0.4711,
         "level": "low"
       },
       "exact": {
@@ -70189,9 +70266,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1984,
+          "confidence": 0.1986,
           "source": "consensus",
-          "agreement": 0.4326,
+          "agreement": 0.4329,
           "n_sources": 3
         },
         "max_output": {
@@ -70201,7 +70278,7 @@
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.1984,
+        "overall": 0.1986,
         "level": "low"
       }
     },
@@ -70297,7 +70374,7 @@
           "level": "low",
           "confidence": 0.3316,
           "source": "consensus",
-          "agreement": 0.5798,
+          "agreement": 0.5799,
           "n_sources": 8
         },
         "max_output": {
@@ -70454,14 +70531,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.2786,
+          "agreement": 0.2785,
           "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4556,
+          "agreement": 0.4554,
           "n_sources": 9
         },
         "overall": 0.963,
@@ -70567,14 +70644,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6828,
+          "agreement": 0.6826,
           "n_sources": 8
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7829,
+          "agreement": 0.7827,
           "n_sources": 7
         },
         "overall": 1.0,
@@ -70672,10 +70749,10 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2481,
+          "confidence": 0.2361,
           "source": "consensus",
-          "agreement": 0.4226,
-          "n_sources": 11
+          "agreement": 0.4002,
+          "n_sources": 12
         },
         "max_output": {
           "level": "low",
@@ -70684,7 +70761,7 @@
           "agreement": 0.5238,
           "n_sources": 8
         },
-        "overall": 0.2481,
+        "overall": 0.2361,
         "level": "low"
       },
       "exact": {
@@ -70825,19 +70902,19 @@
       "confidence": {
         "context": {
           "level": "high",
-          "confidence": 0.7038,
+          "confidence": 0.7028,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
         "max_output": {
           "level": "high",
-          "confidence": 0.7038,
+          "confidence": 0.7028,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.7038,
+        "overall": 0.7028,
         "level": "high"
       },
       "exact": {
@@ -70895,19 +70972,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3903,
+          "confidence": 0.3901,
           "source": "consensus",
-          "agreement": 0.7302,
+          "agreement": 0.7301,
           "n_sources": 7
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4865,
+          "confidence": 0.4861,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 4
         },
-        "overall": 0.3903,
+        "overall": 0.3901,
         "level": "low"
       },
       "exact": {
@@ -71024,19 +71101,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2579,
+          "confidence": 0.2751,
           "source": "consensus",
-          "agreement": 0.4174,
+          "agreement": 0.4425,
           "n_sources": 16
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2497,
+          "confidence": 0.2512,
           "source": "consensus",
-          "agreement": 0.4175,
-          "n_sources": 11
+          "agreement": 0.4176,
+          "n_sources": 12
         },
-        "overall": 0.2497,
+        "overall": 0.2512,
         "level": "low"
       },
       "exact": {
@@ -71101,7 +71178,7 @@
       "vendor": "alibaba",
       "name": "Qwen3 30B A3B Instruct 2507",
       "aliases": [
-        "qwen3-30b-a3b-instruct-2507"
+        "qwen3-30b-a3b-instruct"
       ],
       "context": 256000,
       "max_output": 32000,
@@ -71151,19 +71228,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2488,
+          "confidence": 0.2803,
           "source": "consensus",
-          "agreement": 0.4656,
-          "n_sources": 8
+          "agreement": 0.5097,
+          "n_sources": 9
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4209,
+          "confidence": 0.4203,
           "source": "consensus",
-          "agreement": 0.6686,
+          "agreement": 0.6684,
           "n_sources": 6
         },
-        "overall": 0.2488,
+        "overall": 0.2803,
         "level": "low"
       },
       "exact": {
@@ -71210,19 +71287,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3315,
+          "confidence": 0.3317,
           "source": "consensus",
-          "agreement": 0.6775,
+          "agreement": 0.6779,
           "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4057,
+          "confidence": 0.4046,
           "source": "consensus",
-          "agreement": 0.5807,
+          "agreement": 0.5802,
           "n_sources": 3
         },
-        "overall": 0.3315,
+        "overall": 0.3317,
         "level": "low"
       },
       "exact": {
@@ -71634,14 +71711,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.4988,
+          "agreement": 0.4987,
           "n_sources": 8
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.99,
           "source": "consensus",
-          "agreement": 0.8613,
+          "agreement": 0.8612,
           "n_sources": 4
         },
         "overall": 0.99,
@@ -71848,15 +71925,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.323,
-            "output": 1.291,
+            "input": 0.75,
+            "output": 3.75,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.538,
-            "output": 2.151,
+            "input": 1.2,
+            "output": 6.0,
             "currency": "USD"
           }
         ],
@@ -71904,7 +71981,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7621,
+          "agreement": 0.7622,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -72003,15 +72080,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.29,
-            "output": 5.15,
+            "input": 1.304348,
+            "output": 5.217391,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           }
         ],
@@ -72059,14 +72136,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6909,
+          "agreement": 0.6792,
           "n_sources": 12
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8151,
+          "agreement": 0.8152,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -72265,29 +72342,29 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.325,
-            "output": 1.625,
+            "input": 0.5,
+            "output": 2.5,
             "currency": "USD",
-            "cache_read": 0.065,
-            "cache_write": 0.40625
+            "cache_read": 0.1,
+            "cache_write": 0.625
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.52,
-            "output": 2.6,
+            "input": 0.8,
+            "output": 4.0,
             "currency": "USD",
-            "cache_read": 0.104,
-            "cache_write": 0.65
+            "cache_read": 0.16,
+            "cache_write": 1.0
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.717,
-            "output": 3.584,
+            "input": 1.6,
+            "output": 9.6,
             "currency": "USD",
-            "cache_read": 0.1434,
-            "cache_write": 0.89625
+            "cache_read": 0.32,
+            "cache_write": 2.0
           }
         ]
       },
@@ -72306,14 +72383,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6122,
+          "agreement": 0.6335,
           "n_sources": 9
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.762,
+          "agreement": 0.778,
           "n_sources": 8
         },
         "overall": 1.0,
@@ -72465,7 +72542,7 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8413,
+          "agreement": 0.8548,
           "n_sources": 8
         },
         "max_output": {
@@ -72599,14 +72676,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.4949,
+          "agreement": 0.4945,
           "n_sources": 6
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.3989,
+          "agreement": 0.3986,
           "n_sources": 6
         },
         "overall": 1.0,
@@ -72847,15 +72924,15 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 1.43,
-            "output": 5.72,
+            "input": 1.449275,
+            "output": 5.797101,
             "currency": "USD"
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 2.15,
-            "output": 8.58,
+            "input": 2.173913,
+            "output": 8.695652,
             "currency": "USD"
           }
         ]
@@ -72873,14 +72950,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7604,
+          "agreement": 0.7716,
           "n_sources": 11
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7509,
+          "agreement": 0.7508,
           "n_sources": 11
         },
         "overall": 1.0,
@@ -72934,17 +73011,17 @@
           "level": "verified",
           "confidence": 0.909,
           "source": "consensus",
-          "agreement": 0.493,
+          "agreement": 0.4925,
           "n_sources": 4
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2844,
+          "confidence": 0.2847,
           "source": "consensus",
-          "agreement": 0.507,
+          "agreement": 0.5075,
           "n_sources": 4
         },
-        "overall": 0.2844,
+        "overall": 0.2847,
         "level": "low"
       },
       "exact": {
@@ -73008,19 +73085,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3184,
+          "confidence": 0.3186,
           "source": "consensus",
-          "agreement": 0.5785,
+          "agreement": 0.5788,
           "n_sources": 3
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3184,
+          "confidence": 0.3186,
           "source": "consensus",
-          "agreement": 0.5785,
+          "agreement": 0.5788,
           "n_sources": 3
         },
-        "overall": 0.3184,
+        "overall": 0.3186,
         "level": "low"
       },
       "exact": {
@@ -73181,14 +73258,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.4804,
+          "agreement": 0.4956,
           "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6785,
+          "agreement": 0.6975,
           "n_sources": 14
         },
         "overall": 0.963,
@@ -73287,14 +73364,14 @@
           "level": "verified",
           "confidence": 0.963,
           "source": "consensus",
-          "agreement": 0.5462,
+          "agreement": 0.5459,
           "n_sources": 9
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6727,
+          "agreement": 0.6725,
           "n_sources": 7
         },
         "overall": 0.963,
@@ -73607,7 +73684,8 @@
         "input": [
           "audio",
           "image",
-          "text"
+          "text",
+          "video"
         ],
         "output": [
           "text"
@@ -73930,9 +74008,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3565,
+          "confidence": 0.3389,
           "source": "consensus",
-          "agreement": 0.6151,
+          "agreement": 0.5848,
           "n_sources": 13
         },
         "max_output": {
@@ -74205,7 +74283,7 @@
           "level": "low",
           "confidence": 0.3076,
           "source": "consensus",
-          "agreement": 0.4926,
+          "agreement": 0.4927,
           "n_sources": 10
         },
         "max_output": {
@@ -74265,9 +74343,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2936,
+          "confidence": 0.2932,
           "source": "consensus",
-          "agreement": 0.4449,
+          "agreement": 0.4448,
           "n_sources": 4
         },
         "max_output": {
@@ -74277,7 +74355,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.2936,
+        "overall": 0.2932,
         "level": "low"
       }
     },
@@ -74329,7 +74407,7 @@
           "level": "low",
           "confidence": 0.1963,
           "source": "consensus",
-          "agreement": 0.3608,
+          "agreement": 0.3609,
           "n_sources": 6
         },
         "max_output": {
@@ -74394,9 +74472,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2427,
+          "confidence": 0.2428,
           "source": "consensus",
-          "agreement": 0.458,
+          "agreement": 0.4582,
           "n_sources": 4
         },
         "max_output": {
@@ -74406,7 +74484,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.2427,
+        "overall": 0.2428,
         "level": "low"
       },
       "exact": {
@@ -74522,9 +74600,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3725,
+          "confidence": 0.3726,
           "source": "consensus",
-          "agreement": 0.6845,
+          "agreement": 0.6847,
           "n_sources": 7
         },
         "max_output": {
@@ -74759,20 +74837,20 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.216,
-            "output": 2.151,
+            "input": 0.3,
+            "output": 2.4,
             "currency": "USD",
-            "cache_read": 0.022,
-            "cache_write": 0.27
+            "cache_read": 0.06,
+            "cache_write": 0.375
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.431,
-            "output": 4.301,
+            "input": 0.6,
+            "output": 4.8,
             "currency": "USD",
-            "cache_read": 0.043,
-            "cache_write": 0.539
+            "cache_read": 0.12,
+            "cache_write": 0.75
           }
         ]
       },
@@ -74790,14 +74868,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.665,
+          "agreement": 0.6884,
           "n_sources": 6
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6317,
+          "agreement": 0.6599,
           "n_sources": 6
         },
         "overall": 1.0,
@@ -75088,10 +75166,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.287,
-            "output": 2.294,
-            "currency": "USD",
-            "cache_read": 0.287
+            "input": 0.2818,
+            "output": 2.2544,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -75131,14 +75208,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8123,
+          "agreement": 0.8181,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8096,
+          "agreement": 0.817,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -75245,10 +75322,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.258,
-            "output": 2.064,
-            "currency": "USD",
-            "cache_read": 0.258
+            "input": 0.2536,
+            "output": 2.0288,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -75289,14 +75365,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8093,
+          "agreement": 0.8094,
           "n_sources": 13
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.84,
+          "agreement": 0.8401,
           "n_sources": 11
         },
         "overall": 1.0,
@@ -75643,9 +75719,7 @@
       "max_output": 8000,
       "modalities": {
         "input": [
-          "image",
-          "text",
-          "video"
+          "text"
         ],
         "output": [
           "text"
@@ -75654,8 +75728,7 @@
       "capabilities": {
         "tool_call": true,
         "structured_output": true,
-        "open_weights": true,
-        "vision": true
+        "open_weights": true
       },
       "price": {
         "unit": "USD/Mtok",
@@ -75738,8 +75811,8 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.23,
-            "output": 1.83,
+            "input": 0.2254,
+            "output": 1.8032,
             "currency": "USD"
           }
         ],
@@ -75781,14 +75854,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8059,
+          "agreement": 0.8113,
           "n_sources": 14
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.8392,
+          "agreement": 0.8462,
           "n_sources": 12
         },
         "overall": 1.0,
@@ -75841,7 +75914,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
@@ -75851,7 +75924,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -75904,10 +75977,9 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.43,
-            "output": 2.58,
-            "currency": "USD",
-            "cache_read": 0.43
+            "input": 0.434783,
+            "output": 2.608696,
+            "currency": "USD"
           }
         ],
         "multipliers": [
@@ -75947,15 +76019,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.722,
-          "n_sources": 18
+          "agreement": 0.7274,
+          "n_sources": 19
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7677,
-          "n_sources": 16
+          "agreement": 0.7752,
+          "n_sources": 17
         },
         "overall": 1.0,
         "level": "verified"
@@ -76063,19 +76135,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.268,
+          "confidence": 0.2682,
           "source": "consensus",
-          "agreement": 0.4778,
+          "agreement": 0.4781,
           "n_sources": 4
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2837,
+          "confidence": 0.2828,
           "source": "consensus",
-          "agreement": 0.3984,
+          "agreement": 0.3979,
           "n_sources": 4
         },
-        "overall": 0.268,
+        "overall": 0.2682,
         "level": "low"
       },
       "exact": {
@@ -76171,9 +76243,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3531,
+          "confidence": 0.3532,
           "source": "consensus",
-          "agreement": 0.6243,
+          "agreement": 0.6244,
           "n_sources": 9
         },
         "max_output": {
@@ -76285,7 +76357,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
@@ -76295,7 +76367,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -76349,16 +76421,20 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.115,
-            "output": 1.147,
-            "currency": "USD"
+            "input": 0.1126,
+            "output": 1.126,
+            "currency": "USD",
+            "cache_read": 0.01126,
+            "cache_write": 0.14075
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.172,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.169,
+            "output": 1.69,
+            "currency": "USD",
+            "cache_read": 0.0169,
+            "cache_write": 0.21125
           }
         ]
       },
@@ -76377,14 +76453,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5039,
+          "agreement": 0.5038,
           "n_sources": 7
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.665,
+          "agreement": 0.6651,
           "n_sources": 5
         },
         "overall": 1.0,
@@ -77000,16 +77076,20 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.29,
-            "output": 1.72,
-            "currency": "USD"
+            "input": 0.274,
+            "output": 1.644,
+            "currency": "USD",
+            "cache_read": 0.0274,
+            "cache_write": 0.3425
           },
           {
             "over": 256000,
             "type": "context",
-            "input": 0.58,
-            "output": 3.44,
-            "currency": "USD"
+            "input": 0.5,
+            "output": 3.0,
+            "currency": "USD",
+            "cache_read": 0.1,
+            "cache_write": 0.625
           },
           {
             "over": 256001,
@@ -77037,14 +77117,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6702,
+          "agreement": 0.6827,
           "n_sources": 11
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7947,
+          "agreement": 0.8038,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -77421,14 +77501,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7135,
+          "agreement": 0.7129,
           "n_sources": 22
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6747,
+          "agreement": 0.6833,
           "n_sources": 21
         },
         "overall": 1.0,
@@ -77536,11 +77616,11 @@
           {
             "over": 256000,
             "type": "context",
-            "input": 0.76,
-            "output": 4.52,
+            "input": 1.0,
+            "output": 4.0,
             "currency": "USD",
-            "cache_read": 0.0686,
-            "cache_write": 0.857
+            "cache_read": 0.1,
+            "cache_write": 1.25
           },
           {
             "over": 262144,
@@ -77567,15 +77647,15 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6792,
+          "agreement": 0.6908,
           "n_sources": 11
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9423,
-          "n_sources": 8
+          "agreement": 0.9451,
+          "n_sources": 9
         },
         "overall": 1.0,
         "level": "verified"
@@ -77688,14 +77768,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5566,
+          "agreement": 0.5565,
           "n_sources": 6
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.5767,
+          "agreement": 0.5769,
           "n_sources": 6
         },
         "overall": 1.0,
@@ -77756,7 +77836,7 @@
             "input": 2.0,
             "output": 6.0,
             "currency": "USD",
-            "cache_read": 0.2,
+            "cache_read": 0.4,
             "cache_write": 2.5
           }
         ]
@@ -77776,14 +77856,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.646,
-          "n_sources": 15
+          "agreement": 0.6558,
+          "n_sources": 16
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.9513,
+          "agreement": 0.9533,
           "n_sources": 10
         },
         "overall": 1.0,
@@ -77920,19 +78000,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3799,
+          "confidence": 0.3797,
           "source": "consensus",
-          "agreement": 0.6162,
+          "agreement": 0.6161,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.436,
+          "confidence": 0.4357,
           "source": "consensus",
-          "agreement": 0.7093,
+          "agreement": 0.7092,
           "n_sources": 6
         },
-        "overall": 0.3799,
+        "overall": 0.3797,
         "level": "low"
       },
       "exact": {
@@ -78057,14 +78137,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6192,
-          "n_sources": 18
+          "agreement": 0.629,
+          "n_sources": 19
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.7048,
+          "agreement": 0.7143,
           "n_sources": 15
         },
         "overall": 1.0,
@@ -78300,7 +78380,7 @@
             "input": 1.2,
             "output": 4.8,
             "currency": "USD",
-            "cache_read": 0.12,
+            "cache_read": 0.24,
             "cache_write": 1.5
           },
           {
@@ -78328,14 +78408,14 @@
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6579,
+          "agreement": 0.6661,
           "n_sources": 18
         },
         "max_output": {
           "level": "verified",
           "confidence": 1.0,
           "source": "consensus",
-          "agreement": 0.6804,
+          "agreement": 0.689,
           "n_sources": 17
         },
         "overall": 1.0,
@@ -78446,19 +78526,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.279,
+          "confidence": 0.2791,
           "source": "consensus",
-          "agreement": 0.4513,
+          "agreement": 0.4515,
           "n_sources": 14
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.2632,
+          "confidence": 0.2633,
           "source": "consensus",
-          "agreement": 0.4488,
+          "agreement": 0.449,
           "n_sources": 8
         },
-        "overall": 0.2632,
+        "overall": 0.2633,
         "level": "low"
       },
       "exact": {
@@ -78544,16 +78624,16 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2391,
+          "confidence": 0.2537,
           "source": "consensus",
-          "agreement": 0.3679,
+          "agreement": 0.3898,
           "n_sources": 26
         },
         "max_output": {
           "level": "low",
           "confidence": 0.1714,
           "source": "consensus",
-          "agreement": 0.2989,
+          "agreement": 0.299,
           "n_sources": 23
         },
         "overall": 0.1714,
@@ -79589,7 +79669,7 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2227,
+          "confidence": 0.2226,
           "source": "consensus",
           "agreement": 0.3559,
           "n_sources": 15
@@ -79601,7 +79681,7 @@
           "agreement": 0.4071,
           "n_sources": 14
         },
-        "overall": 0.2227,
+        "overall": 0.2226,
         "level": "low"
       },
       "exact": {
@@ -79797,9 +79877,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.2193,
+          "confidence": 0.2194,
           "source": "consensus",
-          "agreement": 0.3879,
+          "agreement": 0.388,
           "n_sources": 7
         },
         "max_output": {
@@ -79809,7 +79889,7 @@
           "agreement": 0.55,
           "n_sources": 5
         },
-        "overall": 0.2193,
+        "overall": 0.2194,
         "level": "low"
       },
       "exact": {
@@ -80124,9 +80204,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.1749,
+          "confidence": 0.175,
           "source": "consensus",
-          "agreement": 0.3644,
+          "agreement": 0.3647,
           "n_sources": 6
         },
         "max_output": {
@@ -80134,7 +80214,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.1749,
+        "overall": 0.175,
         "level": "low"
       },
       "exact": {
@@ -80180,14 +80260,14 @@
           "level": "high",
           "confidence": 0.873,
           "source": "consensus",
-          "agreement": 0.5656,
+          "agreement": 0.5653,
           "n_sources": 3
         },
         "max_output": {
           "level": "verified",
           "confidence": 0.97,
           "source": "consensus",
-          "agreement": 0.5656,
+          "agreement": 0.5653,
           "n_sources": 3
         },
         "overall": 0.873,
@@ -80555,16 +80635,18 @@
           {
             "over": 32000,
             "type": "context",
-            "input": 0.1715,
-            "output": 2.286,
-            "currency": "USD"
+            "input": 0.17,
+            "output": 2.27,
+            "currency": "USD",
+            "cache_read": 0.023
           },
           {
             "over": 128000,
             "type": "context",
-            "input": 0.343,
-            "output": 3.43,
-            "currency": "USD"
+            "input": 0.34,
+            "output": 3.41,
+            "currency": "USD",
+            "cache_read": 0.023
           }
         ]
       },
@@ -80642,10 +80724,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.8,
-            "output": 4.8,
+            "input": 1.34,
+            "output": 6.71,
             "currency": "USD",
-            "cache_read": 0.8
+            "cache_read": 0.27
           }
         ]
       },
@@ -80660,19 +80742,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5142,
+          "confidence": 0.514,
           "source": "consensus",
-          "agreement": 0.8264,
+          "agreement": 0.8265,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.4542,
+          "confidence": 0.4538,
           "source": "consensus",
-          "agreement": 0.7099,
+          "agreement": 0.71,
           "n_sources": 6
         },
-        "overall": 0.4542,
+        "overall": 0.4538,
         "level": "low"
       }
     },
@@ -80792,9 +80874,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.5,
-            "output": 4.0,
-            "currency": "USD"
+            "input": 0.25,
+            "output": 1.51,
+            "currency": "USD",
+            "cache_read": 0.05
           }
         ]
       },
@@ -80810,19 +80893,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.4044,
+          "confidence": 0.4045,
           "source": "consensus",
-          "agreement": 0.746,
+          "agreement": 0.7463,
           "n_sources": 5
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3766,
+          "confidence": 0.3767,
           "source": "consensus",
-          "agreement": 0.711,
+          "agreement": 0.7112,
           "n_sources": 5
         },
-        "overall": 0.3766,
+        "overall": 0.3767,
         "level": "low"
       },
       "exact": {
@@ -80881,9 +80964,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 0.2,
-            "output": 0.8,
-            "currency": "USD"
+            "input": 0.12,
+            "output": 1.12,
+            "currency": "USD",
+            "cache_read": 0.03
           }
         ]
       },
@@ -80899,19 +80983,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3964,
+          "confidence": 0.3965,
           "source": "consensus",
-          "agreement": 0.7412,
+          "agreement": 0.7414,
           "n_sources": 6
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3446,
+          "confidence": 0.3447,
           "source": "consensus",
-          "agreement": 0.6648,
+          "agreement": 0.665,
           "n_sources": 6
         },
-        "overall": 0.3446,
+        "overall": 0.3447,
         "level": "low"
       },
       "exact": {
@@ -80970,10 +81054,10 @@
           {
             "over": 128000,
             "type": "context",
-            "input": 1.26,
-            "output": 7.58,
+            "input": 1.34,
+            "output": 6.71,
             "currency": "USD",
-            "cache_read": 1.26
+            "cache_read": 0.27
           }
         ]
       },
@@ -80988,9 +81072,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3067,
+          "confidence": 0.3069,
           "source": "consensus",
-          "agreement": 0.5624,
+          "agreement": 0.5627,
           "n_sources": 4
         },
         "max_output": {
@@ -81120,9 +81204,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3744,
+          "confidence": 0.3746,
           "source": "consensus",
-          "agreement": 0.6805,
+          "agreement": 0.6807,
           "n_sources": 5
         },
         "max_output": {
@@ -81132,7 +81216,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.3744,
+        "overall": 0.3746,
         "level": "low"
       },
       "exact": {
@@ -81361,9 +81445,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3781,
+          "confidence": 0.3776,
           "source": "consensus",
-          "agreement": 0.6762,
+          "agreement": 0.676,
           "n_sources": 2
         },
         "max_output": {
@@ -81371,7 +81455,7 @@
           "confidence": 0.0,
           "source": "none"
         },
-        "overall": 0.3781,
+        "overall": 0.3776,
         "level": "low"
       }
     },
@@ -81947,19 +82031,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5772,
+          "confidence": 0.5759,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5772,
+          "confidence": 0.5759,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.5772,
+        "overall": 0.5759,
         "level": "medium"
       },
       "exact": {
@@ -82070,9 +82154,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3845,
+          "confidence": 0.3847,
           "source": "consensus",
-          "agreement": 0.7832,
+          "agreement": 0.7837,
           "n_sources": 4
         },
         "max_output": {
@@ -82082,7 +82166,7 @@
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.3845,
+        "overall": 0.3847,
         "level": "low"
       }
     },
@@ -82376,9 +82460,9 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3288,
+          "confidence": 0.3289,
           "source": "consensus",
-          "agreement": 0.6601,
+          "agreement": 0.6605,
           "n_sources": 5
         },
         "max_output": {
@@ -82388,7 +82472,7 @@
           "agreement": 1.0,
           "n_sources": 2
         },
-        "overall": 0.3288,
+        "overall": 0.3289,
         "level": "low"
       }
     },
@@ -82600,19 +82684,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -82753,19 +82837,19 @@
       "confidence": {
         "context": {
           "level": "low",
-          "confidence": 0.3982,
+          "confidence": 0.398,
           "source": "consensus",
-          "agreement": 0.6347,
+          "agreement": 0.6348,
           "n_sources": 5
         },
         "max_output": {
           "level": "low",
-          "confidence": 0.3433,
+          "confidence": 0.3428,
           "source": "consensus",
-          "agreement": 0.5316,
+          "agreement": 0.5313,
           "n_sources": 5
         },
-        "overall": 0.3433,
+        "overall": 0.3428,
         "level": "low"
       },
       "exact": {
@@ -82848,7 +82932,7 @@
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6599,
+          "confidence": 0.6592,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 7
@@ -82917,19 +83001,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5927,
+          "confidence": 0.5924,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 6
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.5638,
+          "confidence": 0.5636,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 6
         },
-        "overall": 0.5638,
+        "overall": 0.5636,
         "level": "medium"
       },
       "exact": {
@@ -82968,19 +83052,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -83618,19 +83702,19 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
         "max_output": {
           "level": "medium",
-          "confidence": 0.6474,
+          "confidence": 0.6461,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 1
         },
-        "overall": 0.6474,
+        "overall": 0.6461,
         "level": "medium"
       },
       "exact": {
@@ -84353,7 +84437,7 @@
       "confidence": {
         "context": {
           "level": "medium",
-          "confidence": 0.5278,
+          "confidence": 0.5275,
           "source": "consensus",
           "agreement": 1.0,
           "n_sources": 3
