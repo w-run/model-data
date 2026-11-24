@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-23T14:04:24.322666+00:00",
+  "generated_at": "2026-11-24T02:45:41.753186+00:00",
   "count": 30,
   "vendors": [
     {
@@ -75,7 +75,7 @@
       ],
       "website": "https://ai.google",
       "api_docs": "https://ai.google.dev/gemini-api/docs/models",
-      "model_count": 158,
+      "model_count": 159,
       "currencies": [
         "USD"
       ],
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 95,
+      "model_count": 89,
       "currencies": [
         "USD"
       ],
@@ -318,7 +318,7 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
-      "model_count": 32,
+      "model_count": 31,
       "currencies": [
         "CNY",
         "USD"
