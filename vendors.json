@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-24T14:34:49.210081+00:00",
+  "generated_at": "2026-11-25T00:23:10.809795+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 305,
+      "model_count": 293,
       "currencies": [
         "CNY",
         "USD"
@@ -51,7 +51,7 @@
       ],
       "website": "https://openai.com",
       "api_docs": "https://developers.openai.com/api/docs/models",
-      "model_count": 198,
+      "model_count": 202,
       "currencies": [
         "USD"
       ],
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 142,
+      "model_count": 140,
       "currencies": [
         "USD"
       ],
@@ -131,31 +131,6 @@
       "source": "manual"
     },
     {
-      "id": "deepseek",
-      "name": "深度求索",
-      "aliases": [
-        "deepseek",
-        "deepseek-ai",
-        "deepseek_ai",
-        "deepseekai",
-        "depthseek",
-        "ds",
-        "深度求索"
-      ],
-      "website": "https://www.deepseek.com",
-      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 66,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "xai",
       "name": "xAI",
       "aliases": [
@@ -172,6 +147,31 @@
       ],
       "region": "global",
       "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "deepseek",
+      "name": "深度求索",
+      "aliases": [
+        "deepseek",
+        "deepseek-ai",
+        "deepseek_ai",
+        "deepseekai",
+        "depthseek",
+        "ds",
+        "深度求索"
+      ],
+      "website": "https://www.deepseek.com",
+      "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
+      "model_count": 65,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 63,
+      "model_count": 58,
       "currencies": [
         "CNY",
         "USD"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 51,
+      "model_count": 49,
       "currencies": [
         "USD"
       ],
@@ -280,23 +280,27 @@
       "source": "manual"
     },
     {
-      "id": "cohere",
-      "name": "Cohere",
+      "id": "minimax",
+      "name": "MiniMax",
       "aliases": [
-        "aya",
-        "cohere",
-        "cohere-ai",
-        "cohereforai",
-        "coherelabs"
+        "abab",
+        "minimax",
+        "minimax-ai",
+        "minimax-cn",
+        "minimax-cn-coding-plan",
+        "minimax-coding-plan",
+        "minimaxai",
+        "minimaxi"
       ],
-      "website": "https://cohere.com",
-      "api_docs": "https://docs.cohere.com/docs/models",
-      "model_count": 33,
+      "website": "https://www.minimaxi.com",
+      "api_docs": "https://platform.minimaxi.com/docs",
+      "model_count": 34,
       "currencies": [
+        "CNY",
         "USD"
       ],
-      "region": "global",
-      "cn": false,
+      "region": "cn",
+      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -330,32 +334,6 @@
       "source": "manual"
     },
     {
-      "id": "minimax",
-      "name": "MiniMax",
-      "aliases": [
-        "abab",
-        "minimax",
-        "minimax-ai",
-        "minimax-cn",
-        "minimax-cn-coding-plan",
-        "minimax-coding-plan",
-        "minimaxai",
-        "minimaxi"
-      ],
-      "website": "https://www.minimaxi.com",
-      "api_docs": "https://platform.minimaxi.com/docs",
-      "model_count": 30,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "perplexity",
       "name": "Perplexity",
       "aliases": [
@@ -378,29 +356,23 @@
       "source": "manual"
     },
     {
-      "id": "tencent",
-      "name": "腾讯",
+      "id": "cohere",
+      "name": "Cohere",
       "aliases": [
-        "hunyuan",
-        "tencent",
-        "tencent-ai",
-        "tencent-cloud",
-        "tencent-coding-plan",
-        "tencent-token-plan",
-        "tencent-tokenhub",
-        "tencentarc",
-        "混元",
-        "腾讯"
+        "aya",
+        "cohere",
+        "cohere-ai",
+        "cohereforai",
+        "coherelabs"
       ],
-      "website": "https://cloud.tencent.com",
-      "api_docs": "https://cloud.tencent.com/document/product/1729",
-      "model_count": 19,
+      "website": "https://cohere.com",
+      "api_docs": "https://docs.cohere.com/docs/models",
+      "model_count": 26,
       "currencies": [
-        "CNY",
         "USD"
       ],
-      "region": "cn",
-      "cn": true,
+      "region": "global",
+      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -445,6 +417,34 @@
       ],
       "region": "global",
       "cn": false,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "tencent",
+      "name": "腾讯",
+      "aliases": [
+        "hunyuan",
+        "tencent",
+        "tencent-ai",
+        "tencent-cloud",
+        "tencent-coding-plan",
+        "tencent-token-plan",
+        "tencent-tokenhub",
+        "tencentarc",
+        "混元",
+        "腾讯"
+      ],
+      "website": "https://cloud.tencent.com",
+      "api_docs": "https://cloud.tencent.com/document/product/1729",
+      "model_count": 15,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
@@ -545,6 +545,31 @@
       "source": "manual"
     },
     {
+      "id": "stepfun",
+      "name": "阶跃星辰",
+      "aliases": [
+        "step",
+        "stepfun",
+        "stepfun-ai",
+        "stepfun-ai-step-plan",
+        "stepfun-step-plan",
+        "阶跃",
+        "阶跃星辰"
+      ],
+      "website": "https://www.stepfun.com",
+      "api_docs": "https://platform.stepfun.com/docs",
+      "model_count": 6,
+      "currencies": [
+        "CNY",
+        "USD"
+      ],
+      "region": "cn",
+      "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
       "id": "sensenova",
       "name": "商汤日日新",
       "aliases": [
@@ -582,31 +607,6 @@
       ],
       "region": "global",
       "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
-      "id": "stepfun",
-      "name": "阶跃星辰",
-      "aliases": [
-        "step",
-        "stepfun",
-        "stepfun-ai",
-        "stepfun-ai-step-plan",
-        "stepfun-step-plan",
-        "阶跃",
-        "阶跃星辰"
-      ],
-      "website": "https://www.stepfun.com",
-      "api_docs": "https://platform.stepfun.com/docs",
-      "model_count": 4,
-      "currencies": [
-        "CNY",
-        "USD"
-      ],
-      "region": "cn",
-      "cn": true,
       "own": false,
       "aggregator": false,
       "source": "manual"
