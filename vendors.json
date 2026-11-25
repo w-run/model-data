@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-25T10:54:27.870677+00:00",
+  "generated_at": "2026-11-25T21:06:57.237505+00:00",
   "count": 30,
   "vendors": [
     {
@@ -98,7 +98,7 @@
       ],
       "website": "https://ai.meta.com",
       "api_docs": "https://developer.meta.com/ai/",
-      "model_count": 140,
+      "model_count": 139,
       "currencies": [
         "USD"
       ],
@@ -165,7 +165,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 65,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 58,
+      "model_count": 59,
       "currencies": [
         "CNY",
         "USD"
@@ -217,7 +217,7 @@
       ],
       "website": "https://www.nvidia.com",
       "api_docs": "https://docs.api.nvidia.com/nim/docs/introduction",
-      "model_count": 49,
+      "model_count": 46,
       "currencies": [
         "USD"
       ],
@@ -509,7 +509,7 @@
       ],
       "website": "https://aws.amazon.com",
       "api_docs": "https://docs.aws.amazon.com/bedrock/",
-      "model_count": 12,
+      "model_count": 11,
       "currencies": [
         "USD"
       ],
