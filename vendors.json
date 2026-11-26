@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-26T13:41:54.505005+00:00",
+  "generated_at": "2026-11-26T22:49:31.626133+00:00",
   "count": 30,
   "vendors": [
     {
@@ -388,7 +388,7 @@
       ],
       "website": "https://www.inclusionai.com",
       "api_docs": "https://www.inclusionai.com/",
-      "model_count": 21,
+      "model_count": 22,
       "currencies": [
         "CNY",
         "USD"
