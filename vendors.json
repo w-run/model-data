@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-26T03:57:52.078677+00:00",
+  "generated_at": "2026-11-26T13:41:54.505005+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 293,
+      "model_count": 289,
       "currencies": [
         "CNY",
         "USD"
@@ -165,7 +165,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 67,
+      "model_count": 66,
       "currencies": [
         "CNY",
         "USD"
@@ -195,7 +195,7 @@
       ],
       "website": "https://www.zhipuai.cn",
       "api_docs": "https://docs.bigmodel.cn/cn/guide/models/overview",
-      "model_count": 59,
+      "model_count": 57,
       "currencies": [
         "CNY",
         "USD"
@@ -268,9 +268,8 @@
       ],
       "website": "https://www.volcengine.com",
       "api_docs": "https://www.volcengine.com/docs/82379/1263482",
-      "model_count": 39,
+      "model_count": 40,
       "currencies": [
-        "CNY",
         "USD"
       ],
       "region": "cn",
@@ -322,7 +321,7 @@
       ],
       "website": "https://www.moonshot.cn",
       "api_docs": "https://platform.moonshot.cn/docs/pricing/chat",
-      "model_count": 31,
+      "model_count": 32,
       "currencies": [
         "CNY",
         "USD"
@@ -389,7 +388,7 @@
       ],
       "website": "https://www.inclusionai.com",
       "api_docs": "https://www.inclusionai.com/",
-      "model_count": 17,
+      "model_count": 21,
       "currencies": [
         "CNY",
         "USD"
@@ -438,9 +437,8 @@
       ],
       "website": "https://cloud.tencent.com",
       "api_docs": "https://cloud.tencent.com/document/product/1729",
-      "model_count": 15,
+      "model_count": 14,
       "currencies": [
-        "CNY",
         "USD"
       ],
       "region": "cn",
