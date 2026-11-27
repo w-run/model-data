@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-27T06:54:29.947452+00:00",
+  "generated_at": "2026-11-27T17:52:11.166890+00:00",
   "count": 30,
   "vendors": [
     {
@@ -120,7 +120,7 @@
       ],
       "website": "https://mistral.ai",
       "api_docs": "https://docs.mistral.ai/models",
-      "model_count": 89,
+      "model_count": 88,
       "currencies": [
         "USD"
       ],
@@ -165,7 +165,7 @@
       ],
       "website": "https://www.deepseek.com",
       "api_docs": "https://api-docs.deepseek.com/quick_start/pricing",
-      "model_count": 67,
+      "model_count": 65,
       "currencies": [
         "CNY",
         "USD"
