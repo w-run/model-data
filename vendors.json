@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-11-27T17:52:11.166890+00:00",
+  "generated_at": "2026-11-28T01:08:53.717592+00:00",
   "count": 30,
   "vendors": [
     {
@@ -26,7 +26,7 @@
       ],
       "website": "https://www.aliyun.com",
       "api_docs": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "model_count": 289,
+      "model_count": 288,
       "currencies": [
         "CNY",
         "USD"
@@ -400,27 +400,6 @@
       "source": "manual"
     },
     {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "aliases": [
-        "azure",
-        "azure-cognitive-services",
-        "microsoft",
-        "phi"
-      ],
-      "website": "https://azure.microsoft.com",
-      "api_docs": "https://learn.microsoft.com/azure/ai-foundry/",
-      "model_count": 15,
-      "currencies": [
-        "USD"
-      ],
-      "region": "global",
-      "cn": false,
-      "own": false,
-      "aggregator": false,
-      "source": "manual"
-    },
-    {
       "id": "tencent",
       "name": "腾讯",
       "aliases": [
@@ -470,6 +449,27 @@
       ],
       "region": "cn",
       "cn": true,
+      "own": false,
+      "aggregator": false,
+      "source": "manual"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "aliases": [
+        "azure",
+        "azure-cognitive-services",
+        "microsoft",
+        "phi"
+      ],
+      "website": "https://azure.microsoft.com",
+      "api_docs": "https://learn.microsoft.com/azure/ai-foundry/",
+      "model_count": 13,
+      "currencies": [
+        "USD"
+      ],
+      "region": "global",
+      "cn": false,
       "own": false,
       "aggregator": false,
       "source": "manual"
